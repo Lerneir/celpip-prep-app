@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CELPIP Speaking Exam Simulator | Task 1 & Task 2 Practice</title>
+  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 200 prompts for Task 1 and Task 2, audio recorder, exam timers, and instant AI evaluation prompts.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="header-container">
+      <div class="logo-badge">
+        <div class="logo-icon">🇨🇦</div>
+        <div>
+          <div class="logo-title">CELPIP Speaking Coach</div>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <button class="nav-btn active" data-view="simulatorView">
+          <span>🎙</span> Simulator
+        </button>
+        <button class="nav-btn" data-view="bankView">
+          <span>📚</span> 200 Prompts Bank
+        </button>
+        <button class="nav-btn" data-view="historyView">
+          <span>📊</span> History & Audio
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Views -->
+  <main>
+
+    <!-- SECTION 1: PRACTICE SIMULATOR -->
+    <section id="simulatorView" class="view-section active">
+      <div class="simulator-layout">
+        
+        <!-- Left Main Panel -->
+        <div class="main-panel">
+          
+          <!-- Task Selection & Mode Toggle -->
+          <div class="glass-card" style="padding: 1rem 1.5rem; margin-bottom: 1rem;">
+            <div class="task-header-bar">
+              <div class="task-selector-pills">
+                <button id="task1Pill" class="pill-btn active">Task 1: Giving Advice (90s)</button>
+                <button id="task2Pill" class="pill-btn">Task 2: Personal Experience (60s)</button>
+              </div>
+
+              <div class="mode-toggle-group">
+                <span id="modeLabel" style="font-weight: 600; color: #fff;">Exam Mode</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="modeToggle" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prompt Card -->
+          <div class="prompt-card">
+            <div class="prompt-meta">
+              <span id="categoryTag" class="category-tag">Education</span>
+              <span id="promptIdTag" class="prompt-id-tag">Task 1 #1 / 100</span>
+            </div>
+            <h2 id="promptTitle" class="prompt-title">Choosing a University Major</h2>
+            <p id="promptText" class="prompt-text">
+              Your friend Sarah is undecided between studying Computer Science and Graphic Design at university. She asked for your advice. Explain which major she should choose, what factors she should consider, and how she can make the final decision.
+            </p>
+
+            <div class="prompt-actions">
+              <button id="nextPromptBtn" class="btn-secondary">
+                <span>➡️</span> Next Prompt
+              </button>
+              <button id="randomPromptBtn" class="btn-secondary">
+                <span>🎲</span> Random Prompt
+              </button>
+            </div>
+          </div>
+
+          <!-- Timer & Waveform Dashboard Card -->
+          <div class="glass-card">
+            <div class="timer-dashboard">
+              <div id="phaseIndicator" class="phase-indicator">READY TO START</div>
+              <div id="timerDisplay" class="timer-countdown">00:30</div>
+
+              <!-- Live Audio Waveform -->
+              <canvas id="waveformCanvas" class="waveform-canvas" width="600" height="80"></canvas>
+
+              <!-- Action Controls -->
+              <div class="controls-row">
+                <button id="startTimerBtn" class="btn-primary">
+                  <span>▶</span> Start Preparation Timer
+                </button>
+                <button id="skipPrepBtn" class="btn-secondary" style="display: none;">
+                  <span>⏩</span> Skip Prep & Speak Now
+                </button>
+                <button id="stopRecordBtn" class="btn-danger" style="display: none;">
+                  <span>⏹</span> Stop Recording
+                </button>
+                <button id="resetBtn" class="btn-secondary" style="display: none;">
+                  <span>🔄</span> Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recording Playback & AI Evaluation Card -->
+          <div id="playbackCard" class="recording-playback-card">
+            <h3 style="font-family: var(--font-heading); color: #fff; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span>🎉</span> Spoken Response Recorded!
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Listen to your response below or download the audio file to inspect your delivery, pacing, and vocabulary.
+            </p>
+
+            <div class="audio-player-custom">
+              <audio id="audioPlayback" controls></audio>
+            </div>
+
+            <div class="controls-row" style="justify-content: flex-start; margin-top: 1rem;">
+              <button id="downloadAudioBtn" class="btn-secondary">
+                <span>⬇️</span> Download Recording (.webm)
+              </button>
+              <button id="copyAiPromptBtn" class="btn-ai-eval">
+                <span>✨</span> Copy AI Evaluation Prompt
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Sidebar Panel -->
+        <div class="sidebar-panel">
+          
+          <!-- CELPIP Official Tips Card -->
+          <div class="glass-card celpip-tips-card">
+            <h3><span>💡</span> CELPIP Speaking Strategy</h3>
+            <ul>
+              <li><strong>Task 1 (Advice)</strong>: Start immediately with a friendly greeting ("Hi Sarah, I heard you're deciding..."). Provide 2-3 distinct reasons with examples. Conclude with encouragement.</li>
+              <li><strong>Task 2 (Personal Experience)</strong>: Use past tenses accurately (Simple Past & Past Continuous). State when/where it happened, set the scene, describe the action, and state the outcome or lesson learned.</li>
+              <li><strong>Pacing & Tone</strong>: Speak at a natural, steady pace. Avoid long pauses; use discourse markers like <em>"Furthermore"</em>, <em>"On top of that"</em>, or <em>"Looking back..."</em>.</li>
+            </ul>
+          </div>
+
+          <!-- AI Web Launcher Card -->
+          <div class="glass-card celpip-tips-card">
+            <h3><span>🤖</span> Evaluate Response (No API Key)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              1. Click <strong>"Copy AI Evaluation Prompt"</strong> above.<br>
+              2. Open your preferred AI Chat below.<br>
+              3. Paste the prompt and upload your audio file!
+            </p>
+
+            <div class="ai-links-group">
+              <a href="https://chatgpt.com/" target="_blank" class="ai-link-btn">
+                <span>🟢 Open ChatGPT Chat</span>
+                <span>↗</span>
+              </a>
+              <a href="https://gemini.google.com/" target="_blank" class="ai-link-btn">
+                <span>🔵 Open Google Gemini Chat</span>
+                <span>↗</span>
+              </a>
+              <a href="https://claude.ai/" target="_blank" class="ai-link-btn">
+                <span>🟠 Open Claude.ai Chat</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: 200 PROMPTS BANK -->
+    <section id="bankView" class="view-section">
+      <div class="glass-card">
+        <div class="prompts-bank-header">
+          <h2 style="font-family: var(--font-heading); font-size: 1.75rem; color: #fff;">
+            📚 CELPIP Speaking Prompts Bank (200 Prompts)
+          </h2>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Browse, search, and filter 100 realistic Task 1 prompts and 100 Task 2 prompts. Click any prompt to start practicing immediately.
+          </p>
+
+          <div class="search-filter-row">
+            <div class="task-selector-pills">
+              <button id="bankTask1Tab" class="pill-btn active">Task 1 Prompts (100)</button>
+              <button id="bankTask2Tab" class="pill-btn">Task 2 Prompts (100)</button>
+            </div>
+
+            <input type="text" id="bankSearchInput" class="search-input" placeholder="🔍 Search prompts by topic or keywords...">
+            
+            <select id="bankCategorySelect" class="category-select">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="promptsGrid" class="prompts-grid">
+          <!-- Prompts dynamically generated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PRACTICE HISTORY & AUDIO -->
+    <section id="historyView" class="view-section">
+      <div class="glass-card">
+        <h2 style="font-family: var(--font-heading); font-size: 1.75rem; color: #fff; margin-bottom: 0.5rem;">
+          📊 Local Practice History
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          All your recorded speaking sessions are securely saved directly in your browser's IndexedDB storage.
+        </p>
+
+        <div id="historyEmpty" style="display: none; text-align: center; padding: 3rem 1rem; color: var(--text-dim);">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎙</div>
+          <p>No practice recordings saved yet. Start practicing in the Simulator tab!</p>
+        </div>
+
+        <div id="historyList" class="history-list">
+          <!-- Dynamically populated from IndexedDB -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>CELPIP Speaking Practice Simulator • Designed for High-Scoring Study Prep</p>
+  </footer>
+
+  <!-- App Datasets & Main Engine Scripts -->
+  <script src="prompts-task1.js"></script>
+  <script src="prompts-task2.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
