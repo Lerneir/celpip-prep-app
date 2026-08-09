@@ -1,6 +1,6 @@
 /**
  * CELPIP Speaking Simulator Application Engine
- * Handles State, Audio Recording, Timers, IndexedDB, Prompt Banks (Tasks 1, 2, 3, 4), 
+ * Handles State, Audio Recording, Timers, IndexedDB, Prompts Bank (Tasks 1, 2, 3, 4), 
  * Scenario Image Lightbox, and AI Evaluation Prompts.
  */
 
@@ -187,6 +187,11 @@ function setupEventListeners() {
     state.isExamMode = e.target.checked;
     elements.modeLabel.textContent = state.isExamMode ? 'Exam Mode' : 'Practice Mode';
     elements.skipPrepBtn.style.display = state.isExamMode ? 'none' : 'inline-flex';
+    
+    // Toggle study hints visibility based on Exam Mode
+    if (state.currentTask === 3 || state.currentTask === 4 || state.currentTask === 'combo') {
+      elements.promptHintsBox.style.display = state.isExamMode ? 'none' : 'block';
+    }
     resetTimerState();
   });
 
@@ -252,9 +257,10 @@ function closeLightbox() {
 function downloadScenarioImage() {
   const src = elements.scenarioImg.src;
   if (!src) return;
+  const ext = src.endsWith('.jpg') ? '.jpg' : '.svg';
   const a = document.createElement('a');
   a.href = src;
-  a.download = `CELPIP_Scenario_${state.currentTask}_${Date.now()}.svg`;
+  a.download = `CELPIP_Scenario_${state.currentTask}_${Date.now()}${ext}`;
   a.click();
 }
 
@@ -306,13 +312,13 @@ function loadPrompt(taskId, index) {
     // Tasks 3, 4, or Combo (Image Scenarios)
     elements.scenarioImageContainer.classList.add('active');
     elements.scenarioImg.src = p.imageFile;
-    elements.promptHintsBox.style.display = 'block';
+    elements.promptHintsBox.style.display = state.isExamMode ? 'none' : 'block';
 
     if (taskId === 3) {
       elements.promptIdTag.textContent = `Task 3 #${index + 1} / ${prompts.length}`;
       elements.promptTitle.textContent = `Task 3: Describing a Scene - ${p.title}`;
       elements.promptText.textContent = p.task3Prompt;
-      elements.promptHintsTitle.textContent = "📍 Key Spatial Elements to Describe:";
+      elements.promptHintsTitle.textContent = "📍 Study Guidance & Spatial Elements:";
       elements.promptHintsList.innerHTML = p.spatialHints.map(h => `<li>${h}</li>`).join('');
       state.prepTimeRemaining = 30;
       state.speakTimeRemaining = 60;
@@ -320,7 +326,7 @@ function loadPrompt(taskId, index) {
       elements.promptIdTag.textContent = `Task 4 #${index + 1} / ${prompts.length}`;
       elements.promptTitle.textContent = `Task 4: Making Predictions - ${p.title}`;
       elements.promptText.textContent = p.task4Prompt;
-      elements.promptHintsTitle.textContent = "🔮 Logical Predictions Targets:";
+      elements.promptHintsTitle.textContent = "🔮 Study Guidance & Logical Predictions:";
       elements.promptHintsList.innerHTML = p.predictionTargets.map(pt => `<li>${pt}</li>`).join('');
       state.prepTimeRemaining = 30;
       state.speakTimeRemaining = 60;
@@ -329,7 +335,7 @@ function loadPrompt(taskId, index) {
       elements.promptIdTag.textContent = `Combo Task 3+4 (#${index + 1}) - Step ${activeSubTask === 3 ? '1 of 2' : '2 of 2'}`;
       elements.promptTitle.textContent = `Combo Exam Flow: ${p.title} (Task ${activeSubTask})`;
       elements.promptText.textContent = activeSubTask === 3 ? p.task3Prompt : p.task4Prompt;
-      elements.promptHintsTitle.textContent = activeSubTask === 3 ? "📍 Key Spatial Elements to Describe:" : "🔮 Logical Predictions Targets:";
+      elements.promptHintsTitle.textContent = activeSubTask === 3 ? "📍 Study Guidance & Spatial Elements:" : "🔮 Study Guidance & Logical Predictions:";
       elements.promptHintsList.innerHTML = (activeSubTask === 3 ? p.spatialHints : p.predictionTargets).map(h => `<li>${h}</li>`).join('');
       state.prepTimeRemaining = 30;
       state.speakTimeRemaining = 60;
@@ -367,14 +373,14 @@ function startPracticeOrExam() {
     elements.skipPrepBtn.style.display = 'inline-flex';
   }
 
-  playBeep(523.25, 'sine', 0.3); // High C start prep chime
+  playBeep(523.25, 'sine', 0.3);
 
   state.timerInterval = setInterval(() => {
     state.prepTimeRemaining--;
     updateTimerDisplay(state.prepTimeRemaining);
 
     if (state.prepTimeRemaining <= 5 && state.prepTimeRemaining > 0) {
-      playBeep(440, 'sine', 0.1); // Countdown warning tick
+      playBeep(440, 'sine', 0.1);
     }
 
     if (state.prepTimeRemaining <= 0) {
@@ -395,7 +401,7 @@ function startSpeakingPhase() {
   elements.skipPrepBtn.style.display = 'none';
   elements.stopRecordBtn.style.display = 'inline-flex';
 
-  playBeep(880, 'sine', 0.5); // Start speaking beep
+  playBeep(880, 'sine', 0.5);
 
   // Start Mic Recording
   startRecordingMic();
@@ -405,7 +411,7 @@ function startSpeakingPhase() {
     updateTimerDisplay(state.speakTimeRemaining);
 
     if (state.speakTimeRemaining === 10) {
-      playBeep(659.25, 'sine', 0.3); // 10 seconds left alert
+      playBeep(659.25, 'sine', 0.3);
     }
 
     if (state.speakTimeRemaining <= 0) {
@@ -418,7 +424,7 @@ function finishRecording() {
   if (state.timerInterval) clearInterval(state.timerInterval);
   state.timerState = 'finished';
 
-  playBeep(349.23, 'triangle', 0.6); // Finish chime
+  playBeep(349.23, 'triangle', 0.6);
 
   elements.phaseIndicator.textContent = 'TASK COMPLETED';
   elements.phaseIndicator.className = 'phase-indicator finished';
@@ -490,7 +496,6 @@ async function startRecordingMic() {
 
     state.mediaRecorder.start();
 
-    // Set up Waveform Canvas Visualization
     visualizeAudio(stream);
   } catch (err) {
     showToast('Microphone access required to record speaking response!');
@@ -670,9 +675,9 @@ function copyAiEvaluationPrompt() {
 ---
 TASK OVERVIEW:
 Task Type: CELPIP Speaking Task ${activeTask} (${activeTask === 1 ? 'Giving Advice' : activeTask === 2 ? 'Personal Experience' : activeTask === 3 ? 'Describing a Scene' : 'Making Predictions'})
-Prompt Title: "${currentPrompt.title}"
+Scenario Title: "${currentPrompt.title}"
 Category: ${currentPrompt.category}
-Official Prompt Description: "${activeTask === 3 ? currentPrompt.task3Prompt : activeTask === 4 ? currentPrompt.task4Prompt : currentPrompt.prompt}"
+Official Prompt Text: "${activeTask === 3 ? currentPrompt.task3Prompt : activeTask === 4 ? currentPrompt.task4Prompt : currentPrompt.prompt}"
 Allowed Response Time: ${activeTask === 1 ? '90 seconds' : '60 seconds'}
 ---
 
@@ -680,7 +685,7 @@ ${taskCriteriaDetails}
 
 Please evaluate my spoken response against the 4 official CELPIP Speaking Criteria:
 1. CONTENT & COHERENCE (Score out of 12)
-2. VOCABULARY (Score out of 12)
+2. VOCABULARY & SPATIAL PREPOSITIONS (Score out of 12)
 3. LISTENABILITY & GRAMMAR (Score out of 12)
 4. TASK FULFILLMENT & TIME MANAGEMENT (Score out of 12)
 
@@ -689,7 +694,7 @@ OUTPUT FORMAT REQUIRED:
 - Score breakdown for each of the 4 criteria
 - Key Strengths
 - Constructive Feedback & Specific Grammar/Vocabulary Suggestions
-- An Improved Sample Answer tailored to this exact scenario.
+- An Improved Sample Spoken Answer tailored to this exact scenario.
 
 [ATTACH YOUR AUDIO FILE OR PASTE YOUR TRANSCRIPT HERE]`;
 
@@ -728,7 +733,7 @@ function renderPromptsBank(taskFilter) {
 
   elements.promptsGrid.innerHTML = prompts.map((p, idx) => {
     const promptText = taskId === 3 ? p.task3Prompt : taskId === 4 ? p.task4Prompt : p.prompt;
-    const imgHtml = (taskId === 3 || taskId === 4) ? `<img src="${p.imageFile}" style="width:100%; height:130px; object-fit:cover; border-radius:8px; margin:0.5rem 0;" />` : '';
+    const imgHtml = (taskId === 3 || taskId === 4) ? `<img src="${p.imageFile}" style="width:100%; height:130px; object-fit:cover; border-radius:8px; margin:0.5rem 0;" onerror="this.src='images/sc_001_scene.svg'" />` : '';
 
     return `
       <div class="prompt-item-card">

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CELPIP Speaking Exam Simulator | Tasks 1, 2, 3 & 4 Practice</title>
-  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 400 prompts across Tasks 1, 2, 3, and 4, scenario illustrations, audio recorder, exam timers, and AI evaluation prompts.">
+  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 400 prompts across Tasks 1, 2, 3, and 4, high-resolution scenario illustrations, audio recorder, exam timers, and AI evaluation prompts.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,8 +49,8 @@
               <div class="task-selector-pills">
                 <button id="task1Pill" class="pill-btn active">Task 1: Advice</button>
                 <button id="task2Pill" class="pill-btn">Task 2: Experience</button>
-                <button id="task3Pill" class="pill-btn">Task 3: Scene</button>
-                <button id="task4Pill" class="pill-btn">Task 4: Predict</button>
+                <button id="task3Pill" class="pill-btn">Task 3: Describe Scene</button>
+                <button id="task4Pill" class="pill-btn">Task 4: Make Predictions</button>
                 <button id="taskComboPill" class="pill-btn" style="border-color: var(--accent-amber); color: var(--accent-amber);">⚡ Combo Task 3+4</button>
               </div>
 
@@ -66,7 +66,7 @@
 
           <!-- Scenario Image Container (Tasks 3 & 4) -->
           <div id="scenarioImageContainer" class="scenario-image-container">
-            <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration">
+            <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration" onerror="this.src='images/sc_001_scene.svg'">
             <div class="image-overlay-bar">
               <button id="downloadImgBtn" class="img-action-btn">
                 <span>⬇️</span> Download Image
@@ -80,7 +80,7 @@
           <!-- Prompt Card -->
           <div class="prompt-card">
             <div class="prompt-meta">
-              <span id="categoryTag" class="category-tag">Education</span>
+              <span id="categoryTag" class="category-tag">Public Places</span>
               <span id="promptIdTag" class="prompt-id-tag">Task 1 #1 / 100</span>
             </div>
             <h2 id="promptTitle" class="prompt-title">Choosing a University Major</h2>
@@ -88,9 +88,9 @@
               Your friend Sarah is undecided between studying Computer Science and Graphic Design at university. She asked for your advice. Explain which major she should choose, what factors she should consider, and how she can make the final decision.
             </p>
 
-            <!-- Scenario Location & Prediction Targets Box (Tasks 3 & 4) -->
+            <!-- Collapsible Study Guidance & Hints (Practice Mode Only) -->
             <div id="promptHintsBox" class="prompt-hints-box" style="display: none;">
-              <div id="promptHintsTitle" class="prompt-hints-title">📍 Key Spatial Elements to Describe:</div>
+              <div id="promptHintsTitle" class="prompt-hints-title">📍 Study Guidance & Spatial Locations:</div>
               <ul id="promptHintsList" class="prompt-hints-list"></ul>
             </div>
 
@@ -163,8 +163,8 @@
           <div class="glass-card celpip-tips-card">
             <h3><span>💡</span> CELPIP Speaking Strategy</h3>
             <ul>
-              <li><strong>Task 3 (Scene)</strong>: Use spatial prepositions ("In the foreground...", "To the left...", "In the background..."). Use present continuous tense ("is sitting", "are working").</li>
-              <li><strong>Task 4 (Predictions)</strong>: Use modal verbs & future tenses ("will likely...", "is about to...", "might..."). Give logical reasons tied directly to the picture.</li>
+              <li><strong>Task 3 (Describe Scene)</strong>: Use spatial prepositions ("In the foreground...", "To the left...", "In the background..."). Use present continuous tense ("is sitting", "are working").</li>
+              <li><strong>Task 4 (Make Predictions)</strong>: Use modal verbs & future tenses ("will likely...", "is about to...", "might..."). Give logical reasons tied directly to the picture.</li>
               <li><strong>Pacing & Tone</strong>: Maintain steady flow without long pauses. Use discourse markers like <em>"Noticeably"</em>, <em>"Furthermore"</em>, <em>"Looking closely..."</em>.</li>
             </ul>
           </div>
@@ -214,8 +214,8 @@
             <div class="task-selector-pills">
               <button id="bankTask1Tab" class="pill-btn active">Task 1: Advice (100)</button>
               <button id="bankTask2Tab" class="pill-btn">Task 2: Experience (100)</button>
-              <button id="bankTask3Tab" class="pill-btn">Task 3: Scene (100)</button>
-              <button id="bankTask4Tab" class="pill-btn">Task 4: Predict (100)</button>
+              <button id="bankTask3Tab" class="pill-btn">Task 3: Describe Scene (100)</button>
+              <button id="bankTask4Tab" class="pill-btn">Task 4: Make Predictions (100)</button>
             </div>
 
             <input type="text" id="bankSearchInput" class="search-input" placeholder="🔍 Search prompts by topic or keywords...">
