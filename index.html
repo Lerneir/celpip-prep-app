@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CELPIP Speaking Exam Simulator | Task 1 & Task 2 Practice</title>
-  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 200 prompts for Task 1 and Task 2, audio recorder, exam timers, and instant AI evaluation prompts.">
+  <title>CELPIP Speaking Exam Simulator | Tasks 1, 2, 3 & 4 Practice</title>
+  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 400 prompts across Tasks 1, 2, 3, and 4, scenario illustrations, audio recorder, exam timers, and AI evaluation prompts.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
           <span>🎙</span> Simulator
         </button>
         <button class="nav-btn" data-view="bankView">
-          <span>📚</span> 200 Prompts Bank
+          <span>📚</span> 400 Prompts Bank
         </button>
         <button class="nav-btn" data-view="historyView">
           <span>📊</span> History & Audio
@@ -47,8 +47,11 @@
           <div class="glass-card" style="padding: 1rem 1.5rem; margin-bottom: 1rem;">
             <div class="task-header-bar">
               <div class="task-selector-pills">
-                <button id="task1Pill" class="pill-btn active">Task 1: Giving Advice (90s)</button>
-                <button id="task2Pill" class="pill-btn">Task 2: Personal Experience (60s)</button>
+                <button id="task1Pill" class="pill-btn active">Task 1: Advice</button>
+                <button id="task2Pill" class="pill-btn">Task 2: Experience</button>
+                <button id="task3Pill" class="pill-btn">Task 3: Scene</button>
+                <button id="task4Pill" class="pill-btn">Task 4: Predict</button>
+                <button id="taskComboPill" class="pill-btn" style="border-color: var(--accent-amber); color: var(--accent-amber);">⚡ Combo Task 3+4</button>
               </div>
 
               <div class="mode-toggle-group">
@@ -58,6 +61,19 @@
                   <span class="slider"></span>
                 </label>
               </div>
+            </div>
+          </div>
+
+          <!-- Scenario Image Container (Tasks 3 & 4) -->
+          <div id="scenarioImageContainer" class="scenario-image-container">
+            <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration">
+            <div class="image-overlay-bar">
+              <button id="downloadImgBtn" class="img-action-btn">
+                <span>⬇️</span> Download Image
+              </button>
+              <button id="zoomImgBtn" class="img-action-btn">
+                <span>🔍</span> Fullscreen Zoom
+              </button>
             </div>
           </div>
 
@@ -71,6 +87,12 @@
             <p id="promptText" class="prompt-text">
               Your friend Sarah is undecided between studying Computer Science and Graphic Design at university. She asked for your advice. Explain which major she should choose, what factors she should consider, and how she can make the final decision.
             </p>
+
+            <!-- Scenario Location & Prediction Targets Box (Tasks 3 & 4) -->
+            <div id="promptHintsBox" class="prompt-hints-box" style="display: none;">
+              <div id="promptHintsTitle" class="prompt-hints-title">📍 Key Spatial Elements to Describe:</div>
+              <ul id="promptHintsList" class="prompt-hints-list"></ul>
+            </div>
 
             <div class="prompt-actions">
               <button id="nextPromptBtn" class="btn-secondary">
@@ -141,9 +163,9 @@
           <div class="glass-card celpip-tips-card">
             <h3><span>💡</span> CELPIP Speaking Strategy</h3>
             <ul>
-              <li><strong>Task 1 (Advice)</strong>: Start immediately with a friendly greeting ("Hi Sarah, I heard you're deciding..."). Provide 2-3 distinct reasons with examples. Conclude with encouragement.</li>
-              <li><strong>Task 2 (Personal Experience)</strong>: Use past tenses accurately (Simple Past & Past Continuous). State when/where it happened, set the scene, describe the action, and state the outcome or lesson learned.</li>
-              <li><strong>Pacing & Tone</strong>: Speak at a natural, steady pace. Avoid long pauses; use discourse markers like <em>"Furthermore"</em>, <em>"On top of that"</em>, or <em>"Looking back..."</em>.</li>
+              <li><strong>Task 3 (Scene)</strong>: Use spatial prepositions ("In the foreground...", "To the left...", "In the background..."). Use present continuous tense ("is sitting", "are working").</li>
+              <li><strong>Task 4 (Predictions)</strong>: Use modal verbs & future tenses ("will likely...", "is about to...", "might..."). Give logical reasons tied directly to the picture.</li>
+              <li><strong>Pacing & Tone</strong>: Maintain steady flow without long pauses. Use discourse markers like <em>"Noticeably"</em>, <em>"Furthermore"</em>, <em>"Looking closely..."</em>.</li>
             </ul>
           </div>
 
@@ -153,7 +175,7 @@
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
               1. Click <strong>"Copy AI Evaluation Prompt"</strong> above.<br>
               2. Open your preferred AI Chat below.<br>
-              3. Paste the prompt and upload your audio file!
+              3. Paste the prompt and upload your audio file or scenario image!
             </p>
 
             <div class="ai-links-group">
@@ -177,21 +199,23 @@
       </div>
     </section>
 
-    <!-- SECTION 2: 200 PROMPTS BANK -->
+    <!-- SECTION 2: 400 PROMPTS BANK -->
     <section id="bankView" class="view-section">
       <div class="glass-card">
         <div class="prompts-bank-header">
           <h2 style="font-family: var(--font-heading); font-size: 1.75rem; color: #fff;">
-            📚 CELPIP Speaking Prompts Bank (200 Prompts)
+            📚 CELPIP Speaking Prompts Bank (400 Prompts)
           </h2>
           <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Browse, search, and filter 100 realistic Task 1 prompts and 100 Task 2 prompts. Click any prompt to start practicing immediately.
+            Browse, search, and filter 100 Task 1 prompts, 100 Task 2 prompts, 100 Task 3 scene scenarios, and 100 Task 4 prediction prompts.
           </p>
 
           <div class="search-filter-row">
             <div class="task-selector-pills">
-              <button id="bankTask1Tab" class="pill-btn active">Task 1 Prompts (100)</button>
-              <button id="bankTask2Tab" class="pill-btn">Task 2 Prompts (100)</button>
+              <button id="bankTask1Tab" class="pill-btn active">Task 1: Advice (100)</button>
+              <button id="bankTask2Tab" class="pill-btn">Task 2: Experience (100)</button>
+              <button id="bankTask3Tab" class="pill-btn">Task 3: Scene (100)</button>
+              <button id="bankTask4Tab" class="pill-btn">Task 4: Predict (100)</button>
             </div>
 
             <input type="text" id="bankSearchInput" class="search-input" placeholder="🔍 Search prompts by topic or keywords...">
@@ -231,17 +255,26 @@
 
   </main>
 
+  <!-- Fullscreen Scenario Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <div class="lightbox-content">
+      <button id="lightboxCloseBtn" class="lightbox-close-btn">&times;</button>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Fullscreen Scenario View">
+    </div>
+  </div>
+
   <!-- Toast Notification Container -->
   <div id="toastContainer" class="toast-container"></div>
 
   <!-- Footer -->
   <footer>
-    <p>CELPIP Speaking Practice Simulator • Designed for High-Scoring Study Prep</p>
+    <p>CELPIP Speaking Practice Simulator • Tasks 1, 2, 3 & 4 Prep Suite</p>
   </footer>
 
   <!-- App Datasets & Main Engine Scripts -->
   <script src="prompts-task1.js"></script>
   <script src="prompts-task2.js"></script>
+  <script src="prompts-task3-4.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

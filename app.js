@@ -1,11 +1,13 @@
 /**
  * CELPIP Speaking Simulator Application Engine
- * Handles State, Audio Recording, Timers, IndexedDB, Prompt Banks, and AI Evaluation Prompts.
+ * Handles State, Audio Recording, Timers, IndexedDB, Prompt Banks (Tasks 1, 2, 3, 4), 
+ * Scenario Image Lightbox, and AI Evaluation Prompts.
  */
 
 // State Management
 const state = {
-  currentTask: 1, // 1 or 2
+  currentTask: 1, // 1, 2, 3, 4, or 'combo' (3+4)
+  comboSubTask: 3, // 3 or 4 when in combo mode
   currentPromptIndex: 0,
   isExamMode: true,
   timerState: 'idle', // 'idle' | 'prep' | 'speaking' | 'finished'
@@ -23,6 +25,7 @@ const state = {
   animationFrameId: null,
   
   // History & Filters
+  currentBankTask: 1,
   currentFilterCategory: 'all',
   searchQuery: ''
 };
@@ -86,14 +89,29 @@ const elements = {
   // Task Pills & Switches
   task1Pill: document.getElementById('task1Pill'),
   task2Pill: document.getElementById('task2Pill'),
+  task3Pill: document.getElementById('task3Pill'),
+  task4Pill: document.getElementById('task4Pill'),
+  taskComboPill: document.getElementById('taskComboPill'),
   modeToggle: document.getElementById('modeToggle'),
   modeLabel: document.getElementById('modeLabel'),
   
+  // Scenario Image & Lightbox
+  scenarioImageContainer: document.getElementById('scenarioImageContainer'),
+  scenarioImg: document.getElementById('scenarioImg'),
+  downloadImgBtn: document.getElementById('downloadImgBtn'),
+  zoomImgBtn: document.getElementById('zoomImgBtn'),
+  lightboxModal: document.getElementById('lightboxModal'),
+  lightboxImg: document.getElementById('lightboxImg'),
+  lightboxCloseBtn: document.getElementById('lightboxCloseBtn'),
+
   // Prompt Elements
   categoryTag: document.getElementById('categoryTag'),
   promptIdTag: document.getElementById('promptIdTag'),
   promptTitle: document.getElementById('promptTitle'),
   promptText: document.getElementById('promptText'),
+  promptHintsBox: document.getElementById('promptHintsBox'),
+  promptHintsTitle: document.getElementById('promptHintsTitle'),
+  promptHintsList: document.getElementById('promptHintsList'),
   nextPromptBtn: document.getElementById('nextPromptBtn'),
   randomPromptBtn: document.getElementById('randomPromptBtn'),
   
@@ -115,6 +133,8 @@ const elements = {
   // Prompts Bank
   bankTask1Tab: document.getElementById('bankTask1Tab'),
   bankTask2Tab: document.getElementById('bankTask2Tab'),
+  bankTask3Tab: document.getElementById('bankTask3Tab'),
+  bankTask4Tab: document.getElementById('bankTask4Tab'),
   bankSearchInput: document.getElementById('bankSearchInput'),
   bankCategorySelect: document.getElementById('bankCategorySelect'),
   promptsGrid: document.getElementById('promptsGrid'),
@@ -155,9 +175,12 @@ function setupEventListeners() {
     });
   });
 
-  // Task Switch Pills
+  // Task Switch Pills (Tasks 1, 2, 3, 4, Combo 3+4)
   elements.task1Pill.addEventListener('click', () => switchTask(1));
   elements.task2Pill.addEventListener('click', () => switchTask(2));
+  elements.task3Pill.addEventListener('click', () => switchTask(3));
+  elements.task4Pill.addEventListener('click', () => switchTask(4));
+  elements.taskComboPill.addEventListener('click', () => switchTask('combo'));
 
   // Mode Toggle (Exam vs Practice)
   elements.modeToggle.addEventListener('change', (e) => {
@@ -166,6 +189,15 @@ function setupEventListeners() {
     elements.skipPrepBtn.style.display = state.isExamMode ? 'none' : 'inline-flex';
     resetTimerState();
   });
+
+  // Image Controls & Lightbox Modal
+  elements.zoomImgBtn.addEventListener('click', openLightbox);
+  elements.scenarioImg.addEventListener('click', openLightbox);
+  elements.lightboxCloseBtn.addEventListener('click', closeLightbox);
+  elements.lightboxModal.addEventListener('click', (e) => {
+    if (e.target === elements.lightboxModal) closeLightbox();
+  });
+  elements.downloadImgBtn.addEventListener('click', downloadScenarioImage);
 
   // Prompt Buttons
   elements.nextPromptBtn.addEventListener('click', () => nextPrompt());
@@ -181,17 +213,11 @@ function setupEventListeners() {
   elements.downloadAudioBtn.addEventListener('click', () => downloadAudio());
   elements.copyAiPromptBtn.addEventListener('click', () => copyAiEvaluationPrompt());
 
-  // Prompts Bank Filter Listeners
-  elements.bankTask1Tab.addEventListener('click', () => {
-    elements.bankTask1Tab.classList.add('active');
-    elements.bankTask2Tab.classList.remove('active');
-    renderPromptsBank(1);
-  });
-  elements.bankTask2Tab.addEventListener('click', () => {
-    elements.bankTask2Tab.classList.add('active');
-    elements.bankTask1Tab.classList.remove('active');
-    renderPromptsBank(2);
-  });
+  // Prompts Bank Tabs
+  elements.bankTask1Tab.addEventListener('click', () => switchBankTab(1));
+  elements.bankTask2Tab.addEventListener('click', () => switchBankTab(2));
+  elements.bankTask3Tab.addEventListener('click', () => switchBankTab(3));
+  elements.bankTask4Tab.addEventListener('click', () => switchBankTab(4));
 
   elements.bankSearchInput.addEventListener('input', (e) => {
     state.searchQuery = e.target.value.toLowerCase();
@@ -204,49 +230,123 @@ function setupEventListeners() {
   });
 }
 
-// Switch Task 1 vs Task 2
+function switchBankTab(taskId) {
+  state.currentBankTask = taskId;
+  [elements.bankTask1Tab, elements.bankTask2Tab, elements.bankTask3Tab, elements.bankTask4Tab].forEach((tab, idx) => {
+    if (idx + 1 === taskId) tab.classList.add('active');
+    else tab.classList.remove('active');
+  });
+  renderPromptsBank(taskId);
+}
+
+// Lightbox Modal Controls
+function openLightbox() {
+  elements.lightboxImg.src = elements.scenarioImg.src;
+  elements.lightboxModal.classList.add('active');
+}
+
+function closeLightbox() {
+  elements.lightboxModal.classList.remove('active');
+}
+
+function downloadScenarioImage() {
+  const src = elements.scenarioImg.src;
+  if (!src) return;
+  const a = document.createElement('a');
+  a.href = src;
+  a.download = `CELPIP_Scenario_${state.currentTask}_${Date.now()}.svg`;
+  a.click();
+}
+
+// Switch Task
 function switchTask(taskId) {
   state.currentTask = taskId;
-  if (taskId === 1) {
-    elements.task1Pill.classList.add('active');
-    elements.task2Pill.classList.remove('active');
-  } else {
-    elements.task2Pill.classList.add('active');
-    elements.task1Pill.classList.remove('active');
-  }
+  state.comboSubTask = 3;
+
+  [elements.task1Pill, elements.task2Pill, elements.task3Pill, elements.task4Pill, elements.taskComboPill].forEach(pill => pill.classList.remove('active'));
+  
+  if (taskId === 1) elements.task1Pill.classList.add('active');
+  if (taskId === 2) elements.task2Pill.classList.add('active');
+  if (taskId === 3) elements.task3Pill.classList.add('active');
+  if (taskId === 4) elements.task4Pill.classList.add('active');
+  if (taskId === 'combo') elements.taskComboPill.classList.add('active');
+
   loadPrompt(taskId, 0);
   resetTimerState();
 }
 
+// Get Prompts Array by Task ID
+function getPromptsArray(taskId) {
+  if (taskId === 1) return TASK1_PROMPTS;
+  if (taskId === 2) return TASK2_PROMPTS;
+  return SCENARIO_PROMPTS; // Tasks 3, 4, and Combo
+}
+
 // Load Specific Prompt
 function loadPrompt(taskId, index) {
-  const prompts = taskId === 1 ? TASK1_PROMPTS : TASK2_PROMPTS;
+  const prompts = getPromptsArray(taskId);
   if (index >= prompts.length) index = 0;
   
-  state.currentTask = taskId;
   state.currentPromptIndex = index;
-  
   const p = prompts[index];
-  elements.categoryTag.textContent = p.category;
-  elements.promptIdTag.textContent = `Task ${taskId} #${index + 1} / ${prompts.length}`;
-  elements.promptTitle.textContent = p.title;
-  elements.promptText.textContent = p.prompt;
 
-  // Set default times according to CELPIP standard
-  state.prepTimeRemaining = 30;
-  state.speakTimeRemaining = taskId === 1 ? 90 : 60;
-  
+  elements.categoryTag.textContent = p.category;
+
+  if (taskId === 1 || taskId === 2) {
+    elements.scenarioImageContainer.classList.remove('active');
+    elements.promptHintsBox.style.display = 'none';
+
+    elements.promptIdTag.textContent = `Task ${taskId} #${index + 1} / ${prompts.length}`;
+    elements.promptTitle.textContent = p.title;
+    elements.promptText.textContent = p.prompt;
+
+    state.prepTimeRemaining = 30;
+    state.speakTimeRemaining = taskId === 1 ? 90 : 60;
+  } else {
+    // Tasks 3, 4, or Combo (Image Scenarios)
+    elements.scenarioImageContainer.classList.add('active');
+    elements.scenarioImg.src = p.imageFile;
+    elements.promptHintsBox.style.display = 'block';
+
+    if (taskId === 3) {
+      elements.promptIdTag.textContent = `Task 3 #${index + 1} / ${prompts.length}`;
+      elements.promptTitle.textContent = `Task 3: Describing a Scene - ${p.title}`;
+      elements.promptText.textContent = p.task3Prompt;
+      elements.promptHintsTitle.textContent = "📍 Key Spatial Elements to Describe:";
+      elements.promptHintsList.innerHTML = p.spatialHints.map(h => `<li>${h}</li>`).join('');
+      state.prepTimeRemaining = 30;
+      state.speakTimeRemaining = 60;
+    } else if (taskId === 4) {
+      elements.promptIdTag.textContent = `Task 4 #${index + 1} / ${prompts.length}`;
+      elements.promptTitle.textContent = `Task 4: Making Predictions - ${p.title}`;
+      elements.promptText.textContent = p.task4Prompt;
+      elements.promptHintsTitle.textContent = "🔮 Logical Predictions Targets:";
+      elements.promptHintsList.innerHTML = p.predictionTargets.map(pt => `<li>${pt}</li>`).join('');
+      state.prepTimeRemaining = 30;
+      state.speakTimeRemaining = 60;
+    } else if (taskId === 'combo') {
+      const activeSubTask = state.comboSubTask;
+      elements.promptIdTag.textContent = `Combo Task 3+4 (#${index + 1}) - Step ${activeSubTask === 3 ? '1 of 2' : '2 of 2'}`;
+      elements.promptTitle.textContent = `Combo Exam Flow: ${p.title} (Task ${activeSubTask})`;
+      elements.promptText.textContent = activeSubTask === 3 ? p.task3Prompt : p.task4Prompt;
+      elements.promptHintsTitle.textContent = activeSubTask === 3 ? "📍 Key Spatial Elements to Describe:" : "🔮 Logical Predictions Targets:";
+      elements.promptHintsList.innerHTML = (activeSubTask === 3 ? p.spatialHints : p.predictionTargets).map(h => `<li>${h}</li>`).join('');
+      state.prepTimeRemaining = 30;
+      state.speakTimeRemaining = 60;
+    }
+  }
+
   resetTimerState();
 }
 
 function nextPrompt() {
-  const prompts = state.currentTask === 1 ? TASK1_PROMPTS : TASK2_PROMPTS;
+  const prompts = getPromptsArray(state.currentTask);
   const nextIdx = (state.currentPromptIndex + 1) % prompts.length;
   loadPrompt(state.currentTask, nextIdx);
 }
 
 function getRandomPrompt() {
-  const prompts = state.currentTask === 1 ? TASK1_PROMPTS : TASK2_PROMPTS;
+  const prompts = getPromptsArray(state.currentTask);
   const randIdx = Math.floor(Math.random() * prompts.length);
   loadPrompt(state.currentTask, randIdx);
 }
@@ -255,11 +355,10 @@ function getRandomPrompt() {
 function startPracticeOrExam() {
   if (state.timerState !== 'idle') return;
   
-  // Phase 1: Preparation
   state.timerState = 'prep';
   state.prepTimeRemaining = 30;
   
-  elements.phaseIndicator.textContent = 'PREPARATION TIME';
+  elements.phaseIndicator.textContent = state.currentTask === 'combo' ? `COMBO TASK ${state.comboSubTask}: PREPARATION` : 'PREPARATION TIME';
   elements.phaseIndicator.className = 'phase-indicator prep';
   elements.startTimerBtn.style.display = 'none';
   elements.resetBtn.style.display = 'inline-flex';
@@ -289,9 +388,9 @@ function startSpeakingPhase() {
   if (state.timerInterval) clearInterval(state.timerInterval);
   
   state.timerState = 'speaking';
-  state.speakTimeRemaining = state.currentTask === 1 ? 90 : 60;
+  state.speakTimeRemaining = (state.currentTask === 1) ? 90 : 60;
   
-  elements.phaseIndicator.textContent = 'SPEAKING & RECORDING...';
+  elements.phaseIndicator.textContent = state.currentTask === 'combo' ? `COMBO TASK ${state.comboSubTask}: SPEAKING & RECORDING...` : 'SPEAKING & RECORDING...';
   elements.phaseIndicator.className = 'phase-indicator speaking';
   elements.skipPrepBtn.style.display = 'none';
   elements.stopRecordBtn.style.display = 'inline-flex';
@@ -326,6 +425,15 @@ function finishRecording() {
   elements.stopRecordBtn.style.display = 'none';
 
   stopRecordingMic();
+
+  // If in Combo 3+4 mode and just finished Task 3, prompt for Task 4
+  if (state.currentTask === 'combo' && state.comboSubTask === 3) {
+    setTimeout(() => {
+      showToast('Task 3 complete! Preparing Task 4 (Make Predictions) with the same picture...');
+      state.comboSubTask = 4;
+      loadPrompt('combo', state.currentPromptIndex);
+    }, 2500);
+  }
 }
 
 function resetTimerState() {
@@ -336,7 +444,7 @@ function resetTimerState() {
 
   state.timerState = 'idle';
   state.prepTimeRemaining = 30;
-  state.speakTimeRemaining = state.currentTask === 1 ? 90 : 60;
+  state.speakTimeRemaining = (state.currentTask === 1) ? 90 : 60;
   
   updateTimerDisplay(state.isExamMode ? 30 : state.speakTimeRemaining);
   
@@ -348,7 +456,6 @@ function resetTimerState() {
   elements.resetBtn.style.display = 'none';
   elements.playbackCard.classList.remove('active');
   
-  // Clear Canvas Waveform
   clearCanvas();
 }
 
@@ -375,7 +482,6 @@ async function startRecordingMic() {
       elements.audioPlayback.src = state.recordedAudioUrl;
       elements.playbackCard.classList.add('active');
       
-      // Stop all mic audio tracks
       stream.getTracks().forEach(track => track.stop());
 
       // Save to IndexedDB
@@ -448,15 +554,17 @@ function clearCanvas() {
 async function saveRecordingToDB() {
   if (!db || !state.recordedAudioBlob) return;
   
-  const prompts = state.currentTask === 1 ? TASK1_PROMPTS : TASK2_PROMPTS;
+  const prompts = getPromptsArray(state.currentTask);
   const currentPrompt = prompts[state.currentPromptIndex];
 
+  const actualTaskId = state.currentTask === 'combo' ? `Combo (Task ${state.comboSubTask})` : state.currentTask;
+
   const record = {
-    taskId: state.currentTask,
+    taskId: actualTaskId,
     promptTitle: currentPrompt.title,
     category: currentPrompt.category,
     timestamp: new Date().toISOString(),
-    durationSeconds: state.currentTask === 1 ? 90 : 60,
+    durationSeconds: (state.currentTask === 1) ? 90 : 60,
     audioBlob: state.recordedAudioBlob
   };
 
@@ -536,48 +644,52 @@ function downloadAudio() {
   a.click();
 }
 
-// AI Evaluation Prompt Generator (Official CELPIP Rubric Criteria)
+// AI Evaluation Prompt Generator (Tailored for Tasks 1, 2, 3, and 4)
 function copyAiEvaluationPrompt() {
-  const prompts = state.currentTask === 1 ? TASK1_PROMPTS : TASK2_PROMPTS;
+  const activeTask = state.currentTask === 'combo' ? state.comboSubTask : state.currentTask;
+  const prompts = getPromptsArray(activeTask);
   const currentPrompt = prompts[state.currentPromptIndex];
+
+  let taskCriteriaDetails = "";
+  if (activeTask === 3) {
+    taskCriteriaDetails = `SPECIAL CRITERIA FOR TASK 3 (Describing a Scene):
+- Evaluates spatial location prepositions (e.g., 'in the foreground', 'on the left', 'in the top right corner', 'next to').
+- Evaluates present continuous verb tenses ('is riding', 'are talking', 'is standing').
+- Evaluates scene completeness and visual detail accuracy.`;
+  } else if (activeTask === 4) {
+    taskCriteriaDetails = `SPECIAL CRITERIA FOR TASK 4 (Making Predictions):
+- Evaluates future verb tenses and modal verbs ('will', 'is going to', 'might', 'is about to').
+- Evaluates logical reasoning connecting the current picture scene to future outcomes.`;
+  } else {
+    taskCriteriaDetails = `SPECIAL CRITERIA FOR TASK ${activeTask}:
+- Tone, coherence, and structure appropriate for CELPIP Task ${activeTask}.`;
+  }
 
   const evalPromptText = `Act as an expert official CELPIP Speaking Examiner and English Language Coach. Evaluate my response to the following CELPIP Speaking Task:
 
 ---
 TASK OVERVIEW:
-Task Type: CELPIP Speaking Task ${state.currentTask} (${state.currentTask === 1 ? 'Giving Advice' : 'Talking about a Personal Experience'})
+Task Type: CELPIP Speaking Task ${activeTask} (${activeTask === 1 ? 'Giving Advice' : activeTask === 2 ? 'Personal Experience' : activeTask === 3 ? 'Describing a Scene' : 'Making Predictions'})
 Prompt Title: "${currentPrompt.title}"
 Category: ${currentPrompt.category}
-Official Prompt Description: "${currentPrompt.prompt}"
-Allowed Response Time: ${state.currentTask === 1 ? '90 seconds' : '60 seconds'}
+Official Prompt Description: "${activeTask === 3 ? currentPrompt.task3Prompt : activeTask === 4 ? currentPrompt.task4Prompt : currentPrompt.prompt}"
+Allowed Response Time: ${activeTask === 1 ? '90 seconds' : '60 seconds'}
 ---
 
-Please evaluate my spoken response (attached audio or transcribed text below) against the 4 official CELPIP Speaking Criteria:
+${taskCriteriaDetails}
 
-1. CONTENT & COHERENCE (Score out of 12):
-   - Were all parts of the prompt fulfilled?
-   - Was the structure logical with clear transitions (e.g. intro, body points, conclusion)?
-   - Were ideas well-developed with realistic examples and details?
-
-2. VOCABULARY (Score out of 12):
-   - Precision, range, and accuracy of words used.
-   - Use of natural collocations, idiomatic expressions, and task-appropriate vocabulary.
-
-3. LISTENABILITY (Score out of 12):
-   - Pronunciation clarity, rhythm, intonation, and stress patterns.
-   - Flow and pacing (minimizing excessive pauses, filler words like 'um', 'ah').
-   - Grammatical accuracy and sentence structure variety.
-
-4. TASK FULFILLMENT (Score out of 12):
-   - Tone appropriateness (e.g. friendly and advice-oriented for Task 1; narrative/engaging for Task 2).
-   - Time management (did the response fit nicely within the time limit?).
+Please evaluate my spoken response against the 4 official CELPIP Speaking Criteria:
+1. CONTENT & COHERENCE (Score out of 12)
+2. VOCABULARY (Score out of 12)
+3. LISTENABILITY & GRAMMAR (Score out of 12)
+4. TASK FULFILLMENT & TIME MANAGEMENT (Score out of 12)
 
 OUTPUT FORMAT REQUIRED:
 - Overall Estimated CELPIP Level (1 to 12)
 - Score breakdown for each of the 4 criteria
 - Key Strengths
-- Constructive Feedback & Weak Areas
-- An Improved Sample Answer tailored to this exact prompt.
+- Constructive Feedback & Specific Grammar/Vocabulary Suggestions
+- An Improved Sample Answer tailored to this exact scenario.
 
 [ATTACH YOUR AUDIO FILE OR PASTE YOUR TRANSCRIPT HERE]`;
 
@@ -590,7 +702,7 @@ OUTPUT FORMAT REQUIRED:
 
 // Prompts Bank Render & Filtering
 function populateCategoryFilter() {
-  const allPrompts = [...TASK1_PROMPTS, ...TASK2_PROMPTS];
+  const allPrompts = [...TASK1_PROMPTS, ...TASK2_PROMPTS, ...SCENARIO_PROMPTS];
   const categories = [...new Set(allPrompts.map(p => p.category))];
   
   elements.bankCategorySelect.innerHTML = `<option value="all">All Categories</option>` +
@@ -598,8 +710,8 @@ function populateCategoryFilter() {
 }
 
 function renderPromptsBank(taskFilter) {
-  let taskId = taskFilter || (elements.bankTask1Tab.classList.contains('active') ? 1 : 2);
-  let prompts = taskId === 1 ? TASK1_PROMPTS : TASK2_PROMPTS;
+  let taskId = taskFilter || state.currentBankTask;
+  let prompts = getPromptsArray(taskId);
 
   if (state.currentFilterCategory !== 'all') {
     prompts = prompts.filter(p => p.category === state.currentFilterCategory);
@@ -608,35 +720,41 @@ function renderPromptsBank(taskFilter) {
   if (state.searchQuery) {
     prompts = prompts.filter(p => 
       p.title.toLowerCase().includes(state.searchQuery) ||
-      p.prompt.toLowerCase().includes(state.searchQuery) ||
+      (p.prompt && p.prompt.toLowerCase().includes(state.searchQuery)) ||
+      (p.task3Prompt && p.task3Prompt.toLowerCase().includes(state.searchQuery)) ||
       p.category.toLowerCase().includes(state.searchQuery)
     );
   }
 
-  elements.promptsGrid.innerHTML = prompts.map((p, idx) => `
-    <div class="prompt-item-card">
-      <div>
-        <div class="prompt-meta">
-          <span class="category-tag">${p.category}</span>
-          <span class="prompt-id-tag">Task ${taskId} #${idx + 1}</span>
+  elements.promptsGrid.innerHTML = prompts.map((p, idx) => {
+    const promptText = taskId === 3 ? p.task3Prompt : taskId === 4 ? p.task4Prompt : p.prompt;
+    const imgHtml = (taskId === 3 || taskId === 4) ? `<img src="${p.imageFile}" style="width:100%; height:130px; object-fit:cover; border-radius:8px; margin:0.5rem 0;" />` : '';
+
+    return `
+      <div class="prompt-item-card">
+        <div>
+          <div class="prompt-meta">
+            <span class="category-tag">${p.category}</span>
+            <span class="prompt-id-tag">Task ${taskId} #${idx + 1}</span>
+          </div>
+          <h4 style="color:#fff; font-size:1.05rem; font-family:var(--font-heading); margin:0.4rem 0;">${p.title}</h4>
+          ${imgHtml}
+          <p style="color:var(--text-muted); font-size:0.85rem; line-height:1.4;">${promptText}</p>
         </div>
-        <h4 style="color:#fff; font-size:1.1rem; font-family:var(--font-heading); margin:0.5rem 0;">${p.title}</h4>
-        <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.45;">${p.prompt}</p>
+        <div style="margin-top:1rem;">
+          <button class="btn-primary" style="width:100%; justify-content:center; padding:0.55rem;" onclick="selectPromptToPractice(${taskId}, ${idx})">
+            🎯 Practice Task ${taskId}
+          </button>
+        </div>
       </div>
-      <div style="margin-top:1rem;">
-        <button class="btn-primary" style="width:100%; justify-content:center; padding:0.6rem;" onclick="selectPromptToPractice(${taskId}, ${TASK1_PROMPTS.indexOf(p) !== -1 ? TASK1_PROMPTS.indexOf(p) : TASK2_PROMPTS.indexOf(p)})">
-          🎯 Practice This Prompt
-        </button>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 window.selectPromptToPractice = function(taskId, index) {
   switchTask(taskId);
   loadPrompt(taskId, index);
   
-  // Switch view to practice simulator
   elements.navButtons.forEach(b => b.classList.remove('active'));
   elements.viewSections.forEach(s => s.classList.remove('active'));
   
