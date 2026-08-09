@@ -2,6 +2,7 @@
 // Official Standard Test Prompts:
 // Task 3: 30s Prep | 60s Speaking ("Look at the picture and describe as many details as you can to someone who cannot see it.")
 // Task 4: 30s Prep | 60s Speaking ("Look at the same picture and predict what will happen next in this scene.")
+// ONLY includes scenarios with high-resolution realistic AI-generated JPG images.
 
 const OFFICIAL_TASK3_PROMPT_TEXT = "Look at the picture and describe as many details as you can to someone who cannot see it. You have 30 seconds to prepare your response and 60 seconds to speak.";
 const OFFICIAL_TASK4_PROMPT_TEXT = "Look at the same picture and predict what will happen next in this scene. You have 30 seconds to prepare your response and 60 seconds to speak.";
@@ -258,65 +259,3 @@ const SCENARIO_PROMPTS = [
     ]
   }
 ];
-
-// Generate structured definitions for sc_014 to sc_100
-const CATEGORY_NAMES = ["Public Places", "Travel", "Workplace", "Social & Events", "Home & Family", "Emergency & Health", "Sports & Recreation", "Nature & Outdoors", "Services & Shopping", "School & Education"];
-
-const SCENARIO_TITLES = [
-  "City Zoo Monkey Exhibit", "Art Gallery Exhibition Opening", "Car Repair Garage Shop", 
-  "Veterinary Clinic Waiting Area", "Beach Lifeguard Station", "Skatepark Competition", 
-  "Amusement Park Roller Coaster Entrance", "Fire Station Bay and Firefighters", "Wedding Reception Party",
-  "Outdoor Musical Concert in the Park", "Ice Hockey Rink Game", "Bakery and Pastry Shop",
-  "Botanical Garden Greenhouse", "Furniture Store Showroom", "High School Gymnasium Basketball Game",
-  "Airport Luggage Baggage Carousel", "Hotel Front Desk Lobby", "Bowling Alley Lanes",
-  "Pet Grooming Salon", "Community Center Craft Workshop", "Car Wash Station",
-  "Ski Resort Mountain Slope", "Coffee Shop Cafe Patio", "Dentist Office Examination Room",
-  "Flea Market Vintage Stalls", "Daycare Playground Area", "Harbor Marina Dock",
-  "Bicycle Repair Shop", "Urban Rooftop Garden", "Haunted House Attraction",
-  "Science Museum Interactive Exhibit", "Train Station Platform", "Tailor and Sewing Workshop",
-  "Laundromat Washing Machines", "Campground Picnic Shelter", "Dog Training Park",
-  "Food Truck Festival Street", "City Bus Interior Commute", "Electronics Store Service Desk",
-  "Barbershop Hair Cutting", "Apple Orchard Fruit Picking", "Fish Market Fresh Display",
-  "College Dormitory Lounge", "Juice Bar and Smoothie Shop", "Auto Showroom Vintage Cars",
-  "Pottery Craft Studio", "Aquarium Underwater Tunnel", "Gas Station Convenience Store",
-  "Florist Flower Shop", "Indoor Rock Climbing Wall", "Music Store Instrument Display",
-  "Golf Course Putting Green", "Wildlife Rescue Center", "Pizzeria Pizza Oven Kitchen",
-  "Outdoor Movie Theater", "Ice Cream Parlor Counter", "Bookstore Author Reading",
-  "City Recycling Depot", "Horse Riding Arena Stables", "Shoe Store Fitting Area",
-  "Mini Golf Course", "Warehouse Logistics Loading Dock", "Spa and Wellness Center",
-  "Tailgate Party outside Stadium", "Astronomy Observatory Telescope", "High School Chemistry Lab",
-  "Toy Store Play Zone", "Donut Bakery Kitchen", "Rowing Club Boat House",
-  "Tire Replacement Garage", "Carnival Midway Games", "Pumpkin Patch Festival",
-  "Indoor Trampoline Park", "Street Painter Artist Corner", "Community Blood Drive Clinic",
-  "Sushi Bar Counter", "Waterpark Wave Pool", "Ferry Boat Upper Deck",
-  "Vintage Vinyl Record Store", "Indoor Laser Tag Arena", "Community Food Bank Kitchen",
-  "Archery Shooting Range", "Butterfly Conservatory", "Go-Kart Racing Track",
-  "Microbrewery Tour Taproom", "Crossfit Gym Workout", "Outdoor Flea Market Antique Rugs"
-];
-
-for (let i = 14; i <= 100; i++) {
-  const title = SCENARIO_TITLES[(i - 14) % SCENARIO_TITLES.length];
-  const cat = CATEGORY_NAMES[(i - 1) % CATEGORY_NAMES.length];
-  const scId = `sc_${i.toString().padStart(3, '0')}`;
-  
-  SCENARIO_PROMPTS.push({
-    id: scId,
-    title: title,
-    category: cat,
-    imageFile: `images/${scId}_scene.svg`,
-    description: `A detailed realistic scenario illustration of a ${title.toLowerCase()} featuring people engaged in different activities.`,
-    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
-    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
-    spatialHints: [
-      `In the foreground, main characters are participating in key ${cat.toLowerCase()} activities.`,
-      `On the left, an individual is preparing equipment or making a selection.`,
-      `In the background, secondary figures are walking or conversing.`,
-      `On the right side, a staff member or participant is handling an important object.`
-    ],
-    predictionTargets: [
-      `The main person in the foreground will finish their current action and move to the next stage.`,
-      `The person on the left will complete their purchase or task.`,
-      `The situation in the background will develop further as time progresses.`
-    ]
-  });
-}

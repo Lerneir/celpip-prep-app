@@ -257,7 +257,7 @@ function closeLightbox() {
 function downloadScenarioImage() {
   const src = elements.scenarioImg.src;
   if (!src) return;
-  const ext = src.endsWith('.jpg') ? '.jpg' : '.svg';
+  const ext = '.jpg';
   const a = document.createElement('a');
   a.href = src;
   a.download = `CELPIP_Scenario_${state.currentTask}_${Date.now()}${ext}`;
@@ -733,7 +733,7 @@ function renderPromptsBank(taskFilter) {
 
   elements.promptsGrid.innerHTML = prompts.map((p, idx) => {
     const promptText = taskId === 3 ? p.task3Prompt : taskId === 4 ? p.task4Prompt : p.prompt;
-    const imgHtml = (taskId === 3 || taskId === 4) ? `<img src="${p.imageFile}" style="width:100%; height:130px; object-fit:cover; border-radius:8px; margin:0.5rem 0;" onerror="this.src='images/sc_001_scene.svg'" />` : '';
+    const imgHtml = (taskId === 3 || taskId === 4) ? `<img src="${p.imageFile}" style="width:100%; height:130px; object-fit:cover; border-radius:8px; margin:0.5rem 0;" onerror="this.style.display='none'" />` : '';
 
     return `
       <div class="prompt-item-card">
