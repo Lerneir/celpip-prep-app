@@ -472,7 +472,7 @@ function updateTimerDisplay(seconds) {
   elements.timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 
   if (elements.timerProgressCircle) {
-    const radius = 88;
+    const radius = 52;
     const circumference = 2 * Math.PI * radius;
     elements.timerProgressCircle.style.strokeDasharray = `${circumference}`;
 

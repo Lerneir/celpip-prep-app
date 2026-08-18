@@ -48,11 +48,11 @@
     <section id="simulatorView" class="view-section active">
       <div class="simulator-layout">
         
-        <!-- Left Main Panel -->
+        <!-- Left Main Panel: Task Nav + Side-by-Side Scenario & Prompt Box -->
         <div class="main-panel">
           
           <!-- Task Selection & Mode Toggle -->
-          <div class="glass-card task-nav-card" style="padding: 1rem 1.5rem; margin-bottom: 1rem;">
+          <div class="glass-card task-nav-card">
             <div class="task-header-bar">
               <div class="task-selector-pills">
                 <button id="task1Pill" class="pill-btn active">Task 1: Advice</button>
@@ -72,158 +72,166 @@
             </div>
           </div>
 
-          <!-- Scenario Image Container (Tasks 3 & 4) -->
-          <div id="scenarioImageContainer" class="scenario-image-container">
-            <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration" onerror="this.src='images/sc_001_scene.svg'">
-            <div class="image-overlay-bar">
-              <button id="downloadImgBtn" class="img-action-btn">
-                <span>⬇️</span> Download Image
-              </button>
-              <button id="zoomImgBtn" class="img-action-btn">
-                <span>🔍</span> Fullscreen Zoom
-              </button>
-            </div>
-          </div>
-
-          <!-- Prompt Card -->
-          <div class="prompt-card">
-            <div class="prompt-meta">
-              <span id="categoryTag" class="category-tag">Public Places</span>
-              <span id="promptIdTag" class="prompt-id-tag">Task 1 #1 / 100</span>
-            </div>
-            <h2 id="promptTitle" class="prompt-title">Choosing a University Major</h2>
-            <p id="promptText" class="prompt-text">
-              Your friend Sarah is undecided between studying Computer Science and Graphic Design at university. She asked for your advice. Explain which major she should choose, what factors she should consider, and how she can make the final decision.
-            </p>
-
-            <!-- Collapsible Study Guidance & Hints (Practice Mode Only) -->
-            <div id="promptHintsBox" class="prompt-hints-box" style="display: none;">
-              <div id="promptHintsTitle" class="prompt-hints-title">📍 Study Guidance & Spatial Locations:</div>
-              <ul id="promptHintsList" class="prompt-hints-list"></ul>
-            </div>
-
-            <div class="prompt-actions">
-              <button id="nextPromptBtn" class="btn-secondary">
-                <span>➡️</span> Next Prompt
-              </button>
-              <button id="randomPromptBtn" class="btn-secondary">
-                <span>🎲</span> Random Prompt
-              </button>
-            </div>
-          </div>
-
-          <!-- Timer & Waveform Dashboard Card -->
-          <div class="glass-card timer-card">
-            <div class="timer-dashboard">
-              
-              <!-- Radial Circular Countdown Timer -->
-              <div class="timer-circle-wrap">
-                <svg class="timer-ring" width="200" height="200" viewBox="0 0 200 200">
-                  <defs>
-                    <linearGradient id="timerPrepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#f59e0b" />
-                      <stop offset="100%" stop-color="#fbbf24" />
-                    </linearGradient>
-                    <linearGradient id="timerSpeakGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#10b981" />
-                      <stop offset="100%" stop-color="#34d399" />
-                    </linearGradient>
-                    <linearGradient id="timerIdleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#6366f1" />
-                      <stop offset="100%" stop-color="#a855f7" />
-                    </linearGradient>
-                  </defs>
-                  <circle class="timer-ring-bg" cx="100" cy="100" r="88"></circle>
-                  <circle id="timerProgressCircle" class="timer-ring-progress" cx="100" cy="100" r="88"></circle>
-                </svg>
-                <div class="timer-center-content">
-                  <div id="phaseIndicator" class="phase-indicator">READY TO START</div>
-                  <div id="timerDisplay" class="timer-countdown">00:30</div>
-                </div>
-              </div>
-
-              <!-- Live Audio Waveform -->
-              <canvas id="waveformCanvas" class="waveform-canvas" width="600" height="80"></canvas>
-
-              <!-- Action Controls -->
-              <div class="controls-row">
-                <button id="startTimerBtn" class="btn-primary">
-                  <span>▶</span> Start Preparation Timer
+          <!-- Unified Prompt & Scenario Container (Side-by-Side in Tasks 3 & 4) -->
+          <div id="promptScenarioBox" class="prompt-card prompt-scenario-box">
+            
+            <!-- Scenario Image Container (Tasks 3 & 4) -->
+            <div id="scenarioImageContainer" class="scenario-image-container">
+              <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration" onerror="this.src='images/sc_001_scene.svg'">
+              <div class="image-overlay-bar">
+                <button id="downloadImgBtn" class="img-action-btn">
+                  <span>⬇️</span> Download
                 </button>
-                <button id="skipPrepBtn" class="btn-secondary" style="display: none;">
-                  <span>⏩</span> Skip Prep & Speak Now
-                </button>
-                <button id="stopRecordBtn" class="btn-danger" style="display: none;">
-                  <span>⏹</span> Stop Recording
-                </button>
-                <button id="resetBtn" class="btn-secondary" style="display: none;">
-                  <span>🔄</span> Reset
+                <button id="zoomImgBtn" class="img-action-btn">
+                  <span>🔍</span> Fullscreen
                 </button>
               </div>
             </div>
-          </div>
 
-          <!-- Recording Playback & AI Evaluation Card -->
-          <div id="playbackCard" class="recording-playback-card">
-            <h3 style="font-family: var(--font-heading); color: #fff; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span>🎉</span> Spoken Response Recorded!
-            </h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-              Listen to your response below or download the audio file to inspect your delivery, pacing, and vocabulary.
-            </p>
+            <!-- Prompt Details Column -->
+            <div class="prompt-details-column">
+              <div class="prompt-meta">
+                <span id="categoryTag" class="category-tag">Public Places</span>
+                <span id="promptIdTag" class="prompt-id-tag">Task 1 #1 / 100</span>
+              </div>
+              <h2 id="promptTitle" class="prompt-title">Choosing a University Major</h2>
+              <p id="promptText" class="prompt-text">
+                Your friend Sarah is undecided between studying Computer Science and Graphic Design at university. She asked for your advice. Explain which major she should choose, what factors she should consider, and how she can make the final decision.
+              </p>
 
-            <div class="audio-player-custom">
-              <audio id="audioPlayback" controls></audio>
+              <!-- Collapsible Study Guidance & Hints (Practice Mode Only) -->
+              <div id="promptHintsBox" class="prompt-hints-box" style="display: none;">
+                <div id="promptHintsTitle" class="prompt-hints-title">📍 Study Guidance & Spatial Locations:</div>
+                <ul id="promptHintsList" class="prompt-hints-list"></ul>
+              </div>
+
+              <div class="prompt-actions">
+                <button id="nextPromptBtn" class="btn-secondary">
+                  <span>➡️</span> Next Prompt
+                </button>
+                <button id="randomPromptBtn" class="btn-secondary">
+                  <span>🎲</span> Random Prompt
+                </button>
+              </div>
             </div>
 
-            <div class="controls-row" style="justify-content: flex-start; margin-top: 1rem;">
-              <button id="downloadAudioBtn" class="btn-secondary">
-                <span>⬇️</span> Download Recording (.webm)
-              </button>
-              <button id="copyAiPromptBtn" class="btn-ai-eval">
-                <span>✨</span> Copy AI Evaluation Prompt
-              </button>
-            </div>
           </div>
 
         </div>
 
-        <!-- Right Sidebar Panel -->
+        <!-- Right Sidebar Cockpit Panel -->
         <div class="sidebar-panel">
           
-          <!-- CELPIP Official Tips Card -->
-          <div class="glass-card celpip-tips-card">
-            <h3><span>💡</span> CELPIP Speaking Strategy</h3>
-            <ul>
-              <li><strong>Task 3 (Describe Scene)</strong>: Use spatial prepositions ("In the foreground...", "To the left...", "In the background..."). Use present continuous tense ("is sitting", "are working").</li>
-              <li><strong>Task 4 (Make Predictions)</strong>: Use modal verbs & future tenses ("will likely...", "is about to...", "might..."). Give logical reasons tied directly to the picture.</li>
-              <li><strong>Pacing & Tone</strong>: Maintain steady flow without long pauses. Use discourse markers like <em>"Noticeably"</em>, <em>"Furthermore"</em>, <em>"Looking closely..."</em>.</li>
-            </ul>
-          </div>
-
-          <!-- AI Web Launcher Card -->
-          <div class="glass-card celpip-tips-card">
-            <h3><span>🤖</span> Evaluate Response (No API Key)</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-              1. Click <strong>"Copy AI Evaluation Prompt"</strong> above.<br>
-              2. Open your preferred AI Chat below.<br>
-              3. Paste the prompt and upload your audio file or scenario image!
-            </p>
-
-            <div class="ai-links-group">
-              <a href="https://chatgpt.com/" target="_blank" class="ai-link-btn">
-                <span>🟢 Open ChatGPT Chat</span>
-                <span>↗</span>
-              </a>
-              <a href="https://gemini.google.com/" target="_blank" class="ai-link-btn">
-                <span>🔵 Open Google Gemini Chat</span>
-                <span>↗</span>
-              </a>
-              <a href="https://claude.ai/" target="_blank" class="ai-link-btn">
-                <span>🟠 Open Claude.ai Chat</span>
-                <span>↗</span>
-              </a>
+          <div class="glass-card cockpit-card">
+            
+            <!-- 120px Compact Circular Countdown Timer -->
+            <div class="timer-circle-wrap">
+              <svg class="timer-ring" width="130" height="130" viewBox="0 0 130 130">
+                <defs>
+                  <linearGradient id="timerPrepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f59e0b" />
+                    <stop offset="100%" stop-color="#fbbf24" />
+                  </linearGradient>
+                  <linearGradient id="timerSpeakGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="100%" stop-color="#34d399" />
+                  </linearGradient>
+                  <linearGradient id="timerIdleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#6366f1" />
+                    <stop offset="100%" stop-color="#a855f7" />
+                  </linearGradient>
+                </defs>
+                <circle class="timer-ring-bg" cx="65" cy="65" r="52"></circle>
+                <circle id="timerProgressCircle" class="timer-ring-progress" cx="65" cy="65" r="52"></circle>
+              </svg>
+              <div class="timer-center-content">
+                <div id="phaseIndicator" class="phase-indicator">READY</div>
+                <div id="timerDisplay" class="timer-countdown">00:30</div>
+              </div>
             </div>
+
+            <!-- Action Controls -->
+            <div class="controls-row">
+              <button id="startTimerBtn" class="btn-primary btn-block">
+                <span>▶</span> Start Prep Timer
+              </button>
+              <button id="skipPrepBtn" class="btn-secondary btn-block" style="display: none;">
+                <span>⏩</span> Skip Prep & Speak
+              </button>
+              <button id="stopRecordBtn" class="btn-danger btn-block" style="display: none;">
+                <span>⏹</span> Stop Recording
+              </button>
+              <button id="resetBtn" class="btn-secondary btn-block" style="display: none;">
+                <span>🔄</span> Reset
+              </button>
+            </div>
+
+            <!-- Live Audio Waveform Canvas -->
+            <div class="waveform-container">
+              <canvas id="waveformCanvas" class="waveform-canvas" width="280" height="36"></canvas>
+            </div>
+
+            <!-- Recording Playback Card (Revealed when complete) -->
+            <div id="playbackCard" class="recording-playback-card">
+              <div class="playback-header">
+                <span>🎉 Spoken Response Recorded!</span>
+              </div>
+              <div class="audio-player-custom">
+                <audio id="audioPlayback" controls></audio>
+              </div>
+              <div class="playback-actions">
+                <button id="downloadAudioBtn" class="btn-secondary btn-sm">
+                  <span>⬇️</span> Download (.webm)
+                </button>
+                <button id="copyAiPromptBtn" class="btn-ai-eval btn-sm">
+                  <span>✨</span> Copy AI Prompt
+                </button>
+              </div>
+            </div>
+
+            <!-- Accordion Panels: AI Evaluation & Strategy Tips -->
+            <div class="accordion-group">
+              
+              <details class="sidebar-accordion">
+                <summary class="accordion-summary">
+                  <span>🤖 Evaluate with AI Chat</span>
+                  <span class="accordion-arrow">▾</span>
+                </summary>
+                <div class="accordion-content">
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                    1. Click <strong>"Copy AI Prompt"</strong> above.<br>
+                    2. Launch an AI assistant below & paste audio/prompt:
+                  </p>
+                  <div class="ai-links-group">
+                    <a href="https://chatgpt.com/" target="_blank" class="ai-link-btn">
+                      <span>🟢 ChatGPT</span> ↗
+                    </a>
+                    <a href="https://gemini.google.com/" target="_blank" class="ai-link-btn">
+                      <span>🔵 Google Gemini</span> ↗
+                    </a>
+                    <a href="https://claude.ai/" target="_blank" class="ai-link-btn">
+                      <span>🟠 Claude.ai</span> ↗
+                    </a>
+                  </div>
+                </div>
+              </details>
+
+              <details class="sidebar-accordion">
+                <summary class="accordion-summary">
+                  <span>💡 CELPIP Strategy Tips</span>
+                  <span class="accordion-arrow">▾</span>
+                </summary>
+                <div class="accordion-content">
+                  <ul class="tips-mini-list">
+                    <li><strong>Task 3</strong>: Use spatial prepositions ("In foreground...", "To the left..."). Present continuous ("is walking").</li>
+                    <li><strong>Task 4</strong>: Modal & future tenses ("will likely...", "is about to..."). Logical reasons.</li>
+                    <li><strong>Flow</strong>: Use discourse markers like <em>"Noticeably"</em>, <em>"Furthermore"</em>.</li>
+                  </ul>
+                </div>
+              </details>
+
+            </div>
+
           </div>
 
         </div>
