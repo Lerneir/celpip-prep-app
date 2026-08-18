@@ -68,17 +68,9 @@
               <button id="task4Pill" class="pill-btn">
                 <span>Task 4: Predictions</span>
               </button>
-              <button id="taskComboPill" class="pill-btn pill-combo">
-                <span>⚡ Combo Task 3+4</span>
+              <button id="taskComboPill" class="pill-btn">
+                <span>Combo Task 3+4</span>
               </button>
-            </div>
-
-            <div class="mode-toggle-group">
-              <span id="modeLabel" style="font-weight: 600; color: #fff;">Exam Mode</span>
-              <label class="toggle-switch">
-                <input type="checkbox" id="modeToggle" checked>
-                <span class="slider"></span>
-              </label>
             </div>
           </div>
         </aside>
@@ -120,6 +112,9 @@
             <div id="scenarioImageContainer" class="scenario-image-container">
               <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration" onerror="this.src='images/sc_001_scene.svg'">
               <div class="image-overlay-bar">
+                <button id="copyImgBtn" class="img-action-btn">
+                  <span>📋</span> Copy Image
+                </button>
                 <button id="downloadImgBtn" class="img-action-btn">
                   <span>⬇️</span> Download
                 </button>
@@ -171,6 +166,25 @@
           
           <div class="glass-card cockpit-card">
             
+            <!-- Cockpit Mode & Prep Time Toggles (Above Timer) -->
+            <div class="cockpit-toggles-bar">
+              <div class="mode-toggle-group">
+                <span id="modeLabel" class="toggle-label">Exam Mode</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="modeToggle" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="mode-toggle-group">
+                <span id="prepTimeLabel" class="toggle-label">Prep Time (30s)</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="prepTimeToggle" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+
             <!-- 120px Compact Circular Countdown Timer -->
             <div class="timer-circle-wrap">
               <svg class="timer-ring" width="130" height="130" viewBox="0 0 130 130">
@@ -213,8 +227,8 @@
               </button>
             </div>
 
-            <!-- Live Audio Waveform Canvas -->
-            <div class="waveform-container">
+            <!-- Live Audio Waveform Canvas (Hidden when idle) -->
+            <div id="waveformContainer" class="waveform-container" style="display: none;">
               <canvas id="waveformCanvas" class="waveform-canvas" width="280" height="36"></canvas>
             </div>
 
@@ -227,9 +241,13 @@
               <p id="liveCaptionText" class="live-caption-text">Listening to your voice...</p>
             </div>
 
-            <!-- Accordion Panels: AI Evaluation & Strategy Tips Button -->
+            <!-- Strategy & Tips Button (Above AI Chat) -->
             <div class="accordion-group">
               
+              <button id="openStrategyModalBtn" class="btn-secondary btn-block" style="margin-bottom: 0.5rem;">
+                <span>💡</span> Task Strategy & Tips
+              </button>
+
               <details class="sidebar-accordion">
                 <summary class="accordion-summary">
                   <span>🤖 Evaluate with AI Chat</span>
@@ -253,11 +271,6 @@
                   </div>
                 </div>
               </details>
-
-              <!-- Dedicated Task Strategy & Tips Button -->
-              <button id="openStrategyModalBtn" class="btn-secondary btn-block" style="margin-top: 0.5rem;">
-                <span>💡</span> Task Strategy & Tips
-              </button>
 
             </div>
 

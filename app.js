@@ -10,6 +10,7 @@ const state = {
   comboSubTask: 3, // 3 or 4 when in combo mode
   currentPromptIndex: 0,
   isExamMode: true,
+  isPrepEnabled: true,
   timerState: 'idle', // 'idle' | 'prep' | 'speaking' | 'finished'
   prepTimeRemaining: 30,
   speakTimeRemaining: 90,
@@ -99,10 +100,13 @@ const elements = {
   taskComboPill: document.getElementById('taskComboPill'),
   modeToggle: document.getElementById('modeToggle'),
   modeLabel: document.getElementById('modeLabel'),
+  prepTimeToggle: document.getElementById('prepTimeToggle'),
+  prepTimeLabel: document.getElementById('prepTimeLabel'),
   
   // Scenario Image & Lightbox
   scenarioImageContainer: document.getElementById('scenarioImageContainer'),
   scenarioImg: document.getElementById('scenarioImg'),
+  copyImgBtn: document.getElementById('copyImgBtn'),
   downloadImgBtn: document.getElementById('downloadImgBtn'),
   zoomImgBtn: document.getElementById('zoomImgBtn'),
   lightboxModal: document.getElementById('lightboxModal'),
@@ -124,6 +128,7 @@ const elements = {
   phaseIndicator: document.getElementById('phaseIndicator'),
   timerDisplay: document.getElementById('timerDisplay'),
   timerProgressCircle: document.getElementById('timerProgressCircle'),
+  waveformContainer: document.getElementById('waveformContainer'),
   waveformCanvas: document.getElementById('waveformCanvas'),
   startTimerBtn: document.getElementById('startTimerBtn'),
   skipPrepBtn: document.getElementById('skipPrepBtn'),
@@ -420,11 +425,35 @@ function setupEventListeners() {
   elements.zoomImgBtn.addEventListener('click', openLightbox);
   elements.scenarioImg.addEventListener('click', openLightbox);
   elements.downloadImgBtn.addEventListener('click', downloadScenarioImage);
+  if (elements.copyImgBtn) {
+    elements.copyImgBtn.addEventListener('click', copyScenarioImage);
+  }
   elements.lightboxCloseBtn.addEventListener('click', closeLightbox);
   elements.lightboxModal.addEventListener('click', (e) => {
     if (e.target === elements.lightboxModal) closeLightbox();
   });
-  elements.downloadImgBtn.addEventListener('click', downloadScenarioImage);
+
+  // Mode & Prep Time Toggles
+  elements.modeToggle.addEventListener('change', (e) => {
+    state.isExamMode = e.target.checked;
+    elements.modeLabel.textContent = state.isExamMode ? 'Exam Mode' : 'Practice Mode';
+    if (state.currentTask === 3 || state.currentTask === 4 || state.currentTask === 'combo') {
+      elements.promptHintsBox.style.display = state.isExamMode ? 'none' : 'block';
+    }
+    resetTimerState();
+  });
+
+  if (elements.prepTimeToggle) {
+    elements.prepTimeToggle.addEventListener('change', (e) => {
+      state.isPrepEnabled = e.target.checked;
+      if (!state.isPrepEnabled) {
+        elements.startTimerBtn.innerHTML = '<span>🎙</span> Start Speaking';
+        elements.skipPrepBtn.style.display = 'none';
+      } else {
+        elements.startTimerBtn.innerHTML = '<span>▶</span> Start Prep Timer';
+      }
+    });
+  }
 
   // Prompt Buttons
   elements.nextPromptBtn.addEventListener('click', () => nextPrompt());
@@ -489,7 +518,7 @@ function switchBankTab(taskId) {
   renderPromptsBank(taskId);
 }
 
-// Lightbox Modal Controls
+// Lightbox & Image Copy Controls
 function openLightbox() {
   elements.lightboxImg.src = elements.scenarioImg.src;
   elements.lightboxModal.classList.add('active');
@@ -507,6 +536,49 @@ function downloadScenarioImage() {
   a.href = src;
   a.download = `CELPIP_Scenario_${state.currentTask}_${Date.now()}${ext}`;
   a.click();
+}
+
+async function copyScenarioImage() {
+  const img = elements.scenarioImg;
+  if (!img || !img.src) {
+    showToast('No scenario image available.');
+    return;
+  }
+
+  try {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.naturalWidth || img.width || 800;
+    canvas.height = img.naturalHeight || img.height || 600;
+    const ctx = canvas.getContext('2d');
+    
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+    canvas.toBlob(async (blob) => {
+      if (!blob) {
+        showToast('Unable to copy image.');
+        return;
+      }
+      try {
+        await navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]);
+        showToast('📋 Scenario image copied to clipboard!');
+      } catch (err) {
+        console.warn('Direct clipboard copy failed:', err);
+        try {
+          await navigator.clipboard.writeText(img.src);
+          showToast('📋 Image link copied to clipboard!');
+        } catch (e) {
+          showToast('Failed to copy image.');
+        }
+      }
+    }, 'image/png');
+  } catch (err) {
+    console.error('Copy image error:', err);
+    showToast('Failed to copy image.');
+  }
 }
 
 // Switch Task
@@ -606,6 +678,11 @@ function getRandomPrompt() {
 function startPracticeOrExam() {
   if (state.timerState !== 'idle') return;
   
+  if (!state.isPrepEnabled) {
+    startSpeakingPhase();
+    return;
+  }
+
   state.timerState = 'prep';
   state.prepTimeRemaining = 30;
   
@@ -643,8 +720,12 @@ function startSpeakingPhase() {
   
   elements.phaseIndicator.textContent = state.currentTask === 'combo' ? `COMBO TASK ${state.comboSubTask}: SPEAKING & RECORDING...` : 'SPEAKING & RECORDING...';
   elements.phaseIndicator.className = 'phase-indicator speaking';
+  elements.startTimerBtn.style.display = 'none';
   elements.skipPrepBtn.style.display = 'none';
   elements.stopRecordBtn.style.display = 'inline-flex';
+  elements.resetBtn.style.display = 'inline-flex';
+
+  if (elements.waveformContainer) elements.waveformContainer.style.display = 'block';
 
   playBeep(880, 'sine', 0.5);
 
@@ -676,6 +757,7 @@ function finishRecording() {
   elements.phaseIndicator.textContent = 'TASK COMPLETED';
   elements.phaseIndicator.className = 'phase-indicator finished';
   elements.stopRecordBtn.style.display = 'none';
+  if (elements.waveformContainer) elements.waveformContainer.style.display = 'none';
 
   stopRecordingMic();
   stopSpeechRecognition();
@@ -699,6 +781,7 @@ function resetTimerState() {
   stopSpeechRecognition();
   if (elements.liveCaptionBox) elements.liveCaptionBox.style.display = 'none';
   if (elements.transcriptAnalysisCard) elements.transcriptAnalysisCard.style.display = 'none';
+  if (elements.waveformContainer) elements.waveformContainer.style.display = 'none';
 
   state.timerState = 'idle';
   state.prepTimeRemaining = 30;
@@ -709,6 +792,11 @@ function resetTimerState() {
   elements.phaseIndicator.textContent = 'READY TO START';
   elements.phaseIndicator.className = 'phase-indicator';
   elements.startTimerBtn.style.display = 'inline-flex';
+  if (!state.isPrepEnabled) {
+    elements.startTimerBtn.innerHTML = '<span>🎙</span> Start Speaking';
+  } else {
+    elements.startTimerBtn.innerHTML = '<span>▶</span> Start Prep Timer';
+  }
   elements.skipPrepBtn.style.display = 'none';
   elements.stopRecordBtn.style.display = 'none';
   elements.resetBtn.style.display = 'none';
