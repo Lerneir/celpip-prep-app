@@ -446,12 +446,7 @@ function setupEventListeners() {
   if (elements.prepTimeToggle) {
     elements.prepTimeToggle.addEventListener('change', (e) => {
       state.isPrepEnabled = e.target.checked;
-      if (!state.isPrepEnabled) {
-        elements.startTimerBtn.innerHTML = '<span>🎙</span> Start Speaking';
-        elements.skipPrepBtn.style.display = 'none';
-      } else {
-        elements.startTimerBtn.innerHTML = '<span>▶</span> Start Prep Timer';
-      }
+      resetTimerState();
     });
   }
 
@@ -787,7 +782,8 @@ function resetTimerState() {
   state.prepTimeRemaining = 30;
   state.speakTimeRemaining = (state.currentTask === 1) ? 90 : 60;
   
-  updateTimerDisplay(state.isExamMode ? 30 : state.speakTimeRemaining);
+  const defaultDisplaySeconds = state.isPrepEnabled ? 30 : state.speakTimeRemaining;
+  updateTimerDisplay(defaultDisplaySeconds);
   
   elements.phaseIndicator.textContent = 'READY TO START';
   elements.phaseIndicator.className = 'phase-indicator';
@@ -938,7 +934,7 @@ function updateTimerDisplay(seconds) {
       totalSeconds = (state.currentTask === 1) ? 90 : 60;
       elements.timerProgressCircle.style.stroke = "url(#timerSpeakGrad)";
     } else {
-      totalSeconds = state.isExamMode ? 30 : ((state.currentTask === 1) ? 90 : 60);
+      totalSeconds = state.isPrepEnabled ? 30 : ((state.currentTask === 1) ? 90 : 60);
       elements.timerProgressCircle.style.stroke = "url(#timerIdleGrad)";
     }
 
