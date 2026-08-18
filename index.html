@@ -48,31 +48,45 @@
     <section id="simulatorView" class="view-section active">
       <div class="simulator-layout">
         
-        <!-- Left Main Panel: Task Nav + Side-by-Side Scenario & Prompt Box -->
-        <div class="main-panel">
-          
-          <!-- Task Selection & Mode Toggle -->
-          <div class="glass-card task-nav-card">
-            <div class="task-header-bar">
-              <div class="task-selector-pills">
-                <button id="task1Pill" class="pill-btn active">Task 1: Advice</button>
-                <button id="task2Pill" class="pill-btn">Task 2: Experience</button>
-                <button id="task3Pill" class="pill-btn">Task 3: Describe Scene</button>
-                <button id="task4Pill" class="pill-btn">Task 4: Make Predictions</button>
-                <button id="taskComboPill" class="pill-btn pill-combo">⚡ Combo Task 3+4</button>
-              </div>
+        <!-- Left Navigation Panel (Column 1) -->
+        <aside class="nav-sidebar-panel">
+          <div class="glass-card nav-menu-card">
+            <div class="nav-menu-header">
+              <span class="nav-menu-title">Exam Tasks</span>
+            </div>
 
-              <div class="mode-toggle-group">
-                <span id="modeLabel" style="font-weight: 600; color: #fff;">Exam Mode</span>
-                <label class="toggle-switch">
-                  <input type="checkbox" id="modeToggle" checked>
-                  <span class="slider"></span>
-                </label>
-              </div>
+            <div class="task-selector-pills">
+              <button id="task1Pill" class="pill-btn active">
+                <span>Task 1: Advice</span>
+              </button>
+              <button id="task2Pill" class="pill-btn">
+                <span>Task 2: Experience</span>
+              </button>
+              <button id="task3Pill" class="pill-btn">
+                <span>Task 3: Describe Scene</span>
+              </button>
+              <button id="task4Pill" class="pill-btn">
+                <span>Task 4: Predictions</span>
+              </button>
+              <button id="taskComboPill" class="pill-btn pill-combo">
+                <span>⚡ Combo Task 3+4</span>
+              </button>
+            </div>
+
+            <div class="mode-toggle-group">
+              <span id="modeLabel" style="font-weight: 600; color: #fff;">Exam Mode</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="modeToggle" checked>
+                <span class="slider"></span>
+              </label>
             </div>
           </div>
+        </aside>
 
-          <!-- Unified Prompt & Scenario Container (Prompt at Top, Image Below) -->
+        <!-- Center Main Panel: Prompt Details + Scenario Image (Column 2) -->
+        <div class="main-panel">
+          
+          <!-- Unified Prompt & Scenario Container -->
           <div id="promptScenarioBox" class="prompt-card prompt-scenario-box">
             
             <!-- Prompt Details Column (Top Section) -->
