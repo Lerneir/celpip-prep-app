@@ -129,6 +129,39 @@
               </div>
             </div>
 
+            <!-- Recording Playback & Speech Transcript Analysis Card (Below Image) -->
+            <div id="playbackCard" class="recording-playback-card">
+              <div class="playback-header">
+                <span>🎉 Spoken Response Recorded!</span>
+              </div>
+              <div class="audio-player-custom">
+                <audio id="audioPlayback" controls></audio>
+              </div>
+              <div class="playback-actions">
+                <button id="downloadAudioBtn" class="btn-secondary">
+                  <span>⬇️</span> Download Recording (.webm)
+                </button>
+                <button id="copyAiPromptBtn" class="btn-ai-eval">
+                  <span>✨</span> Copy AI Evaluation Prompt
+                </button>
+              </div>
+
+              <!-- Post-Recording Speech Transcript & Filler Word Analysis -->
+              <div id="transcriptAnalysisCard" class="transcript-analysis-card" style="display: none;">
+                <div class="transcript-card-header">
+                  <span>📝 Speech Transcript & Analysis</span>
+                </div>
+                <div class="metrics-row">
+                  <span class="metric-chip"><strong id="metricWpm">0</strong> WPM</span>
+                  <span class="metric-chip"><strong id="metricWordCount">0</strong> Words</span>
+                  <span class="metric-chip metric-danger"><strong id="metricFillers">0</strong> Fillers</span>
+                </div>
+                <div id="highlightedTranscriptText" class="highlighted-transcript-text">
+                  Your speech transcript will appear here.
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -192,39 +225,6 @@
                 <span>Live Speech Subtitles</span>
               </div>
               <p id="liveCaptionText" class="live-caption-text">Listening to your voice...</p>
-            </div>
-
-            <!-- Recording Playback Card (Revealed when complete) -->
-            <div id="playbackCard" class="recording-playback-card">
-              <div class="playback-header">
-                <span>🎉 Spoken Response Recorded!</span>
-              </div>
-              <div class="audio-player-custom">
-                <audio id="audioPlayback" controls></audio>
-              </div>
-              <div class="playback-actions">
-                <button id="downloadAudioBtn" class="btn-secondary btn-sm">
-                  <span>⬇️</span> Download (.webm)
-                </button>
-                <button id="copyAiPromptBtn" class="btn-ai-eval btn-sm">
-                  <span>✨</span> Copy AI Prompt
-                </button>
-              </div>
-
-              <!-- Post-Recording Speech Transcript & Filler Word Analysis -->
-              <div id="transcriptAnalysisCard" class="transcript-analysis-card" style="display: none;">
-                <div class="transcript-card-header">
-                  <span>📝 Speech Transcript & Analysis</span>
-                </div>
-                <div class="metrics-row">
-                  <span class="metric-chip"><strong id="metricWpm">0</strong> WPM</span>
-                  <span class="metric-chip"><strong id="metricWordCount">0</strong> Words</span>
-                  <span class="metric-chip metric-danger"><strong id="metricFillers">0</strong> Fillers</span>
-                </div>
-                <div id="highlightedTranscriptText" class="highlighted-transcript-text">
-                  Your speech transcript will appear here.
-                </div>
-              </div>
             </div>
 
             <!-- Accordion Panels: AI Evaluation & Strategy Tips -->
