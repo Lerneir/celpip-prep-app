@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CELPIP Speaking Exam Simulator | Tasks 1, 2, 3 & 4 Practice</title>
-  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 400 prompts across Tasks 1, 2, 3, and 4, high-resolution scenario illustrations, audio recorder, exam timers, and AI evaluation prompts.">
+  <title>CELPIP Speaking Exam Simulator | Tasks 1 to 6 Practice Suite</title>
+  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 600 prompts across Tasks 1, 2, 3, 4, 5, and 6, interactive comparison and dilemma interfaces, high-resolution scenario illustrations, audio recorder, exam timers, and AI evaluation prompts.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
       <div class="header-center-info">
         <span class="header-status-pill">
           <span class="status-pulse-dot"></span>
-          <span>400 Exam Scenarios Ready</span>
+          <span>600 Exam Scenarios Ready</span>
         </span>
       </div>
 
@@ -32,7 +32,7 @@
           <span>🎙</span> Simulator
         </button>
         <button class="nav-btn" data-view="bankView">
-          <span>📚</span> 400 Prompts Bank
+          <span>📚</span> 600 Prompts Bank
         </button>
         <button class="nav-btn" data-view="historyView">
           <span>📊</span> History & Audio
@@ -68,6 +68,12 @@
               <button id="task4Pill" class="pill-btn">
                 <span>Task 4: Predictions</span>
               </button>
+              <button id="task5Pill" class="pill-btn">
+                <span>Task 5: Compare & Persuade</span>
+              </button>
+              <button id="task6Pill" class="pill-btn">
+                <span>Task 6: Difficult Situation</span>
+              </button>
               <button id="taskComboPill" class="pill-btn">
                 <span>Combo Task 3+4</span>
               </button>
@@ -81,8 +87,8 @@
           <!-- Unified Prompt & Scenario Container -->
           <div id="promptScenarioBox" class="prompt-card prompt-scenario-box">
             
-            <!-- Prompt Details Column (Top Section) -->
-            <div class="prompt-details-column">
+            <!-- Standard Prompt Details Column (Tasks 1, 2, 3, 4) -->
+            <div id="promptDetailsColumn" class="prompt-details-column">
               <div class="prompt-meta">
                 <span id="categoryTag" class="category-tag">Public Places</span>
                 <span id="promptIdTag" class="prompt-id-tag">Task 1 #1 / 100</span>
@@ -108,6 +114,187 @@
               </div>
             </div>
 
+            <!-- TASK 5 INTERACTIVE CONTAINER -->
+            <div id="task5Container" class="task5-container" style="display: none;">
+              <!-- Meta & Context Header -->
+              <div class="prompt-meta">
+                <span id="t5CategoryTag" class="category-tag">Housing & Living</span>
+                <span id="t5PromptIdTag" class="prompt-id-tag">Task 5 #1 / 100</span>
+              </div>
+              <h2 id="t5Title" class="prompt-title">Apartment Rental Selection</h2>
+              <div id="t5ContextBox" class="t5-context-box">
+                <p id="t5ContextText" class="t5-context-text">You and your partner Chris are looking to rent a home in the city.</p>
+              </div>
+
+              <!-- Step 1: Selection Phase (Option A vs Option B) -->
+              <div id="t5SelectionStep" class="t5-selection-step">
+                <div class="t5-step-banner">
+                  <span class="step-badge">Part 1: Choose Your Option</span>
+                  <span class="step-instruction">Review both choices below and click to select the option you prefer.</span>
+                </div>
+                <div class="t5-options-grid">
+                  <!-- Option A Card -->
+                  <div id="t5OptACard" class="t5-option-card">
+                    <div class="t5-card-header">
+                      <span class="opt-label-pill">Option A</span>
+                      <h3 id="t5OptAName" class="opt-name">Suburban 2-Bedroom Townhouse</h3>
+                    </div>
+                    <div id="t5OptAPrice" class="opt-price-tag">$1,850 / month</div>
+                    <div id="t5OptALocation" class="opt-location-text">Quiet Suburb (30 min commuter train to core)</div>
+                    <div id="t5OptASpecs" class="opt-specs-text">950 sq. ft. • 2 Bed, 1.5 Bath</div>
+                    <ul id="t5OptAFeatures" class="opt-features-list"></ul>
+                    <button id="t5SelectOptABtn" class="btn-primary btn-block opt-select-btn">
+                      <span>✓</span> Select Option A
+                    </button>
+                  </div>
+
+                  <!-- Option B Card -->
+                  <div id="t5OptBCard" class="t5-option-card">
+                    <div class="t5-card-header">
+                      <span class="opt-label-pill">Option B</span>
+                      <h3 id="t5OptBName" class="opt-name">Midtown 1-Bedroom Condo</h3>
+                    </div>
+                    <div id="t5OptBPrice" class="opt-price-tag">$2,100 / month</div>
+                    <div id="t5OptBLocation" class="opt-location-text">Midtown Hub (15 min direct subway to core)</div>
+                    <div id="t5OptBSpecs" class="opt-specs-text">620 sq. ft. • 1 Bed, 1 Bath</div>
+                    <ul id="t5OptBFeatures" class="opt-features-list"></ul>
+                    <button id="t5SelectOptBBtn" class="btn-primary btn-block opt-select-btn">
+                      <span>✓</span> Select Option B
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Persuasion Phase (Your Selection vs Partner's Selection) -->
+              <div id="t5PersuasionStep" class="t5-persuasion-step" style="display: none;">
+                <div class="t5-persuasion-banner">
+                  <div class="persuasion-badge-row">
+                    <span class="step-badge step-active">Part 2: Persuade Your Partner</span>
+                    <button id="t5RechooseBtn" class="btn-secondary btn-sm">
+                      <span>↩</span> Change My Choice
+                    </button>
+                  </div>
+                  <p id="t5PartnerCallout" class="t5-partner-callout">
+                    You chose <strong>Suburban 2-Bedroom Townhouse</strong>. Your partner, Chris, chose <strong>Downtown Modern Studio</strong>. Persuade Chris why your choice is better.
+                  </p>
+                </div>
+
+                <!-- Comparison Grid -->
+                <div class="t5-comparison-grid">
+                  <!-- Candidate's Chosen Option Card -->
+                  <div id="t5ChosenCard" class="t5-comp-card my-choice-card">
+                    <div class="t5-card-header">
+                      <span class="opt-badge-chosen">🌟 Your Selection</span>
+                      <h3 id="t5ChosenName" class="opt-name">Suburban 2-Bedroom Townhouse</h3>
+                    </div>
+                    <div id="t5ChosenPrice" class="opt-price-tag">$1,850 / month</div>
+                    <div id="t5ChosenLocation" class="opt-location-text">Quiet Suburb</div>
+                    <div id="t5ChosenSpecs" class="opt-specs-text">950 sq. ft.</div>
+                    <ul id="t5ChosenFeatures" class="opt-features-list"></ul>
+                  </div>
+
+                  <!-- Partner's Competing Option Card -->
+                  <div id="t5PartnerCard" class="t5-comp-card partner-choice-card">
+                    <div class="t5-card-header">
+                      <span class="opt-badge-partner">👤 Partner's Choice</span>
+                      <h3 id="t5PartnerName" class="opt-name">Downtown Modern Studio</h3>
+                    </div>
+                    <div id="t5PartnerPrice" class="opt-price-tag">$2,350 / month</div>
+                    <div id="t5PartnerLocation" class="opt-location-text">Downtown Entertainment District</div>
+                    <div id="t5PartnerSpecs" class="opt-specs-text">450 sq. ft.</div>
+                    <ul id="t5PartnerFeatures" class="opt-features-list"></ul>
+                  </div>
+                </div>
+
+                <!-- Guided Persuasion Points (Practice Mode Only) -->
+                <div id="t5GuidanceBox" class="prompt-hints-box" style="display: none; margin-top: 1rem;">
+                  <div class="prompt-hints-title">💡 Recommended Persuasion Points & Counter-Arguments:</div>
+                  <ul id="t5GuidanceList" class="prompt-hints-list"></ul>
+                </div>
+              </div>
+
+              <!-- Task 5 Prompt Navigation Actions -->
+              <div class="prompt-actions" style="margin-top: 1rem;">
+                <button id="t5NextBtn" class="btn-secondary">
+                  <span>➡️</span> Next Task 5 Prompt
+                </button>
+                <button id="t5RandomBtn" class="btn-secondary">
+                  <span>🎲</span> Random Prompt
+                </button>
+              </div>
+            </div>
+
+            <!-- TASK 6 INTERACTIVE CONTAINER -->
+            <div id="task6Container" class="task6-container" style="display: none;">
+              <!-- Meta & Header -->
+              <div class="prompt-meta">
+                <span id="t6CategoryTag" class="category-tag">Workplace & Professional</span>
+                <span id="t6PromptIdTag" class="prompt-id-tag">Task 6 #1 / 100</span>
+              </div>
+              <h2 id="t6Title" class="prompt-title">Best Friend's Wedding vs. Urgent Software Launch</h2>
+              
+              <!-- Dilemma Situation Card -->
+              <div class="task6-dilemma-card">
+                <div class="dilemma-header">
+                  <span class="dilemma-icon">⚠️</span>
+                  <span class="dilemma-label">Difficult Dilemma:</span>
+                </div>
+                <p id="t6SituationText" class="dilemma-situation-text">
+                  You promised to be the best man at your best friend Sarah's wedding this Saturday in Banff. However, your project manager unexpectedly scheduled a mandatory emergency client system launch this Saturday where your presence is required.
+                </p>
+              </div>
+
+              <!-- Dual Pathway Selection Header -->
+              <div class="task6-pathway-header">
+                <span>Choose which person to speak with:</span>
+              </div>
+
+              <!-- Interactive Pathway Cards (Choice A vs Choice B) -->
+              <div class="task6-choices-grid">
+                <!-- Choice A Card -->
+                <div id="t6ChoiceACard" class="task6-choice-card active">
+                  <div class="choice-top-row">
+                    <span class="choice-pill">Pathway 1</span>
+                    <span id="t6ChoiceARole" class="choice-role-badge">Speaking to your close friend Sarah</span>
+                  </div>
+                  <h4 id="t6ChoiceALabel" class="choice-title">Option A: Speak to your Best Friend (Sarah)</h4>
+                  <p id="t6ChoiceAObj" class="choice-objective">
+                    Explain the emergency work conflict, express sincere apologies, and propose a special trip or celebration to make it up to her.
+                  </p>
+                  <ul id="t6ChoiceAPoints" class="choice-points-list"></ul>
+                </div>
+
+                <!-- Choice B Card -->
+                <div id="t6ChoiceBCard" class="task6-choice-card">
+                  <div class="choice-top-row">
+                    <span class="choice-pill">Pathway 2</span>
+                    <span id="t6ChoiceBRole" class="choice-role-badge">Speaking to your supervisor Mr. Henderson</span>
+                  </div>
+                  <h4 id="t6ChoiceBLabel" class="choice-title">Option B: Speak to your Project Manager (Mr. Henderson)</h4>
+                  <p id="t6ChoiceBObj" class="choice-objective">
+                    Explain your long-standing family/wedding commitment, maintain a professional tone, and offer concrete coverage solutions.
+                  </p>
+                  <ul id="t6ChoiceBPoints" class="choice-points-list"></ul>
+                </div>
+              </div>
+
+              <!-- Diplomatic Transitional Phrases Box (Practice Mode Only) -->
+              <div id="t6DiplomaticBox" class="prompt-hints-box" style="display: none; margin-top: 1rem;">
+                <div class="prompt-hints-title">🤝 High-Scoring Diplomatic Phrases & Transitions:</div>
+                <ul id="t6DiplomaticList" class="prompt-hints-list"></ul>
+              </div>
+
+              <!-- Task 6 Prompt Navigation Actions -->
+              <div class="prompt-actions" style="margin-top: 1rem;">
+                <button id="t6NextBtn" class="btn-secondary">
+                  <span>➡️</span> Next Task 6 Prompt
+                </button>
+                <button id="t6RandomBtn" class="btn-secondary">
+                  <span>🎲</span> Random Prompt
+                </button>
+              </div>
+            </div>
+
             <!-- Scenario Image Container (Below Prompt Text in Tasks 3 & 4) -->
             <div id="scenarioImageContainer" class="scenario-image-container">
               <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration" onerror="this.src='images/sc_001_scene.svg'">
@@ -124,7 +311,7 @@
               </div>
             </div>
 
-            <!-- Recording Playback & Speech Transcript Analysis Card (Below Image) -->
+            <!-- Recording Playback & Speech Transcript Analysis Card (Below Prompt / Image) -->
             <div id="playbackCard" class="recording-playback-card">
               <div class="playback-header">
                 <span>🎉 Spoken Response Recorded!</span>
@@ -177,7 +364,7 @@
               </div>
 
               <div class="mode-toggle-group">
-                <span id="prepTimeLabel" class="toggle-label">Prep Time (30s)</span>
+                <span id="prepTimeLabel" class="toggle-label">Prep Time</span>
                 <label class="toggle-switch">
                   <input type="checkbox" id="prepTimeToggle" checked>
                   <span class="slider"></span>
@@ -281,23 +468,25 @@
       </div>
     </section>
 
-    <!-- SECTION 2: 400 PROMPTS BANK -->
+    <!-- SECTION 2: 600 PROMPTS BANK -->
     <section id="bankView" class="view-section">
       <div class="glass-card">
         <div class="prompts-bank-header">
           <h2 style="font-family: var(--font-heading); font-size: 1.75rem; color: #fff;">
-            📚 CELPIP Speaking Prompts Bank (400 Prompts)
+            📚 CELPIP Speaking Prompts Bank (600 Prompts)
           </h2>
           <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Browse, search, and filter 100 Task 1 prompts, 100 Task 2 prompts, 100 Task 3 scene scenarios, and 100 Task 4 prediction prompts.
+            Browse, search, and filter 100 Task 1 prompts, 100 Task 2 prompts, 100 Task 3 scene scenarios, 100 Task 4 prediction prompts, 100 Task 5 comparison scenarios, and 100 Task 6 dilemma scenarios.
           </p>
 
           <div class="search-filter-row">
             <div class="task-selector-pills">
               <button id="bankTask1Tab" class="pill-btn active">Task 1: Advice (100)</button>
               <button id="bankTask2Tab" class="pill-btn">Task 2: Experience (100)</button>
-              <button id="bankTask3Tab" class="pill-btn">Task 3: Describe Scene (100)</button>
-              <button id="bankTask4Tab" class="pill-btn">Task 4: Make Predictions (100)</button>
+              <button id="bankTask3Tab" class="pill-btn">Task 3: Scene (100)</button>
+              <button id="bankTask4Tab" class="pill-btn">Task 4: Predictions (100)</button>
+              <button id="bankTask5Tab" class="pill-btn">Task 5: Compare & Persuade (100)</button>
+              <button id="bankTask6Tab" class="pill-btn">Task 6: Difficult Situation (100)</button>
             </div>
 
             <input type="text" id="bankSearchInput" class="search-input" placeholder="🔍 Search prompts by topic or keywords...">
@@ -361,6 +550,8 @@
         <button class="strategy-tab-btn" data-task="2">Task 2: Experience</button>
         <button class="strategy-tab-btn" data-task="3">Task 3: Scene</button>
         <button class="strategy-tab-btn" data-task="4">Task 4: Predictions</button>
+        <button class="strategy-tab-btn" data-task="5">Task 5: Compare & Persuade</button>
+        <button class="strategy-tab-btn" data-task="6">Task 6: Difficult Situation</button>
         <button class="strategy-tab-btn" data-task="combo">⚡ Combo 3+4</button>
       </div>
 
@@ -374,13 +565,16 @@
 
   <!-- Footer -->
   <footer>
-    <p>CELPIP Speaking Practice Simulator • Tasks 1, 2, 3 & 4 Prep Suite</p>
+    <p>CELPIP Speaking Practice Simulator • Tasks 1, 2, 3, 4, 5 & 6 Prep Suite</p>
   </footer>
 
   <!-- App Datasets & Main Engine Scripts -->
   <script src="prompts-task1.js"></script>
   <script src="prompts-task2.js"></script>
   <script src="prompts-task3-4.js"></script>
+  <script src="prompts-task5.js"></script>
+  <script src="prompts-task6.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
+
