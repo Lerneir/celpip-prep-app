@@ -1090,6 +1090,171 @@ audio {
   display: flex;
 }
 
+/* Strategy Pop-up Modal Styling */
+.strategy-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  max-height: 85vh;
+  background: #182234;
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.strategy-modal-header {
+  margin-bottom: 1rem;
+}
+
+.strategy-modal-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.strategy-modal-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Strategy Tabs Bar */
+.strategy-tabs-bar {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.strategy-tab-btn {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-glass);
+  color: var(--text-muted);
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+
+.strategy-tab-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.strategy-tab-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 0 12px var(--primary-glow);
+}
+
+/* Strategy Body Content */
+.strategy-modal-body {
+  overflow-y: auto;
+  padding-right: 0.4rem;
+  flex: 1;
+}
+
+.strategy-modal-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.strategy-modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.strategy-task-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.strategy-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.strategy-card h5 {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.strategy-timing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem;
+}
+
+.timing-chip {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.timing-phase {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.timing-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.strategy-formula-list, .strategy-pitfall-list {
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.strategy-vocab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.vocab-tag {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.pitfall-card {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.pitfall-card h5 {
+  color: #fca5a5;
+}
+
 .lightbox-content {
   position: relative;
   max-width: 90vw;

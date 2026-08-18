@@ -139,6 +139,13 @@ const elements = {
   metricFillers: document.getElementById('metricFillers'),
   highlightedTranscriptText: document.getElementById('highlightedTranscriptText'),
 
+  // Strategy Modal Elements
+  openStrategyModalBtn: document.getElementById('openStrategyModalBtn'),
+  strategyModal: document.getElementById('strategyModal'),
+  strategyModalCloseBtn: document.getElementById('strategyModalCloseBtn'),
+  strategyModalContent: document.getElementById('strategyModalContent'),
+  strategyTabBtns: document.querySelectorAll('.strategy-tab-btn'),
+
   // Recording Playback
   playbackCard: document.getElementById('playbackCard'),
   audioPlayback: document.getElementById('audioPlayback'),
@@ -158,6 +165,205 @@ const elements = {
   historyList: document.getElementById('historyList'),
   historyEmpty: document.getElementById('historyEmpty')
 };
+
+// Task-Specific CELPIP Strategies Dataset
+const taskStrategies = {
+  1: {
+    title: 'Task 1: Giving Advice (90 Seconds Speaking)',
+    timing: [
+      { phase: 'Prep Time (30s)', desc: 'Choose 2-3 solid reasons. Jot down key transition words.' },
+      { phase: 'Intro (0 - 10s)', desc: 'Friendly greeting + state your recommendation clearly.' },
+      { phase: 'Body Advice (10 - 75s)', desc: 'Point 1 + rationale (30s). Point 2 + rationale (30s).' },
+      { phase: 'Conclusion (75 - 90s)', desc: 'Warm closing offer ("Hope this helps! Let me know what you decide.").' }
+    ],
+    formulas: [
+      'Opening: "Hi [Name], I heard you are looking for advice on [topic], and I would love to help you out!"',
+      'Point 1: "First and foremost, I strongly recommend that you... because..."',
+      'Point 2: "Another important thing to consider is... This will help you to..."',
+      'Closing: "I hope these suggestions are helpful! Feel free to reach out if you need anything else."'
+    ],
+    vocab: ['Strongly recommend', 'I suggest that', 'First and foremost', 'Another great option', 'Consider taking into account', 'In the long run'],
+    pitfalls: [
+      'Avoid giving ordering commands (use polite advice modals like "You might want to" or "I suggest").',
+      'Do not stop early—fill the full 90 seconds with clear explanations for each piece of advice.'
+    ]
+  },
+  2: {
+    title: 'Task 2: Personal Experience (60 Seconds Speaking)',
+    timing: [
+      { phase: 'Prep Time (30s)', desc: 'Pick ONE memorable event. Plan beginning, climax, and outcome.' },
+      { phase: 'Setting Scene (0 - 10s)', desc: 'State when/where it happened and who you were with.' },
+      { phase: 'Story Arc (10 - 50s)', desc: 'Tell the story chronologically (First, suddenly, after that...).' },
+      { phase: 'Reflection (50 - 60s)', desc: 'Wrap up with what you learned or why it was memorable.' }
+    ],
+    formulas: [
+      'Opening: "I would like to talk about a memorable time when I..."',
+      'Transition: "It all started when... Suddenly, we realized that..."',
+      'Climax: "The highlight of the experience was when..."',
+      'Closing: "Looking back, that day taught me a valuable lesson about..."'
+    ],
+    vocab: ['A few years ago', 'It all started when', 'Unexpectedly', 'To my surprise', 'Looking back', 'An unforgettable moment'],
+    pitfalls: [
+      'Keep your tenses strictly in the Past Tense (e.g. "we went", "I decided", NOT "we go").',
+      'Don\'t spend more than 10 seconds setting up the background story.'
+    ]
+  },
+  3: {
+    title: 'Task 3: Describing a Scene (60 Seconds Speaking)',
+    timing: [
+      { phase: 'Prep Time (30s)', desc: 'Scan the picture. Group into Foreground, Left, Right, & Background.' },
+      { phase: 'Overview (0 - 8s)', desc: 'State the overall setting ("This picture depicts a busy outdoor park...").' },
+      { phase: 'Spatial Details (8 - 50s)', desc: 'Describe 3-4 specific actions using spatial prepositions.' },
+      { phase: 'Summary (50 - 60s)', desc: 'Brief overall impression ("Overall, it seems like a lively atmosphere.").' }
+    ],
+    formulas: [
+      'Overview: "This picture shows a detailed scene of a [location]."',
+      'Spatial Detail 1: "Right in the foreground, there is a man who is [action -ing]."',
+      'Spatial Detail 2: "Moving to the left side of the image, I can see..."',
+      'Spatial Detail 3: "In the background, positioned near the trees..."',
+      'Closing: "Overall, the atmosphere appears to be very energetic."'
+    ],
+    vocab: ['In the foreground', 'To the far left', 'In the background', 'Positioned beside', 'Is currently [action -ing]', 'Directly behind'],
+    pitfalls: [
+      'Always use Present Continuous Tense for actions (e.g. "is riding a bicycle", NOT "rides a bicycle").',
+      'Do NOT make predictions about what will happen next—save predictions for Task 4!'
+    ]
+  },
+  4: {
+    title: 'Task 4: Making Predictions (60 Seconds Speaking)',
+    timing: [
+      { phase: 'Prep Time (30s)', desc: 'Re-examine Task 3 picture. Pick 3 specific people/objects to predict.' },
+      { phase: 'Re-orient (0 - 5s)', desc: 'Brief connection ("Based on the scene in Task 3, here is what will happen next...").' },
+      { phase: 'Predictions (5 - 50s)', desc: 'Make 3 logical predictions with reasons based on visual clues.' },
+      { phase: 'Summary (50 - 60s)', desc: 'Quick concluding prediction.' }
+    ],
+    formulas: [
+      'Intro: "Based on what is happening in the picture, several things are likely to occur next."',
+      'Prediction 1: "First, the child on the bicycle will probably..."',
+      'Prediction 2: "In addition, the man walking his dog is about to..."',
+      'Prediction 3: "As for the people sitting on the bench, they will likely..."',
+      'Closing: "In summary, the scene will likely wrap up with everyone heading home."'
+    ],
+    vocab: ['Will likely', 'Is about to', 'It is probable that', 'I predict that', 'In all likelihood', 'Is expected to'],
+    pitfalls: [
+      'Use Future Modals (e.g. "will probably", "is about to", "might"), NOT past tense.',
+      'Make sure your predictions are logically connected to what is visible in the picture.'
+    ]
+  },
+  combo: {
+    title: '⚡ Combo Task 3+4: Scene Description + Predictions',
+    timing: [
+      { phase: 'Task 3 Phase (60s)', desc: 'Focus 100% on spatial prepositions & present continuous actions.' },
+      { phase: 'Transition Break', desc: 'Re-orient your mind from current scene description to future events.' },
+      { phase: 'Task 4 Phase (60s)', desc: 'Focus 100% on future modals & logical predictions for the same picture.' }
+    ],
+    formulas: [
+      'Task 3 Opener: "This illustration shows a vibrant scene at [location]..."',
+      'Task 4 Transition: "Now, looking at what will happen next in this same scene..."'
+    ],
+    vocab: ['In the foreground', 'Moving to the background', 'Will likely occur next', 'Is about to happen'],
+    pitfalls: [
+      'Keep Task 3 purely present continuous (-ing) and Task 4 purely future modals (will/going to).'
+    ]
+  }
+};
+
+// Strategy Modal Manager
+function renderStrategyModalContent(taskId) {
+  if (!elements.strategyModalContent) return;
+  const strat = taskStrategies[taskId] || taskStrategies[1];
+  
+  let html = `
+    <div class="strategy-content-wrapper">
+      <h4 class="strategy-task-title">${strat.title}</h4>
+
+      <!-- 1. Timing Strategy Breakdown -->
+      <div class="strategy-card">
+        <h5>⏱ Time Management Breakdown</h5>
+        <div class="strategy-timing-grid">
+  `;
+
+  strat.timing.forEach(t => {
+    html += `
+      <div class="timing-chip">
+        <span class="timing-phase">${t.phase}</span>
+        <span class="timing-desc">${t.desc}</span>
+      </div>
+    `;
+  });
+
+  html += `
+        </div>
+      </div>
+
+      <!-- 2. High-Scoring Sentence Formulas -->
+      <div class="strategy-card">
+        <h5>🗣 High-Scoring Sentence Formulas</h5>
+        <ul class="strategy-formula-list">
+  `;
+
+  strat.formulas.forEach(f => {
+    html += `<li>${f}</li>`;
+  });
+
+  html += `
+        </ul>
+      </div>
+
+      <!-- 3. CELPIP Power Vocabulary & Connectors -->
+      <div class="strategy-card">
+        <h5>📚 Target Vocabulary & Connectors</h5>
+        <div class="strategy-vocab-tags">
+  `;
+
+  strat.vocab.forEach(v => {
+    html += `<span class="vocab-tag">${v}</span>`;
+  });
+
+  html += `
+        </div>
+      </div>
+
+      <!-- 4. Scoring Pitfalls to Avoid -->
+      <div class="strategy-card pitfall-card">
+        <h5>⚠️ Critical Scoring Pitfalls to Avoid</h5>
+        <ul class="strategy-pitfall-list">
+  `;
+
+  strat.pitfalls.forEach(p => {
+    html += `<li>${p}</li>`;
+  });
+
+  html += `
+        </ul>
+      </div>
+    </div>
+  `;
+
+  elements.strategyModalContent.innerHTML = html;
+}
+
+function openStrategyModal(taskId) {
+  const targetTask = taskId || state.currentTask || 1;
+  
+  // Set active tab
+  elements.strategyTabBtns.forEach(btn => {
+    if (btn.dataset.task === String(targetTask)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  renderStrategyModalContent(targetTask);
+  if (elements.strategyModal) elements.strategyModal.classList.add('active');
+}
+
+function closeStrategyModal() {
+  if (elements.strategyModal) {
+    elements.strategyModal.classList.remove('active');
+  }
+}
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', async () => {
@@ -233,6 +439,29 @@ function setupEventListeners() {
   // Audio Playback & AI Eval
   elements.downloadAudioBtn.addEventListener('click', () => downloadAudio());
   elements.copyAiPromptBtn.addEventListener('click', () => copyAiEvaluationPrompt());
+
+  // Strategy Modal Controls
+  if (elements.openStrategyModalBtn) {
+    elements.openStrategyModalBtn.addEventListener('click', () => openStrategyModal(state.currentTask));
+  }
+  if (elements.strategyModalCloseBtn) {
+    elements.strategyModalCloseBtn.addEventListener('click', () => closeStrategyModal());
+  }
+  if (elements.strategyModal) {
+    elements.strategyModal.addEventListener('click', (e) => {
+      if (e.target === elements.strategyModal) closeStrategyModal();
+    });
+  }
+  if (elements.strategyTabBtns) {
+    elements.strategyTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const task = btn.dataset.task;
+        elements.strategyTabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderStrategyModalContent(task);
+      });
+    });
+  }
 
   // Prompts Bank Tabs
   elements.bankTask1Tab.addEventListener('click', () => switchBankTab(1));

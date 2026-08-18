@@ -227,7 +227,7 @@
               <p id="liveCaptionText" class="live-caption-text">Listening to your voice...</p>
             </div>
 
-            <!-- Accordion Panels: AI Evaluation & Strategy Tips -->
+            <!-- Accordion Panels: AI Evaluation & Strategy Tips Button -->
             <div class="accordion-group">
               
               <details class="sidebar-accordion">
@@ -254,19 +254,10 @@
                 </div>
               </details>
 
-              <details class="sidebar-accordion">
-                <summary class="accordion-summary">
-                  <span>💡 CELPIP Strategy Tips</span>
-                  <span class="accordion-arrow">▾</span>
-                </summary>
-                <div class="accordion-content">
-                  <ul class="tips-mini-list">
-                    <li><strong>Task 3</strong>: Use spatial prepositions ("In foreground...", "To the left..."). Present continuous ("is walking").</li>
-                    <li><strong>Task 4</strong>: Modal & future tenses ("will likely...", "is about to..."). Logical reasons.</li>
-                    <li><strong>Flow</strong>: Use discourse markers like <em>"Noticeably"</em>, <em>"Furthermore"</em>.</li>
-                  </ul>
-                </div>
-              </details>
+              <!-- Dedicated Task Strategy & Tips Button -->
+              <button id="openStrategyModalBtn" class="btn-secondary btn-block" style="margin-top: 0.5rem;">
+                <span>💡</span> Task Strategy & Tips
+              </button>
 
             </div>
 
@@ -338,6 +329,30 @@
     <div class="lightbox-content">
       <button id="lightboxCloseBtn" class="lightbox-close-btn">&times;</button>
       <img id="lightboxImg" class="lightbox-img" src="" alt="Fullscreen Scenario View">
+    </div>
+  </div>
+
+  <!-- CELPIP Strategy & Tips Pop-up Modal -->
+  <div id="strategyModal" class="lightbox-modal strategy-modal-backdrop">
+    <div class="strategy-modal-card">
+      <button id="strategyModalCloseBtn" class="lightbox-close-btn">&times;</button>
+      
+      <div class="strategy-modal-header">
+        <h3>💡 CELPIP Speaking Strategy Guide</h3>
+        <p>Tailored time management, high-scoring sentence formulas, and power vocabulary for each task.</p>
+      </div>
+
+      <!-- Task Navigation Tabs -->
+      <div class="strategy-tabs-bar">
+        <button class="strategy-tab-btn active" data-task="1">Task 1: Advice</button>
+        <button class="strategy-tab-btn" data-task="2">Task 2: Experience</button>
+        <button class="strategy-tab-btn" data-task="3">Task 3: Scene</button>
+        <button class="strategy-tab-btn" data-task="4">Task 4: Predictions</button>
+        <button class="strategy-tab-btn" data-task="combo">⚡ Combo 3+4</button>
+      </div>
+
+      <!-- Strategy Content Area (Populated dynamically by JS) -->
+      <div id="strategyModalContent" class="strategy-modal-body"></div>
     </div>
   </div>
 
