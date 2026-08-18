@@ -16,7 +16,15 @@
         <div class="logo-icon">🇨🇦</div>
         <div>
           <div class="logo-title">CELPIP Speaking Coach</div>
+          <div class="logo-subtitle">Pro Exam Practice Suite</div>
         </div>
+      </div>
+
+      <div class="header-center-info">
+        <span class="header-status-pill">
+          <span class="status-pulse-dot"></span>
+          <span>400 Exam Scenarios Ready</span>
+        </span>
       </div>
 
       <nav class="nav-tabs">
@@ -44,14 +52,14 @@
         <div class="main-panel">
           
           <!-- Task Selection & Mode Toggle -->
-          <div class="glass-card" style="padding: 1rem 1.5rem; margin-bottom: 1rem;">
+          <div class="glass-card task-nav-card" style="padding: 1rem 1.5rem; margin-bottom: 1rem;">
             <div class="task-header-bar">
               <div class="task-selector-pills">
                 <button id="task1Pill" class="pill-btn active">Task 1: Advice</button>
                 <button id="task2Pill" class="pill-btn">Task 2: Experience</button>
                 <button id="task3Pill" class="pill-btn">Task 3: Describe Scene</button>
                 <button id="task4Pill" class="pill-btn">Task 4: Make Predictions</button>
-                <button id="taskComboPill" class="pill-btn" style="border-color: var(--accent-amber); color: var(--accent-amber);">⚡ Combo Task 3+4</button>
+                <button id="taskComboPill" class="pill-btn pill-combo">⚡ Combo Task 3+4</button>
               </div>
 
               <div class="mode-toggle-group">
@@ -105,10 +113,34 @@
           </div>
 
           <!-- Timer & Waveform Dashboard Card -->
-          <div class="glass-card">
+          <div class="glass-card timer-card">
             <div class="timer-dashboard">
-              <div id="phaseIndicator" class="phase-indicator">READY TO START</div>
-              <div id="timerDisplay" class="timer-countdown">00:30</div>
+              
+              <!-- Radial Circular Countdown Timer -->
+              <div class="timer-circle-wrap">
+                <svg class="timer-ring" width="200" height="200" viewBox="0 0 200 200">
+                  <defs>
+                    <linearGradient id="timerPrepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#f59e0b" />
+                      <stop offset="100%" stop-color="#fbbf24" />
+                    </linearGradient>
+                    <linearGradient id="timerSpeakGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#10b981" />
+                      <stop offset="100%" stop-color="#34d399" />
+                    </linearGradient>
+                    <linearGradient id="timerIdleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#6366f1" />
+                      <stop offset="100%" stop-color="#a855f7" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="timer-ring-bg" cx="100" cy="100" r="88"></circle>
+                  <circle id="timerProgressCircle" class="timer-ring-progress" cx="100" cy="100" r="88"></circle>
+                </svg>
+                <div class="timer-center-content">
+                  <div id="phaseIndicator" class="phase-indicator">READY TO START</div>
+                  <div id="timerDisplay" class="timer-countdown">00:30</div>
+                </div>
+              </div>
 
               <!-- Live Audio Waveform -->
               <canvas id="waveformCanvas" class="waveform-canvas" width="600" height="80"></canvas>

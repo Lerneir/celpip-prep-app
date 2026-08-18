@@ -863,3 +863,162 @@ footer {
   border-top: 1px solid var(--border-glass);
   background: rgba(15, 23, 42, 0.5);
 }
+
+/* ==========================================================================
+   MODERN LUXURY DARK MODE EXTENSIONS (UX/UI REDESIGN BRANCH)
+   ========================================================================== */
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.header-center-info {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .header-center-info {
+    display: none;
+  }
+}
+
+.header-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #a5b4fc;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* Radial Circular Countdown Timer Styling */
+.timer-card {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.timer-circle-wrap {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-ring {
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.3));
+}
+
+.timer-ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 10;
+}
+
+.timer-ring-progress {
+  fill: none;
+  stroke: url(#timerIdleGrad);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 552.92;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.8s linear, stroke 0.5s ease;
+}
+
+.timer-center-content {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.timer-countdown {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0.2rem 0 0 0;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  line-height: 1;
+}
+
+/* Combo Pill Custom Glow */
+.pill-combo {
+  border-color: var(--accent-amber);
+  color: var(--accent-amber);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.pill-combo:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: var(--accent-amber);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
+.pill-combo.active {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  border-color: #f59e0b;
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
+}
+
+/* Hover & Active Micro Interactions */
+.prompt-card {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-normal);
+}
+
+.prompt-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
+}
+
+.btn-primary:active, .btn-secondary:active, .btn-danger:active, .btn-ai-eval:active {
+  transform: scale(0.97);
+}
+
+.nav-btn:hover span {
+  transform: scale(1.15);
+  transition: transform 0.2s ease;
+}
+
+.img-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+

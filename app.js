@@ -118,6 +118,7 @@ const elements = {
   // Timer & Controls
   phaseIndicator: document.getElementById('phaseIndicator'),
   timerDisplay: document.getElementById('timerDisplay'),
+  timerProgressCircle: document.getElementById('timerProgressCircle'),
   waveformCanvas: document.getElementById('waveformCanvas'),
   startTimerBtn: document.getElementById('startTimerBtn'),
   skipPrepBtn: document.getElementById('skipPrepBtn'),
@@ -469,6 +470,28 @@ function updateTimerDisplay(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
   elements.timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+  if (elements.timerProgressCircle) {
+    const radius = 88;
+    const circumference = 2 * Math.PI * radius;
+    elements.timerProgressCircle.style.strokeDasharray = `${circumference}`;
+
+    let totalSeconds = 30;
+    if (state.timerState === 'prep') {
+      totalSeconds = 30;
+      elements.timerProgressCircle.style.stroke = "url(#timerPrepGrad)";
+    } else if (state.timerState === 'speaking') {
+      totalSeconds = (state.currentTask === 1) ? 90 : 60;
+      elements.timerProgressCircle.style.stroke = "url(#timerSpeakGrad)";
+    } else {
+      totalSeconds = state.isExamMode ? 30 : ((state.currentTask === 1) ? 90 : 60);
+      elements.timerProgressCircle.style.stroke = "url(#timerIdleGrad)";
+    }
+
+    const progressRatio = Math.max(0, Math.min(1, seconds / totalSeconds));
+    const offset = circumference * (1 - progressRatio);
+    elements.timerProgressCircle.style.strokeDashoffset = `${offset}`;
+  }
 }
 
 // MediaRecorder Audio & Waveform Canvas
