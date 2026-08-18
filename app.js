@@ -199,6 +199,7 @@ function setupEventListeners() {
   // Image Controls & Lightbox Modal
   elements.zoomImgBtn.addEventListener('click', openLightbox);
   elements.scenarioImg.addEventListener('click', openLightbox);
+  elements.downloadImgBtn.addEventListener('click', downloadScenarioImage);
   elements.lightboxCloseBtn.addEventListener('click', closeLightbox);
   elements.lightboxModal.addEventListener('click', (e) => {
     if (e.target === elements.lightboxModal) closeLightbox();
