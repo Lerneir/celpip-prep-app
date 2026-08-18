@@ -230,11 +230,39 @@ main {
   }
 }
 
-/* Left Navigation Sidebar Panel (Column 1) */
+/* Left Navigation Sidebar Panel (Column 1 - Sticky Fixed) */
 .nav-sidebar-panel {
+  position: sticky;
+  top: 70px;
+  align-self: start;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-height: calc(100vh - 85px);
+  overflow-y: auto;
+}
+
+/* Right Cockpit Sidebar Panel (Column 3 - Sticky Fixed) */
+.sidebar-panel {
+  position: sticky;
+  top: 70px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: calc(100vh - 85px);
+  overflow-y: auto;
+}
+
+.nav-sidebar-panel::-webkit-scrollbar,
+.sidebar-panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.nav-sidebar-panel::-webkit-scrollbar-thumb,
+.sidebar-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
 }
 
 .nav-menu-card {
