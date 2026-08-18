@@ -72,23 +72,10 @@
             </div>
           </div>
 
-          <!-- Unified Prompt & Scenario Container (Side-by-Side in Tasks 3 & 4) -->
+          <!-- Unified Prompt & Scenario Container (Prompt at Top, Image Below) -->
           <div id="promptScenarioBox" class="prompt-card prompt-scenario-box">
             
-            <!-- Scenario Image Container (Tasks 3 & 4) -->
-            <div id="scenarioImageContainer" class="scenario-image-container">
-              <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration" onerror="this.src='images/sc_001_scene.svg'">
-              <div class="image-overlay-bar">
-                <button id="downloadImgBtn" class="img-action-btn">
-                  <span>⬇️</span> Download
-                </button>
-                <button id="zoomImgBtn" class="img-action-btn">
-                  <span>🔍</span> Fullscreen
-                </button>
-              </div>
-            </div>
-
-            <!-- Prompt Details Column -->
+            <!-- Prompt Details Column (Top Section) -->
             <div class="prompt-details-column">
               <div class="prompt-meta">
                 <span id="categoryTag" class="category-tag">Public Places</span>
@@ -111,6 +98,19 @@
                 </button>
                 <button id="randomPromptBtn" class="btn-secondary">
                   <span>🎲</span> Random Prompt
+                </button>
+              </div>
+            </div>
+
+            <!-- Scenario Image Container (Below Prompt Text in Tasks 3 & 4) -->
+            <div id="scenarioImageContainer" class="scenario-image-container">
+              <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration" onerror="this.src='images/sc_001_scene.svg'">
+              <div class="image-overlay-bar">
+                <button id="downloadImgBtn" class="img-action-btn">
+                  <span>⬇️</span> Download
+                </button>
+                <button id="zoomImgBtn" class="img-action-btn">
+                  <span>🔍</span> Fullscreen
                 </button>
               </div>
             </div>
