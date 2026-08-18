@@ -517,5 +517,266 @@ const SCENARIO_PROMPTS = [
       "The DJ in the corner booth will start playing music for the first dance.",
       "Guests will line up to congratulate the newlyweds and take group photos."
     ]
+  },
+  {
+    id: "sc_027",
+    title: "City Bus Stop & Street Corner Rush Hour",
+    category: "Public Places",
+    imageFile: "images/task3_027.jpg",
+    description: "A busy city street corner during morning rush hour with a bus approaching, commuters waiting at the shelter, a newsstand, and a crosswalk.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, a commuter with a stroller is crossing the street at the pedestrian crosswalk.",
+      "To the right, a line of commuters is waiting inside and outside the glass bus shelter.",
+      "In the background, a large municipal transit bus is approaching the curb with its signal lights on.",
+      "To the left, a newsstand vendor is handing a folded newspaper to a businessman."
+    ],
+    predictionTargets: [
+      "The bus will pull up to the stop, open its doors, and passengers will board.",
+      "The businessman will pay the newsstand vendor and continue walking to work.",
+      "The pedestrian with the stroller will safely reach the opposite sidewalk."
+    ]
+  },
+  {
+    id: "sc_028",
+    title: "Community Center Painting & Art Class",
+    category: "School & Education",
+    imageFile: "images/task3_028.jpg",
+    description: "A bright art studio class with an instructor demonstrating painting on canvas while students practice on easels and pottery wheels.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, an art instructor is pointing to a canvas easel while explaining brushwork to students.",
+      "Around the room, three students are holding paint palettes and adding color to their canvases.",
+      "In the background, another student is shaping a clay vase on a pottery wheel.",
+      "Art supplies, color mixing trays, and finished paintings are arranged on tables and walls."
+    ],
+    predictionTargets: [
+      "The instructor will walk over to check the students' individual paintings and give advice.",
+      "The student at the pottery wheel will use a sponge to smooth the clay surface.",
+      "Students will wash their brushes in water jars at the end of class."
+    ]
+  },
+  {
+    id: "sc_029",
+    title: "Hardware Store Home Improvement Aisle",
+    category: "Services & Shopping",
+    imageFile: "images/task3_029.jpg",
+    description: "A hardware store paint aisle with a worker mixing paint on a shaker machine, customers checking swatches, and a flatbed cart with lumber.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, a store clerk in a green apron is operating a paint mixing machine.",
+      "To the right, a couple is comparing color swatches against a wood sample board.",
+      "In the aisle, a customer is pushing a heavy flatbed cart loaded with wooden boards.",
+      "High metal shelves are filled with paint cans, brushes, and home improvement tools."
+    ],
+    predictionTargets: [
+      "The clerk will hand the mixed paint can to the waiting customer.",
+      "The couple will select a paint shade and ask the employee to mix two gallons.",
+      "The customer with the flatbed cart will head toward the checkout register."
+    ]
+  },
+  {
+    id: "sc_030",
+    title: "Busy Public Post Office",
+    category: "Services & Shopping",
+    imageFile: "images/task3_030.jpg",
+    description: "A busy post office with a postal clerk weighing packages at the counter, a line of customers, self-service kiosks, and P.O. boxes.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "At the counter, a postal clerk is placing a cardboard package on a digital scale.",
+      "A customer across the counter is holding shipping labels and a wallet.",
+      "In the main lobby, a queue of people holding envelopes and boxes is waiting.",
+      "Along the back wall, rows of metal post office boxes and self-service kiosks are visible."
+    ],
+    predictionTargets: [
+      "The clerk will affix postage stamps to the package and place it on a conveyor belt.",
+      "The next customer in line will step forward to the vacant service counter.",
+      "A customer at the automated kiosk will print a shipping label."
+    ]
+  },
+  {
+    id: "sc_031",
+    title: "Outdoor Winter Ice Skating Rink",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_031.jpg",
+    description: "An outdoor winter ice rink with skaters enjoying the ice, a beginner holding the railing, parents helping kids, and spectators drinking hot cocoa.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center of the rink, experienced skaters are gliding smoothly across the ice.",
+      "Along the edge, a beginner skater is holding tightly onto the wooden safety railing.",
+      "To the left, a parent is holding both hands of a small child learning to skate.",
+      "On benches outside the rink, spectators wearing winter coats are sipping hot cocoa."
+    ],
+    predictionTargets: [
+      "The beginner skater will let go of the railing and take a few independent steps.",
+      "The small child will glide forward with the parent's encouragement.",
+      "Skaters will clear the rink when the ice resurfacing Zamboni machine enters."
+    ]
+  },
+  {
+    id: "sc_032",
+    title: "Department Store Clothing Section",
+    category: "Services & Shopping",
+    imageFile: "images/task3_032.jpg",
+    description: "A clothing store with shoppers browsing coat racks, a mannequin near a sale sign, fitting room queue, and checkout counter.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, a customer is checking the price tag on a winter coat on a rack.",
+      "Near a promotional sign, a mannequin is dressed in a stylish jacket and scarf display.",
+      "To the left, a line of shoppers carrying clothes on hangers is waiting outside the fitting rooms.",
+      "In the background, a cashier is scanning items and folding clothes into shopping bags."
+    ],
+    predictionTargets: [
+      "The customer checking the coat will try it on in front of a nearby mirror.",
+      "A shopper exiting the fitting room will purchase the items that fit well.",
+      "The cashier will hand a receipt and shopping bag to the customer."
+    ]
+  },
+  {
+    id: "sc_033",
+    title: "Community Neighborhood Garden Allotment",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_033.jpg",
+    description: "A lively community garden with volunteers tending raised vegetable beds, watering plants, pushing soil wheelbarrows, and harvesting produce.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, a gardener is using a green watering can to water tomato plants in a raised bed.",
+      "To the right, a volunteer is pushing a wheelbarrow filled with rich compost soil.",
+      "In the center background, an elderly gardener is picking ripe red tomatoes into a basket.",
+      "Tool sheds, trellises with climbing beans, and colorful flower beds border the garden pathways."
+    ],
+    predictionTargets: [
+      "The volunteer pushing the wheelbarrow will dump the compost into a new garden bed.",
+      "The gardener harvesting tomatoes will take the fresh produce home.",
+      "Other community members will arrive with gardening tools to weed their plots."
+    ]
+  },
+  {
+    id: "sc_034",
+    title: "Busy Pet Grooming Salon",
+    category: "Services & Shopping",
+    imageFile: "images/task3_034.jpg",
+    description: "A pet grooming salon with groomers washing a dog in a stainless tub, trimming a poodle's fur, and pets waiting in carriers.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the washing area, a groomer in an apron is lathering soap suds on a large golden retriever in a tub.",
+      "On an elevated grooming table, another groomer is using scissors to trim a poodle's coat.",
+      "On a bench near the entrance, a cat carrier sits while an owner waits.",
+      "Shelves on the wall hold shampoos, blow dryers, clippers, and pet bandanas."
+    ],
+    predictionTargets: [
+      "The groomer will rinse the retriever and dry its coat with a specialized pet blow dryer.",
+      "The poodle will receive a decorative bandana after its haircut is finished.",
+      "The owner in the waiting area will pick up their groomed pet."
+    ]
+  },
+  {
+    id: "sc_035",
+    title: "Outdoor Town Square Street Food Festival",
+    category: "Public Places",
+    imageFile: "images/task3_035.jpg",
+    description: "A bustling street food festival with food trucks selling meals, visitors dining at picnic tables, a musician performing on stage, and recycling stations.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "Along the perimeter, colorful food trucks are serving tacos, burgers, and ice cream to lines of customers.",
+      "In the center area, families and friends are sitting at wooden picnic tables enjoying food.",
+      "On a small wooden stage in the background, a acoustic guitarist is singing into a microphone.",
+      "Decorative string lights and flags hang above recycling and waste sorting bins."
+    ],
+    predictionTargets: [
+      "A customer at the taco truck will receive their food tray and search for an open seat.",
+      "Applauding audience members will throw coins into the street musician's guitar case.",
+      "Festival workers will clear empty food containers from the picnic tables."
+    ]
+  },
+  {
+    id: "sc_036",
+    title: "Train Station Ticket Concourse",
+    category: "Travel",
+    imageFile: "images/task3_036.jpg",
+    description: "A high-ceiling train station concourse with travelers looking up at departure boards, buying tickets at kiosks, and walking with luggage.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "High on the wall, a large digital departure schedule screen displays train status and gate numbers.",
+      "Below the board, travelers with rolling suitcases are looking up to find their platform.",
+      "To the left, passengers are purchasing tickets using touchscreen self-service machines.",
+      "Near the center, an information booth attendant is giving directions to a tourist holding a map."
+    ],
+    predictionTargets: [
+      "When a platform gate number is posted, a group of passengers will head toward the turnstiles.",
+      "The ticket machine will print a paper ticket and receipt for the traveler.",
+      "The tourist will walk toward the platform pointed out by the information attendant."
+    ]
+  },
+  {
+    id: "sc_037",
+    title: "Backyard Children's Birthday Party",
+    category: "Home & Family",
+    imageFile: "images/task3_037.jpg",
+    description: "A festive backyard birthday party with kids playing party games, a cake table with balloons, a parent at the grill, and stacked gifts.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the grass, a blindfolded child is trying to pin a paper tail on a donkey poster while friends cheer.",
+      "At a decorated outdoor table, a multi-layer birthday cake with candles sits next to juice cups and balloons.",
+      "Near the patio, a parent wearing an apron is flipping hot dogs on a barbecue grill.",
+      "A pile of colorful wrapped gift boxes is arranged on a table beside party hats."
+    ],
+    predictionTargets: [
+      "The blindfolded child will pin the tail onto the poster, causing everyone to laugh.",
+      "The parent will gather the children around the table to blow out the birthday candles.",
+      "The birthday child will open the wrapped presents after eating cake."
+    ]
+  },
+  {
+    id: "sc_038",
+    title: "Interactive Children's Science Museum",
+    category: "School & Education",
+    imageFile: "images/task3_038.jpg",
+    description: "A hands-on science museum with kids interacting with glowing plasma globes, a dinosaur skeleton exhibit, space suit model, and museum guide.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, children are touching a glowing glass plasma ball and watching light tendrils follow their fingers.",
+      "In the center background, a museum educator is explaining a towering T-Rex dinosaur skeleton model to students.",
+      "To the right, a replica astronaut suit is displayed inside a protective glass casing.",
+      "Interactive levers, pulleys, and digital screens are positioned along the gallery walls."
+    ],
+    predictionTargets: [
+      "The educator will ask the students a question about dinosaur fossils.",
+      "A child will press a button on the astronaut display to hear an audio explanation.",
+      "The group will move on to the physics and energy exhibit section."
+    ]
+  },
+  {
+    id: "sc_039",
+    title: "Hotel Lobby Reception & Concierge",
+    category: "Travel",
+    imageFile: "images/task3_039.jpg",
+    description: "A grand hotel lobby with guests checking in at the marble reception desk, a bellhop pushing a brass luggage cart, and plush seating areas.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "At the marble front desk, a receptionist is handing room keycards to a newly arrived couple.",
+      "Beside them, a bellhop in uniform is loading heavy suitcases onto a brass luggage cart.",
+      "To the left, a concierge is pointing at a city map while answering questions for a guest.",
+      "In the lobby center, guests are relaxing on plush velvet armchairs around a glass coffee table."
+    ],
+    predictionTargets: [
+      "The bellhop will push the luggage cart toward the elevator bank to escort guests to their room.",
+      "The receptionist will offer the couple assistance with dinner reservations or spa bookings.",
+      "The guest speaking to the concierge will take the city map and head out the front entrance."
+    ]
   }
 ];
+
