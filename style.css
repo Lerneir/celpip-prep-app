@@ -741,6 +741,36 @@ input:checked + .slider:before {
   display: block;
 }
 
+/* Live Subtitle Captions Box */
+.live-caption-box {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.live-caption-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.live-caption-text {
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  line-height: 1.35;
+  font-style: italic;
+  max-height: 60px;
+  overflow-y: auto;
+}
+
 /* Playback Card */
 .recording-playback-card {
   display: none;
@@ -766,6 +796,76 @@ input:checked + .slider:before {
 .audio-player-custom {
   width: 100%;
   margin-bottom: 0.5rem;
+}
+
+/* Post-Recording Transcript Analysis Card */
+.transcript-analysis-card {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-glass);
+}
+
+.transcript-card-header {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.metrics-row {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.metric-chip {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--border-glass);
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.metric-chip strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.metric-chip.metric-danger strong {
+  color: var(--accent-red);
+}
+
+.highlighted-transcript-text {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.filler-word {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.vocab-word {
+  background: rgba(16, 185, 129, 0.25);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-weight: 600;
 }
 
 audio {

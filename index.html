@@ -185,6 +185,15 @@
               <canvas id="waveformCanvas" class="waveform-canvas" width="280" height="36"></canvas>
             </div>
 
+            <!-- Live Speech Captions (Active While Speaking) -->
+            <div id="liveCaptionBox" class="live-caption-box" style="display: none;">
+              <div class="live-caption-header">
+                <span class="live-pulse-dot"></span>
+                <span>Live Speech Subtitles</span>
+              </div>
+              <p id="liveCaptionText" class="live-caption-text">Listening to your voice...</p>
+            </div>
+
             <!-- Recording Playback Card (Revealed when complete) -->
             <div id="playbackCard" class="recording-playback-card">
               <div class="playback-header">
@@ -200,6 +209,21 @@
                 <button id="copyAiPromptBtn" class="btn-ai-eval btn-sm">
                   <span>✨</span> Copy AI Prompt
                 </button>
+              </div>
+
+              <!-- Post-Recording Speech Transcript & Filler Word Analysis -->
+              <div id="transcriptAnalysisCard" class="transcript-analysis-card" style="display: none;">
+                <div class="transcript-card-header">
+                  <span>📝 Speech Transcript & Analysis</span>
+                </div>
+                <div class="metrics-row">
+                  <span class="metric-chip"><strong id="metricWpm">0</strong> WPM</span>
+                  <span class="metric-chip"><strong id="metricWordCount">0</strong> Words</span>
+                  <span class="metric-chip metric-danger"><strong id="metricFillers">0</strong> Fillers</span>
+                </div>
+                <div id="highlightedTranscriptText" class="highlighted-transcript-text">
+                  Your speech transcript will appear here.
+                </div>
               </div>
             </div>
 

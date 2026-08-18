@@ -24,6 +24,11 @@ const state = {
   analyser: null,
   animationFrameId: null,
   
+  // Speech Transcription & Analysis State
+  speechRecognition: null,
+  liveTranscript: '',
+  recordingStartTime: null,
+  
   // History & Filters
   currentBankTask: 1,
   currentFilterCategory: 'all',
@@ -125,6 +130,15 @@ const elements = {
   stopRecordBtn: document.getElementById('stopRecordBtn'),
   resetBtn: document.getElementById('resetBtn'),
   
+  // Speech Transcription & Analysis Elements
+  liveCaptionBox: document.getElementById('liveCaptionBox'),
+  liveCaptionText: document.getElementById('liveCaptionText'),
+  transcriptAnalysisCard: document.getElementById('transcriptAnalysisCard'),
+  metricWpm: document.getElementById('metricWpm'),
+  metricWordCount: document.getElementById('metricWordCount'),
+  metricFillers: document.getElementById('metricFillers'),
+  highlightedTranscriptText: document.getElementById('highlightedTranscriptText'),
+
   // Recording Playback
   playbackCard: document.getElementById('playbackCard'),
   audioPlayback: document.getElementById('audioPlayback'),
@@ -405,8 +419,10 @@ function startSpeakingPhase() {
 
   playBeep(880, 'sine', 0.5);
 
-  // Start Mic Recording
+  state.recordingStartTime = Date.now();
+  // Start Mic Recording & Live Transcription
   startRecordingMic();
+  startSpeechRecognition();
 
   state.timerInterval = setInterval(() => {
     state.speakTimeRemaining--;
@@ -433,6 +449,7 @@ function finishRecording() {
   elements.stopRecordBtn.style.display = 'none';
 
   stopRecordingMic();
+  stopSpeechRecognition();
 
   // If in Combo 3+4 mode and just finished Task 3, prompt for Task 4
   if (state.currentTask === 'combo' && state.comboSubTask === 3) {
@@ -450,6 +467,10 @@ function resetTimerState() {
     state.mediaRecorder.stop();
   }
 
+  stopSpeechRecognition();
+  if (elements.liveCaptionBox) elements.liveCaptionBox.style.display = 'none';
+  if (elements.transcriptAnalysisCard) elements.transcriptAnalysisCard.style.display = 'none';
+
   state.timerState = 'idle';
   state.prepTimeRemaining = 30;
   state.speakTimeRemaining = (state.currentTask === 1) ? 90 : 60;
@@ -465,6 +486,121 @@ function resetTimerState() {
   elements.playbackCard.classList.remove('active');
   
   clearCanvas();
+}
+
+// Web Speech API Live Transcription & Analysis Engine
+function startSpeechRecognition() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    console.warn('Web Speech API not supported in this browser.');
+    return;
+  }
+
+  try {
+    state.liveTranscript = '';
+    state.speechRecognition = new SpeechRecognition();
+    state.speechRecognition.continuous = true;
+    state.speechRecognition.interimResults = true;
+    state.speechRecognition.lang = 'en-US';
+
+    if (elements.liveCaptionBox) elements.liveCaptionBox.style.display = 'block';
+    if (elements.liveCaptionText) elements.liveCaptionText.textContent = 'Listening to your voice...';
+
+    state.speechRecognition.onresult = (e) => {
+      let finalTranscript = '';
+      let interimTranscript = '';
+
+      for (let i = e.resultIndex; i < e.results.length; ++i) {
+        if (e.results[i].isFinal) {
+          finalTranscript += e.results[i][0].transcript + ' ';
+        } else {
+          interimTranscript += e.results[i][0].transcript;
+        }
+      }
+
+      if (finalTranscript) state.liveTranscript += finalTranscript;
+      const currentFullText = (state.liveTranscript + ' ' + interimTranscript).trim();
+
+      if (elements.liveCaptionText && currentFullText) {
+        elements.liveCaptionText.textContent = currentFullText;
+      }
+    };
+
+    state.speechRecognition.onerror = (e) => {
+      console.warn('Speech Recognition error:', e.error);
+    };
+
+    state.speechRecognition.start();
+  } catch (err) {
+    console.warn('Failed to start speech recognition:', err);
+  }
+}
+
+function stopSpeechRecognition() {
+  if (state.speechRecognition) {
+    try {
+      state.speechRecognition.stop();
+    } catch (e) {}
+    state.speechRecognition = null;
+  }
+
+  if (elements.liveCaptionBox) {
+    elements.liveCaptionBox.style.display = 'none';
+  }
+
+  // Analyze captured speech transcript
+  analyzeSpeechTranscript(state.liveTranscript.trim());
+}
+
+function analyzeSpeechTranscript(rawTranscript) {
+  if (!elements.transcriptAnalysisCard) return;
+
+  if (!rawTranscript) {
+    elements.highlightedTranscriptText.innerHTML = '<em>No speech transcript captured. Speak clearly into your microphone during the recording phase.</em>';
+    elements.metricWpm.textContent = '0';
+    elements.metricWordCount.textContent = '0';
+    elements.metricFillers.textContent = '0';
+    elements.transcriptAnalysisCard.style.display = 'block';
+    return;
+  }
+
+  const durationSeconds = Math.max(1, (Date.now() - (state.recordingStartTime || Date.now())) / 1000);
+  const words = rawTranscript.split(/\s+/).filter(w => w.length > 0);
+  const wordCount = words.length;
+  const wpm = Math.round((wordCount / durationSeconds) * 60);
+
+  // Defined Word Lists
+  const fillerList = ['um', 'uh', 'er', 'ah', 'like', 'basically', 'so'];
+  const spatialList = ['foreground', 'background', 'left', 'right', 'center', 'top', 'bottom', 'next', 'beside', 'near', 'sitting', 'standing', 'walking', 'holding', 'wearing'];
+  const futureList = ['will', 'going', 'likely', 'might', 'probably', 'seems', 'expect', 'about'];
+
+  let fillerCount = 0;
+
+  const highlightedWords = words.map(w => {
+    const cleanWord = w.toLowerCase().replace(/[^a-z]/g, '');
+    
+    if (fillerList.includes(cleanWord)) {
+      fillerCount++;
+      return `<span class="filler-word" title="Filler Word">${w}</span>`;
+    }
+
+    if (state.currentTask === 3 && spatialList.includes(cleanWord)) {
+      return `<span class="vocab-word" title="CELPIP Task 3 Spatial Vocab">${w}</span>`;
+    }
+
+    if (state.currentTask === 4 && futureList.includes(cleanWord)) {
+      return `<span class="vocab-word" title="CELPIP Task 4 Prediction Marker">${w}</span>`;
+    }
+
+    return w;
+  });
+
+  elements.metricWordCount.textContent = wordCount;
+  elements.metricWpm.textContent = wpm;
+  elements.metricFillers.textContent = fillerCount;
+
+  elements.highlightedTranscriptText.innerHTML = highlightedWords.join(' ');
+  elements.transcriptAnalysisCard.style.display = 'block';
 }
 
 function updateTimerDisplay(seconds) {
