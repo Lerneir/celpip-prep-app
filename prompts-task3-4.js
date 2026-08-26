@@ -777,6 +777,247 @@ const SCENARIO_PROMPTS = [
       "The receptionist will offer the couple assistance with dinner reservations or spa bookings.",
       "The guest speaking to the concierge will take the city map and head out the front entrance."
     ]
+  },
+  {
+    id: "sc_040",
+    title: "Outdoor Farmers Market & Artisan Stalls",
+    category: "Services & Shopping",
+    imageFile: "images/task3_040.jpg",
+    description: "A lively outdoor weekend farmers market with wooden stalls selling fresh apples and local cheeses, shoppers with tote bags, and a violinist musician.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, an elderly female vendor in an apron is weighing red apples on a metal scale for a customer.",
+      "To the right, a violinist is sitting on a stool playing music with an open instrument case for tips.",
+      "At the artisan cheese stall on the right, a vendor is offering a cheese sample to a shopper.",
+      "In the background, shoppers holding canvas bags are strolling between colorful canopy stalls."
+    ],
+    predictionTargets: [
+      "The customer buying apples will place the fruit into her cloth tote bag after paying.",
+      "A passerby will drop cash into the violinist's open instrument case.",
+      "The cheese vendor will wrap a block of cheddar for the shopper."
+    ]
+  },
+  {
+    id: "sc_041",
+    title: "Airport Security Screening Checkpoint",
+    category: "Travel",
+    imageFile: "images/task3_041.jpg",
+    description: "An airport security area with travelers placing laptops into plastic bins on a conveyor belt while security officers monitor x-ray screens.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, a businesswoman is placing her laptop and shoes into a grey plastic security bin.",
+      "To the right, a seated security officer is carefully watching dual x-ray monitors showing luggage scans.",
+      "Behind the conveyor, a passenger in a mask is walking through a metal detector archway.",
+      "In the background through the window, an airplane is visible on the runway tarmac."
+    ],
+    predictionTargets: [
+      "The conveyor belt will carry the grey bins into the x-ray machine for screening.",
+      "The security officer at the metal detector will signal the passenger that they may proceed.",
+      "The businesswoman will collect her belongings at the end of the belt and put her shoes on."
+    ]
+  },
+  {
+    id: "sc_042",
+    title: "Indoor Family Bowling Alley",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_042.jpg",
+    description: "An indoor bowling alley with a bowler releasing a ball down the lane, a family eating pizza at a table, shoe rental desk, and overhead score screens.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center foreground, a man in a striped shirt is releasing a black bowling ball down lane 4.",
+      "To the left, a family of four is seated at a table eating slices of pizza from a box.",
+      "Overhead, an electronic monitor displays current scores for players Jame and Cople.",
+      "In the background right, an employee behind the shoe rental counter is holding bowling shoes."
+    ],
+    predictionTargets: [
+      "The bowling ball will roll down the wooden lane and knock down ten pins.",
+      "The electronic scoreboard will update with a strike symbol.",
+      "The family will finish eating pizza and take turns taking their bowling shots."
+    ]
+  },
+  {
+    id: "sc_043",
+    title: "Community Bottle & Recycling Depot",
+    category: "Public Places",
+    imageFile: "images/task3_043.jpg",
+    description: "A recycling drop-off center where workers and residents sort glass bottles, aluminum cans, and plastics into large color-coded bins.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, people are sorting green glass bottles and plastic jugs into large blue and green recycling bins.",
+      "To the right, a worker in a high-visibility safety vest is operating a yellow cardboard box baling machine.",
+      "In the background, a garbage truck is unloading recyclable paper products.",
+      "Signage above the sorting bay indicates accepted materials including glass, plastic, and aluminum."
+    ],
+    predictionTargets: [
+      "The worker operating the baler will compress the cardboard into a tight bundle.",
+      "The woman sorting glass bottles will empty her cardboard box into the green bin.",
+      "The recycling truck will lower its hydraulic bed after dumping recyclable materials."
+    ]
+  },
+  {
+    id: "sc_044",
+    title: "Lakeside Campground Dock & Canoe Launch",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_044.jpg",
+    description: "A lakeside camping area with people fishing off a wooden dock, two campers launching a red canoe, and tents set up under pine trees.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground right, a man and woman are launching a red canoe into the clear blue lake water.",
+      "To the left on the wooden dock, an older man and child are holding fishing rods over the water.",
+      "In the background right, smoke rises from a crackling campfire near green camping tents.",
+      "Across the lake, forest-covered hills under a cloudy sky frame the peaceful nature scene."
+    ],
+    predictionTargets: [
+      "The campers in the red canoe will paddle across the lake toward the far shore.",
+      "The child fishing on the dock will feel a tug on the fishing line and reel in a fish.",
+      "The people by the campfire will add another log to keep the fire burning."
+    ]
+  },
+  {
+    id: "sc_045",
+    title: "Dental Hygiene Training Laboratory",
+    category: "School & Education",
+    imageFile: "images/task3_045.jpg",
+    description: "A dental hygiene vocational lab where students in scrubs practice techniques on mannequin heads while an instructor evaluates with a clipboard.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, dental students in blue scrubs are practicing with dental tools on mannequin heads mounted on chairs.",
+      "In the center, an instructor wearing glasses is taking notes on a clipboard while watching a student.",
+      "Overhead dental lamps illuminate each work station equipped with tray tools and mouth mirrors.",
+      "Educational anatomical charts showing tooth structure are hanging on the classroom wall."
+    ],
+    predictionTargets: [
+      "The instructor will point out proper tool angle to the student and provide feedback.",
+      "The student will adjust the overhead dental lamp to get a better view of the mannequin's teeth.",
+      "Students will sanitize their instruments in cold tray solution when the practice session ends."
+    ]
+  },
+  {
+    id: "sc_046",
+    title: "City Zoo Underwater Penguin Exhibit",
+    category: "Public Places",
+    imageFile: "images/task3_046.jpg",
+    description: "A city zoo exhibit with children watching penguins dive underwater through a large glass wall while a zookeeper feeds fish from a rock ledge.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, children and parents are pressed against a large glass window watching penguins swim rapidly underwater.",
+      "To the right on a rocky outcrop, a zookeeper in uniform is tossing fish from a metal bucket to penguins.",
+      "A schedule board on the wall shows 'Feeding Time: 11:00 AM & 2:00 PM'.",
+      "In the background, outdoor walking paths through the zoo park are visible."
+    ],
+    predictionTargets: [
+      "A penguin standing on the rock will dive into the water to catch a fish tossed by the keeper.",
+      "The children watching through the glass will cheer and follow the swimming penguin with their eyes.",
+      "The zookeeper will finish emptying the fish bucket and answer questions from the crowd."
+    ]
+  },
+  {
+    id: "sc_047",
+    title: "Bakery Commercial Kitchen & Front Counter",
+    category: "Services & Shopping",
+    imageFile: "images/task3_047.jpg",
+    description: "A dual-view bakery showing a baker pulling warm croissants from an oven on the left, and a cashier serving a customer at the pastry case on the right.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "On the left in the kitchen area, a baker in a white hat is pulling a metal tray of golden croissants from a large oven.",
+      "On the right at the front counter, a smiling cashier is handing a bakery box to an elderly customer.",
+      "The glass display case below is filled with chocolate cakes, fruit pies, and cinnamon rolls.",
+      "Menu boards on the wall list prices for hot coffee, tea, croissants, and fresh bread loaves."
+    ],
+    predictionTargets: [
+      "The baker will transfer the hot croissants onto cooling racks in the kitchen area.",
+      "The customer will pay for her pastry box and thank the cashier.",
+      "The cashier will restock the display case with newly baked goods."
+    ]
+  },
+  {
+    id: "sc_048",
+    title: "Outdoor Flea Market & Vintage Books",
+    category: "Public Places",
+    imageFile: "images/task3_048.jpg",
+    description: "A vibrant outdoor school flea market with tables of grandfather clocks, vinyl records, retro denim jackets, and shoppers browsing goods.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, tables are displayed with wooden antique clocks and stacks of vintage hardcover books.",
+      "In the center, a shopper is browsing through crates labeled 'Rock' and 'Jazz' vinyl records.",
+      "To the right, two young shoppers are examining denim and leather coats on a standing clothing rack.",
+      "In the background, colorful vendor tents line the grassy lawn in front of a school building."
+    ],
+    predictionTargets: [
+      "The shopper browsing vinyl records will choose an album to buy from the vendor.",
+      "The teenager trying on the retro jacket will ask for the price.",
+      "The vendor will wrap the antique clock in bubble wrap for a customer."
+    ]
+  },
+  {
+    id: "sc_049",
+    title: "Automated Drive-Through Car Wash",
+    category: "Services & Shopping",
+    imageFile: "images/task3_049.jpg",
+    description: "An automated car wash tunnel where a sedan is covered in white soap suds under large rotating blue foam brushes, with an attendant spraying high-pressure water.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, a blue sedan is moving along the conveyor belt through rotating blue foam wash brushes.",
+      "Thick white soap suds cover the hood and windshield of the vehicle.",
+      "To the right, a car wash attendant in a yellow safety vest is spraying the wheels with a high-pressure water hose.",
+      "In the background, a line of cars is waiting outside the entrance under a 'Wash in Progress' digital sign."
+    ],
+    predictionTargets: [
+      "The sedan will move into the drying zone where high-powered air blowers will dry the vehicle.",
+      "The next car in line will pull forward onto the automated conveyor track.",
+      "The attendant will signal the driver to put their car in neutral."
+    ]
+  },
+  {
+    id: "sc_050",
+    title: "Children's Library Storytime Corner",
+    category: "School & Education",
+    imageFile: "images/task3_050.jpg",
+    description: "A cozy children's section in a public library where kids sit on an alphabet rug listening to a librarian read a picture book aloud.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center left, a librarian with glasses is holding open a large picture book and reading to children.",
+      "In the center, young children are sitting cross-legged on a colorful alphabet rug listening attentively.",
+      "To the right, parents are sitting on small chairs watching their kids.",
+      "The background features bookshelves organized by 'Fiction' and 'Non-Fiction', stuffed animal bears, and a forest wall mural."
+    ],
+    predictionTargets: [
+      "The librarian will turn the page of the storybook and ask the kids what they think happens next.",
+      "The children will raise their hands to answer the librarian's question.",
+      "After storytime finishes, the kids will pick out books to borrow and bring home."
+    ]
+  },
+  {
+    id: "sc_052",
+    title: "High School Basketball Gymnasium Match",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_052.jpg",
+    description: "An energetic high school basketball game with players in red and blue jerseys dribbling down court, a referee blowing a whistle, and packed bleachers.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground court area, a player in a red jersey (#8) is dribbling the basketball past a defender in a blue jersey (#12).",
+      "To the right, a referee in a striped shirt is blowing his whistle and signaling with raised arms.",
+      "In the background bleachers, a large crowd of cheering fans and students in team colors are waving banners.",
+      "High on the back wall, an electronic scoreboard displays 'HOME 54 - GUEST 52' with 1:48 remaining."
+    ],
+    predictionTargets: [
+      "The player in the red jersey will pass the basketball to a teammate near the key for a shot.",
+      "The crowd in the bleachers will cheer loudly if the team scores a basket.",
+      "The referee will signal a foul call and award free throws."
+    ]
   }
 ];
+
 
