@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CELPIP Speaking Exam Simulator | Tasks 1 to 6 Practice Suite</title>
-  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 600 prompts across Tasks 1, 2, 3, 4, 5, and 6, interactive comparison and dilemma interfaces, high-resolution scenario illustrations, audio recorder, exam timers, and AI evaluation prompts.">
+  <title>CELPIP Speaking Exam Simulator | Tasks 1 to 7 Practice Suite</title>
+  <meta name="description" content="Realistic CELPIP Speaking exam simulator with 700 prompts across Tasks 1, 2, 3, 4, 5, 6, and 7, interactive comparison, dilemma, and opinion interfaces, high-resolution scenario illustrations, audio recorder, exam timers, and AI evaluation prompts.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
       <div class="header-center-info">
         <span class="header-status-pill">
           <span class="status-pulse-dot"></span>
-          <span>600 Exam Scenarios Ready</span>
+          <span>700 Exam Scenarios Ready</span>
         </span>
       </div>
 
@@ -32,7 +32,7 @@
           <span>🎙</span> Simulator
         </button>
         <button class="nav-btn" data-view="bankView">
-          <span>📚</span> 600 Prompts Bank
+          <span>📚</span> 700 Prompts Bank
         </button>
         <button class="nav-btn" data-view="historyView">
           <span>📊</span> History & Audio
@@ -73,6 +73,9 @@
               </button>
               <button id="task6Pill" class="pill-btn">
                 <span>Task 6: Difficult Situation</span>
+              </button>
+              <button id="task7Pill" class="pill-btn">
+                <span>Task 7: Express Opinions</span>
               </button>
               <button id="taskComboPill" class="pill-btn">
                 <span>Combo Task 3+4</span>
@@ -295,6 +298,63 @@
               </div>
             </div>
 
+            <!-- TASK 7 INTERACTIVE OPINION CONTAINER -->
+            <div id="task7Container" class="task7-container" style="display: none;">
+              <!-- Meta & Header -->
+              <div class="prompt-meta">
+                <span id="t7CategoryTag" class="category-tag">Technology & Digital Life</span>
+                <span id="t7PromptIdTag" class="prompt-id-tag">Task 7 #1 / 100</span>
+              </div>
+              <h2 id="t7Title" class="prompt-title">Artificial Intelligence in the Modern Workplace</h2>
+
+              <!-- Opinion Prompt Card -->
+              <div class="task7-question-card">
+                <div class="opinion-header">
+                  <span class="opinion-badge">🗣 Task 7 Debate Question:</span>
+                </div>
+                <p id="t7PromptText" class="opinion-question-text">
+                  Do you think that the widespread adoption of artificial intelligence in the workplace will create more economic opportunities than the jobs it eliminates? Explain your reasons.
+                </p>
+              </div>
+
+              <!-- Dual Perspectives Brainstorming Cards (Side A vs Side B) -->
+              <div class="task7-perspectives-grid">
+                <!-- Side A (Agree / Support) -->
+                <div class="perspective-card pro-perspective">
+                  <div class="perspective-header">
+                    <span class="perspective-icon">👍</span>
+                    <h4 id="t7SideATitle" class="perspective-title">Perspective A (Agree / Support)</h4>
+                  </div>
+                  <ul id="t7SideAPoints" class="perspective-points"></ul>
+                </div>
+
+                <!-- Side B (Disagree / Oppose) -->
+                <div class="perspective-card con-perspective">
+                  <div class="perspective-header">
+                    <span class="perspective-icon">👎</span>
+                    <h4 id="t7SideBTitle" class="perspective-title">Perspective B (Disagree / Oppose)</h4>
+                  </div>
+                  <ul id="t7SideBPoints" class="perspective-points"></ul>
+                </div>
+              </div>
+
+              <!-- High-Scoring Persuasive Connectors (Practice Mode Only) -->
+              <div id="t7VocabBox" class="prompt-hints-box" style="display: none; margin-top: 1rem;">
+                <div class="prompt-hints-title">✨ High-Scoring Opinion Connectors & Nuance Markers:</div>
+                <div id="t7VocabList" class="strategy-vocab-tags" style="margin-top: 0.4rem;"></div>
+              </div>
+
+              <!-- Task 7 Prompt Navigation Actions -->
+              <div class="prompt-actions" style="margin-top: 1rem;">
+                <button id="t7NextBtn" class="btn-secondary">
+                  <span>➡️</span> Next Task 7 Prompt
+                </button>
+                <button id="t7RandomBtn" class="btn-secondary">
+                  <span>🎲</span> Random Prompt
+                </button>
+              </div>
+            </div>
+
             <!-- Scenario Image Container (Below Prompt Text in Tasks 3 & 4) -->
             <div id="scenarioImageContainer" class="scenario-image-container">
               <img id="scenarioImg" class="scenario-img" src="" alt="CELPIP Scenario Illustration" onerror="this.src='images/sc_001_scene.svg'">
@@ -468,15 +528,15 @@
       </div>
     </section>
 
-    <!-- SECTION 2: 600 PROMPTS BANK -->
+    <!-- SECTION 2: 700 PROMPTS BANK -->
     <section id="bankView" class="view-section">
       <div class="glass-card">
         <div class="prompts-bank-header">
           <h2 style="font-family: var(--font-heading); font-size: 1.75rem; color: #fff;">
-            📚 CELPIP Speaking Prompts Bank (600 Prompts)
+            📚 CELPIP Speaking Prompts Bank (700 Prompts)
           </h2>
           <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Browse, search, and filter 100 Task 1 prompts, 100 Task 2 prompts, 100 Task 3 scene scenarios, 100 Task 4 prediction prompts, 100 Task 5 comparison scenarios, and 100 Task 6 dilemma scenarios.
+            Browse, search, and filter 100 Task 1 prompts, 100 Task 2 prompts, 100 Task 3 scene scenarios, 100 Task 4 prediction prompts, 100 Task 5 comparison scenarios, 100 Task 6 dilemma scenarios, and 100 Task 7 opinion debates.
           </p>
 
           <div class="search-filter-row">
@@ -487,6 +547,7 @@
               <button id="bankTask4Tab" class="pill-btn">Task 4: Predictions (100)</button>
               <button id="bankTask5Tab" class="pill-btn">Task 5: Compare & Persuade (100)</button>
               <button id="bankTask6Tab" class="pill-btn">Task 6: Difficult Situation (100)</button>
+              <button id="bankTask7Tab" class="pill-btn">Task 7: Express Opinions (100)</button>
             </div>
 
             <input type="text" id="bankSearchInput" class="search-input" placeholder="🔍 Search prompts by topic or keywords...">
@@ -552,6 +613,7 @@
         <button class="strategy-tab-btn" data-task="4">Task 4: Predictions</button>
         <button class="strategy-tab-btn" data-task="5">Task 5: Compare & Persuade</button>
         <button class="strategy-tab-btn" data-task="6">Task 6: Difficult Situation</button>
+        <button class="strategy-tab-btn" data-task="7">Task 7: Express Opinions</button>
         <button class="strategy-tab-btn" data-task="combo">⚡ Combo 3+4</button>
       </div>
 
@@ -565,7 +627,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>CELPIP Speaking Practice Simulator • Tasks 1, 2, 3, 4, 5 & 6 Prep Suite</p>
+    <p>CELPIP Speaking Practice Simulator • Tasks 1, 2, 3, 4, 5, 6 & 7 Prep Suite</p>
   </footer>
 
   <!-- App Datasets & Main Engine Scripts -->
@@ -574,7 +636,9 @@
   <script src="prompts-task3-4.js"></script>
   <script src="prompts-task5.js"></script>
   <script src="prompts-task6.js"></script>
+  <script src="prompts-task7.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
+
 

@@ -1665,6 +1665,130 @@ footer {
   left: 0;
 }
 
+/* TASK 7 STYLES */
+.task7-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.task7-question-card {
+  background: rgba(30, 41, 59, 0.55);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.opinion-header {
+  display: flex;
+  align-items: center;
+}
+
+.opinion-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-indigo);
+  letter-spacing: 0.05em;
+  background: rgba(99, 102, 241, 0.15);
+  padding: 0.2rem 0.55rem;
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.opinion-question-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.task7-perspectives-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.perspective-card {
+  background: rgba(15, 23, 42, 0.65);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: var(--transition-fast);
+}
+
+.pro-perspective {
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(6, 78, 59, 0.15);
+}
+
+.con-perspective {
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(127, 29, 29, 0.15);
+}
+
+.perspective-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.perspective-icon {
+  font-size: 1rem;
+}
+
+.perspective-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.pro-perspective .perspective-title {
+  color: #34d399;
+}
+
+.con-perspective .perspective-title {
+  color: #f87171;
+}
+
+.perspective-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.perspective-points li {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding-left: 0.95rem;
+  position: relative;
+  line-height: 1.35;
+}
+
+.pro-perspective .perspective-points li::before {
+  content: "✓";
+  color: #10b981;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.con-perspective .perspective-points li::before {
+  content: "✗";
+  color: #ef4444;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
 /* ==========================================================================
    RESPONSIVE DESIGN SYSTEM (STRICT VERTICAL MOBILE LAYOUT)
    ========================================================================== */
@@ -1864,7 +1988,8 @@ footer {
 
   .t5-options-grid,
   .t5-comparison-grid,
-  .task6-choices-grid {
+  .task6-choices-grid,
+  .task7-perspectives-grid {
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
