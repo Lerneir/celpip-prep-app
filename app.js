@@ -194,6 +194,22 @@ const elements = {
   t6NextBtn: document.getElementById('t6NextBtn'),
   t6RandomBtn: document.getElementById('t6RandomBtn'),
   
+  // Task 7 Interactive Elements
+  task7Pill: document.getElementById('task7Pill'),
+  task7Container: document.getElementById('task7Container'),
+  t7CategoryTag: document.getElementById('t7CategoryTag'),
+  t7PromptIdTag: document.getElementById('t7PromptIdTag'),
+  t7Title: document.getElementById('t7Title'),
+  t7PromptText: document.getElementById('t7PromptText'),
+  t7SideATitle: document.getElementById('t7SideATitle'),
+  t7SideAPoints: document.getElementById('t7SideAPoints'),
+  t7SideBTitle: document.getElementById('t7SideBTitle'),
+  t7SideBPoints: document.getElementById('t7SideBPoints'),
+  t7VocabBox: document.getElementById('t7VocabBox'),
+  t7VocabList: document.getElementById('t7VocabList'),
+  t7NextBtn: document.getElementById('t7NextBtn'),
+  t7RandomBtn: document.getElementById('t7RandomBtn'),
+  
   // Timer & Cockpit Controls
   phaseIndicator: document.getElementById('phaseIndicator'),
   timerDisplay: document.getElementById('timerDisplay'),
@@ -234,6 +250,7 @@ const elements = {
   bankTask4Tab: document.getElementById('bankTask4Tab'),
   bankTask5Tab: document.getElementById('bankTask5Tab'),
   bankTask6Tab: document.getElementById('bankTask6Tab'),
+  bankTask7Tab: document.getElementById('bankTask7Tab'),
   bankSearchInput: document.getElementById('bankSearchInput'),
   bankCategorySelect: document.getElementById('bankCategorySelect'),
   promptsGrid: document.getElementById('promptsGrid'),
@@ -366,6 +383,28 @@ const taskStrategies = {
     pitfalls: [
       'Match your tone to the audience (informal/empathetic for a friend or family member; formal/assertive for a supervisor, landlord, or client).',
       'Never just apologize and leave—always offer concrete solutions or alternatives.'
+    ]
+  },
+  7: {
+    title: 'Task 7: Expressing Opinions (90 Seconds Speaking)',
+    timing: [
+      { phase: 'Prep Time (30s)', desc: 'Pick ONE side decisively. Note 2 main arguments + 1 counter-argument concession.' },
+      { phase: 'Position & Thesis (0 - 15s)', desc: 'Clear, direct stance statement with strong opening transition.' },
+      { phase: 'Point 1 + Example (15 - 45s)', desc: 'Primary supporting reason elaborated with real-world Canadian/personal example.' },
+      { phase: 'Point 2 + Concession (45 - 75s)', desc: 'Second reason + acknowledge counter-argument before refuting it.' },
+      { phase: 'Conclusion (75 - 90s)', desc: 'Powerful synthesis summarizing why your viewpoint is paramount.' }
+    ],
+    formulas: [
+      'Opening: "From my perspective, I firmly believe that [Topic/Statement] because..."',
+      'Point 1: "First and foremost, a paramount reason is that... For instance, in Canada..."',
+      'Point 2 & Concession: "Furthermore, while critics may argue that [Opposing View], in reality [Refutation]..."',
+      'Closing: "All things considered, for the reasons outlined above, I am convinced that..."'
+    ],
+    vocab: ['From my perspective', 'I firmly maintain that', 'A paramount consideration', 'First and foremost', 'Furthermore', 'While proponents argue that', 'Nevertheless', 'On the contrary', 'All things considered', 'In the final analysis'],
+    pitfalls: [
+      'Never remain neutral or sit on the fence—choose ONE side and defend it persuasively.',
+      'Avoid superficial one-sentence points; develop each reason with concrete explanations or examples.',
+      'Fill the full 90 seconds evenly; avoid stopping before 80 seconds.'
     ]
   },
   combo: {
@@ -540,6 +579,10 @@ function setupEventListeners() {
       if (elements.t6DiplomaticBox) {
         elements.t6DiplomaticBox.style.display = state.isExamMode ? 'none' : 'block';
       }
+    } else if (state.currentTask === 7) {
+      if (elements.t7VocabBox) {
+        elements.t7VocabBox.style.display = state.isExamMode ? 'none' : 'block';
+      }
     }
     resetTimerState();
   });
@@ -598,6 +641,17 @@ function setupEventListeners() {
     elements.t6RandomBtn.addEventListener('click', () => getRandomPrompt());
   }
 
+  // Task 7 Buttons & Handlers
+  if (elements.task7Pill) {
+    elements.task7Pill.addEventListener('click', () => switchTask(7));
+  }
+  if (elements.t7NextBtn) {
+    elements.t7NextBtn.addEventListener('click', () => nextPrompt());
+  }
+  if (elements.t7RandomBtn) {
+    elements.t7RandomBtn.addEventListener('click', () => getRandomPrompt());
+  }
+
   // Timer Controls
   elements.startTimerBtn.addEventListener('click', () => startPracticeOrExam());
   elements.skipPrepBtn.addEventListener('click', () => startSpeakingPhase());
@@ -638,6 +692,7 @@ function setupEventListeners() {
   elements.bankTask4Tab.addEventListener('click', () => switchBankTab(4));
   if (elements.bankTask5Tab) elements.bankTask5Tab.addEventListener('click', () => switchBankTab(5));
   if (elements.bankTask6Tab) elements.bankTask6Tab.addEventListener('click', () => switchBankTab(6));
+  if (elements.bankTask7Tab) elements.bankTask7Tab.addEventListener('click', () => switchBankTab(7));
 
   elements.bankSearchInput.addEventListener('input', (e) => {
     state.searchQuery = e.target.value.toLowerCase();
@@ -654,7 +709,8 @@ function switchBankTab(taskId) {
   state.currentBankTask = taskId;
   const tabs = [
     elements.bankTask1Tab, elements.bankTask2Tab, elements.bankTask3Tab, 
-    elements.bankTask4Tab, elements.bankTask5Tab, elements.bankTask6Tab
+    elements.bankTask4Tab, elements.bankTask5Tab, elements.bankTask6Tab,
+    elements.bankTask7Tab
   ].filter(Boolean);
 
   tabs.forEach((tab, idx) => {
@@ -735,7 +791,8 @@ function switchTask(taskId) {
 
   const allPills = [
     elements.task1Pill, elements.task2Pill, elements.task3Pill, 
-    elements.task4Pill, elements.task5Pill, elements.task6Pill, elements.taskComboPill
+    elements.task4Pill, elements.task5Pill, elements.task6Pill,
+    elements.task7Pill, elements.taskComboPill
   ].filter(Boolean);
 
   allPills.forEach(pill => pill.classList.remove('active'));
@@ -746,6 +803,7 @@ function switchTask(taskId) {
   if (taskId === 4 && elements.task4Pill) elements.task4Pill.classList.add('active');
   if (taskId === 5 && elements.task5Pill) elements.task5Pill.classList.add('active');
   if (taskId === 6 && elements.task6Pill) elements.task6Pill.classList.add('active');
+  if (taskId === 7 && elements.task7Pill) elements.task7Pill.classList.add('active');
   if (taskId === 'combo' && elements.taskComboPill) elements.taskComboPill.classList.add('active');
 
   loadPrompt(taskId, 0);
@@ -758,6 +816,7 @@ function getPromptsArray(taskId) {
   if (taskId === 2) return TASK2_PROMPTS;
   if (taskId === 5) return TASK5_PROMPTS;
   if (taskId === 6) return TASK6_PROMPTS;
+  if (taskId === 7) return TASK7_PROMPTS;
   return SCENARIO_PROMPTS; // Tasks 3, 4, and Combo
 }
 
@@ -839,15 +898,18 @@ function loadPrompt(taskId, index) {
   state.currentPromptIndex = index;
   const p = prompts[index];
 
-  // Visibility toggles between Standard (1-4), Task 5, and Task 6 containers
+  // Visibility toggles between Standard (1-4), Task 5, Task 6, and Task 7 containers
   if (elements.promptDetailsColumn) {
-    elements.promptDetailsColumn.style.display = (taskId === 5 || taskId === 6) ? 'none' : 'flex';
+    elements.promptDetailsColumn.style.display = (taskId === 5 || taskId === 6 || taskId === 7) ? 'none' : 'flex';
   }
   if (elements.task5Container) {
     elements.task5Container.style.display = (taskId === 5) ? 'flex' : 'none';
   }
   if (elements.task6Container) {
     elements.task6Container.style.display = (taskId === 6) ? 'flex' : 'none';
+  }
+  if (elements.task7Container) {
+    elements.task7Container.style.display = (taskId === 7) ? 'flex' : 'none';
   }
 
   // TASK 5 RENDERING
@@ -911,6 +973,34 @@ function loadPrompt(taskId, index) {
 
     state.prepTimeRemaining = 60;
     state.speakTimeRemaining = 60;
+  }
+  // TASK 7 RENDERING
+  else if (taskId === 7) {
+    elements.scenarioImageContainer.classList.remove('active');
+
+    if (elements.t7CategoryTag) elements.t7CategoryTag.textContent = p.category;
+    if (elements.t7PromptIdTag) elements.t7PromptIdTag.textContent = `Task 7 #${index + 1} / ${prompts.length}`;
+    if (elements.t7Title) elements.t7Title.textContent = p.title;
+    if (elements.t7PromptText) elements.t7PromptText.textContent = p.prompt;
+
+    // Side A
+    if (elements.t7SideATitle) elements.t7SideATitle.textContent = p.sideA.label;
+    renderFeaturesList(elements.t7SideAPoints, p.sideA.points);
+
+    // Side B
+    if (elements.t7SideBTitle) elements.t7SideBTitle.textContent = p.sideB.label;
+    renderFeaturesList(elements.t7SideBPoints, p.sideB.points);
+
+    // Vocab tags
+    if (elements.t7VocabList) {
+      elements.t7VocabList.innerHTML = (p.persuasiveVocabulary || []).map(v => `<span class="vocab-tag">${v}</span>`).join('');
+    }
+    if (elements.t7VocabBox) {
+      elements.t7VocabBox.style.display = state.isExamMode ? 'none' : 'block';
+    }
+
+    state.prepTimeRemaining = 30;
+    state.speakTimeRemaining = 90;
   }
   // TASKS 1 & 2 RENDERING
   else if (taskId === 1 || taskId === 2) {
@@ -1018,7 +1108,7 @@ function startSpeakingPhase() {
   if (state.timerInterval) clearInterval(state.timerInterval);
   
   state.timerState = 'speaking';
-  state.speakTimeRemaining = (state.currentTask === 1) ? 90 : 60;
+  state.speakTimeRemaining = (state.currentTask === 1 || state.currentTask === 7) ? 90 : 60;
   
   elements.phaseIndicator.textContent = state.currentTask === 'combo' ? `COMBO TASK ${state.comboSubTask}: SPEAKING & RECORDING...` : 'SPEAKING & RECORDING...';
   elements.phaseIndicator.className = 'phase-indicator speaking';
@@ -1088,7 +1178,7 @@ function resetTimerState() {
   state.timerState = 'idle';
   const defaultPrep = (state.currentTask === 5 || state.currentTask === 6) ? 60 : 30;
   state.prepTimeRemaining = defaultPrep;
-  state.speakTimeRemaining = (state.currentTask === 1) ? 90 : 60;
+  state.speakTimeRemaining = (state.currentTask === 1 || state.currentTask === 7) ? 90 : 60;
   
   const defaultDisplaySeconds = state.isPrepEnabled ? defaultPrep : state.speakTimeRemaining;
   updateTimerDisplay(defaultDisplaySeconds);
@@ -1196,6 +1286,7 @@ function analyzeSpeechTranscript(rawTranscript) {
   const futureList = ['will', 'going', 'likely', 'might', 'probably', 'seems', 'expect', 'about'];
   const compareList = ['whereas', 'compared', 'comparison', 'better', 'prefer', 'however', 'cheaper', 'spacious', 'valuable', 'greater'];
   const diplomacyList = ['regret', 'unfortunately', 'compromise', 'propose', 'alternative', 'understand', 'appreciate', 'solution', 'arrange'];
+  const opinionList = ['perspective', 'maintain', 'opinion', 'paramount', 'furthermore', 'nevertheless', 'contrary', 'instance', 'consequently', 'convinced', 'considered', 'analysis', 'evident', 'crucial', 'undeniably', 'fundamentally'];
 
   let fillerCount = 0;
 
@@ -1221,6 +1312,10 @@ function analyzeSpeechTranscript(rawTranscript) {
 
     if (state.currentTask === 6 && diplomacyList.includes(cleanWord)) {
       return `<span class="vocab-word" title="CELPIP Task 6 Diplomatic Marker">${w}</span>`;
+    }
+
+    if (state.currentTask === 7 && opinionList.includes(cleanWord)) {
+      return `<span class="vocab-word" title="CELPIP Task 7 Opinion Marker">${w}</span>`;
     }
 
     return w;
@@ -1251,10 +1346,10 @@ function updateTimerDisplay(seconds) {
       totalSeconds = defaultPrep;
       elements.timerProgressCircle.style.stroke = "url(#timerPrepGrad)";
     } else if (state.timerState === 'speaking') {
-      totalSeconds = (state.currentTask === 1) ? 90 : 60;
+      totalSeconds = (state.currentTask === 1 || state.currentTask === 7) ? 90 : 60;
       elements.timerProgressCircle.style.stroke = "url(#timerSpeakGrad)";
     } else {
-      totalSeconds = state.isPrepEnabled ? defaultPrep : ((state.currentTask === 1) ? 90 : 60);
+      totalSeconds = state.isPrepEnabled ? defaultPrep : ((state.currentTask === 1 || state.currentTask === 7) ? 90 : 60);
       elements.timerProgressCircle.style.stroke = "url(#timerIdleGrad)";
     }
 
@@ -1362,7 +1457,7 @@ async function saveRecordingToDB() {
     promptTitle: currentPrompt.title,
     category: currentPrompt.category,
     timestamp: new Date().toISOString(),
-    durationSeconds: (state.currentTask === 1) ? 90 : 60,
+    durationSeconds: (state.currentTask === 1 || state.currentTask === 7) ? 90 : 60,
     audioBlob: state.recordedAudioBlob
   };
 
@@ -1442,7 +1537,7 @@ function downloadAudio() {
   a.click();
 }
 
-// AI Evaluation Prompt Generator (Tailored for Tasks 1, 2, 3, 4, 5, 6)
+// AI Evaluation Prompt Generator (Tailored for Tasks 1, 2, 3, 4, 5, 6, 7)
 function copyAiEvaluationPrompt() {
   const activeTask = state.currentTask === 'combo' ? state.comboSubTask : state.currentTask;
   const prompts = getPromptsArray(activeTask);
@@ -1496,6 +1591,15 @@ Objective: "${chosenChoice.objective}"`;
 - Evaluates tone appropriateness and diplomacy tailored specifically to the recipient (${chosenChoice.role}).
 - Evaluates clear delivery of difficult news with empathy.
 - Evaluates constructive problem-solving: providing 2 actionable solutions, compromises, or alternatives.`;
+  } else if (activeTask === 7) {
+    promptContextContent = `Official Debate Question: "${currentPrompt.prompt}"`;
+
+    taskCriteriaDetails = `SPECIAL CRITERIA FOR TASK 7 (Expressing Opinions):
+- Evaluates clear, immediate statement of position/thesis in the introduction (0-15s).
+- Evaluates depth of argumentation: 2 to 3 well-developed points with concrete Canadian or personal examples.
+- Evaluates counter-argument acknowledgment and refutation ('While opponents argue that... in reality...').
+- Evaluates high-level discourse markers ('From my perspective', 'A paramount factor', 'All things considered').
+- Evaluates effective pacing to fill the full 90-second duration without trailing off early.`;
   }
 
   const taskTypeName = {
@@ -1504,7 +1608,8 @@ Objective: "${chosenChoice.objective}"`;
     3: 'Task 3 (Describing a Scene)',
     4: 'Task 4 (Making Predictions)',
     5: 'Task 5 (Comparing and Persuading)',
-    6: 'Task 6 (Dealing with a Difficult Situation)'
+    6: 'Task 6 (Dealing with a Difficult Situation)',
+    7: 'Task 7 (Expressing Opinions)'
   }[activeTask] || `Task ${activeTask}`;
 
   const evalPromptText = `Act as an expert official CELPIP Speaking Examiner and English Language Coach. Evaluate my response to the following CELPIP Speaking Task:
@@ -1515,7 +1620,7 @@ Task Type: CELPIP Speaking ${taskTypeName}
 Scenario Title: "${currentPrompt.title}"
 Category: ${currentPrompt.category}
 ${promptContextContent}
-Allowed Response Time: ${activeTask === 1 ? '90 seconds' : '60 seconds'}
+Allowed Response Time: ${(activeTask === 1 || activeTask === 7) ? '90 seconds' : '60 seconds'}
 ---
 
 ${taskCriteriaDetails}
@@ -1544,7 +1649,7 @@ OUTPUT FORMAT REQUIRED:
 
 // Prompts Bank Render & Filtering
 function populateCategoryFilter() {
-  const allPrompts = [...TASK1_PROMPTS, ...TASK2_PROMPTS, ...SCENARIO_PROMPTS, ...TASK5_PROMPTS, ...TASK6_PROMPTS];
+  const allPrompts = [...TASK1_PROMPTS, ...TASK2_PROMPTS, ...SCENARIO_PROMPTS, ...TASK5_PROMPTS, ...TASK6_PROMPTS, ...TASK7_PROMPTS];
   const categories = [...new Set(allPrompts.map(p => p.category))];
   
   elements.bankCategorySelect.innerHTML = `<option value="all">All Categories</option>` +
@@ -1569,6 +1674,8 @@ function renderPromptsBank(taskFilter) {
       (p.optionA && p.optionA.name.toLowerCase().includes(state.searchQuery)) ||
       (p.optionB && p.optionB.name.toLowerCase().includes(state.searchQuery)) ||
       (p.choiceA && p.choiceA.label.toLowerCase().includes(state.searchQuery)) ||
+      (p.sideA && p.sideA.label.toLowerCase().includes(state.searchQuery)) ||
+      (p.sideB && p.sideB.label.toLowerCase().includes(state.searchQuery)) ||
       p.category.toLowerCase().includes(state.searchQuery)
     );
   }
@@ -1603,6 +1710,14 @@ function renderPromptsBank(taskFilter) {
         <div style="display:flex; flex-direction:column; gap:0.25rem; font-size:0.8rem; color:var(--text-muted); background:rgba(15,23,42,0.5); padding:0.5rem; border-radius:6px;">
           <div>👥 <strong>Pathway 1:</strong> ${p.choiceA.label}</div>
           <div>👥 <strong>Pathway 2:</strong> ${p.choiceB.label}</div>
+        </div>
+      `;
+    } else if (taskId === 7) {
+      cardContentHtml = `
+        <p style="color:#cbd5e1; font-size:0.85rem; margin-bottom:0.4rem;"><strong>Debate:</strong> ${p.prompt}</p>
+        <div style="display:flex; flex-direction:column; gap:0.25rem; font-size:0.8rem; color:var(--text-muted); background:rgba(15,23,42,0.5); padding:0.5rem; border-radius:6px;">
+          <div>👍 <strong style="color:#34d399;">Pro:</strong> ${p.sideA.label}</div>
+          <div>👎 <strong style="color:#f87171;">Con:</strong> ${p.sideB.label}</div>
         </div>
       `;
     }
@@ -1650,3 +1765,4 @@ function showToast(msg) {
     toast.remove();
   }, 4000);
 }
+
