@@ -1257,8 +1257,269 @@ const SCENARIO_PROMPTS = [
       "The librarian will climb down the ladder and push a cart of returned books down the aisle.",
       "A student at the window cubby will stand up to stretching after a long study session."
     ]
+  },
+  {
+    id: "sc_064",
+    title: "Suburban RV Motorhome Campsite Park",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_064.jpg",
+    description: "An RV campground with a family setting up folding chairs under a motorhome awning, a child riding a bicycle, and a smoking barbecue grill.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center foreground, a couple is unfolding navy camp chairs under the retractable awning of a white motorhome RV.",
+      "To the right, a young boy wearing a helmet is riding a red bicycle along a gravel driveway.",
+      "To the left, smoke rises from a round charcoal barbecue grill cooking hamburger patties.",
+      "In the background, tall pine trees and mountain peaks surround the RV campground lot."
+    ],
+    predictionTargets: [
+      "The couple will sit down in their folding chairs and enjoy cold drinks.",
+      "The mother will flip the burgers on the barbecue grill when cooked.",
+      "The child riding the bicycle will park it next to the picnic table."
+    ]
+  },
+  {
+    id: "sc_065",
+    title: "High School Cafeteria Lunch Hour Line",
+    category: "School & Education",
+    imageFile: "images/task3_065.jpg",
+    description: "A high school cafeteria during lunch hour with students carrying food trays, selecting salads with tongs, and paying at the cash register counter.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground left, a student is tapping a student ID card at a cash register counter to pay for a meal tray.",
+      "To the right along the serving line, students are using metal tongs to select fresh salad vegetables.",
+      "In the background dining hall, packed tables of students are chatting, eating lunches, and drinking milk cartons.",
+      "A 'LUNCH MENU' poster and 'GO WILDCATS' banner are displayed on the cafeteria wall."
+    ],
+    predictionTargets: [
+      "The cashier will confirm the lunch payment and the student will carry his tray to a table.",
+      "The student at the salad bar will close her plastic container and move toward the register.",
+      "More students will enter the cafeteria as the lunch bell rings."
+    ]
+  },
+  {
+    id: "sc_066",
+    title: "Community Fire Station Open House Event",
+    category: "Public Places",
+    imageFile: "images/task3_066.jpg",
+    description: "A fire station open house where a firefighter helps a child sit in a red fire truck cab, and families examine fire safety equipment on display tables.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, a firefighter in uniform is assisting a young boy wearing a plastic red helmet into the driver's seat of a fire truck.",
+      "To the right, display tables are set up with fire extinguishers, helmets, and 'FIRE PREVENTION' educational pamphlets.",
+      "Families with children are browsing the tables and talking to firefighters.",
+      "A large banner hanging over the bay doors announces 'OPEN HOUSE TODAY!'."
+    ],
+    predictionTargets: [
+      "The firefighter will let the child honk the fire truck's horn.",
+      "A family will pick up fire safety coloring books and stickers from the display table.",
+      "A firefighter will demonstrate how to properly operate a fire extinguisher."
+    ]
+  },
+  {
+    id: "sc_067",
+    title: "City Electronic Waste Recycling Drop-Off Yard",
+    category: "Public Places",
+    imageFile: "images/task3_067.jpg",
+    description: "An e-waste recycling yard where residents unload old televisions, computer monitors, and appliances from car trunks into large metal collection bins.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, a woman is unloading an old boxy television from her car trunk into a large metal bin labeled 'E-WASTE COLLECTION'.",
+      "To the right, a man is carrying a microwave appliance toward another bin designated for small electronics.",
+      "In the background, a facility worker wearing a high-visibility vest is directing incoming vehicle traffic with a stop sign paddle.",
+      "A large sign on the chain-link fence lists accepted items including TVs, computers, and household appliances."
+    ],
+    predictionTargets: [
+      "The woman will place the television securely inside the bin and return to her car.",
+      "The traffic worker will signal the next waiting car to pull forward to an open drop-off bay.",
+      "A forklift will arrive to transport full e-waste bins into the recycling warehouse."
+    ]
+  },
+  {
+    id: "sc_068",
+    title: "Winter Ski Resort Lodge & Chairlift Queue",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_068.jpg",
+    description: "A snowy ski resort lodge with skiers wearing helmets lining up for the chairlift, and guests drinking hot beverages on a wooden sun deck.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "To the right, skiers carrying poles and snowboards are queuing in line to board a quad chairlift.",
+      "To the left on the elevated wooden lodge deck, visitors are sitting at picnic tables sipping hot drinks from mugs.",
+      "Ski racks filled with colorful skis stand near the entrance of 'SKI LODGE CAFÉ'.",
+      "In the background, snow-covered mountain peaks and pine trees extend under a clear blue sky."
+    ],
+    predictionTargets: [
+      "The next pair of skiers in line will glide onto the loading carpet and sit on the chairlift seat.",
+      "The people on the lodge deck will finish their hot drinks and put on their ski gloves.",
+      "A skier on the mountain slope will carve a turn down toward the lodge."
+    ]
+  },
+  {
+    id: "sc_069",
+    title: "Hospital Emergency Room Stretcher Entrance",
+    category: "Emergency & Health",
+    imageFile: "images/task3_069.jpg",
+    description: "A hospital ER waiting hall where paramedics wheel an elderly patient on a mobile stretcher through double doors while a nurse types on a computer.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, two paramedics in green uniforms are pushing a patient on a wheeled stretcher through double doors marked 'EMERGENCY / AMBULANCE ENTRANCE'.",
+      "In the foreground right, a triage nurse at a reception desk is typing patient records into a computer monitor.",
+      "To the left in blue waiting room chairs, anxious visitors are seated waiting for updates.",
+      "A wall monitor displays 'WAIT TIMES: approx. 45 mins'."
+    ],
+    predictionTargets: [
+      "The paramedics will guide the stretcher into an acute examination room.",
+      "The triage nurse will print an ID wristband for the arriving patient.",
+      "A doctor will walk out into the waiting area to speak with a family member."
+    ]
+  },
+  {
+    id: "sc_070",
+    title: "Public Beach Boardwalk & Lifeguard Tower",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_070.jpg",
+    description: "A sunny ocean boardwalk where pedestrians push strollers and ride bicycles past a tall wooden lifeguard tower scanning the beach.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, a lifeguard in a red uniform stands on an elevated wooden tower looking through binoculars.",
+      "On the wooden boardwalk in the center, a mother is pushing a stroller while a man rides a yellow bicycle alongside.",
+      "To the right, a beach snack bar with colorful umbrellas serves ice cream and cold drinks to seated customers.",
+      "In the background, sand dunes, beach umbrellas, and ocean waves stretch into the distance under a red flag."
+    ],
+    predictionTargets: [
+      "The lifeguard will lower the binoculars and watch a group of swimmers near the shore.",
+      "The cyclist will slow down to let pedestrians cross the boardwalk path.",
+      "A child at the snack bar table will enjoy an ice cream cone."
+    ]
+  },
+  {
+    id: "sc_071",
+    title: "University Science Fair Poster Session",
+    category: "School & Education",
+    imageFile: "images/task3_071.jpg",
+    description: "A university research poster hall where students present scientific findings at trifold poster boards to judges taking notes on scoring sheets.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, a male student is presenting a poster titled 'SOLAR ENERGY EFFICIENCY' to a female judge holding a clipboard.",
+      "To the right, a judge in a suit is evaluating a student's poster on 'WATER PURIFICATION' while filling out a scoring sheet.",
+      "Down the long hall aisle, rows of colorful poster booths feature topics like 'ALGAE BIOFUEL' and 'PLASTICS DEGRADATION'.",
+      "Banners hanging overhead display 'UNIVERSITY SCIENCE FAIR 2024 - INNOVATION & RESEARCH'."
+    ],
+    predictionTargets: [
+      "The judge will ask the student a follow-up question about his data analysis charts.",
+      "The student will explain her experimental methodology and hand the judge a handout.",
+      "The judges will compare scoring sheets after visiting all poster stations."
+    ]
+  },
+  {
+    id: "sc_072",
+    title: "City Transit Bus Interior Commute",
+    category: "Travel",
+    imageFile: "images/task3_072.jpg",
+    description: "A city transit bus interior during morning commute with seated and standing passengers holding handrails, and a passenger tapping a smart fare card.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, a female commuter is tapping her green smart transit card at the fare box near the front door.",
+      "Along the aisle, standing passengers are holding onto yellow overhead handrails and vertical grab poles.",
+      "Seated passengers are listening to headphones, reading books, or looking out windows at city traffic.",
+      "Signs overhead indicate 'PRIORITY SEATING' and route map diagrams."
+    ],
+    predictionTargets: [
+      "The fare box will chime green and the passenger will move down the aisle to find a standing spot.",
+      "The bus driver will close the front doors and pull away from the bus stop.",
+      "A seated passenger will press the 'STOP REQUESTED' cord before the next stop."
+    ]
+  },
+  {
+    id: "sc_073",
+    title: "Suburban Garden Nursery Outdoor Yard",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_073.jpg",
+    description: "A garden nursery yard where shoppers load heavy bags of potting soil onto flatbed carts, and a worker waters hanging flower baskets under a greenhouse frame.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, a man in a blue shirt is lifting a heavy brown bag of potting soil off a wooden pallet onto a metal handcart.",
+      "To the right, a nursery employee in a green apron is using a watering can to water hanging petunia baskets.",
+      "In the background, rows of potted tomato plants, fruit trees, and lavender bushes line display benches.",
+      "A metal greenhouse frame displays 'GARDEN NURSERY' signage over rows of garden supplies."
+    ],
+    predictionTargets: [
+      "The man will load two more bags of soil onto his cart and push it toward the cash register.",
+      "The nursery employee will refill his watering can at a outdoor hose station.",
+      "A customer browsing the fruit trees will select a potted apple tree to purchase."
+    ]
+  },
+  {
+    id: "sc_074",
+    title: "Public Library Public Computer Room",
+    category: "School & Education",
+    imageFile: "images/task3_074.jpg",
+    description: "A public library computer room with patrons working at desktop stations, a user operating a multi-function printer, and a librarian helping an elderly man.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground center, a woman is pressing the touchscreen menu on a large multi-function printer machine.",
+      "To the right, a female librarian wearing a name tag is leaning over to assist an elderly gentleman with typing on a keyboard.",
+      "Along the wooden computer desks, patrons of various ages are seated at numbered desktop monitors (stations 1–8).",
+      "Posters on the back wall display 'LEARN', 'CONNECT', and 'GROW' alongside bookshelves."
+    ],
+    predictionTargets: [
+      "The printer machine will print out the woman's multi-page document into the output tray.",
+      "The librarian will help the senior citizen log into his email account.",
+      "A patron at station 3 will insert a USB flash drive into the computer tower."
+    ]
+  },
+  {
+    id: "sc_075",
+    title: "Indoor Community Swimming Pool Lap Lanes",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_075.jpg",
+    description: "An indoor swimming pool with swimmers practicing freestyle in lanes marked by floating ropes, and a swim coach holding a stopwatch and clipboard.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the pool, three swimmers wearing goggles and swim caps are swimming freestyle down lanes marked by red and blue floating ropes.",
+      "On the right pool deck, a swim coach in a tracksuit is standing holding a stopwatch and a clipboard with lap times.",
+      "Beside the coach, colorful foam kickboards are neatly stacked in red, green, and blue piles.",
+      "In the background, starter diving blocks (numbered 1–4) and a tall lifeguard chair are positioned by the tile wall."
+    ],
+    predictionTargets: [
+      "The lead swimmer will reach the end wall, touch the tile, and perform a flip turn.",
+      "The coach will press the stopwatch button and record the lap split time on her clipboard.",
+      "The coach will blow her whistle to signal the end of the warm-up set."
+    ]
+  },
+  {
+    id: "sc_076",
+    title: "Suburban Veterinary Surgery Suite",
+    category: "Emergency & Health",
+    imageFile: "images/task3_076.jpg",
+    description: "A sterile veterinary operating room where a vet surgeon in mask performs surgery on a golden retriever while a technician monitors a heart rate screen.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, a vet surgeon wearing blue scrubs, a surgical mask, and cap is operating on a dog under bright dual surgical lamps.",
+      "To the right, a veterinary assistant in green scrubs is monitoring a glowing heart rate ECG screen.",
+      "A stainless steel tray in the foreground holds surgical scalpels, clamps, and sterile gauze.",
+      "On the wall, an anatomical chart of canine organ systems is mounted next to a wall clock showing 2:00."
+    ],
+    predictionTargets: [
+      "The surgeon will ask the assistant for a specific suture needle from the instrument tray.",
+      "The assistant will adjust the IV fluid drip rate on the monitor pole.",
+      "Once the surgery completes, the team will transfer the dog into a recovery kennel."
+    ]
   }
 ];
+
 
 
 
