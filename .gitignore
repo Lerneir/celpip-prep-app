@@ -2,3 +2,6 @@ generate_scene_svgs.js
 *.pdf
 scratch/
 build_datasets.js
+node_modules/
+package-lock.json
+package.json

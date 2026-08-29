@@ -1017,7 +1017,248 @@ const SCENARIO_PROMPTS = [
       "The crowd in the bleachers will cheer loudly if the team scores a basket.",
       "The referee will signal a foul call and award free throws."
     ]
+  },
+  {
+    id: "sc_051",
+    title: "Indoor Botanical Garden Glass Greenhouse",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_051.jpg",
+    description: "A lush indoor greenhouse with visitors walking on a stone path admiring orchids and palm trees, a gardener pruning leaves, and a koi fish pond with a waterfall.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground left, a small stone waterfall flows into a pond filled with orange and white koi fish.",
+      "To the right, a gardener wearing a green cap and apron is using shears to prune potted tropical plant leaves.",
+      "Along the stone pathway in the center, visitors are walking and admiring vibrant pink and yellow orchid displays.",
+      "Overhead, a tall curved glass greenhouse ceiling frames lush palm trees and hanging tropical flora."
+    ],
+    predictionTargets: [
+      "The gardener will collect the trimmed leaves in a bucket and move to the next potted plant.",
+      "The visitors will pause to take photos of the vibrant orchid flowers.",
+      "The koi fish will swim toward the edge of the pond as a visitor leans closer."
+    ]
+  },
+  {
+    id: "sc_053",
+    title: "Annual School Robotics Challenge Arena",
+    category: "School & Education",
+    imageFile: "images/task3_053.jpg",
+    description: "A school gymnasium hosting a robotics competition with students controlling small robots on an obstacle mat, judges taking notes, and cheering spectators.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center foreground, student teams with remote controllers are maneuvering small motorized robots on a colorful obstacle course mat.",
+      "To the right, judges wearing official vests are taking notes on clipboards near the finish ramp.",
+      "In the background bleachers, classmates and parents are holding 'GO TEAMS!' signs and waving flags.",
+      "Banners above the exit doors read 'ANNUAL SCHOOL ROBOTICS CHALLENGE' and 'SCIENCE & INNOVATION FAIR'."
+    ],
+    predictionTargets: [
+      "The robot negotiating the ramp will successfully reach the finish zone mat.",
+      "The judges will tally the completion times and record score points.",
+      "The cheering crowd in the bleachers will stand up and applaud when Team A wins."
+    ]
+  },
+  {
+    id: "sc_054",
+    title: "Airport Baggage Claim Carousel",
+    category: "Travel",
+    imageFile: "images/task3_054.jpg",
+    description: "An airport luggage carousel hall with arriving passengers picking up suitcases from the revolving belt, and a traveler asking at the missing luggage counter.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, passengers are standing along a circular revolving metal luggage carousel pulling off colorful suitcases.",
+      "Overhead digital flight monitors show 'BAGGAGE BELT 3 - FLIGHT AC 123 BAGGAGE ARRIVED'.",
+      "To the right, a young male traveler is pointing at a desk marked 'MISSING LUGGAGE' while speaking to an airline agent.",
+      "In the background through large terminal glass windows, a commercial airplane is parked on the tarmac."
+    ],
+    predictionTargets: [
+      "The passenger reaching for the black suitcase will lift it off the carousel onto her luggage cart.",
+      "The agent at the missing luggage counter will look up the passenger's tracking number on her computer.",
+      "More suitcases will emerge from the rubber flap opening onto the conveyor belt."
+    ]
+  },
+  {
+    id: "sc_055",
+    title: "Community Health Clinic Reception & Triage",
+    category: "Emergency & Health",
+    imageFile: "images/task3_055.jpg",
+    description: "A community medical clinic lobby with a nurse checking a patient's blood pressure at a triage desk, patients waiting in chairs, and a glass reception window.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground center, a nurse in blue scrubs is using a blood pressure cuff to check an elderly female patient's arm.",
+      "To the right behind a glass protective partition, a receptionist in a green shirt is answering a phone call.",
+      "To the left in the waiting area, seated patients of various ages are reading newspapers and health magazines.",
+      "On the wall, health posters promote 'STAY HEALTHY' tips and 'VACCINATION CLINIC' schedules."
+    ],
+    predictionTargets: [
+      "The nurse will note down the patient's blood pressure reading on an intake chart.",
+      "The receptionist will call out the next waiting patient's name for their appointment.",
+      "The patient getting checked will walk into an examination room with the doctor."
+    ]
+  },
+  {
+    id: "sc_056",
+    title: "Public Park Dog Training & Agility Arena",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_056.jpg",
+    description: "A fenced dog park agility course with trainers guiding dogs over hurdles and through tunnels, owners chatting on benches, and a pet drinking fountain.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "Inside the fenced enclosure, a trainer on the left is guiding a small dog over blue jump hurdles.",
+      "To the right, a border collie is running out of a yellow agility tunnel guided by its owner.",
+      "In the foreground right, a pet-friendly water station features drinking bowls at ground level.",
+      "Outside the fence, dog owners holding leashes are standing on the sidewalk chatting."
+    ],
+    predictionTargets: [
+      "The border collie exiting the tunnel will jump over the next hurdle in the course.",
+      "The dog owner will reward their pet with a treat after completing the hurdle jump.",
+      "A dog owner will lead their pet to the water station for a drink."
+    ]
+  },
+  {
+    id: "sc_057",
+    title: "Underground City Subway Station Platform",
+    category: "Travel",
+    imageFile: "images/task3_057.jpg",
+    description: "A modern underground subway platform with a train arriving with glowing headlights, commuters waiting behind safety lines, and station maps.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "On the left, a silver modern subway train is pulling into the station with headlights illuminated.",
+      "Along the tiled platform, commuters wearing coats and backpacks are standing behind a yellow tactile safety line.",
+      "Above the platform, an electronic sign displays 'LINE 1 - DOWNTOWN - TRAIN ARRIVING'.",
+      "On the right wall, a large framed billboard advertises 'VISIT VANCOUVER!' alongside a subway route map."
+    ],
+    predictionTargets: [
+      "The subway train will come to a complete stop and its automated doors will slide open.",
+      "Waiting commuters will allow arriving passengers to step off before boarding.",
+      "An automated station announcement will chime over the loudspeaker system."
+    ]
+  },
+  {
+    id: "sc_058",
+    title: "Supermarket Delicatessen & Cheese Counter",
+    category: "Services & Shopping",
+    imageFile: "images/task3_058.jpg",
+    description: "A busy supermarket deli counter with a clerk slicing roast beef on an electric meat slicer and a customer pointing at gourmet cheeses behind glass.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "Behind the stainless counter on the left, a deli clerk wearing a hairnet is operating an electric slicer to cut roast beef.",
+      "On the right, a customer with a backpack is pointing at gourmet cheese wheels inside a refrigerated curved glass display case.",
+      "Hanging wooden signboards overhead display prices for 'ROAST BEEF $19.99/lb' and 'IMPORTED CHEESE'.",
+      "Trays of sliced ham, turkey, olives, and pastrami are arranged neatly inside the refrigerated counter."
+    ],
+    predictionTargets: [
+      "The deli clerk will weigh the sliced roast beef on a digital scale and wrap it in butcher paper.",
+      "The clerk will cut a wedge of cheddar cheese selected by the customer.",
+      "The customer will take the price-labeled packages and place them into her shopping cart."
+    ]
+  },
+  {
+    id: "sc_059",
+    title: "Suburban Car Dealership Showroom",
+    category: "Services & Shopping",
+    imageFile: "images/task3_059.jpg",
+    description: "A modern car dealership showroom with a salesperson demonstrating a new red sedan to a couple, and a reception desk with promotional banners.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, a smiling car salesperson in a blue tie is explaining features to a couple next to a new red sedan.",
+      "The female customer is sitting in the driver's seat testing the steering wheel while her partner listens.",
+      "To the right foreground, a desk is stacked with 'FINANCE AGREEMENT' paperwork and a laptop.",
+      "Large glass window walls show park-like dealership lots with promotional 'SPRING SALE!' hanging banners."
+    ],
+    predictionTargets: [
+      "The salesperson will invite the couple to take the red sedan on a test drive.",
+      "The couple will sit down at the desk to review auto financing options.",
+      "The receptionist at the desk will hand sales brochures to new visitors entering the showroom."
+    ]
+  },
+  {
+    id: "sc_060",
+    title: "High School Chemistry Laboratory Class",
+    category: "School & Education",
+    imageFile: "images/task3_060.jpg",
+    description: "A high school chemistry lab where students wearing safety goggles pour colorful liquid solutions into beakers while a teacher assists.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground left, two students wearing safety goggles are carefully pouring blue liquid solution into a glass beaker.",
+      "In the foreground center, a student is measuring yellow liquid from a flask over a Bunsen burner flame.",
+      "To the right, a female science teacher in a lab coat is observing and guiding two students at a lab bench.",
+      "On the brick back wall, a large 'Periodic Table of the Elements' chart and lab safety posters are displayed."
+    ],
+    predictionTargets: [
+      "The blue liquid mixture will react and change color in the beaker.",
+      "The teacher will demonstrate how to record chemical reaction data in a lab notebook.",
+      "Students will turn off the Bunsen burner flame and clean their glassware at the sink."
+    ]
+  },
+  {
+    id: "sc_061",
+    title: "Downtown City Marathon Finish Line",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_061.jpg",
+    description: "A festive city marathon finish line on a downtown street with a runner crossing the tape, cheering spectators holding signs, and water station volunteers.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, a male runner (#148) with raised arms is breaking through a yellow 'FINISH LINE' tape banner.",
+      "To the left behind metal security barriers, cheering spectators are holding 'GO RUNNERS!' and 'YOU DID IT!' signs.",
+      "To the right, race volunteers in 'STAFF' vests are handing water bottles and silver thermal foil blankets to finishers.",
+      "Overhead, an electronic timer gantry displays official race time '2:45:12'."
+    ],
+    predictionTargets: [
+      "The finishing runner will celebrate, catch his breath, and accept a finisher medal.",
+      "Volunteers will wrap a thermal blanket around the runner and offer a water bottle.",
+      "The next group of runners will cross the finish line right behind him."
+    ]
+  },
+  {
+    id: "sc_062",
+    title: "Suburban Campground Night Fire Pit",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_062.jpg",
+    description: "A cozy nighttime campsite under a starry crescent moon sky where friends sit around a crackling campfire roasting marshmallows on sticks.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, four campers sitting on wooden log benches are holding long wooden sticks roasting marshmallows over a stone fire pit.",
+      "To the left on a wooden picnic table, a glowing oil lantern, mugs, and a box of graham crackers are set up.",
+      "In the background, two dome camping tents (blue and green) are pitched beneath tall evergreen pine trees.",
+      "Above the campsite, a clear night sky features a crescent moon and twinkling stars."
+    ],
+    predictionTargets: [
+      "The campers will place the golden roasted marshmallows between chocolate and graham crackers to make s'mores.",
+      "Someone will tell a campfire story while sitting around the fire.",
+      "The campers will extinguish the fire pit embers before heading into their tents to sleep."
+    ]
+  },
+  {
+    id: "sc_063",
+    title: "University Historic Library Reading Room",
+    category: "School & Education",
+    imageFile: "images/task3_063.jpg",
+    description: "A grand university library reading hall with students studying at long wooden tables with laptops and textbooks, and a librarian on a wooden ladder shelving books.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground center table, students are studying — one typing on a laptop, another taking notes in a journal, and one reading an open textbook.",
+      "To the right, an elderly librarian with glasses is standing on a rolling wooden ladder putting a book on a high shelf.",
+      "Along the left wall, large arched stained glass windows illuminate individual study cubbies.",
+      "Tall dark oak bookshelves line the walls filled with thousands of leather-bound volumes."
+    ],
+    predictionTargets: [
+      "The student taking notes will close her textbook and pack her notebook into her backpack.",
+      "The librarian will climb down the ladder and push a cart of returned books down the aisle.",
+      "A student at the window cubby will stand up to stretching after a long study session."
+    ]
   }
 ];
+
 
 

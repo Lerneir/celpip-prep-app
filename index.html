@@ -49,38 +49,94 @@
       <div class="simulator-layout">
         
         <!-- Left Navigation Panel (Column 1) -->
-        <aside class="nav-sidebar-panel">
+        <aside class="nav-sidebar-panel" id="navSidebarPanel">
           <div class="glass-card nav-menu-card">
+            
             <div class="nav-menu-header">
-              <span class="nav-menu-title">Exam Tasks</span>
+              <span class="nav-menu-title">Exam Modules</span>
+              <button id="sidebarToggleBtn" class="sidebar-toggle-btn" title="Toggle Compact Sidebar">
+                <span id="sidebarToggleIcon">◀</span>
+              </button>
             </div>
 
-            <div class="task-selector-pills">
-              <button id="task1Pill" class="pill-btn active">
-                <span>Task 1: Advice</span>
-              </button>
-              <button id="task2Pill" class="pill-btn">
-                <span>Task 2: Experience</span>
-              </button>
-              <button id="task3Pill" class="pill-btn">
-                <span>Task 3: Describe Scene</span>
-              </button>
-              <button id="task4Pill" class="pill-btn">
-                <span>Task 4: Predictions</span>
-              </button>
-              <button id="task5Pill" class="pill-btn">
-                <span>Task 5: Compare & Persuade</span>
-              </button>
-              <button id="task6Pill" class="pill-btn">
-                <span>Task 6: Difficult Situation</span>
-              </button>
-              <button id="task7Pill" class="pill-btn">
-                <span>Task 7: Express Opinions</span>
-              </button>
-              <button id="taskComboPill" class="pill-btn">
-                <span>Combo Task 3+4</span>
-              </button>
+            <!-- Module 1: Speaking Accordion -->
+            <div class="nav-module-group open" id="speakingModuleGroup">
+              <div class="nav-group-header" id="speakingGroupToggle">
+                <div class="nav-group-title">
+                  <span class="group-icon">🎙</span>
+                  <span>Speaking (7 Tasks)</span>
+                </div>
+                <span class="group-chevron" id="speakingChevron">▾</span>
+              </div>
+              <div class="nav-group-content" id="speakingGroupContent">
+                <div class="task-selector-pills">
+                  <button id="task1Pill" class="pill-btn active" data-task="1">
+                    <span class="task-pill-left"><span class="task-icon">💡</span> Task 1: Advice</span>
+                    <span class="task-pill-time">90s</span>
+                  </button>
+                  <button id="task2Pill" class="pill-btn" data-task="2">
+                    <span class="task-pill-left"><span class="task-icon">📖</span> Task 2: Experience</span>
+                    <span class="task-pill-time">60s</span>
+                  </button>
+                  <button id="task3Pill" class="pill-btn" data-task="3">
+                    <span class="task-pill-left"><span class="task-icon">🖼️</span> Task 3: Scene</span>
+                    <span class="task-pill-time">60s</span>
+                  </button>
+                  <button id="task4Pill" class="pill-btn" data-task="4">
+                    <span class="task-pill-left"><span class="task-icon">🔮</span> Task 4: Predictions</span>
+                    <span class="task-pill-time">60s</span>
+                  </button>
+                  <button id="task5Pill" class="pill-btn" data-task="5">
+                    <span class="task-pill-left"><span class="task-icon">⚖️</span> Task 5: Compare</span>
+                    <span class="task-pill-time">60s</span>
+                  </button>
+                  <button id="task6Pill" class="pill-btn" data-task="6">
+                    <span class="task-pill-left"><span class="task-icon">⚠️</span> Task 6: Difficult</span>
+                    <span class="task-pill-time">60s</span>
+                  </button>
+                  <button id="task7Pill" class="pill-btn" data-task="7">
+                    <span class="task-pill-left"><span class="task-icon">🗣</span> Task 7: Opinions</span>
+                    <span class="task-pill-time">90s</span>
+                  </button>
+                  <button id="taskComboPill" class="pill-btn" data-task="combo">
+                    <span class="task-pill-left"><span class="task-icon">⚡</span> Combo 3+4</span>
+                    <span class="task-pill-time">120s</span>
+                  </button>
+                </div>
+              </div>
             </div>
+
+            <!-- Module 2: Writing Accordion -->
+            <div class="nav-module-group open" id="writingModuleGroup">
+              <div class="nav-group-header" id="writingGroupToggle">
+                <div class="nav-group-title">
+                  <span class="group-icon">✍️</span>
+                  <span>Writing (2 Tasks)</span>
+                </div>
+                <span class="group-chevron" id="writingChevron">▾</span>
+              </div>
+              <div class="nav-group-content" id="writingGroupContent">
+                <div class="task-selector-pills">
+                  <button id="writingTask1Pill" class="pill-btn" data-task="wt1">
+                    <span class="task-pill-left"><span class="task-icon">✉️</span> Task 1: Email</span>
+                    <span class="task-pill-time">27m</span>
+                  </button>
+                  <button id="writingTask2Pill" class="pill-btn" data-task="wt2">
+                    <span class="task-pill-left"><span class="task-icon">📊</span> Task 2: Survey</span>
+                    <span class="task-pill-time">26m</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar Footer Status Pill -->
+            <div class="sidebar-mini-footer">
+              <div class="quick-status-chip">
+                <span class="status-pulse-dot"></span>
+                <span id="activeModuleLabel">Speaking Practice</span>
+              </div>
+            </div>
+
           </div>
         </aside>
 
@@ -406,6 +462,228 @@
 
           </div>
 
+          <!-- WRITING EXAM SIMULATOR CONTAINER (Tasks 1 & 2) -->
+          <div id="writingScenarioBox" class="prompt-card writing-scenario-box" style="display: none;">
+            
+            <!-- Writing Left Column: Prompt Scenario & Instructions -->
+            <div class="writing-prompt-column">
+              
+              <!-- Meta Badges -->
+              <div class="prompt-meta">
+                <span id="wtCategoryTag" class="category-tag">Workplace & Career</span>
+                <span id="wtTaskTypeTag" class="prompt-id-tag">Writing Task 1: Email</span>
+                <span id="wtToneTag" class="tone-badge">Formal</span>
+              </div>
+              
+              <h2 id="wtPromptTitle" class="prompt-title">Schedule Adjustment Request</h2>
+              
+              <!-- Scenario Context Box -->
+              <div class="writing-context-box">
+                <div class="context-label">📌 Scenario Context:</div>
+                <p id="wtScenarioText" class="context-text"></p>
+              </div>
+
+              <!-- Task 1: Required Bullet Points (Email) -->
+              <div id="wt1RequirementsBox" class="writing-requirements-box">
+                <div class="requirements-header">
+                  <span class="req-icon">📋</span>
+                  <span class="req-title">Your email must address ALL points below:</span>
+                </div>
+                <ul id="wt1BulletList" class="writing-bullet-list"></ul>
+                <div class="req-hint-note">Tip: Click any bullet point to mark it as completed as you write.</div>
+              </div>
+
+              <!-- Task 2: Survey Options Selection (Survey) -->
+              <div id="wt2SurveyBox" class="writing-survey-box" style="display: none;">
+                <div class="survey-prompt-banner">
+                  <span class="req-icon">📊</span>
+                  <span id="wt2QuestionText" class="survey-question-text">Choose the option you prefer and explain your reasons:</span>
+                </div>
+                
+                <div class="survey-options-grid">
+                  <!-- Option A Card -->
+                  <div id="wt2OptACard" class="survey-option-card active">
+                    <div class="opt-card-header">
+                      <input type="radio" name="wt2OptRadio" id="wt2RadioA" checked>
+                      <label for="wt2RadioA" class="opt-title" id="wt2OptATitle">Option A</label>
+                    </div>
+                    <p id="wt2OptADesc" class="opt-desc"></p>
+                  </div>
+
+                  <!-- Option B Card -->
+                  <div id="wt2OptBCard" class="survey-option-card">
+                    <div class="opt-card-header">
+                      <input type="radio" name="wt2OptRadio" id="wt2RadioB">
+                      <label for="wt2RadioB" class="opt-title" id="wt2OptBTitle">Option B</label>
+                    </div>
+                    <p id="wt2OptBDesc" class="opt-desc"></p>
+                  </div>
+                </div>
+
+                <!-- Survey Argumentation Points Helper (Practice Mode) -->
+                <div id="wt2PersuasionBox" class="prompt-hints-box" style="display: none; margin-top: 0.75rem;">
+                  <div class="prompt-hints-title">💡 Brainstormed Angles for Your Chosen Option:</div>
+                  <ul id="wt2PersuasionList" class="prompt-hints-list"></ul>
+                </div>
+              </div>
+
+              <!-- Strategy Hints & Vocabulary Connectors (Practice Mode Only) -->
+              <div id="wtHintsBox" class="prompt-hints-box" style="display: none; margin-top: 0.75rem;">
+                <div class="prompt-hints-title">✨ Recommended Vocabulary & Transitional Connectors:</div>
+                <div id="wtVocabTags" class="strategy-vocab-tags" style="margin-top: 0.35rem;"></div>
+              </div>
+
+              <!-- Prompt Navigation Buttons -->
+              <div class="prompt-actions" style="margin-top: 1rem;">
+                <button id="wtNextBtn" class="btn-secondary">
+                  <span>➡️</span> Next Prompt
+                </button>
+                <button id="wtRandomBtn" class="btn-secondary">
+                  <span>🎲</span> Random Prompt
+                </button>
+                <button id="wtViewModelBtn" class="btn-secondary">
+                  <span>💡</span> Model Answer (Band 10–12)
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Writing Right Column: Official CELPIP Test Editor -->
+            <div class="writing-editor-column">
+              
+              <!-- Test Simulation Header Toolbar (Official CELPIP Style) -->
+              <div class="celpip-editor-toolbar">
+                <div class="toolbar-left-group">
+                  <button id="toolCutBtn" class="tool-btn" type="button" title="Cut (Ctrl+X)">
+                    <span>✂️</span> Cut
+                  </button>
+                  <button id="toolCopyBtn" class="tool-btn" type="button" title="Copy (Ctrl+C)">
+                    <span>📋</span> Copy
+                  </button>
+                  <button id="toolPasteBtn" class="tool-btn" type="button" title="Paste (Ctrl+V)">
+                    <span>📥</span> Paste
+                  </button>
+                  <span class="tool-separator">|</span>
+                  <button id="toolUndoBtn" class="tool-btn" type="button" title="Undo (Ctrl+Z)">
+                    <span>↩️</span> Undo
+                  </button>
+                  <button id="toolRedoBtn" class="tool-btn" type="button" title="Redo (Ctrl+Y)">
+                    <span>↪️</span> Redo
+                  </button>
+                </div>
+
+                <div class="toolbar-right-group">
+                  <label class="spellcheck-toggle-label" title="Toggle Spell Check Highlighting">
+                    <input type="checkbox" id="spellcheckToggle" checked>
+                    <span>🔤 Spell Check</span>
+                  </label>
+                  <button id="toolClearBtn" class="tool-btn tool-btn-danger" type="button" title="Clear Text Area">
+                    <span>🗑️</span> Clear
+                  </button>
+                </div>
+              </div>
+
+              <!-- Subject Line Input (Task 1 Email Only) -->
+              <div id="wt1SubjectGroup" class="subject-input-group">
+                <label for="wtSubjectInput" class="subject-label">Subject:</label>
+                <input type="text" id="wtSubjectInput" class="subject-input" placeholder="e.g. Schedule Adjustment Request – College Course Conflict">
+              </div>
+
+              <!-- Main Textarea Editor -->
+              <div class="editor-textarea-wrap">
+                <textarea id="wtEditorTextarea" class="celpip-textarea" placeholder="Start typing your response here... (Recommended: 150–200 words)" spellcheck="true"></textarea>
+              </div>
+
+              <!-- Dynamic Word Count HUD Bar -->
+              <div class="word-counter-hud">
+                <div class="word-count-metrics">
+                  <span class="word-count-badge" id="wtWordCountBadge">
+                    <strong id="wtWordCountNum">0</strong> Words
+                  </span>
+                  <span class="target-range-text">Target: <strong>150 – 200 words</strong></span>
+                  <span class="char-count-text" id="wtCharCountText">0 characters</span>
+                </div>
+                <div id="wtWordStatusPill" class="word-status-pill status-under">
+                  <span>⚠️ Below Target (0/150)</span>
+                </div>
+              </div>
+
+              <!-- Live Writing Timer & Submit Action Row -->
+              <div class="writing-timer-row">
+                <div class="writing-timer-display">
+                  <span class="timer-icon">⏱</span>
+                  <span id="wtTimerDisplay" class="timer-digits">27:00</span>
+                  <span id="wtTimerStatus" class="timer-phase-pill">READY</span>
+                </div>
+
+                <div class="writing-timer-actions">
+                  <button id="wtStartTimerBtn" class="btn-primary">
+                    <span>▶</span> Start Exam Timer
+                  </button>
+                  <button id="wtPauseTimerBtn" class="btn-secondary" style="display: none;">
+                    <span>⏸</span> Pause
+                  </button>
+                  <button id="wtResetTimerBtn" class="btn-secondary" style="display: none;">
+                    <span>🔄</span> Reset
+                  </button>
+                  <button id="wtSubmitBtn" class="btn-accent-green">
+                    <span>✅</span> Submit Response
+                  </button>
+                </div>
+              </div>
+
+              <!-- Post-Submission Evaluation & AI Prompt Card -->
+              <div id="wtResultCard" class="writing-result-card" style="display: none;">
+                <div class="result-header">
+                  <span>🎉 Response Submitted & Analyzed!</span>
+                  <span id="wtSubmissionTimeTag" class="submission-time-tag">Time: 18m 42s</span>
+                </div>
+
+                <!-- Writing Statistics Grid -->
+                <div class="writing-stats-grid">
+                  <div class="stat-pill">
+                    <span class="stat-num" id="statFinalWords">0</span>
+                    <span class="stat-label">Total Words</span>
+                  </div>
+                  <div class="stat-pill">
+                    <span class="stat-num" id="statSentences">0</span>
+                    <span class="stat-label">Sentences</span>
+                  </div>
+                  <div class="stat-pill">
+                    <span class="stat-num" id="statAvgWordsPerSentence">0</span>
+                    <span class="stat-label">Avg Words / Sentence</span>
+                  </div>
+                  <div class="stat-pill">
+                    <span class="stat-num" id="statParagraphs">0</span>
+                    <span class="stat-label">Paragraphs</span>
+                  </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="result-actions-row">
+                  <button id="wtCopyAiPromptBtn" class="btn-ai-eval">
+                    <span>✨</span> Copy AI Evaluation Prompt (CELPIP Rubric)
+                  </button>
+                  <button id="wtSaveHistoryBtn" class="btn-secondary">
+                    <span>💾</span> Save to Practice History
+                  </button>
+                </div>
+
+                <!-- Direct AI Links -->
+                <div class="ai-launch-box">
+                  <p class="ai-launch-desc">Paste the copied evaluation prompt into an AI assistant for full band score & error breakdown:</p>
+                  <div class="ai-links-group">
+                    <a href="https://chatgpt.com/" target="_blank" class="ai-link-btn"><span>🟢 ChatGPT</span> ↗</a>
+                    <a href="https://gemini.google.com/" target="_blank" class="ai-link-btn"><span>🔵 Google Gemini</span> ↗</a>
+                    <a href="https://claude.ai/" target="_blank" class="ai-link-btn"><span>🟠 Claude.ai</span> ↗</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
         <!-- Right Sidebar Cockpit Panel -->
@@ -528,26 +806,28 @@
       </div>
     </section>
 
-    <!-- SECTION 2: 700 PROMPTS BANK -->
+    <!-- SECTION 2: PROMPTS BANK (740 Prompts) -->
     <section id="bankView" class="view-section">
       <div class="glass-card">
         <div class="prompts-bank-header">
           <h2 style="font-family: var(--font-heading); font-size: 1.75rem; color: #fff;">
-            📚 CELPIP Speaking Prompts Bank (700 Prompts)
+            📚 CELPIP Prompts Bank (740 Scenarios)
           </h2>
           <p style="color: var(--text-muted); font-size: 0.95rem;">
-            Browse, search, and filter 100 Task 1 prompts, 100 Task 2 prompts, 100 Task 3 scene scenarios, 100 Task 4 prediction prompts, 100 Task 5 comparison scenarios, 100 Task 6 dilemma scenarios, and 100 Task 7 opinion debates.
+            Browse, search, and filter 700 official-style Speaking prompts and 40 authentic Canadian Writing scenarios (Email & Survey).
           </p>
 
           <div class="search-filter-row">
-            <div class="task-selector-pills">
+            <div class="task-selector-pills bank-tabs-wrap">
               <button id="bankTask1Tab" class="pill-btn active">Task 1: Advice (100)</button>
               <button id="bankTask2Tab" class="pill-btn">Task 2: Experience (100)</button>
               <button id="bankTask3Tab" class="pill-btn">Task 3: Scene (100)</button>
               <button id="bankTask4Tab" class="pill-btn">Task 4: Predictions (100)</button>
-              <button id="bankTask5Tab" class="pill-btn">Task 5: Compare & Persuade (100)</button>
-              <button id="bankTask6Tab" class="pill-btn">Task 6: Difficult Situation (100)</button>
-              <button id="bankTask7Tab" class="pill-btn">Task 7: Express Opinions (100)</button>
+              <button id="bankTask5Tab" class="pill-btn">Task 5: Compare (100)</button>
+              <button id="bankTask6Tab" class="pill-btn">Task 6: Difficult (100)</button>
+              <button id="bankTask7Tab" class="pill-btn">Task 7: Opinions (100)</button>
+              <button id="bankWriting1Tab" class="pill-btn">✍️ Writing 1: Email (20)</button>
+              <button id="bankWriting2Tab" class="pill-btn">✍️ Writing 2: Survey (20)</button>
             </div>
 
             <input type="text" id="bankSearchInput" class="search-input" placeholder="🔍 Search prompts by topic or keywords...">
@@ -564,24 +844,52 @@
       </div>
     </section>
 
-    <!-- SECTION 3: PRACTICE HISTORY & AUDIO -->
+    <!-- SECTION 3: PRACTICE HISTORY & WRITING SUBMISSIONS -->
     <section id="historyView" class="view-section">
       <div class="glass-card">
-        <h2 style="font-family: var(--font-heading); font-size: 1.75rem; color: #fff; margin-bottom: 0.5rem;">
-          📊 Local Practice History
-        </h2>
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
-          All your recorded speaking sessions are securely saved directly in your browser's IndexedDB storage.
-        </p>
+        <div class="history-view-header">
+          <div>
+            <h2 style="font-family: var(--font-heading); font-size: 1.75rem; color: #fff; margin-bottom: 0.25rem;">
+              📊 Local Practice History
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              All your recorded speaking sessions and written essays are securely stored in your browser's IndexedDB.
+            </p>
+          </div>
 
-        <div id="historyEmpty" style="display: none; text-align: center; padding: 3rem 1rem; color: var(--text-dim);">
-          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎙</div>
-          <p>No practice recordings saved yet. Start practicing in the Simulator tab!</p>
+          <!-- History Sub-Tabs Toggle -->
+          <div class="history-tabs-bar">
+            <button id="historySpeakingTab" class="pill-btn active">
+              <span>🎙</span> Speaking Recordings
+            </button>
+            <button id="historyWritingTab" class="pill-btn">
+              <span>✍️</span> Written Essays
+            </button>
+          </div>
         </div>
 
-        <div id="historyList" class="history-list">
-          <!-- Dynamically populated from IndexedDB -->
+        <!-- Speaking History Container -->
+        <div id="speakingHistoryContainer">
+          <div id="historyEmpty" style="display: none; text-align: center; padding: 3rem 1rem; color: var(--text-dim);">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎙</div>
+            <p>No practice recordings saved yet. Start practicing in the Simulator tab!</p>
+          </div>
+          <div id="historyList" class="history-list">
+            <!-- Dynamically populated speaking recordings -->
+          </div>
         </div>
+
+        <!-- Writing History Container -->
+        <div id="writingHistoryContainer" style="display: none;">
+          <div id="writingHistoryEmpty" style="display: none; text-align: center; padding: 3rem 1rem; color: var(--text-dim);">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">✍️</div>
+            <p>No written essays submitted yet. Start writing in Task 1 or Task 2!</p>
+          </div>
+          <div id="writingHistoryList" class="history-list">
+            <!-- Dynamically populated writing submissions -->
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -595,14 +903,48 @@
     </div>
   </div>
 
+  <!-- Model Answer Modal (Band 10–12 Example & Breakdown) -->
+  <div id="modelAnswerModal" class="lightbox-modal strategy-modal-backdrop">
+    <div class="strategy-modal-card model-answer-modal-card">
+      <button id="modelModalCloseBtn" class="lightbox-close-btn">&times;</button>
+      
+      <div class="strategy-modal-header">
+        <div class="model-badge-row">
+          <span class="score-badge-gold">🌟 Official Model Band 10–12</span>
+          <span id="modelWordCountTag" class="model-meta-tag">182 Words</span>
+        </div>
+        <h3 id="modelModalTitle">Sample High-Scoring Response</h3>
+        <p id="modelModalSubtitle">Study the structure, formal register, transitions, and bullet fulfillment.</p>
+      </div>
+
+      <div class="model-modal-body">
+        <div class="model-essay-box" id="modelEssayText"></div>
+
+        <div class="model-analysis-box">
+          <h4 class="analysis-title">🔍 Structural Breakdown & Examiner Notes:</h4>
+          <div id="modelAnalysisContent" class="analysis-content"></div>
+        </div>
+      </div>
+
+      <div class="model-modal-footer">
+        <button id="copyModelAnswerBtn" class="btn-secondary">
+          <span>📋</span> Copy Model Answer
+        </button>
+        <button id="closeModelAnswerBtn" class="btn-primary">
+          <span>✓</span> Done Studying
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- CELPIP Strategy & Tips Pop-up Modal -->
   <div id="strategyModal" class="lightbox-modal strategy-modal-backdrop">
     <div class="strategy-modal-card">
       <button id="strategyModalCloseBtn" class="lightbox-close-btn">&times;</button>
       
       <div class="strategy-modal-header">
-        <h3>💡 CELPIP Speaking Strategy Guide</h3>
-        <p>Tailored time management, high-scoring sentence formulas, and power vocabulary for each task.</p>
+        <h3>💡 CELPIP Strategy & Scoring Guide</h3>
+        <p>Tailored time management, high-scoring sentence formulas, and power vocabulary for Speaking & Writing.</p>
       </div>
 
       <!-- Task Navigation Tabs -->
@@ -615,6 +957,8 @@
         <button class="strategy-tab-btn" data-task="6">Task 6: Difficult Situation</button>
         <button class="strategy-tab-btn" data-task="7">Task 7: Express Opinions</button>
         <button class="strategy-tab-btn" data-task="combo">⚡ Combo 3+4</button>
+        <button class="strategy-tab-btn" data-task="wt1">✉️ Writing: Email</button>
+        <button class="strategy-tab-btn" data-task="wt2">📊 Writing: Survey</button>
       </div>
 
       <!-- Strategy Content Area (Populated dynamically by JS) -->
@@ -627,7 +971,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>CELPIP Speaking Practice Simulator • Tasks 1, 2, 3, 4, 5, 6 & 7 Prep Suite</p>
+    <p>CELPIP Master Prep Suite • Speaking (Tasks 1–7) & Writing (Tasks 1–2) Practice Simulator</p>
   </footer>
 
   <!-- App Datasets & Main Engine Scripts -->
@@ -637,6 +981,8 @@
   <script src="prompts-task5.js"></script>
   <script src="prompts-task6.js"></script>
   <script src="prompts-task7.js"></script>
+  <script src="prompts-writing-task1.js"></script>
+  <script src="prompts-writing-task2.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
