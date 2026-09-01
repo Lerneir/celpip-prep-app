@@ -1757,8 +1757,249 @@ const SCENARIO_PROMPTS = [
       "The players will line up at the blue line to practice passing the puck.",
       "The goalie will get into stance as a player takes a wrist shot on net."
     ]
+  },
+  {
+    id: "sc_089",
+    title: "Public Park Outdoor Yoga Class",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_089.jpg",
+    description: "A sunny park lawn where a yoga instructor demonstrates warrior pose on a colorful mat while participants follow along in a group session.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the right foreground, a female yoga instructor in green activewear is demonstrating warrior pose on a striped rainbow yoga mat.",
+      "Across the lawn, male and female participants of diverse ages are spread out on blue, red, and purple mats following her posture.",
+      "In the background, a paved park path winds past green shade trees, wooden benches, and a gazebo.",
+      "A park visitor is walking a dog along the path in the distance."
+    ],
+    predictionTargets: [
+      "The instructor will transition the class into a peaceful child's pose.",
+      "Participants will take deep breaths as they hold the pose balance.",
+      "A park passerby on the path will pause to watch the yoga session."
+    ]
+  },
+  {
+    id: "sc_090",
+    title: "City Bus Terminal Ticket & Information Counter",
+    category: "Travel",
+    imageFile: "images/task3_090.jpg",
+    description: "A city intercity bus terminal hall where travelers with suitcases line up at glass ticket counter windows under an electronic schedule screen.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, a male traveler with a backpack is receiving a paper ticket from a female clerk behind a glass ticket window.",
+      "To the right, passengers carrying rolling suitcases and duffels are standing in a stanchion line labeled 'QUEUE'.",
+      "Overhead, a digital departure screen lists times, destinations ('TORONTO', 'OTTAWA', 'MONTREAL'), gate numbers, and 'BOARDING' status.",
+      "In the background, travelers are walking through double glass doors toward Gate 1."
+    ],
+    predictionTargets: [
+      "The passenger with the ticket will proceed through Gate 1 to board his bus.",
+      "The next traveler in the queue will step forward to ticket window 2.",
+      "The departure screen will update with gate assignment changes."
+    ]
+  },
+  {
+    id: "sc_091",
+    title: "High School Woodworking & Carpentry Workshop",
+    category: "School & Education",
+    imageFile: "images/task3_091.jpg",
+    description: "A high school carpentry lab where students wearing safety goggles operate table saws and sanders, while a teacher guides a student with a ruler.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground left, a male student wearing safety goggles is guiding a wooden board through a green table saw.",
+      "In the center, a male shop teacher is leaning over a workbench showing a female student how to mark timber with a tape measure and square.",
+      "To the right foreground, a student is using a power palm sander, creating sawdust on a wooden board.",
+      "Pegboards on the wall hold hammers, hand saws, levels, and safety signs ('THINK SAFETY', 'WEAR GOGGLES')."
+    ],
+    predictionTargets: [
+      "The student at the table saw will finish the cut and turn off the power switch.",
+      "The student receiving guidance will use a pencil to mark the cut line on the wood.",
+      "The student sanding will wipe away sawdust to inspect the smooth finish."
+    ]
+  },
+  {
+    id: "sc_092",
+    title: "Supermarket Seafood & Fresh Fish Market Counter",
+    category: "Services & Shopping",
+    imageFile: "images/task3_092.jpg",
+    description: "A supermarket seafood department where a fishmonger wraps fresh salmon fillet in paper over a crushed ice display case for an elderly customer.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, a fishmonger wearing an apron and hairnet is wrapping a salmon fillet in white butcher paper for a female customer in a green coat.",
+      "The curved glass display case in front is filled with crushed ice holding fresh mackerel, cod fillets, and whole salmon.",
+      "To the left, a glass tank holds live lobsters beneath price placards ('SALMON $21.99/lb', 'LIVE LOBSTERS $29.99/lb').",
+      "Overhead, a large lit blue sign reads 'SEAFOOD & FRESH FISH'."
+    ],
+    predictionTargets: [
+      "The fishmonger will weigh the wrapped package on a digital scale and attach a price label.",
+      "The customer will accept the seafood package and place it into her shopping cart.",
+      "The fishmonger will scoop fresh crushed ice onto the display tray."
+    ]
+  },
+  {
+    id: "sc_093",
+    title: "Outdoor Autumn Festival Pumpkin Patch",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_093.jpg",
+    description: "A festive farm pumpkin patch where families pick large orange pumpkins from straw fields near a tractor hayride and scarecrow display.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, a father, mother, and two children are lifting large round orange pumpkins off a field of yellow straw.",
+      "To the right, a red tractor pulling a wooden hayride wagon filled with smiling kids is driving past a barn.",
+      "Beside the barn, three friendly scarecrows wearing plaid shirts and straw hats stand near cornstalk bundles.",
+      "In the background, colorful autumn trees in orange, red, and yellow line the farm hills."
+    ],
+    predictionTargets: [
+      "The family will roll their chosen pumpkins to a wheelbarrow to haul to their car.",
+      "The tractor driver will stop the hayride wagon at the pumpkin unloading station.",
+      "Children will pose for photos next to the scarecrow display."
+    ]
+  },
+  {
+    id: "sc_094",
+    title: "Suburban Car Repair Garage Tire Bay",
+    category: "Services & Shopping",
+    imageFile: "images/task3_094.jpg",
+    description: "An auto repair shop bay where a mechanic uses a pneumatic impact wrench to install a tire on a blue car raised on a hydraulic lift.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center right, a mechanic wearing safety glasses and a blue jumpsuit is kneeling with a pneumatic air wrench tightening lug nuts on a car tire.",
+      "The blue hatchback car is raised on a red two-post hydraulic vehicle lift.",
+      "To the left foreground, a stack of four brand new rubber tires rests on the concrete garage floor.",
+      "A red multi-drawer tool chest, oil drums, and air hose reel line the white cinderblock shop wall."
+    ],
+    predictionTargets: [
+      "The mechanic will finish tightening all five wheel lug nuts with the wrench.",
+      "He will lower the hydraulic lift using the wall control lever.",
+      "He will check the air pressure in all four tires with a digital gauge."
+    ]
+  },
+  {
+    id: "sc_095",
+    title: "University Campus Student Union Info Desk",
+    category: "School & Education",
+    imageFile: "images/task3_095.jpg",
+    description: "A university student union lobby where a staff member at an information counter points at a campus map for two new freshmen holding orientation folders.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center foreground, a student union staff member in a blue polo shirt is using a pen to point out buildings on a large campus map.",
+      "Across the desk, a male student with a backpack and a female student with a purse are listening attentively while holding yellow orientation packets.",
+      "Behind the desk, bulletin boards display posters for 'ACADEMIC SERVICES', 'CLUBS & ACTIVITIES', and 'HOUSING'.",
+      "Overhead banners welcome students with 'STUDENT UNION & INFORMATION' and 'UNIVERSITY ORIENTATION WEEK'."
+    ],
+    predictionTargets: [
+      "The staff worker will hand a folded campus map brochure to the students.",
+      "The students will thank the worker and walk toward their first orientation seminar building.",
+      "Other freshmen will queue at the counter to ask questions about student ID cards."
+    ]
+  },
+  {
+    id: "sc_096",
+    title: "Children's Indoor Trampoline Play Park",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_096.jpg",
+    description: "An indoor trampoline park where children bounce on interconnected trampoline beds while a staff supervisor monitors safety near a foam pit.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground, children wearing grip socks are mid-air jumping on yellow-framed trampoline mats surrounded by black safety netting.",
+      "To the right, a staff supervisor in a green shirt and whistle is standing near a foam pit filled with colorful foam cubes.",
+      "In the background, a climbing wall with colorful handholds is mounted next to a 'JUMP ZONE' banner.",
+      "Parents are sitting on benches in a glassed-in observation café area."
+    ],
+    predictionTargets: [
+      "A child will do a flip off the trampoline into the foam cube pit.",
+      "The staff supervisor will blow his whistle to enforce the one-jumper-per-trampoline safety rule.",
+      "Kids will move to the climbing wall section of the play park."
+    ]
+  },
+  {
+    id: "sc_097",
+    title: "City Center Bicycle Share & Repair Station",
+    category: "Travel",
+    imageFile: "images/task3_097.jpg",
+    description: "A city bike-share station where a commuter unlocks a blue rental bike using a mobile app while a mechanic pumps a tire at an adjacent repair stand.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, a female commuter with a green jacket is holding her smartphone to scan a QR code on a blue rental bicycle dock.",
+      "To the right, a male bike mechanic in a black apron is using a floor air pump at a public 'BIKE REPAIR' stand with hanging tools.",
+      "An automated touch screen kiosk displays instructions under a round 'CITY BIKE SHARE' pillar sign.",
+      "In the background, city street traffic, a bike lane, and storefronts are visible under clear skies."
+    ],
+    predictionTargets: [
+      "The bike dock mechanism will unlatch with a green LED light and the commuter will pull out the bicycle.",
+      "The mechanic will check the tire pressure gauge before handing the repaired bike to its owner.",
+      "Another rider will dock a rental bike into an open empty bay."
+    ]
+  },
+  {
+    id: "sc_098",
+    title: "Public Art Gallery Sculpture Exhibition",
+    category: "Public Places",
+    imageFile: "images/task3_098.jpg",
+    description: "A brightly lit art gallery room where visitors holding brochures admire modern bronze and glass sculptures on white pedestals, guided by a gallery curator.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center foreground, a female gallery curator in a blue blazer is speaking and gesturing toward an abstract glass sculpture on a white pedestal.",
+      "To the left, a couple holding gallery exhibition guidebooks is admiring a twisted bronze sculpture.",
+      "To the right, a small group of visitors is listening to the curator's explanation.",
+      "Polished hardwood floors reflect track spotlights and large framed artworks mounted on white gallery walls."
+    ],
+    predictionTargets: [
+      "The curator will answer a visitor's question about the artist's sculpting technique.",
+      "The couple will turn the page of their brochure to read about the next artwork display.",
+      "The group will follow the curator into the painting exhibition room."
+    ]
+  },
+  {
+    id: "sc_099",
+    title: "Suburban Greenhouse Plant Nursery Sales Desk",
+    category: "Services & Shopping",
+    imageFile: "images/task3_099.jpg",
+    description: "A plant nursery sales desk where a customer pays cash for potted ferns while an employee places potted purple orchids into a cardboard carrier box.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground center, a female customer in a scarf is handing paper currency to a staff member across a wooden checkout counter.",
+      "To the right, a male employee in a green apron is placing two potted purple orchids into a cardboard box carrier.",
+      "Potted ferns, succulents, ceramic pots, and plant care pamphlets are arranged on the sales counter.",
+      "In the background through glass greenhouse walls, rows of hanging potted plants and nursery shelves are visible."
+    ],
+    predictionTargets: [
+      "The employee will hand cash change and a receipt to the customer.",
+      "The customer will pick up the boxed orchid carrier and potted ferns to take to her car.",
+      "The employee will wipe down the checkout counter before serving the next customer."
+    ]
+  },
+  {
+    id: "sc_100",
+    title: "Community Center Culinary & Cooking Class",
+    category: "School & Education",
+    imageFile: "images/task3_100.jpg",
+    description: "A community kitchen cooking class where adult students in aprons chop fresh vegetables while a chef instructor demonstrates flipping a stir-fry in a pan.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the background center, a female chef instructor in a white chef coat is flipping sauteed vegetables mid-air in a pan over a commercial gas stove flame.",
+      "In the foreground, diverse adult students wearing navy aprons are slicing bell peppers, onions, and carrots on wooden cutting boards.",
+      "Surrounding the island counter, bowls of fresh herbs, olive oil bottles, knives, and kitchen utensils are neatly organized.",
+      "A chalkboard on the back wall reads 'WEEKLY CLASS: VEGETABLE STIR-FRY - Frying Pan Flip Technique'."
+    ],
+    predictionTargets: [
+      "The instructor will demonstrate how to season the stir-fry with soy sauce and sesame oil.",
+      "Students will add their chopped vegetables into individual hot skillets.",
+      "The class will plate their cooked stir-fry dishes for tasting and evaluation."
+    ]
   }
 ];
+
 
 
 
