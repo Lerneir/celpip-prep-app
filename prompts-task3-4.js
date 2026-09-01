@@ -1517,8 +1517,249 @@ const SCENARIO_PROMPTS = [
       "The assistant will adjust the IV fluid drip rate on the monitor pole.",
       "Once the surgery completes, the team will transfer the dog into a recovery kennel."
     ]
+  },
+  {
+    id: "sc_077",
+    title: "Apple Orchard Harvest & Cider Press Stand",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_077.jpg",
+    description: "An apple orchard cider stand where a worker pours fresh cider from a wooden press into jugs while families pick red apples from orchard trees.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground right, a farm worker in an apron is pouring fresh cider into glass jugs from a heavy wooden cider press.",
+      "To the left, a mother and daughter are picking ripe red apples from low tree branches into wooden bushel baskets.",
+      "In the background, rows of apple trees stretch up rolling green hills under a bright autumn sky.",
+      "A wooden signboard near the press displays 'FRESH APPLE CIDER - LOCAL CIDER $8'."
+    ],
+    predictionTargets: [
+      "The farm worker will cap the cider jug and hand it to a waiting customer.",
+      "The mother and daughter will carry their full apple basket to the weighing station.",
+      "More visitors will walk into the orchard rows carrying empty baskets."
+    ]
+  },
+  {
+    id: "sc_078",
+    title: "Outdoor Community Theatre Park Rehearsal",
+    category: "Public Places",
+    imageFile: "images/task3_078.jpg",
+    description: "An outdoor park amphitheater where actors in historical costumes rehearse on stage while the director calls out instructions from the seating area.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "On the wooden stage on the right, actors dressed in Renaissance costumes are rehearsing dramatic gestures.",
+      "In the seating area on the left, a male director holding an open script notebook calls out directions with a speech bubble.",
+      "Audience members and townspeople are seated on wooden amphitheater benches watching the rehearsal.",
+      "A banner tied between trees above the stage reads 'SPRING PLAY REHEARSAL'."
+    ],
+    predictionTargets: [
+      "The actors will stop line delivery and listen to the director's feedback.",
+      "The lead actress will repeat her entrance from stage left with more emotion.",
+      "The crew will adjust the stage lights mounted on vertical metal poles."
+    ]
+  },
+  {
+    id: "sc_079",
+    title: "High School Track & Field High Jump Event",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_079.jpg",
+    description: "A track and field high jump event where an athlete arches over the crossbar onto a blue foam landing mat while an official measures height.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, a female athlete in a red 'WESTVIEW HIGH' uniform is arching back mid-air over a high jump crossbar.",
+      "Below the bar, a large blue foam crash landing pad is positioned to catch the jumper.",
+      "To the left, an official in a cap holding a clipboard and measuring tape monitors the crossbar height marks (1.65m - 1.75m).",
+      "To the right, cheering teammates sitting on the grass are waving 'GO WESTVIEW!' signs."
+    ],
+    predictionTargets: [
+      "The athlete will clear the crossbar safely without knocking it off the uprights.",
+      "The official will raise a white flag to signal a successful jump clearance.",
+      "Teammates on the grass will cheer loudly as she lands on the blue cushion mat."
+    ]
+  },
+  {
+    id: "sc_080",
+    title: "Hotel Breakfast Buffet Dining Room",
+    category: "Services & Shopping",
+    imageFile: "images/task3_080.jpg",
+    description: "A hotel breakfast buffet hall with guests serving scrambled eggs and pancakes from stainless steel chafing dishes, and a chef cooking omelets.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground center, guests are using metal tongs to serve scrambled eggs, pancakes, and sausage from stainless steel chafing dishes.",
+      "To the right behind the counter, a chef in a white chef hat is cooking fresh omelets over a flat-top grill.",
+      "On the left counter, glass pitchers of orange juice and coffee urns are available at the beverage station.",
+      "In the background, diners are seated at wooden tables eating breakfast and talking."
+    ],
+    predictionTargets: [
+      "The guest with the tongs will place pancakes onto his plate and head to the syrup dispenser.",
+      "The chef will flip the omelet and slide it onto the customer's waiting plate.",
+      "A server will replenish the hot scrambled eggs dish with a fresh tray from the kitchen."
+    ]
+  },
+  {
+    id: "sc_081",
+    title: "City Park Ice Cream Cart & Splash Pad",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_081.jpg",
+    description: "A park ice cream cart where a vendor scoops waffle cones for children in line next to a ground splash pad with shooting water jets.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "On the left, an ice cream cart vendor in a green cap is handing a double-scoop waffle cone to a girl at the head of a queue.",
+      "To the right, children in swimwear are running and playing through shooting water jets on a colorful round splash pad.",
+      "Park benches along the paved trail are occupied by parents watching their kids.",
+      "Signs overhead advertise 'CITY PARK TREATS - ICE CREAM' and 'SPLASH PAD - PLAY SAFELY'."
+    ],
+    predictionTargets: [
+      "The next child in line will order a chocolate ice cream cone.",
+      "A child playing in the splash pad will run under the center water jet.",
+      "The vendor will restock the ice cream tub from the freezer chest."
+    ]
+  },
+  {
+    id: "sc_082",
+    title: "Auto Body Repair Shop Spray Paint Booth",
+    category: "Services & Shopping",
+    imageFile: "images/task3_082.jpg",
+    description: "A specialized auto body paint booth where a technician in a protective hazmat suit spray paints a car door under infrared drying lamps.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the center, a body shop technician wearing a full white hazmat suit and respirator mask is using a spray gun to apply yellow paint to a car door on a stand.",
+      "To the right, a stand of glowing red infrared heat lamps is drying another painted section.",
+      "On the left metal cart, paint cans, thinners, and masking tape rolls are organized neatly.",
+      "Bright overhead fluorescent lights illuminate the sealed white paint booth room."
+    ],
+    predictionTargets: [
+      "The technician will apply an even clear-coat layer over the yellow car door.",
+      "The technician will turn on the exhaust ventilation fan to clear paint fumes.",
+      "The dried car door will be inspected under the light before reassembly."
+    ]
+  },
+  {
+    id: "sc_083",
+    title: "Public Library Children's Craft Workshop",
+    category: "School & Education",
+    imageFile: "images/task3_083.jpg",
+    description: "A library children's craft area where kids cut construction paper and glue glitter onto decorative masks while a children's librarian assists.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground at low wooden tables, young children are using safety scissors, glue sticks, and glitter to make decorative animal masks.",
+      "To the right, a female children's librarian in glasses is helping a young girl attach feathers to her mask.",
+      "Around the room, bookshelves are filled with children's picture books and colorful wall posters ('READ!', 'CREATIVITY ZONE').",
+      "A poster on the cabinet reads 'CRAFT WORKSHOP TODAY!'."
+    ],
+    predictionTargets: [
+      "The child using scissors will cut out star shapes from blue construction paper.",
+      "The librarian will display the completed masks on a bulletin board.",
+      "The children will clean up their paper scraps and place scissors into supply bins."
+    ]
+  },
+  {
+    id: "sc_084",
+    title: "Community Park Volunteer Tree Planting Drive",
+    category: "Nature & Outdoors",
+    imageFile: "images/task3_084.jpg",
+    description: "A park tree planting event where volunteers dig holes with shovels, plant young saplings, spread mulch, and water new trees.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the foreground left, two volunteers wearing 'VOLUNTEER' t-shirts are using metal shovels to dig a planting hole in the lawn.",
+      "In the center, a volunteer team is securing a young sapling with wooden stakes and green garden ties.",
+      "To the right, bags of brown mulch, soil, green watering cans, and a garden hose are arranged on the grass.",
+      "A wooden park sign reads 'COMMUNITY TREE PLANTING DAY - PARK GREENING PROJECT'."
+    ],
+    predictionTargets: [
+      "The volunteers will place the sapling root ball into the dug hole and cover it with soil.",
+      "A volunteer will pour water from the green watering can over the newly planted tree base.",
+      "The team will spread a layer of wood mulch around the tree base to retain moisture."
+    ]
+  },
+  {
+    id: "sc_085",
+    title: "Outdoor Street Festival Handmade Crafts Booth",
+    category: "Services & Shopping",
+    imageFile: "images/task3_085.jpg",
+    description: "An outdoor artisan craft market booth where a jeweler explains beaded necklaces to shoppers examining displays under festive hanging lights.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "Inside a wooden canopy booth, an artisan vendor in a scarf is gesturing while explaining handmade beaded necklaces to two female shoppers.",
+      "In the foreground table, black velvet busts display colorful beaded necklaces, bracelets, and earrings.",
+      "Hanging overhead, festive pennant banners and string lights decorate the cobblestone festival street.",
+      "The booth sign reads 'THE BEADED BORDER - HANDMADE JEWELRY'."
+    ],
+    predictionTargets: [
+      "The shopper examining the blue necklace will try it on in front of a small tabletop mirror.",
+      "The vendor will package the selected necklace in a gift box and accept payment.",
+      "More street festival attendees will stop by the booth to browse the jewelry."
+    ]
+  },
+  {
+    id: "sc_086",
+    title: "Airport Departure Gate Baggage Weight Counter",
+    category: "Travel",
+    imageFile: "images/task3_086.jpg",
+    description: "An airport check-in desk where a traveler places a heavy duffel bag on a digital scale while an airline agent types on a computer to print baggage tags.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, a female traveler is lifting a green duffel bag onto a digital floor scale displaying '32.5 kg OVERWEIGHT'.",
+      "To the right behind the counter, an airline agent ('MARK') is typing on a computer monitor while a label printer generates luggage tags.",
+      "Flight departure monitors overhead show 'UA456 LONDON BOARDING' and 'AC123 PARIS DELAYED'.",
+      "A 'NO CASH' sign is mounted on the front of the customer check-in desk."
+    ],
+    predictionTargets: [
+      "The agent will inform the traveler that the bag exceeds the weight limit.",
+      "The traveler will open the duffel bag to transfer heavy items to her carry-on luggage.",
+      "The agent will attach the printed barcode luggage tag to the duffel handle."
+    ]
+  },
+  {
+    id: "sc_087",
+    title: "Suburban Laundromat Washing & Drying Facility",
+    category: "Services & Shopping",
+    imageFile: "images/task3_087.jpg",
+    description: "A bright self-service laundromat where patrons load clothes into front-load washing machines and fold clean towels on wooden tables.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "In the left foreground, a young woman is loading colorful clothes from a plastic basket into a front-loading washing machine.",
+      "To the right, a male patron at a wooden folding table is neatly folding stacks of white clean bath towels.",
+      "In the center, an elderly man is inserting a laundry payment card into a washing machine control panel.",
+      "Overhead shelves store large bottles of detergent and fabric softener under signs for 'WASHERS' and 'DRYERS'."
+    ],
+    predictionTargets: [
+      "The woman will add liquid detergent, close the door, and start the wash cycle.",
+      "The man folding towels will place them into his canvas laundry bag.",
+      "The washer cycle timer will count down until the spin cycle completes."
+    ]
+  },
+  {
+    id: "sc_088",
+    title: "Community Ice Rink Youth Hockey Practice",
+    category: "Sports & Recreation",
+    imageFile: "images/task3_088.jpg",
+    description: "An indoor ice rink where young hockey players practice drills on skates while a coach points with a marker at a strategy board on the glass barrier.",
+    task3Prompt: OFFICIAL_TASK3_PROMPT_TEXT,
+    task4Prompt: OFFICIAL_TASK4_PROMPT_TEXT,
+    spatialHints: [
+      "On the right, a female hockey coach on skates is using a marker to explain play diagrams on a white strategy board mounted to the glass barrier.",
+      "In the foreground center, young players in red ('WARRIORS #21') and blue ('HAWKS #14') jerseys are listening attentively on the ice.",
+      "In the background, a goalie in full pads guards a hockey net while other players skate with pucks.",
+      "Banners on the wall display 'COMMUNITY ICE RINK' and 'YOUTH HOCKEY'."
+    ],
+    predictionTargets: [
+      "The coach will finish explaining the drill and blow her whistle for players to start skating.",
+      "The players will line up at the blue line to practice passing the puck.",
+      "The goalie will get into stance as a player takes a wrist shot on net."
+    ]
   }
 ];
+
 
 
 
