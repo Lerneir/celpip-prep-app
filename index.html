@@ -52,88 +52,94 @@
         <aside class="nav-sidebar-panel" id="navSidebarPanel">
           <div class="glass-card nav-menu-card">
             
-            <div class="nav-menu-header">
-              <span class="nav-menu-title">Exam Modules</span>
-              <button id="sidebarToggleBtn" class="sidebar-toggle-btn" title="Toggle Compact Sidebar">
-                <span id="sidebarToggleIcon">◀</span>
+            <div class="nav-menu-header" id="navMenuHeader" role="button" tabindex="0" aria-label="Toggle exam modules menu" aria-expanded="true">
+              <div class="nav-menu-header-left">
+                <span class="nav-menu-title">Exam Modules</span>
+                <span id="mobileActiveTaskPill" class="mobile-active-task-pill">💡 Task 1: Advice</span>
+              </div>
+              <button id="sidebarToggleBtn" class="sidebar-toggle-btn" title="Toggle Modules Menu" aria-label="Toggle Modules Menu">
+                <span id="sidebarToggleIcon" class="sidebar-toggle-icon">◀</span>
               </button>
             </div>
 
-            <!-- Module 1: Speaking Accordion -->
-            <div class="nav-module-group open" id="speakingModuleGroup">
-              <div class="nav-group-header" id="speakingGroupToggle">
-                <div class="nav-group-title">
-                  <span class="group-icon">🎙</span>
-                  <span>Speaking (7 Tasks)</span>
+            <!-- Dropdown Body (collapses downwards on mobile, standard sidebar on desktop) -->
+            <div class="nav-menu-dropdown-body" id="navMenuDropdownBody">
+              <!-- Module 1: Speaking Accordion -->
+              <div class="nav-module-group open" id="speakingModuleGroup">
+                <div class="nav-group-header" id="speakingGroupToggle">
+                  <div class="nav-group-title">
+                    <span class="group-icon">🎙</span>
+                    <span>Speaking (7 Tasks)</span>
+                  </div>
+                  <span class="group-chevron" id="speakingChevron">▾</span>
                 </div>
-                <span class="group-chevron" id="speakingChevron">▾</span>
-              </div>
-              <div class="nav-group-content" id="speakingGroupContent">
-                <div class="task-selector-pills">
-                  <button id="task1Pill" class="pill-btn active" data-task="1">
-                    <span class="task-pill-left"><span class="task-icon">💡</span> Task 1: Advice</span>
-                    <span class="task-pill-time">90s</span>
-                  </button>
-                  <button id="task2Pill" class="pill-btn" data-task="2">
-                    <span class="task-pill-left"><span class="task-icon">📖</span> Task 2: Experience</span>
-                    <span class="task-pill-time">60s</span>
-                  </button>
-                  <button id="task3Pill" class="pill-btn" data-task="3">
-                    <span class="task-pill-left"><span class="task-icon">🖼️</span> Task 3: Scene</span>
-                    <span class="task-pill-time">60s</span>
-                  </button>
-                  <button id="task4Pill" class="pill-btn" data-task="4">
-                    <span class="task-pill-left"><span class="task-icon">🔮</span> Task 4: Predictions</span>
-                    <span class="task-pill-time">60s</span>
-                  </button>
-                  <button id="task5Pill" class="pill-btn" data-task="5">
-                    <span class="task-pill-left"><span class="task-icon">⚖️</span> Task 5: Compare</span>
-                    <span class="task-pill-time">60s</span>
-                  </button>
-                  <button id="task6Pill" class="pill-btn" data-task="6">
-                    <span class="task-pill-left"><span class="task-icon">⚠️</span> Task 6: Difficult</span>
-                    <span class="task-pill-time">60s</span>
-                  </button>
-                  <button id="task7Pill" class="pill-btn" data-task="7">
-                    <span class="task-pill-left"><span class="task-icon">🗣</span> Task 7: Opinions</span>
-                    <span class="task-pill-time">90s</span>
-                  </button>
-                  <button id="taskComboPill" class="pill-btn" data-task="combo">
-                    <span class="task-pill-left"><span class="task-icon">⚡</span> Combo 3+4</span>
-                    <span class="task-pill-time">120s</span>
-                  </button>
+                <div class="nav-group-content" id="speakingGroupContent">
+                  <div class="task-selector-pills">
+                    <button id="task1Pill" class="pill-btn active" data-task="1">
+                      <span class="task-pill-left"><span class="task-icon">💡</span> Task 1: Advice</span>
+                      <span class="task-pill-time">90s</span>
+                    </button>
+                    <button id="task2Pill" class="pill-btn" data-task="2">
+                      <span class="task-pill-left"><span class="task-icon">📖</span> Task 2: Experience</span>
+                      <span class="task-pill-time">60s</span>
+                    </button>
+                    <button id="task3Pill" class="pill-btn" data-task="3">
+                      <span class="task-pill-left"><span class="task-icon">🖼️</span> Task 3: Scene</span>
+                      <span class="task-pill-time">60s</span>
+                    </button>
+                    <button id="task4Pill" class="pill-btn" data-task="4">
+                      <span class="task-pill-left"><span class="task-icon">🔮</span> Task 4: Predictions</span>
+                      <span class="task-pill-time">60s</span>
+                    </button>
+                    <button id="task5Pill" class="pill-btn" data-task="5">
+                      <span class="task-pill-left"><span class="task-icon">⚖️</span> Task 5: Compare</span>
+                      <span class="task-pill-time">60s</span>
+                    </button>
+                    <button id="task6Pill" class="pill-btn" data-task="6">
+                      <span class="task-pill-left"><span class="task-icon">⚠️</span> Task 6: Difficult</span>
+                      <span class="task-pill-time">60s</span>
+                    </button>
+                    <button id="task7Pill" class="pill-btn" data-task="7">
+                      <span class="task-pill-left"><span class="task-icon">🗣</span> Task 7: Opinions</span>
+                      <span class="task-pill-time">90s</span>
+                    </button>
+                    <button id="taskComboPill" class="pill-btn" data-task="combo">
+                      <span class="task-pill-left"><span class="task-icon">⚡</span> Combo 3+4</span>
+                      <span class="task-pill-time">120s</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Module 2: Writing Accordion -->
-            <div class="nav-module-group open" id="writingModuleGroup">
-              <div class="nav-group-header" id="writingGroupToggle">
-                <div class="nav-group-title">
-                  <span class="group-icon">✍️</span>
-                  <span>Writing (2 Tasks)</span>
+              <!-- Module 2: Writing Accordion -->
+              <div class="nav-module-group open" id="writingModuleGroup">
+                <div class="nav-group-header" id="writingGroupToggle">
+                  <div class="nav-group-title">
+                    <span class="group-icon">✍️</span>
+                    <span>Writing (2 Tasks)</span>
+                  </div>
+                  <span class="group-chevron" id="writingChevron">▾</span>
                 </div>
-                <span class="group-chevron" id="writingChevron">▾</span>
-              </div>
-              <div class="nav-group-content" id="writingGroupContent">
-                <div class="task-selector-pills">
-                  <button id="writingTask1Pill" class="pill-btn" data-task="wt1">
-                    <span class="task-pill-left"><span class="task-icon">✉️</span> Task 1: Email</span>
-                    <span class="task-pill-time">27m</span>
-                  </button>
-                  <button id="writingTask2Pill" class="pill-btn" data-task="wt2">
-                    <span class="task-pill-left"><span class="task-icon">📊</span> Task 2: Survey</span>
-                    <span class="task-pill-time">26m</span>
-                  </button>
+                <div class="nav-group-content" id="writingGroupContent">
+                  <div class="task-selector-pills">
+                    <button id="writingTask1Pill" class="pill-btn" data-task="wt1">
+                      <span class="task-pill-left"><span class="task-icon">✉️</span> Task 1: Email</span>
+                      <span class="task-pill-time">27m</span>
+                    </button>
+                    <button id="writingTask2Pill" class="pill-btn" data-task="wt2">
+                      <span class="task-pill-left"><span class="task-icon">📊</span> Task 2: Survey</span>
+                      <span class="task-pill-time">26m</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Sidebar Footer Status Pill -->
-            <div class="sidebar-mini-footer">
-              <div class="quick-status-chip">
-                <span class="status-pulse-dot"></span>
-                <span id="activeModuleLabel">Speaking Practice</span>
+              <!-- Sidebar Footer Status Pill -->
+              <div class="sidebar-mini-footer">
+                <div class="quick-status-chip">
+                  <span class="status-pulse-dot"></span>
+                  <span id="activeModuleLabel">Speaking Practice</span>
+                </div>
               </div>
             </div>
 
@@ -233,9 +239,7 @@
                       <span>↩</span> Change My Choice
                     </button>
                   </div>
-                  <p id="t5PartnerCallout" class="t5-partner-callout">
-                    You chose <strong>Suburban 2-Bedroom Townhouse</strong>. Your partner, Chris, chose <strong>Downtown Modern Studio</strong>. Persuade Chris why your choice is better.
-                  </p>
+                  <p id="t5PartnerCallout" class="t5-partner-callout"></p>
                 </div>
 
                 <!-- Comparison Grid -->
