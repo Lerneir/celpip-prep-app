@@ -13,7 +13,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Suburban 2-Bedroom Townhouse",
-      "price": "$1,850 / month (All Utilities Included)",
+      "price": "$1,850 / month",
       "location": "Quiet Suburb (30 min commuter train to core)",
       "specs": "950 sq. ft. • 2 Bed, 1.5 Bath",
       "features": [
@@ -26,7 +26,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Midtown 1-Bedroom Condo",
-      "price": "$2,100 / month (+ Hydro & Internet)",
+      "price": "$2,100 / month",
       "location": "Midtown Hub (15 min direct subway to core)",
       "specs": "620 sq. ft. • 1 Bed, 1 Bath",
       "features": [
@@ -39,14 +39,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Downtown Modern Studio",
-      "price": "$2,350 / month (+ Hydro & Parking)",
+      "price": "$2,350 / month",
       "location": "Downtown Entertainment District (Steps to subway)",
       "specs": "450 sq. ft. • Open Studio, 1 Bath",
       "features": [
-        "Walking distance to downtown offices and trendy clubs",
-        "State-of-the-art rooftop pool, sauna, and 24/7 gym",
-        "Designer European stainless steel appliances",
-        "No parking, no balcony, minimal storage space"
+        "Walking distance to downtown financial district and subway line",
+        "Rooftop terrace, sauna, and 24/7 resident fitness center",
+        "Stainless steel European kitchen appliances and stone counters",
+        "Open-concept 450 sq. ft. studio with street parking only"
       ]
     },
     "persuasionGuidance": [
@@ -66,7 +66,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Mature Detached House with Large Lot",
-      "price": "$720,000 (Low property taxes)",
+      "price": "$720,000",
       "location": "Established neighborhood near top-ranked schools",
       "specs": "1,600 sq. ft. • 3 Bed, 2 Bath • 50ft Lot",
       "features": [
@@ -79,7 +79,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Brand New Semi-Detached with Finished Basement",
-      "price": "$750,000 (Builder warranty included)",
+      "price": "$750,000",
       "location": "New master-planned suburban community",
       "specs": "1,850 sq. ft. (incl. basement) • 3 Bed, 3 Bath",
       "features": [
@@ -92,14 +92,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Modern High-Rise Penthouse Condo",
-      "price": "$790,000 ($850/mo condo maintenance fee)",
+      "price": "$790,000",
       "location": "Downtown Core (Steps to financial hub)",
       "specs": "1,050 sq. ft. • 2 Bed, 2 Bath • 1 Parking",
       "features": [
-        "Wrap-around glass balcony with panoramic city views",
-        "Full building amenities (valet, gym, indoor pool)",
-        "Zero exterior maintenance or lawn mowing required",
-        "High monthly maintenance fees that increase annually"
+        "Wrap-around glass balcony with panoramic city skyline views",
+        "Full building amenities including concierge, gym, and indoor pool",
+        "Exterior landscaping and snow removal included in building fees",
+        "Monthly condo maintenance fee of $850"
       ]
     },
     "persuasionGuidance": [
@@ -119,7 +119,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Off-Campus Shared 3-Bedroom Flat",
-      "price": "$750 / month per room (Heat & Water included)",
+      "price": "$750 / month per room",
       "location": "10-minute walk to university main campus",
       "specs": "Shared flat with 2 other quiet engineering students",
       "features": [
@@ -132,7 +132,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "On-Campus Traditional Dormitory",
-      "price": "$1,100 / month (Includes Meal Plan)",
+      "price": "$1,100 / month",
       "location": "Right in the center of campus next to library",
       "specs": "Single occupancy dorm room with shared floor bathroom",
       "features": [
@@ -145,14 +145,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Luxury Private Student Studio",
-      "price": "$1,850 / month (+ Electricity & Internet)",
+      "price": "$1,850 / month",
       "location": "Downtown building (25 min bus ride to campus)",
       "specs": "Private self-contained studio apartment",
       "features": [
-        "Private kitchen and private bathroom with laundry",
-        "Building games room, cinema room, and gym",
-        "High rent requiring a large student loan",
-        "Long winter commute by public transit every day"
+        "Private in-suite kitchen, full bathroom, and personal laundry unit",
+        "Resident games room, private cinema screening room, and gym",
+        "12-month private student lease agreement",
+        "Location requiring 45-minute municipal transit commute to campus"
       ]
     },
     "persuasionGuidance": [
@@ -172,7 +172,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Active Independent Seniors Community",
-      "price": "$2,800 / month (Includes 1 meal/day & housekeeping)",
+      "price": "$2,800 / month",
       "location": "Suburban area (5 min to hospital and clinic)",
       "specs": "Spacious 1-Bedroom Suite with safety features",
       "features": [
@@ -185,7 +185,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Accessible Ground-Floor Condominium",
-      "price": "$420,000 Purchase ($450/mo maintenance)",
+      "price": "$420,000",
       "location": "Centrally located across from community park",
       "specs": "2-Bedroom, 2-Bath with zero stairs",
       "features": [
@@ -198,14 +198,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Isolated Rural Lake Bungalow",
-      "price": "$480,000 Purchase (+ High heating & upkeep)",
+      "price": "$480,000",
       "location": "Rural lake district (45 min drive to nearest hospital)",
       "specs": "3-Bedroom rustic bungalow on 2 acres",
       "features": [
-        "Peaceful lake views and large garden area",
-        "Requires heavy winter snow shoveling and lawn mowing",
-        "Far away from emergency medical care and specialists",
-        "Parents cannot drive safely in harsh winter storms"
+        "1,800 sq. ft. single-story detached bungalow on 2-acre waterfront lot",
+        "Private dock, mature pine trees, and large garden area",
+        "Independent oil furnace heating and private septic system",
+        "Located in rural township 40 km from regional hospital and services"
       ]
     },
     "persuasionGuidance": [
@@ -218,14 +218,14 @@ const TASK5_PROMPTS = [
     "id": "t5_005",
     "title": "Vacation Property Rental for Summer",
     "category": "Housing & Living",
-    "context": "You and your family are choosing a 2-week vacation rental property for July in Ontario.",
+    "context": "You and your brother Marcus are choosing a 2-week vacation rental property for July in Ontario with your families.",
     "targetAudience": "Your brother, Marcus",
     "partnerChoiceName": "Remote Backcountry Cabin without Electricity",
     "partnerRationale": "Marcus wants an off-grid wilderness cabin to experience authentic survival camping and complete digital detox.",
     "optionA": {
       "id": "opt_a",
       "name": "Lake Muskoka Waterfront Cottage",
-      "price": "$2,600 / week (Split between families)",
+      "price": "$2,600 / week",
       "location": "Muskoka Lakefront (Private dock & beach)",
       "specs": "4-Bedroom, 2-Bath traditional cottage",
       "features": [
@@ -238,7 +238,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Mont-Tremblant Resort Townhome",
-      "price": "$2,200 / week (Resort amenities included)",
+      "price": "$2,200 / week",
       "location": "Pedestrian village near hiking trails and lake",
       "specs": "3-Bedroom, 3-Bath luxury townhome",
       "features": [
@@ -255,10 +255,10 @@ const TASK5_PROMPTS = [
       "location": "Deep forest (Accessible only by 30-minute boat ride)",
       "specs": "2-Bedroom rustic cabin with wood stove",
       "features": [
-        "Total isolation with no cell service or electricity",
-        "Requires bringing all potable water, ice, and food supplies",
-        "Outdoor outhouse with no indoor shower or refrigeration",
-        "Difficult and uncomfortable for young kids and grandparents"
+        "Secluded wooded lakeside parcel accessible by unpaved gravel trail",
+        "Traditional hand-hewn timber log cabin with wood heating stove",
+        "Detached outdoor outhouse and freshwater lake access",
+        "Off-grid setup: guests provide own drinking water, coolers, and battery lamps"
       ]
     },
     "persuasionGuidance": [
@@ -278,7 +278,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Legal 2-Bedroom Walkout Basement Suite",
-      "price": "$1,400 / month (High-speed Wi-Fi & Heat included)",
+      "price": "$1,400 / month",
       "location": "Quiet residential avenue near express bus line",
       "specs": "800 sq. ft. • Large above-ground windows",
       "features": [
@@ -291,7 +291,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Bright High-Rise 1-Bedroom Condo",
-      "price": "$1,950 / month (+ Hydro)",
+      "price": "$1,950 / month",
       "location": "Transit station hub (Direct access to train)",
       "specs": "580 sq. ft. • 1 Bed, 1 Bath • 18th Floor",
       "features": [
@@ -304,14 +304,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "High-End Downtown Loft",
-      "price": "$2,600 / month (+ Hydro, Parking & Internet)",
+      "price": "$2,600 / month",
       "location": "Trendy Arts District (Noisy weekend streets)",
       "specs": "650 sq. ft. • Open loft concept",
       "features": [
-        "Exposed brick walls, wood beams, and tall ceilings",
-        "Surrounded by trendy bars, cafes, and art galleries",
-        "High utility costs due to drafty vintage windows",
-        "Very expensive rent consuming over 50% of monthly income"
+        "Converted historic brick warehouse with 14-foot ceilings and timber beams",
+        "Central heritage district walking distance to cafes and galleries",
+        "Restored original multi-pane single-glazed vintage windows",
+        "1-year residential lease with municipal street permit parking"
       ]
     },
     "persuasionGuidance": [
@@ -331,7 +331,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Fully Furnished 2-Bedroom University Sublet",
-      "price": "$1,600 / month Total ($800 each, all-inclusive)",
+      "price": "$1,600 / month",
       "location": "Near UBC campus (Quick bus to downtown)",
       "specs": "Fully furnished 2-Bed apartment with study desks",
       "features": [
@@ -344,7 +344,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Furnished Yaletown 1-Bedroom + Den Sublet",
-      "price": "$2,400 / month Total ($1,200 each, utilities incl.)",
+      "price": "$2,400 / month",
       "location": "Yaletown Downtown (5 min walk to office)",
       "specs": "1 Bedroom + Den with sofa-bed, 1 Bath",
       "features": [
@@ -357,14 +357,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Downtown Extended-Stay Hotel Suite",
-      "price": "$4,200 / month Total ($2,100 each)",
+      "price": "$4,200 / month",
       "location": "Downtown Core",
       "specs": "Small hotel room with kitchenette and 2 queen beds",
       "features": [
-        "Daily housekeeping and front desk service",
-        "Extremely high cost exceeding student internship stipends",
-        "Cramped living area with no proper desks for study/work",
-        "Limited cooking equipment with only a mini-fridge and microwave"
+        "Studio hotel suite with queen bed and executive work desk",
+        "Daily housekeeping, fresh towel service, and 24/7 front desk concierge",
+        "Compact counter kitchenette with mini-fridge and microwave oven",
+        "Central downtown commercial hub adjacent to rapid transit station"
       ]
     },
     "persuasionGuidance": [
@@ -384,7 +384,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Modern 3-Story Inner-City Townhouse",
-      "price": "$460,000 ($180/mo maintenance)",
+      "price": "$460,000",
       "location": "Inner-City SW (10 min to Downtown / LRT station)",
       "specs": "1,550 sq. ft. • 3 Bed, 2.5 Bath • Double Garage",
       "features": [
@@ -397,7 +397,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Detached 2-Story Home in Established Community",
-      "price": "$510,000 (No maintenance fees)",
+      "price": "$510,000",
       "location": "Established NW neighborhood near parks and schools",
       "specs": "1,800 sq. ft. • 3 Bed, 2.5 Bath • Fenced Yard",
       "features": [
@@ -410,14 +410,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Suburban Mega-Mansion (Far Out)",
-      "price": "$620,000 (+ High property taxes and utility bills)",
+      "price": "$620,000",
       "location": "Far outskirts (55-minute drive to downtown in traffic)",
       "specs": "3,500 sq. ft. • 5 Bed, 4 Bath • Huge lot",
       "features": [
-        "Massive space with built-in cinema and gym room",
-        "Exhausting 2-hour daily commute in winter road conditions",
-        "Enormous monthly gas heating bills during winter (-30°C)",
-        "Requires hours of weekend maintenance and lawn care"
+        "3,500 sq. ft. two-story detached home with finished basement media room",
+        "60-foot lot with fenced backyard and attached double garage",
+        "Foothills acreage subdivision located 40 km south of downtown core",
+        "Standard natural gas heating with individual homeowner grounds maintenance"
       ]
     },
     "persuasionGuidance": [
@@ -437,7 +437,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Master Bedroom with Private Ensuite Bathroom",
-      "price": "$950 / month (Share utilities 4 ways)",
+      "price": "$950 / month",
       "location": "Top floor of bright spacious house",
       "specs": "Large 16x14 ft room with walk-in closet",
       "features": [
@@ -450,7 +450,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Standard Upper Room with Shared Bath",
-      "price": "$750 / month (Share utilities 4 ways)",
+      "price": "$750 / month",
       "location": "Quiet corner of upper floor facing garden",
       "specs": "12x11 ft room with double closet",
       "features": [
@@ -463,14 +463,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Private 1-Bedroom Condo Downtown Alone",
-      "price": "$1,900 / month (+ $150 Hydro & Internet)",
+      "price": "$1,900 / month",
       "location": "Downtown Core",
       "specs": "500 sq. ft. compact unit",
       "features": [
-        "Complete solitary living with no roommates",
-        "Extremely high living cost taking 60% of monthly take-home pay",
-        "No private yard or extra space for hosting friends",
-        "High financial stress with zero buffer for emergencies"
+        "550 sq. ft. private 1-bedroom suite with private entry",
+        "Private modern kitchen, 4-piece bathroom, and in-suite laundry",
+        "Downtown high-rise building adjacent to subway and shopping",
+        "Single-occupant 1-year individual residential lease agreement"
       ]
     },
     "persuasionGuidance": [
@@ -490,7 +490,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Suburban Home on Quiet Cul-de-Sac",
-      "price": "$680,000 (City water, sewage, and high-speed fiber)",
+      "price": "$680,000",
       "location": "Suburban neighborhood (20 min to city center)",
       "specs": "2,200 sq. ft. • 4 Bed, 3 Bath • Fenced Yard",
       "features": [
@@ -503,7 +503,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Semi-Rural 1-Acre Property Near Town",
-      "price": "$710,000 (Municipal services & private lot)",
+      "price": "$710,000",
       "location": "Edge of town (7 min drive to schools and stores)",
       "specs": "2,000 sq. ft. Bungalow • 3 Bed, 2 Bath • 1 Acre",
       "features": [
@@ -516,14 +516,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Isolated 10-Acre Hobby Farm",
-      "price": "$750,000 (+ High upkeep, septic, well & machinery)",
+      "price": "$750,000",
       "location": "Remote rural area (50 min to city, no school bus)",
       "specs": "Old 1,700 sq. ft. Farmhouse with barns",
       "features": [
-        "Large open land for livestock and total seclusion",
-        "Requires expensive farm equipment, tractors, and constant maintenance",
-        "Relies on septic tank and well water with potential winter freeze",
-        "Far from pediatric clinics, emergency services, and kid activities"
+        "10-acre rural parcel with open pasture and detached storage barn",
+        "Private deep-water drilled well, septic tank, and propane heating",
+        "Agricultural zoning permitted for horses and hobby livestock",
+        "Rural property situated 35 km from suburban medical clinics and schools"
       ]
     },
     "persuasionGuidance": [
@@ -543,7 +543,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Compact Electric Hatchback (EV)",
-      "price": "$38,000 ($5,000 Federal EV Rebate eligible)",
+      "price": "$38,000",
       "location": "Local EV Dealership with quick delivery",
       "specs": "400 km Battery Range • Zero Emissions • 5-Seater",
       "features": [
@@ -556,7 +556,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "AWD Compact SUV with Winter Package",
-      "price": "$35,000 (Low financing rate)",
+      "price": "$35,000",
       "location": "Certified Regional Dealership",
       "specs": "32 MPG Hwy • Intelligent AWD • 5-Seater",
       "features": [
@@ -569,14 +569,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Gas V8 7-Passenger Minivan",
-      "price": "$48,000 (+ High fuel & insurance costs)",
+      "price": "$48,000",
       "location": "Commercial Dealership",
       "specs": "16 MPG City • Heavy Gas V8 • 7-Seater",
       "features": [
-        "Huge passenger capacity and power sliding doors",
-        "Extremely high monthly gas consumption for single-passenger commuting",
-        "Difficult to park and maneuver in tight underground work garages",
-        "Higher annual insurance premiums and faster vehicle depreciation"
+        "7-passenger cabin seating with dual power-sliding side doors",
+        "Full-size minivan chassis (204 inches total vehicle length)",
+        "Powertrain: 3.5-liter V8 gasoline engine",
+        "Fuel economy rating: 16 MPG City / 22 MPG Highway"
       ]
     },
     "persuasionGuidance": [
@@ -596,7 +596,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Certified Pre-Owned 3-Year-Old Sedan",
-      "price": "$22,000 Total Purchase (Low interest financing)",
+      "price": "$22,000",
       "location": "Manufacturer Certified Pre-Owned Dealership",
       "specs": "35,000 km • 4-Cylinder Turbo • 5-Passenger",
       "features": [
@@ -609,7 +609,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "3-Year Fixed Lease on New Crossover",
-      "price": "$340 / month ($0 Down Payment)",
+      "price": "$340 / month",
       "location": "Direct Manufacturer Showroom",
       "specs": "Brand New • AWD • 5-Passenger Hatchback",
       "features": [
@@ -622,14 +622,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Brand New Luxury Sports Coupe",
-      "price": "$62,000 ($850/mo financing + $300/mo insurance)",
+      "price": "$62,000",
       "location": "High-End Luxury Importer",
       "specs": "2-Seater • RWD • 350 HP V6",
       "features": [
-        "Impressive acceleration, leather interior, and status appeal",
-        "Only 2 seats with zero room for children, car seats, or groceries",
-        "Rear-wheel drive makes winter driving in snow dangerous",
-        "Massive insurance premiums and rapid depreciation"
+        "High-performance turbocharged engine with leather sport seats",
+        "2-door coupe configuration with 2-passenger seating capacity",
+        "Drivetrain: Rear-wheel drive (RWD) with low-profile sport tires",
+        "Financing: $850 / month 48-month vehicle financing contract"
       ]
     },
     "persuasionGuidance": [
@@ -649,7 +649,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Annual Unlimited Public Transit Pass",
-      "price": "$1,450 / year ($120 / month)",
+      "price": "$1,450 / year",
       "location": "City Transit Authority (Bus & Subway Network)",
       "specs": "Unlimited subway, streetcar, and bus rides",
       "features": [
@@ -662,7 +662,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "All-Weather Commuter E-Bike",
-      "price": "$1,800 One-time Purchase",
+      "price": "$1,800 One-time",
       "location": "Local Bicycle Pro-Shop",
       "specs": "750W Motor • 65 km Range • Fat Tires",
       "features": [
@@ -675,14 +675,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Daily Uber & Taxi Rides",
-      "price": "$25–$35 / day ($600–$800 / month)",
+      "price": "$25–$35 / day",
       "location": "Rideshare App on smartphone",
       "specs": "On-demand car service",
       "features": [
-        "Picked up directly outside front door",
-        "Extremely expensive, totaling over $8,000 annually",
-        "Subject to surge pricing and long wait times in bad weather",
-        "Contributes to city traffic congestion and carbon footprint"
+        "On-demand door-to-door vehicle pickup via mobile rideshare app",
+        "Fare structure: $25–$35 daily dynamic metered taxi and rideshare pricing",
+        "Commute: Variable city street traffic routing based on road congestion",
+        "Vehicle access: Ride in driver's vehicle with zero personal vehicle maintenance"
       ]
     },
     "persuasionGuidance": [
@@ -702,7 +702,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Rented Class-C RV Motorhome",
-      "price": "$1,800 for 10 Days (Split between families)",
+      "price": "$1,800 for 10 Days",
       "location": "National RV Rental Depot",
       "specs": "24-ft Motorhome • Sleeps 6 • Full Kitchen & Bath",
       "features": [
@@ -715,7 +715,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "7-Passenger Full-Size Minivan + Hotel Stays",
-      "price": "$1,400 Total ($700 van rental + $700 motel rooms)",
+      "price": "$1,400",
       "location": "Airport Car Rental Depot",
       "specs": "7-Seater Luxury Minivan • V6 AWD",
       "features": [
@@ -728,14 +728,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Flying and Renting Compact Cars",
-      "price": "$3,600 Total ($2,400 airfare for 6 + $1,200 cars)",
+      "price": "$3,600",
       "location": "Commercial Airline + Airport Hertz",
       "specs": "Economy flights + 2 Compact 4-door cars",
       "features": [
-        "Fast travel between major airport hubs",
-        "Very expensive tickets taking double the road trip budget",
-        "Families are separated into two tiny cars with limited luggage space",
-        "Miss out on iconic scenic mountain drives and roadside attractions"
+        "Direct flight travel time: 2.5 hours each way to Calgary airport",
+        "Airfare: $2,400 (6 round-trip economy commercial airline tickets)",
+        "Vehicles: $1,200 (2 compact 4-door rental cars for 10 days)",
+        "Baggage allowance: 1 carry-on and 1 checked suitcase per traveler"
       ]
     },
     "persuasionGuidance": [
@@ -755,7 +755,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Dedicated Studded Winter Tires with Rims",
-      "price": "$850 (Set of 4 mounted on steel rims)",
+      "price": "$850",
       "location": "Local Tire & Auto Service Center",
       "specs": "Severe Snow Peak Rated • Metal Studs • Steel Wheels",
       "features": [
@@ -768,7 +768,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Premium All-Weather 4-Season Tires",
-      "price": "$720 (Set of 4 tires installed)",
+      "price": "$720",
       "location": "Major Tire Retailer",
       "specs": "3-Peak Mountain Snowflake Rated • 100,000 km Warranty",
       "features": [
@@ -781,14 +781,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Standard All-Season Tires All Year",
-      "price": "$0 upfront (Using worn factory tires)",
+      "price": "$0",
       "location": "Current vehicle",
       "specs": "Hard rubber compound • Worn tread",
       "features": [
-        "Zero upfront financial expense today",
-        "Rubber compound hardens below 7°C, losing traction and sliding",
-        "Dangerous braking distances on icy bridges and morning highway commutes",
-        "High risk of collision resulting in expensive insurance deductibles"
+        "Existing factory all-season tires with 4 mm remaining tread depth",
+        "Compound design: Standard all-season rubber engineered for temperatures above 7°C",
+        "Rim configuration: Mounted directly on factory original aluminum alloy wheels",
+        "Immediate cost: $0 upfront expenditure for current winter season"
       ]
     },
     "persuasionGuidance": [
@@ -808,7 +808,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Compact Hybrid Sedan",
-      "price": "$24,000 (Certified Pre-Owned)",
+      "price": "$24,000",
       "location": "Hybrid Dealership",
       "specs": "52 MPG (4.5 L/100km) • Reliable Hybrid E-CVT",
       "features": [
@@ -821,7 +821,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Subcompact AWD Crossover",
-      "price": "$26,000 (New with Warranty)",
+      "price": "$26,000",
       "location": "Local Auto Mall",
       "specs": "36 MPG Hwy • Intelligent AWD • Hatchback Cargo",
       "features": [
@@ -834,14 +834,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Full-Size V8 Pickup Truck",
-      "price": "$45,000 (+ $700/mo gas bills)",
+      "price": "$45,000",
       "location": "Truck Center",
       "specs": "14 MPG City (16.5 L/100km) • V8 Engine",
       "features": [
-        "Heavy-duty towing power and high commanding ride height",
-        "Fuel costs will consume nearly all nightly side-gig earnings",
-        "Difficult to find parking in tight downtown apartment zones",
-        "Open truck bed cannot keep food deliveries warm or groceries dry"
+        "Full-size light-duty pickup truck with high ground clearance",
+        "Powertrain: 5.7L V8 engine with 15 MPG city fuel consumption",
+        "Cargo space: 6.5-foot open steel truck bed with tie-down anchors",
+        "Vehicle dimensions: Extended cab requiring full-length outdoor parking space"
       ]
     },
     "persuasionGuidance": [
@@ -854,27 +854,27 @@ const TASK5_PROMPTS = [
     "id": "t5_017",
     "title": "First Car for Teenage Driver",
     "category": "Automotive & Transportation",
-    "context": "You and your spouse are buying a safe, dependable first car for your 17-year-old son Lucas.",
+    "context": "You and your spouse Karen are buying a safe, dependable first car for your 17-year-old son Lucas.",
     "targetAudience": "Your spouse, Karen",
     "partnerChoiceName": "High-Powered Sports Coupe",
     "partnerRationale": "Lucas and Karen like the red sports coupe because it looks fast and stylish for high school.",
     "optionA": {
       "id": "opt_a",
       "name": "Reliable 5-Year-Old 4-Door Sedan",
-      "price": "$12,500 Total Purchase",
+      "price": "$12,500",
       "location": "Trusted Local Used Car Dealership",
       "specs": "140 HP 4-Cylinder • 5-Star IIHS Safety Pick",
       "features": [
         "Equipped with 8 airbags, anti-lock brakes, and electronic stability control",
         "Low insurance group rating saves over $1,200 annually on teen insurance",
         "Moderate horsepower prevents reckless high-speed driving",
-        "Cheap replacement parts and inexpensive routine oil changes"
+        "Standard widely-available replacement parts and routine maintenance"
       ]
     },
     "optionB": {
       "id": "opt_b",
       "name": "Certified Hatchback with Driver-Assist Tech",
-      "price": "$14,000 Total Purchase",
+      "price": "$14,000",
       "location": "Certified Dealership",
       "specs": "Automatic Emergency Braking • Blind-Spot Camera",
       "features": [
@@ -887,14 +887,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "High-Powered Sports Coupe",
-      "price": "$18,500 (+ Skyrocketing youth insurance)",
+      "price": "$18,500",
       "location": "Private Seller",
       "specs": "280 HP V6 • Rear-Wheel Drive • Sport Suspension",
       "features": [
-        "Fast acceleration and aggressive exhaust sound",
-        "High accident risk for inexperienced teenage drivers",
-        "Astronomical auto insurance rates for young drivers (over $400/month)",
-        "Rear-wheel drive leads to fishtailing and sliding in Canadian winter"
+        "300-horsepower turbocharged rear-wheel drive sport coupe",
+        "Manual 6-speed transmission with performance exhaust system",
+        "Safety equipment: Standard front and side airbags with sport traction control",
+        "Insurance rating: High-risk vehicle classification for novice drivers"
       ]
     },
     "persuasionGuidance": [
@@ -914,7 +914,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Enclosed Commercial Cargo Van",
-      "price": "$36,000 (Commercial leasing available)",
+      "price": "$36,000",
       "location": "Commercial Fleet Dealership",
       "specs": "High Roof • 10-ft Cargo Bay • Shelving System Included",
       "features": [
@@ -927,7 +927,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "AWD Work SUV + Enclosed Utility Trailer",
-      "price": "$29,000 Total ($22k SUV + $7k Heavy Trailer)",
+      "price": "$29,000",
       "location": "Regional Equipment Supplier",
       "specs": "V6 Tow Package + 6x12 ft Lockable Trailer",
       "features": [
@@ -940,14 +940,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Heavy-Duty Diesel Dually Truck",
-      "price": "$68,000 (+ High diesel fuel & maintenance)",
+      "price": "$68,000",
       "location": "Heavy Truck Center",
       "specs": "6.7L Turbo Diesel • Open 8-ft Bed",
       "features": [
-        "Massive 20,000-lb towing capacity and leather cabin",
-        "Open truck bed leaves expensive power tools vulnerable to rain and theft",
-        "Extremely expensive initial cost ($68k) tying up business cash flow",
-        "Difficult to maneuver on narrow residential suburban driveways"
+        "Commercial heavy-duty diesel dually pickup truck with 20,000-lb towing capacity",
+        "Cargo configuration: 8-foot open metal truck bed with dual rear wheels",
+        "Purchase price: $68,000 commercial equipment purchase",
+        "Vehicle dimensions: 22 feet overall length requiring commercial-width turning radius"
       ]
     },
     "persuasionGuidance": [
@@ -967,11 +967,11 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Commuter Train (GO Transit) Monthly Pass",
-      "price": "$280 / month (Tax deductible)",
+      "price": "$280 / month",
       "location": "Regional Transit Rail Station",
       "specs": "Double-Decker Train • Free Wi-Fi • Quiet Zone",
       "features": [
-        "Eliminates the stress of gridlock traffic on Highway 400",
+        "Avoids peak highway traffic congestion via dedicated transit line",
         "Comfortable work tables allow completing emails or relaxing during transit",
         "Direct express drop-off at downtown Union Station without parking fees",
         "Saves wear-and-tear of 25,000 km annually on personal vehicles"
@@ -980,7 +980,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "4-Person Coworker Carpool Rotation",
-      "price": "$80 / month (Split fuel & 407 toll 4 ways)",
+      "price": "$80 / month",
       "location": "Local Highway Carpool Lot",
       "specs": "AWD Crossover • High-Occupancy Vehicle (HOV) Lane",
       "features": [
@@ -993,14 +993,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Driving Solo in Personal Gas Car",
-      "price": "$650 / month ($350 gas + $300 downtown parking)",
+      "price": "$650 / month",
       "location": "Daily Highway Commute",
       "specs": "Individual driving • Daily rush hour",
       "features": [
-        "Total independence over schedule and radio stations",
-        "Exhausting 90-minute daily battles with rush-hour traffic jams and blizzards",
-        "Extremely costly ($650/month in gas, parking, and maintenance)",
-        "Rapid vehicle mileage accumulation causing steep depreciation"
+        "Solo commute in personal vehicle with complete schedule flexibility",
+        "Route: 50 km highway corridor commute along Highway 400 into downtown core",
+        "Expenses: $350 estimated monthly fuel plus $300 monthly downtown parking permit",
+        "Vehicle wear: 24,000 km annual mileage addition to personal vehicle odometer"
       ]
     },
     "persuasionGuidance": [
@@ -1020,7 +1020,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Electric Commuter Scooter / E-Bike",
-      "price": "$950 One-time Purchase",
+      "price": "$950 One-time",
       "location": "Downtown Micro-Mobility Store",
       "specs": "500W Motor • 45 km Battery Range • Foldable Frame",
       "features": [
@@ -1033,7 +1033,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "150cc Modern Commuter Motor Scooter",
-      "price": "$3,200 (New with 2-Year Warranty)",
+      "price": "$3,200",
       "location": "Urban Powersports Showroom",
       "specs": "150cc 4-Stroke • 90 MPG • Under-Seat Storage",
       "features": [
@@ -1046,14 +1046,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Vintage Gas Convertible Car",
-      "price": "$9,500 (+ High maintenance & repairs)",
+      "price": "$9,500",
       "location": "Used Car Lot",
       "specs": "30-Year-Old Vehicle • Manual Soft Top",
       "features": [
-        "Classic vintage style with open-air driving",
-        "Frequent mechanical breakdowns, oil leaks, and difficult-to-find parts",
-        "Expensive downtown parking permits ($250/mo) and full insurance",
-        "Still trapped in the same gridlock city traffic as regular cars"
+        "Restored 1995 2-seater convertible sports car with manual soft top",
+        "Powertrain: 4-cylinder gasoline engine with original mechanical components",
+        "Parking & permits: Street parking permit required in downtown residential district",
+        "Commute route: Standard arterial roadways shared with city traffic"
       ]
     },
     "persuasionGuidance": [
@@ -1073,7 +1073,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "All-Inclusive Beach Resort in Cancun",
-      "price": "$3,200 Total (Direct Flights, Buffet & Kids Club)",
+      "price": "$3,200",
       "location": "Mayan Riviera Beachfront Resort",
       "specs": "7 Nights • Oceanfront Family Suite • All Meals & Drinks",
       "features": [
@@ -1086,7 +1086,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Algonquin Park Lakeside Cottage",
-      "price": "$2,200 Total ($1,400 cottage + $800 food & boat rental)",
+      "price": "$2,200",
       "location": "Algonquin Provincial Park, Ontario",
       "specs": "7 Nights • 3-Bedroom Waterfront Cabin • Private Dock",
       "features": [
@@ -1099,14 +1099,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Las Vegas Strip Casino Hotel",
-      "price": "$4,800 Total (Flights, Hotel, Shows & Expensive Dining)",
+      "price": "$4,800",
       "location": "Las Vegas Boulevard Resort Strip",
       "specs": "7 Nights • Standard 2-Queen Room",
       "features": [
-        "Glittering casino floors and world-class evening entertainment",
-        "Adult-oriented atmosphere with crowded casinos and smoky corridors",
-        "Extreme desert summer heat (42°C) makes outdoor walking unbearable",
-        "Very expensive meals, resort fees, and limited activities for young kids"
+        "Destination: Downtown Las Vegas Strip resort hotel and casino",
+        "Accommodations: 4-star hotel tower room with poolside cabanas and dining",
+        "Climate: High desert summer temperatures averaging 40°C–42°C",
+        "Entertainment: Nightly stage productions, shopping concourses, and casino floors"
       ]
     },
     "persuasionGuidance": [
@@ -1126,7 +1126,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Banff & Lake Louise Ski & Hot Springs Resort",
-      "price": "$2,100 Total (Flights & 4-Star Lodge included)",
+      "price": "$2,100",
       "location": "Banff National Park, Alberta",
       "specs": "5 Days • Mountain Lodge • Daily Ski & Hot Springs Pass",
       "features": [
@@ -1139,7 +1139,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Quebec City Winter Carnival & Ice Hotel",
-      "price": "$1,600 Total (Via Rail Train + Heritage Hotel)",
+      "price": "$1,600",
       "location": "Historic Old Quebec City, Quebec",
       "specs": "5 Days • Heritage Boutique Hotel • Festival VIP Pass",
       "features": [
@@ -1152,14 +1152,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Caribbean 7-Day Mega Cruise",
-      "price": "$3,800 Total (International Flights, Port Fees & Cabin)",
+      "price": "$3,800",
       "location": "Caribbean Sea Ports",
       "specs": "7 Days • Interior Stateroom on 4,000-passenger ship",
       "features": [
-        "Warm tropical sunshine and multiple port stops",
-        "High cost requiring international flights and expensive excursions",
-        "Crowded ship with long buffet lines and noisy pool decks",
-        "Risk of rough seas, seasickness, and missed ports during stormy weather"
+        "Destination: 7-night Western Caribbean cruise departing from Miami",
+        "Vessel: 4,500-passenger ocean liner with multiple pools and dining rooms",
+        "Itinerary: 3 days at sea and 3 scheduled port calls in Cozumel, Belize, and Roatan",
+        "Excursions: Commercial beach excursions, dolphin encounters, and boat tours"
       ]
     },
     "persuasionGuidance": [
@@ -1179,7 +1179,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Backpacking Eurail Pass across 4 Countries",
-      "price": "$2,400 Total (Flights, Rail Pass & Boutique Hostels)",
+      "price": "$2,400",
       "location": "France, Switzerland, Italy & Austria",
       "specs": "14 Days • Unlimited 1st-Class Eurail Pass",
       "features": [
@@ -1192,7 +1192,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Small-Group Guided Cultural Tour of Italy",
-      "price": "$3,100 Total (Includes Hotels, Rail & English Guides)",
+      "price": "$3,100",
       "location": "Rome, Florence, Tuscany & Amalfi Coast",
       "specs": "14 Days • 4-Star Hotels • Max 12 People per Group",
       "features": [
@@ -1205,14 +1205,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "5-Star Luxury Resort in Santorini",
-      "price": "$6,500 Total (Luxury Flight + Cliffside Villa)",
+      "price": "$6,500",
       "location": "Oia, Santorini, Greece",
       "specs": "14 Days • 1 Island Only • Private Infinity Pool",
       "features": [
-        "Spectacular sunset caldera views and luxury infinity pool",
-        "Extremely high price ($6,500) consuming entire annual savings",
-        "Restricted to one small, crowded island with repetitive activities for 14 days",
-        "Miss out on experiencing Europe's rich diversity of countries and history"
+        "Destination: 12-day single-island stay on Santorini, Greece",
+        "Accommodations: Cliffside boutique hotel with caldera terrace view and plunge pool",
+        "Setting: Pedestrian stone walkways and coastal villages",
+        "Itinerary: Local island wine tastings, catamaran day sails, and beach visits"
       ]
     },
     "persuasionGuidance": [
@@ -1225,14 +1225,14 @@ const TASK5_PROMPTS = [
     "id": "t5_024",
     "title": "Wedding Anniversary Weekend",
     "category": "Vacation & Travel",
-    "context": "You and your spouse are deciding how to celebrate your upcoming 10th wedding anniversary over a long weekend.",
+    "context": "You and your spouse Jessica are deciding how to celebrate your upcoming 10th wedding anniversary over a long weekend.",
     "targetAudience": "Your spouse, Jessica",
     "partnerChoiceName": "Backcountry Tent Camping at Sandbanks",
     "partnerRationale": "Jessica suggests rough backcountry tent camping to save money and enjoy the beach park.",
     "optionA": {
       "id": "opt_a",
       "name": "Niagara Wine Country Romantic Heritage B&B",
-      "price": "$850 Total (2 Nights, Winery Tour & Gourmet Breakfast)",
+      "price": "$850",
       "location": "Niagara-on-the-Lake, Ontario",
       "specs": "3 Days • Victorian Heritage Suite • Fireplace & Spa Tub",
       "features": [
@@ -1245,7 +1245,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Downtown City Theatre & Michelin Dining Getaway",
-      "price": "$950 Total (2 Nights 5-Star Hotel, Play Tickets & Dinner)",
+      "price": "$950",
       "location": "Downtown Cultural & Theatre Hub",
       "specs": "3 Days • Luxury Skyline King Suite • 2 Theatre Tickets",
       "features": [
@@ -1258,14 +1258,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Backcountry Tent Camping at Sandbanks",
-      "price": "$180 Total (Park campsite permit + firewood)",
+      "price": "$180",
       "location": "Provincial Park Campsite",
       "specs": "3 Days • 2-Person Nylon Tent • Shared Park Pit Toilets",
       "features": [
-        "Very cheap upfront cost and beautiful sandy dunes",
-        "No hot water, shared pit toilets, and sleeping on hard ground",
-        "Risk of rain, damp sleeping bags, and swarming mosquitoes",
-        "Lacks the special romantic elegance and pampering suited for a 10th anniversary"
+        "Setting: Provincial park campground in Sandbanks with beachfront tent site",
+        "Accommodation: 4-person nylon dome tent with sleeping pads and camp stove",
+        "Facilities: Shared park comfort station with coin-operated showers",
+        "Meals: Outdoor campfire cooking and cooler food storage"
       ]
     },
     "persuasionGuidance": [
@@ -1285,7 +1285,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Private 6-Bedroom Mountain Chalet with Hot Tub",
-      "price": "$350 / person Total ($2,100 split 6 ways)",
+      "price": "$350 / person",
       "location": "Ski-in / Ski-out Resort Village",
       "specs": "4 Days • 6 Bedrooms, 3 Baths • Stone Fireplace",
       "features": [
@@ -1298,7 +1298,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Adjoining Luxury Village Condo Suites",
-      "price": "$420 / person Total ($2,520 split 6 ways)",
+      "price": "$420 / person",
       "location": "Pedestrian Village Heart",
       "specs": "4 Days • Two 2-Bedroom Connected Suites",
       "features": [
@@ -1311,14 +1311,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Budget Roadside Motel (25 km Away)",
-      "price": "$220 / person Total ($1,320 split 6 ways)",
+      "price": "$220 / person",
       "location": "Highway 117 (25 km drive to ski lifts)",
       "specs": "4 Days • Two Cramped 2-Queen Motel Rooms",
       "features": [
-        "Lowest upfront cost per person",
-        "Crowding 6 adults into two small motel rooms with no common living space",
-        "Requires designated drivers and 45-minute daily drives in icy winter conditions",
-        "No kitchen facilities, forcing the group to spend $150/day each on restaurant meals"
+        "Accommodations: Two standard motel guest rooms along highway 25 km from ski resort",
+        "Room layout: Two double beds per room with shared exterior motel hallway",
+        "Commute: 40-minute daily highway drive to ski hill base lodge",
+        "Dining: Continental lobby breakfast; local commercial restaurants for lunch and dinner"
       ]
     },
     "persuasionGuidance": [
@@ -1338,7 +1338,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Direct Non-Stop Flight (National Carrier)",
-      "price": "$920 Round-trip (Includes 1 Checked Bag & Hot Meals)",
+      "price": "$920 Round-trip",
       "location": "Toronto Pearson (YYZ) to London Heathrow (LHR)",
       "specs": "7h 15m Flight Time • Overnight Non-Stop",
       "features": [
@@ -1351,7 +1351,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Premium International Carrier with One 90-Min Layover",
-      "price": "$790 Round-trip (Top-Ranked Global Airline)",
+      "price": "$790 Round-trip",
       "location": "YYZ to LHR via Dublin / Montreal",
       "specs": "9h 45m Total Travel Time • Short 90-min Connection",
       "features": [
@@ -1364,14 +1364,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Ultra-Low-Cost 2-Layover 26-Hour Flight",
-      "price": "$700 Base (+ $180 baggage & seat fees = $880)",
+      "price": "$700 Base",
       "location": "YYZ to LHR via Reykjavik & Manchester",
       "specs": "26h 30m Total Travel Time • Two 8-hour Airport Layovers",
       "features": [
-        "Cheap advertised base fare on flight search engines",
-        "Exhausting 26-hour journey causing severe jet lag and wasting 2 full vacation days",
-        "Hidden fees for carry-on luggage, water, food, and seat assignments",
-        "Self-transfer risk: if first flight is delayed, connecting tickets are forfeited"
+        "Booking: Third-party discount online flight search booking engine",
+        "Routing: 2-stop flight itinerary with 26 hours total elapsed travel time",
+        "Baggage & services: Base ticket fare; carry-on bag, meals, and seat selection billed extra",
+        "Connections: Self-transfer required between separate non-partnered airlines"
       ]
     },
     "persuasionGuidance": [
@@ -1391,7 +1391,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Costa Rica Rainforest & Volcano Eco-Expedition",
-      "price": "$2,600 Total (Flights, Eco-Lodges, Guided Treks & Rafting)",
+      "price": "$2,600",
       "location": "Arenal Volcano & Monteverde Cloud Forest",
       "specs": "10 Days • Sustainable Solar Lodges • Certified Naturalist",
       "features": [
@@ -1404,7 +1404,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Iceland 4x4 Ring Road Camping & Hot Springs Expedition",
-      "price": "$2,900 Total (Flights, 4x4 Camper Van, Fuel & Passes)",
+      "price": "$2,900",
       "location": "Icelandic Golden Circle & South Coast",
       "specs": "10 Days • Heated 4x4 Camper • Glacier & Waterfall Route",
       "features": [
@@ -1417,14 +1417,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Generic All-Inclusive Beach Resort",
-      "price": "$2,200 Total (Flights, Resort Room & Buffet)",
+      "price": "$2,200",
       "location": "Punta Cana Enclosed Resort Compound",
       "specs": "10 Days • Standard Hotel Room",
       "features": [
-        "Convenient unlimited buffet meals and cocktails",
-        "Confined to a tourist resort compound with zero authentic adventure",
-        "Sedentary routine with no physical activity, wildlife, or nature exploration",
-        "A missed opportunity for a truly memorable, active international experience"
+        "Destination: Beachfront all-inclusive resort compound in the Caribbean",
+        "Meals: Unlimited buffet dining, poolside grill, and local beverages included",
+        "Amenities: Multiple swimming pools, private beach loungers, and nightly resort shows",
+        "Excursions: Guided resort van excursions available at additional per-person cost"
       ]
     },
     "persuasionGuidance": [
@@ -1437,14 +1437,14 @@ const TASK5_PROMPTS = [
     "id": "t5_028",
     "title": "Maritime Canadian Road Trip",
     "category": "Vacation & Travel",
-    "context": "You and your partner are planning a 9-day summer holiday exploring the Canadian Atlantic Maritimes.",
+    "context": "You and your partner Liam are planning a 9-day summer holiday exploring the Canadian Atlantic Maritimes.",
     "targetAudience": "Your partner, Liam",
     "partnerChoiceName": "Large Mega-Cruise Ship",
     "partnerRationale": "Liam wants to book a 3,000-passenger mega-cruise ship departing from New York to Halifax.",
     "optionA": {
       "id": "opt_a",
       "name": "Nova Scotia Cabot Trail Camper Van Road Trip",
-      "price": "$1,950 Total (Camper Van Rental, Fuel & National Park Passes)",
+      "price": "$1,950",
       "location": "Cape Breton Island & Halifax, Nova Scotia",
       "specs": "9 Days • Outfitted Camper Van • Scenic Coastal Loop",
       "features": [
@@ -1457,7 +1457,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Prince Edward Island Seaside Heritage Cottage",
-      "price": "$1,800 Total (Cottage Rental, Bridge Toll & Bike Rental)",
+      "price": "$1,800",
       "location": "Cavendish & Charlottetown, PEI",
       "specs": "9 Days • 2-Bedroom Oceanview Cottage • Private Beach",
       "features": [
@@ -1470,14 +1470,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Large Mega-Cruise Ship Tour",
-      "price": "$3,400 Total (Flights to NY, Cruise Cabin & Port Taxes)",
+      "price": "$3,400",
       "location": "Atlantic Ocean Route",
       "specs": "9 Days • Interior Windowless Stateroom",
       "features": [
-        "On-board casino, Broadway shows, and poolside buffet",
-        "Only spends 5 brief hours in each port before rushing back to ship",
-        "Cannot experience the iconic Cabot Trail or inland Maritime culture",
-        "Double the cost due to US exchange rates, flights, and port taxes"
+        "Vessel: 3,000-passenger commercial cruise ship sailing from New York to Halifax",
+        "Amenities: On-board theater, casino, multiple pools, and scheduled dining rooms",
+        "Port stops: 5 to 7 hours scheduled dock time in Saint John, Halifax, and Sydney",
+        "Pricing: USD-denominated cruise fare plus international port fees and gratuities"
       ]
     },
     "persuasionGuidance": [
@@ -1490,14 +1490,14 @@ const TASK5_PROMPTS = [
     "id": "t5_029",
     "title": "Scenic Expedition Cruise",
     "category": "Vacation & Travel",
-    "context": "You and your spouse are choosing a scenic bucket-list cruise vacation for your 40th birthdays.",
+    "context": "You and your spouse Emily are choosing a scenic bucket-list cruise vacation for your 40th birthdays.",
     "targetAudience": "Your spouse, Emily",
     "partnerChoiceName": "European Mega-River Barge",
     "partnerRationale": "Emily thinks a slow river cruise down the Rhine would be peaceful and relaxing.",
     "optionA": {
       "id": "opt_a",
       "name": "Alaska Glacier Wilderness Balcony Expedition",
-      "price": "$2,700 / person (Flights, Balcony Stateroom & Park Permits)",
+      "price": "$2,700 / person",
       "location": "Inside Passage & Glacier Bay National Park",
       "specs": "7 Nights • Private Balcony Stateroom • Naturalist Lectures",
       "features": [
@@ -1510,7 +1510,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Western Caribbean Island Hopper Cruise",
-      "price": "$1,750 / person (Flights, Oceanview Cabin & Excursions)",
+      "price": "$1,750 / person",
       "location": "Cozumel, Belize Barrier Reef & Roatan",
       "specs": "7 Nights • Oceanview Cabin • Water Sport Package",
       "features": [
@@ -1523,14 +1523,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "European Mega-River Barge Cruise",
-      "price": "$4,600 / person (+ Extra European airfare)",
+      "price": "$4,600 / person",
       "location": "Rhine & Danube Rivers",
       "specs": "7 Nights • Compact Lower-Deck Cabin",
       "features": [
-        "Slow leisurely sailing past German castles and vineyards",
-        "Extremely high price ($4,600/person) for small compact cabins",
-        "River water level fluctuations frequently cancel sailings, forcing bus tours",
-        "Itinerary is heavily catered to older retirees with very sedentary excursions"
+        "Vessel: 150-passenger European riverboat cruising the Rhine River",
+        "Itinerary: Scheduled sailing past German castles, hillside vineyards, and historic towns",
+        "Cabins: Standard 150 sq. ft. exterior river-view staterooms with French balconies",
+        "Excursions: Daily walking tours led by local heritage guides in port towns"
       ]
     },
     "persuasionGuidance": [
@@ -1550,7 +1550,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Guided Trekking Expedition in Peru (Inca Trail)",
-      "price": "$2,300 Total (Flights, Licensed Porters, Food & Permits)",
+      "price": "$2,300",
       "location": "Cusco, Sacred Valley & Machu Picchu",
       "specs": "12 Days • Guided 4-Day Trek • Mountain Camps & Boutique Hotels",
       "features": [
@@ -1563,7 +1563,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Japan High-Speed Cultural Rail Explorer",
-      "price": "$2,700 Total (Flights, 7-Day Shinkansen Pass & Hotels)",
+      "price": "$2,700",
       "location": "Tokyo, Kyoto, Osaka & Nara",
       "specs": "12 Days • High-Speed Bullet Trains • Central Modern Hotels",
       "features": [
@@ -1576,14 +1576,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Sedentary Beach Resort Lounge",
-      "price": "$1,500 Total (Flights & Budget Hotel)",
+      "price": "$1,500",
       "location": "Varadero Beach Enclave",
       "specs": "12 Days • Standard Poolside Room",
       "features": [
-        "Low upfront cost and unlimited cheap cocktails",
-        "Zero cultural learning, history, language exposure, or adventure",
-        "Repetitive bland buffet food and uninspiring daily routine",
-        "A wasted vacation opportunity when capable of exploring world wonders"
+        "Destination: All-inclusive beach resort in Varadero, Cuba",
+        "Amenities: Oceanfront lounge chairs, beachfront water sports, and swimming pools",
+        "Meals: Buffet restaurants, snack bars, and beverage service included in package",
+        "Excursions: Optional half-day city bus tour to Havana available through resort desk"
       ]
     },
     "persuasionGuidance": [
@@ -1603,7 +1603,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Indoor Escape Room & Catered Dinner Buffet",
-      "price": "$55 / person ($990 total budget)",
+      "price": "$55 / person",
       "location": "Downtown Escape Complex & Private Dining Hall",
       "specs": "60-min Multi-Room Mystery Challenge + 2-Hour Catered Buffet",
       "features": [
@@ -1616,7 +1616,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Outdoor Aerial Ropes Course & BBQ Pavilion",
-      "price": "$65 / person ($1,170 total budget, shuttle included)",
+      "price": "$65 / person",
       "location": "Pine Valley Outdoor Adventure Park",
       "specs": "3-Hour Guided Tree-Top Course + Reserved BBQ Pavilion",
       "features": [
@@ -1629,14 +1629,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Virtual Zoom Trivia with Delivery Gift Cards",
-      "price": "$30 / person ($540 total budget)",
+      "price": "$30 / person",
       "location": "Online via Zoom video call",
       "specs": "45-min Screen Trivia + $25 Delivery Voucher",
       "features": [
-        "Low cost and allows employees to stay at home",
-        "Staff already suffer from severe daily screen fatigue and Zoom burnout",
-        "Lacks meaningful face-to-face interaction or genuine connection between colleagues",
-        "Many employees will log off early or remain on mute with cameras turned off"
+        "Format: 2-hour virtual meeting over Zoom with remote trivia game software",
+        "Delivery: $25 digital meal delivery e-gift card sent to each employee's email",
+        "Participation: Employees join online from their home office workstations",
+        "Cost: $25 gift card per person plus software subscription fee"
       ]
     },
     "persuasionGuidance": [
@@ -1656,7 +1656,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Motorized Dual-Monitor Standing Desks",
-      "price": "$620 / workstation (Includes Cable Management & Delivery)",
+      "price": "$620 / workstation",
       "location": "Ergonomic Commercial Office Supplier",
       "specs": "Electric Height-Adjustable (25\"-50\") • Dual-Arm Monitor Mount",
       "features": [
@@ -1669,7 +1669,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Acoustic Privacy Cubicles with Ergonomic Chairs",
-      "price": "$750 / workstation (Includes Sound-Dampening Fabric Panels)",
+      "price": "$750 / workstation",
       "location": "Modular Corporate Furniture Depot",
       "specs": "54\" Sound-Absorbing Fabric Panels • Mesh Lumbar Task Chair",
       "features": [
@@ -1686,10 +1686,10 @@ const TASK5_PROMPTS = [
       "location": "Budget Office Wholesaler",
       "specs": "Fixed-Height Long Table • Non-Adjustable Basic Chairs",
       "features": [
-        "Lowest initial purchase cost and maximizes desk density",
-        "Zero acoustic privacy, leading to constant noise distractions and reduced concentration",
-        "Fixed height causes repetitive strain injuries and poor posture for taller or shorter staff",
-        "Creates daily friction as employees compete every morning for desks and outlets"
+        "Configuration: Continuous open benching desks seating 8 employees per row",
+        "Dimensions: Fixed-height 48-inch by 24-inch shared laminate work surfaces",
+        "Power & cable: Central under-desk power troughs with shared multi-plug strips",
+        "Cost: $200 per workstation initial furniture purchase cost"
       ]
     },
     "persuasionGuidance": [
@@ -1709,7 +1709,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Stable Public Sector / Government Analyst Role",
-      "price": "$88,000 / year (Defined Benefit Pension + Full Benefits)",
+      "price": "$88,000 / year",
       "location": "Provincial Government Office (Hybrid: 2 days in office)",
       "specs": "Permanent Full-Time • 35-Hour Work Week • Unionized",
       "features": [
@@ -1722,7 +1722,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "High-Growth Tech Startup Product Specialist",
-      "price": "$95,000 / year ($15,000 Performance Bonus + Stock Options)",
+      "price": "$95,000 / year",
       "location": "Downtown Tech Hub (Hybrid: 1 day in office)",
       "specs": "Full-Time • Series-B Funded • Stock Equity Grant",
       "features": [
@@ -1735,14 +1735,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Traditional Mid-Size Marketing Agency",
-      "price": "$72,000 / year (Basic Health Insurance Only)",
+      "price": "$72,000 / year",
       "location": "Commercial Business Park (5 days in office mandated)",
       "specs": "Full-Time • 45-50 Hours / Week • No Equity",
       "features": [
-        "Familiar client account structure",
-        "Lower starting base salary with long, demanding 50-hour work weeks and tight client deadlines",
-        "Mandatory 5-day on-site office attendance with a 45-minute highway commute",
-        "Limited advancement ceiling with low annual merit increases below inflation"
+        "Role: Account Manager with established traditional regional advertising agency",
+        "Schedule: 50 scheduled hours per week on-site in downtown agency office",
+        "Compensation: $62,000 annual base salary with annual performance review",
+        "Commute: 45-minute highway driving commute to company office"
       ]
     },
     "persuasionGuidance": [
@@ -1762,7 +1762,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "6-Month Intensive Accredited Tech Bootcamp",
-      "price": "$4,200 (Eligible for Canada Job Grant & Tax Credit)",
+      "price": "$4,200",
       "location": "Live Online Evening Classes (Tues/Thurs + Sat)",
       "specs": "24 Weeks • 250 Hours • 1-on-1 Mentor & Capstone Project",
       "features": [
@@ -1775,7 +1775,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "University Postgraduate Professional Certificate",
-      "price": "$3,400 (Employer Tuition Reimbursement Eligible)",
+      "price": "$3,400",
       "location": "University Continuing Education (Hybrid)",
       "specs": "3 Semesters • 4 Accredited Courses • University Transcript",
       "features": [
@@ -1788,14 +1788,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Unstructured Free YouTube Videos",
-      "price": "$0 (Free online clips)",
+      "price": "$0",
       "location": "Self-study at home",
       "specs": "Ad-supported clips • No syllabus • No instructor",
       "features": [
-        "Zero financial cost upfront",
-        "Outdated, fragmented videos with zero structured curriculum or quality assurance",
-        "No live instructor to answer complex debugging questions or review code",
-        "Provides zero verifiable credential or certificate to prove competency on a resume"
+        "Format: Self-directed video tutorials and free documentation on YouTube and developer blogs",
+        "Schedule: Independent evening study with no scheduled classes or fixed deadlines",
+        "Support: Community developer forum posts and web comments for troubleshooting",
+        "Credential: Self-study coursework with no formal examination or credential issued"
       ]
     },
     "persuasionGuidance": [
@@ -1815,7 +1815,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Asana Enterprise Cloud Workflow Suite",
-      "price": "$14 / user / month ($3,360 annually)",
+      "price": "$14 / user / month",
       "location": "Cloud SaaS Platform (Desktop & Mobile)",
       "specs": "Gantt Timelines • Automated Triggers • Real-Time Dashboards",
       "features": [
@@ -1828,7 +1828,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Jira & Confluence Agile Collaboration Suite",
-      "price": "$12 / user / month ($2,880 annually)",
+      "price": "$12 / user / month",
       "location": "Atlassian Cloud Platform",
       "specs": "Kanban & Scrum Sprints • Integrated Wiki Documentation",
       "features": [
@@ -1841,14 +1841,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Shared Email Inbox & Excel Spreadsheets",
-      "price": "$0 extra (Using current Office license)",
+      "price": "$0",
       "location": "Local network drive & email",
       "specs": "Static Spreadsheet • Manual Email Updates",
       "features": [
-        "No additional software procurement cost",
-        "High risk of version control errors (conflicting versions of spreadsheets saved by staff)",
-        "No automated notifications, resulting in dropped tasks and missed client deadlines",
-        "Hours wasted every week manually emailing colleagues for status updates"
+        "Tool: Shared Microsoft Excel workbooks hosted on company network drive",
+        "Licensing: Included within existing Microsoft Office enterprise software license",
+        "Notifications: Manual email updates sent by individual team members",
+        "Tracking: Manual spreadsheet updates entered independently by each employee"
       ]
     },
     "persuasionGuidance": [
@@ -1868,7 +1868,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Subsidized Gym & Fitness Membership Allowance",
-      "price": "$40 / employee / month ($2,400 monthly company budget)",
+      "price": "$40 / employee / month",
       "location": "Network of 500+ Gyms & Yoga Studios Nationwide",
       "specs": "Any Gym/Studio • Includes Digital Fitness App Access",
       "features": [
@@ -1881,7 +1881,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "On-Site Registered Massage & Ergonomic Health Days",
-      "price": "$1,800 / month (Bi-weekly registered massage therapists)",
+      "price": "$1,800 / month",
       "location": "Dedicated Wellness Room at Office",
       "specs": "2 RMTs on-site twice a month • 20-min treatment per staff",
       "features": [
@@ -1898,10 +1898,10 @@ const TASK5_PROMPTS = [
       "location": "Office Lunchroom",
       "specs": "Fast food pizza & pastries once a month",
       "features": [
-        "Cheap and requires minimal administrative planning",
-        "Directly contradicts the concept of health and wellness by offering unhealthy processed foods",
-        "Excludes employees with gluten intolerance, dairy allergies, diabetes, or vegan diets",
-        "Causes afternoon sugar crashes and sluggishness rather than real wellness"
+        "Format: Monthly pastry and pizza lunch buffet in central staff lounge",
+        "Menu: Assorted commercial donuts, delivery pizzas, and canned beverages",
+        "Schedule: 45-minute social lunch gathering on the first Friday of each month",
+        "Budget: $300 monthly departmental expense for refreshments"
       ]
     },
     "persuasionGuidance": [
@@ -1921,7 +1921,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Executive Business Hotel with Meeting Lounge",
-      "price": "$195 / night (Within corporate travel per diem)",
+      "price": "$195 / night",
       "location": "Downtown Montreal Financial District (5 min walk to client)",
       "specs": "Private King Room • High-Speed Wi-Fi • Business Lounge Access",
       "features": [
@@ -1934,7 +1934,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Corporate Serviced Studio Apartment",
-      "price": "$175 / night (Corporate negotiated rate)",
+      "price": "$175 / night",
       "location": "Old Montreal Arts & Tech Hub",
       "specs": "Private 500 sq. ft. Studio • Full Kitchen • In-Suite Laundry",
       "features": [
@@ -1951,10 +1951,10 @@ const TASK5_PROMPTS = [
       "location": "Near Central Station",
       "specs": "6-Bed Shared Bunk Room • Shared Hallway Bathroom",
       "features": [
-        "Very low nightly cost saving company travel budget",
-        "Zero security for company laptops containing sensitive, confidential client financial data",
-        "Noisy dorm mates and shared bathrooms prevent proper sleep before major client meetings",
-        "Unprofessional setting with no private space to take confidential client phone calls"
+        "Accommodations: Shared 6-bed dormitory room in licensed downtown hostel",
+        "Facilities: Shared hallway bathrooms, communal kitchen, and basement lounge",
+        "Storage: Under-bed metal storage locker requiring traveler's personal padlock",
+        "Location: Situated 10 minutes walking distance from Montreal central train station"
       ]
     },
     "persuasionGuidance": [
@@ -1974,7 +1974,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Evening Gala Dinner & Dance at Historic Heritage Hall",
-      "price": "$85 / person ($4,250 total budget)",
+      "price": "$85 / person",
       "location": "The Grand Heritage Estate Ballroom",
       "specs": "Plated 3-Course Dinner • Live Jazz Trio & DJ • 6:00 PM - 11:00 PM",
       "features": [
@@ -1987,7 +1987,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Interactive Boutique Bowling, Arcade & Gastropub Lounge",
-      "price": "$65 / person ($3,250 total budget)",
+      "price": "$65 / person",
       "location": "The Ballroom Bowl & Social Club Downtown",
       "specs": "Reserved Bowling Lanes + Arcade Pass + Heavy Gourmet Appetizers",
       "features": [
@@ -2000,14 +2000,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Brief Afternoon Cookies in the Breakroom",
-      "price": "$8 / person ($400 budget)",
+      "price": "$8 / person",
       "location": "Office Staff Kitchen",
       "specs": "30-Minute gathering • Store-bought cookies & punch",
       "features": [
-        "Requires almost zero budget and no evening commitment",
-        "Feels unappreciated and cheap after a full year of demanding employee dedication",
-        "Staff remain in work attire surrounded by desks and unresolved emails",
-        "Fails completely to boost team morale or create any lasting celebration"
+        "Format: 45-minute afternoon reception in company breakroom on Friday at 3:30 PM",
+        "Catering: Bakery cookie platters, hot apple cider, and cheese squares",
+        "Setting: Standard office lunchroom with folding tables and company notices",
+        "Schedule: Held during regular office hours with no evening or weekend commitment"
       ]
     },
     "persuasionGuidance": [
@@ -2027,7 +2027,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Flexible 3-Day Hybrid Schedule (2 Days Remote)",
-      "price": "Neutral cost (Optimizes office desk sharing)",
+      "price": "Neutral cost",
       "location": "Hybrid (3 designated collaboration days in office)",
       "specs": "Core In-Office Days (Tue-Thu) • Remote Days (Mon/Fri)",
       "features": [
@@ -2053,14 +2053,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Mandatory 5-Day Full In-Office Return",
-      "price": "High overhead (Full corporate lease & parking)",
+      "price": "High overhead",
       "location": "Downtown Office 5 Days / Week",
       "specs": "Rigid 9-to-5 on-site presence required",
       "features": [
-        "Direct visual supervision of staff at all times",
-        "Will trigger immediate resignations of top performers who demand modern flexibility",
-        "Forces employees into exhausting 10+ hours of weekly rush-hour traffic commutes",
-        "High commercial real estate costs with full desks sitting empty during client visits"
+        "Policy: Full mandatory 5-day on-site work schedule at corporate headquarters",
+        "Hours: Standard 8:30 AM to 5:00 PM in-person office hours with badge scanning",
+        "Workstations: Assigned individual cubicle desks for each department employee",
+        "Commute: Standard daily peak-hour commute to central business district office"
       ]
     },
     "persuasionGuidance": [
@@ -2080,7 +2080,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Cash Performance Bonus + Extra Paid Friday Off",
-      "price": "$750 Net Cash Bonus + 1 Paid Floating Day Off per person",
+      "price": "$750 Net Cash Bonus",
       "location": "Direct Payroll Deposit & HR Time-Off Credit",
       "specs": "$750 Direct Cash + Guaranteed 3-Day Weekend",
       "features": [
@@ -2093,7 +2093,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "All-Expenses-Paid Tech Conference Trip to Montreal",
-      "price": "$1,200 / person (Includes Flight, Hotel & Full Conference Pass)",
+      "price": "$1,200 / person",
       "location": "Montreal Convention Centre",
       "specs": "3-Day Premier Tech Summit Pass • 4-Star Hotel Accommodation",
       "features": [
@@ -2110,10 +2110,10 @@ const TASK5_PROMPTS = [
       "location": "Promotional Swag Catalog",
       "specs": "Cheap plastic bottle with company logo printed",
       "features": [
-        "Very low cost to the department budget",
-        "Feels insulting and dismissive after 6 months of grueling overtime work",
-        "Most cheap promotional swag ends up unused in closets or thrown into landfill",
-        "Damages employee morale and makes staff feel unappreciated by management"
+        "Reward: Branded company gift pack (ceramic logo mug, ballpoint pen, 24-oz water bottle)",
+        "Presentation: Boxed promotional gift set placed on each employee's desk",
+        "Cost: $25 per employee departmental corporate merchandise allocation",
+        "Branding: Official company corporate logo printed on all included items"
       ]
     },
     "persuasionGuidance": [
@@ -2133,7 +2133,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Local Public School with Early French Immersion",
-      "price": "$0 Tuition (Funded by Provincial School Board)",
+      "price": "$0",
       "location": "Neighborhood Community School (7-min walk)",
       "specs": "Full-Day French Immersion • Dedicated STEM Lab & Library",
       "features": [
@@ -2146,7 +2146,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Private Montessori & Arts Academy",
-      "price": "$12,500 / year (Includes Hot Lunch & Field Trips)",
+      "price": "$12,500 / year",
       "location": "Historic Campus (15-min drive)",
       "specs": "Small Class Sizes (12 Students) • Individualized Pace",
       "features": [
@@ -2163,10 +2163,10 @@ const TASK5_PROMPTS = [
       "location": "Home computer screen",
       "specs": "Digital Video Lessons • Independent Modules",
       "features": [
-        "Flexible hours and zero morning rush",
-        "Causes social isolation and deprives our 6-year-old of vital childhood peer interactions",
-        "Requires 5+ hours of daily parent supervision, severely disrupting our own careers",
-        "Excessive early childhood screen time causing eye fatigue and restlessness"
+        "Setting: Home-based parent instruction using provincial curriculum workbooks",
+        "Teaching schedule: 20 to 25 hours per week of parent-directed instruction and grading",
+        "Materials: Textbook packages, library resources, and educational software",
+        "Social activities: Parent-organized local homeschool co-op meetups twice monthly"
       ]
     },
     "persuasionGuidance": [
@@ -2186,7 +2186,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Intensive Small-Group Language Academy",
-      "price": "$480 for 12-Week Term (2 evenings/week)",
+      "price": "$480 for 12-Week Term",
       "location": "Downtown Language Institute (Near Office)",
       "specs": "Max 6 Students • Native Certified Instructor • Interactive Debates",
       "features": [
@@ -2199,7 +2199,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Private 1-on-1 Video Lessons with Native Business Tutor",
-      "price": "$35 / hour ($700 for 20 personalized lessons)",
+      "price": "$35 / hour",
       "location": "Live Video Call (Flexible schedule from home)",
       "specs": "100% Tailored Curriculum • Industry-Specific Vocabulary",
       "features": [
@@ -2212,14 +2212,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Free Automated Mobile Flashcard App",
-      "price": "$0 (Ad-supported app)",
+      "price": "$0",
       "location": "Mobile Smartphone Screen",
       "specs": "Multiple-Choice Quizzes • Robotic Voice Audio",
       "features": [
-        "Free and convenient for brief casual practice",
-        "Teaches isolated vocabulary words without real conversational fluency or grammatical context",
-        "Zero speaking practice with a real human being to build genuine conversation skills",
-        "High drop-off rate with 90% of users quitting after three weeks due to repetitive exercises"
+        "Platform: Free mobile language smartphone app with 5-minute daily gamified drills",
+        "Curriculum: Automated vocabulary flashcards, matching games, and multiple-choice quizzes",
+        "Speaking practice: Automated speech recognition scoring pronunciation against audio models",
+        "Cost: Free ad-supported smartphone application with optional in-app purchases"
       ]
     },
     "persuasionGuidance": [
@@ -2239,7 +2239,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Accredited Online Flexible University Degree",
-      "price": "$16,000 Total ($4,000 / year • Tax Deductible)",
+      "price": "$16,000",
       "location": "Fully Online (Top Accredited Canadian University)",
       "specs": "4-Year Bachelor of Commerce • Asynchronous Lectures & Exams",
       "features": [
@@ -2252,7 +2252,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Traditional On-Campus Evening & Weekend Cohort",
-      "price": "$20,000 Total (Includes Campus Facilities & Gym)",
+      "price": "$20,000",
       "location": "Downtown University Campus",
       "specs": "Evening Lectures • In-Person Case Studies & Group Projects",
       "features": [
@@ -2269,10 +2269,10 @@ const TASK5_PROMPTS = [
       "location": "Commercial Training Website",
       "specs": "Pre-Recorded Videos • Auto-Graded Multiple Choice Quiz",
       "features": [
-        "Fast completion in under a month with minimal effort",
-        "Has zero academic accreditation and is disregarded by executive recruiters and HR directors",
-        "Covers superficial surface-level concepts with zero analytical depth or case analysis",
-        "Does not qualify for professional designations like CPA, PMP, or MBA prerequisites"
+        "Format: Part-time adult continuing education ESL classes at local community center",
+        "Schedule: 2 evening classes per week (2 hours each) over a 24-week semester",
+        "Class size: 25 to 30 adult learners per group classroom setting",
+        "Curriculum: General conversation and settlement English textbook materials"
       ]
     },
     "persuasionGuidance": [
@@ -2285,14 +2285,14 @@ const TASK5_PROMPTS = [
     "id": "t5_044",
     "title": "High School Tutoring Program",
     "category": "Education & Training",
-    "context": "You and your spouse are choosing a high school tutoring program to help your 15-year-old son Tyler with Grade 10 Math and Physics.",
+    "context": "You and your spouse Robert are choosing a high school tutoring program to help your 15-year-old son Tyler with Grade 10 Math and Physics.",
     "targetAudience": "Your spouse, Robert",
     "partnerChoiceName": "Buying Pre-Recorded Video Lectures Online",
     "partnerRationale": "Robert wants to buy a bundle of pre-recorded math video lectures from a website for $99.",
     "optionA": {
       "id": "opt_a",
       "name": "Specialized STEM Learning Center (2 Sessions/Week)",
-      "price": "$280 / month (Includes Custom Curriculum & Worksheets)",
+      "price": "$280 / month",
       "location": "Local Learning Academy Plaza (5 min away)",
       "specs": "1:3 Tutor Ratio • Diagnostic Testing • Weekly Progress Reports",
       "features": [
@@ -2305,7 +2305,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "In-Home University Engineering Student Tutor",
-      "price": "$35 / hour ($280 / month for 2 hours weekly)",
+      "price": "$35 / hour",
       "location": "In-Home Private Tutoring at Kitchen Desk",
       "specs": "1-on-1 Dedicated Mentorship • Flexible Scheduling",
       "features": [
@@ -2318,14 +2318,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Pre-Recorded Online Video Lecture Bundle",
-      "price": "$99 One-time purchase",
+      "price": "$99 One-time",
       "location": "Online Video Platform",
       "specs": "Generic video clips • No live interaction",
       "features": [
-        "Cheap one-time payment",
-        "Passive video watching cannot answer Tyler's specific questions or explain why he made a mistake",
-        "Teenagers quickly lose focus and browse social media instead of watching dry math videos",
-        "Zero accountability or feedback to ensure homework is actually understood and completed"
+        "Format: Downloadable bundle of 40 pre-recorded 30-minute high school math video lectures",
+        "Access: Permanent digital video access on computer or mobile tablet",
+        "Materials: Downloadable PDF homework practice sheets with completed answer keys",
+        "Instruction: One-directional pre-recorded video demonstrations without live interaction"
       ]
     },
     "persuasionGuidance": [
@@ -2345,7 +2345,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Project Management Professional (PMP) Certification Prep",
-      "price": "$1,400 (Course + PMI Exam Fee • 100% Company Subsidized)",
+      "price": "$1,400",
       "location": "Virtual Live Instructor Bootcamp (4 Saturdays)",
       "specs": "35 Contact Hours • Official PMI Exam Simulator & Study Guide",
       "features": [
@@ -2358,7 +2358,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Certified Scrum Master (CSM) & Agile Practitioner",
-      "price": "$1,100 (2-Day Intensive Workshop + Exam Included)",
+      "price": "$1,100",
       "location": "Live Interactive Agile Workshop",
       "specs": "16 Hours • Official Scrum Alliance Credential & 2-Yr Membership",
       "features": [
@@ -2371,14 +2371,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Casual Uncertified Reading of Project Books",
-      "price": "$60 (Two paperback books)",
+      "price": "$60",
       "location": "Self-reading at home",
       "specs": "No credential • No formal verification",
       "features": [
-        "Very cheap and low commitment",
-        "Provides zero verifiable credential or letters after your name to prove competency on LinkedIn",
-        "HR automated resume screening filters immediately reject candidates lacking formal PMP/CSM certs",
-        "Easy to procrastinate reading books without structured deadlines or exam incentives"
+        "Method: Independent textbook self-study using official PMP exam prep manual",
+        "Materials: 600-page printed study guide and 3 paper practice examinations",
+        "Schedule: Unstructured personal study hours managed independently at home",
+        "Cost: $45 one-time book purchase cost with no formal classroom hours"
       ]
     },
     "persuasionGuidance": [
@@ -2391,14 +2391,14 @@ const TASK5_PROMPTS = [
     "id": "t5_046",
     "title": "Children's Extracurricular Activity",
     "category": "Education & Training",
-    "context": "You and your spouse are selecting an after-school extracurricular program for your 8-year-old son Noah.",
+    "context": "You and your spouse Claire are selecting an after-school extracurricular program for your 8-year-old son Noah.",
     "targetAudience": "Your spouse, Claire",
     "partnerChoiceName": "Competitive Esports Video Gaming Club",
     "partnerRationale": "Noah loves gaming, and Claire thinks a competitive video gaming club will improve his reflexes and hand-eye coordination.",
     "optionA": {
       "id": "opt_a",
       "name": "Community Soccer League & Red Cross Swimming Lessons",
-      "price": "$380 / season (Includes Soccer Uniform, Ball & Swim Passes)",
+      "price": "$380 / season",
       "location": "Local Community Recreation Center (3 min away)",
       "specs": "Weekly Soccer Match + 2 Swim Lessons • Active Physical Fitness",
       "features": [
@@ -2411,7 +2411,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Classical Piano & Music Theory Lessons",
-      "price": "$450 / term (Weekly 45-min lesson + Recital)",
+      "price": "$450 / term",
       "location": "Neighborhood Music Conservatory",
       "specs": "1-on-1 Classical Piano Instructor • Royal Conservatory Syllabus",
       "features": [
@@ -2428,10 +2428,10 @@ const TASK5_PROMPTS = [
       "location": "Commercial Gaming Center / Home PC",
       "specs": "3 Hours Weekly • Competitive Online Multiplayer Games",
       "features": [
-        "Engaging and fun for children who love video games",
-        "Increases sedentary indoor screen time, worsening posture, eye strain, and physical inactivity",
-        "Can promote screen addiction, competitive frustration, and online toxicity",
-        "Lacks real physical exercise, life-saving skills, or classical artistic enrichment"
+        "Program: 2-hour weekly organized esports video gaming club at local gaming lounge",
+        "Activities: Multiplayer competitive matches (Rocket League, Minecraft) guided by game mentor",
+        "Equipment: Commercial gaming PCs, mechanical keyboards, and surround-sound headsets",
+        "Schedule: 2 hours every Tuesday after school from 4:00 PM to 6:00 PM"
       ]
     },
     "persuasionGuidance": [
@@ -2451,7 +2451,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Top-Tier Executive MBA (Weekend Format)",
-      "price": "$65,000 (Tax Deductible • Employer Tuition Support Eligible)",
+      "price": "$65,000",
       "location": "Prestigious Downtown Business School (Rotman / Ivey / Schulich)",
       "specs": "18 Months • Alternating Fridays & Saturdays • Executive Cohort",
       "features": [
@@ -2464,7 +2464,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Part-Time Evening MBA at Regional University",
-      "price": "$32,000 (Pay per course over 3 years)",
+      "price": "$32,000",
       "location": "Regional Public University Campus",
       "specs": "3 Years • 2 Evenings per week • AACSB Accredited",
       "features": [
@@ -2481,10 +2481,10 @@ const TASK5_PROMPTS = [
       "location": "Online Video Portal",
       "specs": "20 Hours of Video Lectures • Digital PDF Certificate",
       "features": [
-        "Fast completion in two weeks with zero academic stress",
-        "Is not a real master's degree and holds zero credibility with corporate boards and executive recruiters",
-        "Cannot be listed as an authentic MBA credential on formal credentials or corporate governance filings",
-        "A total waste of $1,500 that delivers neither rigorous education nor an executive professional network"
+        "Program: 2-week accelerated online executive seminar with pre-recorded video lectures",
+        "Curriculum: High-level management summary videos and multiple-choice knowledge checks",
+        "Pacing: Self-directed video viewing completed in approximately 15 hours total",
+        "Credential: Digital certificate of completion issued by private seminar provider"
       ]
     },
     "persuasionGuidance": [
@@ -2497,14 +2497,14 @@ const TASK5_PROMPTS = [
     "id": "t5_048",
     "title": "Summer Camp for Kids",
     "category": "Education & Training",
-    "context": "You and your partner are deciding on a 2-week July summer camp for your 10-year-old son Lucas.",
+    "context": "You and your partner Mark are deciding on a 2-week July summer camp for your 10-year-old son Lucas.",
     "targetAudience": "Your partner, Mark",
     "partnerChoiceName": "Leaving Lucas at Home with Video Games & TV",
     "partnerRationale": "Mark thinks Lucas can just stay home alone for 2 weeks playing video games and watching TV to save money.",
     "optionA": {
       "id": "opt_a",
       "name": "Overnight Wilderness Adventure Camp in Muskoka",
-      "price": "$1,600 for 2 Weeks (Includes Lodging, All Meals & Equipment)",
+      "price": "$1,600 for 2 Weeks",
       "location": "Muskoka Lakefront Camp Grounds",
       "specs": "14 Days Overnight • Canoeing, Archery, Sailing & Campfires",
       "features": [
@@ -2517,7 +2517,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "STEM Robotics, Coding & Game Design Day Camp",
-      "price": "$750 for 2 Weeks (9:00 AM - 4:30 PM Daily)",
+      "price": "$750 for 2 Weeks",
       "location": "Local Technology College Campus (10 min away)",
       "specs": "Day Camp • LEGO Mindstorms Robotics • Python & 3D Printing",
       "features": [
@@ -2530,14 +2530,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Leaving Lucas Home Alone with Screen Time",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Home Living Room",
       "specs": "Unsupervised Screen Time • Fast Food Snacks",
       "features": [
-        "Zero financial cost for camp registration",
-        "Causes unhealthy sedentary isolation, sleep cycle disruption, and screen addiction",
-        "Safety risk of a 10-year-old child remaining home alone without adult supervision all day",
-        "Wastes summer vacation without learning new skills, outdoor exercise, or making friends"
+        "Routine: Daytime home stay with parent telephone check-ins during working hours",
+        "Activities: Self-directed indoor activities, reading, video games, and yard play",
+        "Meals: Pre-made lunches prepared in refrigerator for independent heating",
+        "Supervision: Child remains home independently during standard business hours"
       ]
     },
     "persuasionGuidance": [
@@ -2557,7 +2557,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Certified Financial Planner (CFP) Guided Wealth Workshop",
-      "price": "$350 (Includes 6 Modules + Personalized 1-on-1 Plan Review)",
+      "price": "$350",
       "location": "Live Interactive Evening Webinar Series",
       "specs": "6 Weeks • Certified Financial Planner • TFSA, RRSP & Index ETFs",
       "features": [
@@ -2570,7 +2570,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "College Personal Finance & Real Estate Investing Course",
-      "price": "$420 (Continuing Education Credit • Tax Deductible)",
+      "price": "$420",
       "location": "Community College Campus (Saturday Mornings)",
       "specs": "8 Weeks • Academic Syllabus • Debt, Mortgages & Equities",
       "features": [
@@ -2583,14 +2583,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Paid Day-Trading & Crypto Social Media Group",
-      "price": "$200 / month ($2,400 annually)",
+      "price": "$200 / month",
       "location": "Anonymous Discord / Telegram Chatroom",
       "specs": "Daily Trading Signals • Speculative Meme Coins & Options",
       "features": [
-        "Promises fast overnight wealth and high-risk speculative trading alerts",
-        "High statistical probability of losing 100% of invested capital on volatile meme coins and options",
-        "Run by unregulated, anonymous social media influencers with zero financial credentials",
-        "Promotes dangerous gambling habits and extreme emotional stress rather than sound financial literacy"
+        "Platform: Private Telegram chat group sharing real-time cryptocurrency trade signals",
+        "Strategy: Short-term day trading and speculative momentum alerts on digital tokens",
+        "Fee: $200 recurring monthly chat group access subscription",
+        "Content: Daily alert notifications and chat discussions among group subscribers"
       ]
     },
     "persuasionGuidance": [
@@ -2610,7 +2610,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "University Extension Fiction Writers Masterclass",
-      "price": "$520 for 10-Week Term (Weekly 3-Hour Workshop)",
+      "price": "$520 for 10-Week Term",
       "location": "University Continuing Education Building",
       "specs": "Max 10 Writers • Published Author Instructor • Detailed Critiques",
       "features": [
@@ -2623,7 +2623,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Community Creative Writers Circle & Coffee Meetup",
-      "price": "$120 / year (Bi-weekly critique sessions at library)",
+      "price": "$120 / year",
       "location": "City Central Library Community Room",
       "specs": "Bi-weekly 2-Hour Critique Circles • Coffee & Writing Prompts",
       "features": [
@@ -2636,14 +2636,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Writing in Secret at Home Alone",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Home bedroom desk",
       "specs": "Solitary writing • No external feedback or deadlines",
       "features": [
-        "Zero fear of judgment or vulnerability",
-        "Without constructive feedback, writers remain blind to plot holes, weak dialogue, and pacing issues",
-        "High rate of abandonment as isolation and self-doubt lead to unfinished manuscripts in desk drawers",
-        "Miss out on the joy of community, literary networking, and learning publishing industry standards"
+        "Format: Solitary home reading of bestselling fiction novels and writing craft manuals",
+        "Routine: Independent evening writing sessions managed at personal desk",
+        "Feedback: Self-editing using reference grammar books and personal judgment",
+        "Cost: $0 course tuition using local public library books and home computer"
       ]
     },
     "persuasionGuidance": [
@@ -2663,7 +2663,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Full-Service Community YMCA Recreation Complex",
-      "price": "$62 / month (No Enrollment Fee • Cancel Anytime)",
+      "price": "$62 / month",
       "location": "Central Community Center (5-min drive / bike)",
       "specs": "Olympic Pool • Free Weights & Squat Racks • Indoor Running Track",
       "features": [
@@ -2676,7 +2676,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "24/7 Keycard Express Strength & Fitness Gym",
-      "price": "$45 / month (24/7 Unlimited Keyfob Access)",
+      "price": "$45 / month",
       "location": "Neighborhood Plaza (Walking distance)",
       "specs": "24/7 Access • Commercial Hammer Strength Equipment",
       "features": [
@@ -2689,14 +2689,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Ultra-Luxury Boutique Club & Spa",
-      "price": "$290 / month (+ $1,000 Initiation Fee)",
+      "price": "$290 / month",
       "location": "Downtown Financial Core",
       "specs": "Spa Amenities • Valet Parking • Strict 1-Year Contract",
       "features": [
-        "Luxury marble finishes, eucalyptus cold towels, and executive lounge",
-        "Extremely expensive, totaling over $4,400 in the first year alone",
-        "Strict long-term lock-in contract with steep penalty fees for early cancellation",
-        "Crowded during peak lunch and after-work hours with long waits for squat racks"
+        "Facility: 20,000 sq. ft. commercial strength training warehouse in industrial park",
+        "Equipment: 8 Olympic squat racks, chalk bowls, specialty barbells, and heavy dumbbells",
+        "Pricing: $250 monthly membership fee plus $2,000 one-time initiation fee",
+        "Location: Industrial commercial zone located 18 km from residential area"
       ]
     },
     "persuasionGuidance": [
@@ -2709,14 +2709,14 @@ const TASK5_PROMPTS = [
     "id": "t5_052",
     "title": "Home Workout Equipment",
     "category": "Fitness & Recreation",
-    "context": "You and your spouse are investing in home exercise equipment for your spare bedroom to stay fit during winter.",
+    "context": "You and your spouse Chloe are investing in home exercise equipment for your spare bedroom to stay fit during winter.",
     "targetAudience": "Your spouse, Chloe",
     "partnerChoiceName": "Bulky Multi-Station Cable Weight Machine",
     "partnerRationale": "Chloe saw a massive commercial multi-station cable cage machine online and thinks it can replace an entire commercial gym.",
     "optionA": {
       "id": "opt_a",
       "name": "Smart Connected Indoor Cycling Bike with Screen",
-      "price": "$1,450 (Includes 1-Year App Subscription & Heart Rate Monitor)",
+      "price": "$1,450",
       "location": "Fits in compact 4x2 ft corner of bedroom",
       "specs": "22\" HD Touchscreen • Magnetic Resistance • Silent Belt Drive",
       "features": [
@@ -2729,7 +2729,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Quick-Adjust Dumbbells (5-50 lbs) + Foldable Bench",
-      "price": "$680 Total (Pair of Smart Dumbbells + Commercial Incline Bench)",
+      "price": "$680",
       "location": "Compact Home Corner (Folds under bed)",
       "specs": "5 to 50 lbs in 2.5 lb increments • 7-Position Incline Bench",
       "features": [
@@ -2742,14 +2742,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Bulky Commercial Multi-Station Cable Cage",
-      "price": "$3,200 (+ $400 professional assembly required)",
+      "price": "$3,200",
       "location": "Requires 12x10 ft dedicated room",
       "specs": "Heavy Steel Cage • Dual 200-lb Weight Stacks",
       "features": [
-        "Versatile multi-angle cable pulleys and chin-up bar",
-        "Extremely heavy (over 600 lbs) and requires dominating the entire spare bedroom",
-        "Complex assembly with hundreds of pulleys, cables, and bolts taking 10+ hours to build",
-        "Lacks any cardiovascular conditioning or interactive coaching features"
+        "Equipment: Multi-station heavy steel home gym with dual 200-lb selectorized weight stacks",
+        "Footprint: 8-foot by 7-foot floor space requirement with 650-lb total assembled weight",
+        "Workouts: Resistance exercises including chest press, lat pulldowns, leg extensions, and cables",
+        "Assembly: Multi-component steel frame requiring comprehensive home bolt and cable assembly"
       ]
     },
     "persuasionGuidance": [
@@ -2769,7 +2769,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Tandem Sea Kayaking & Stand-Up Paddleboarding (SUP)",
-      "price": "$1,100 Total (Inflatable SUP + Touring Kayak + Lifejackets)",
+      "price": "$1,100",
       "location": "Local Lakes, Waterfronts, and Provincial Parks",
       "specs": "Inflatable Military-Grade PVC • Packs into Backpacks",
       "features": [
@@ -2782,7 +2782,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Long-Distance Road Cycling & Group Gran Fondo Rides",
-      "price": "$1,300 Total (Lightweight Aluminum Road Bikes + Helmets)",
+      "price": "$1,300",
       "location": "Paved Country Roads and Multi-Use Waterfront Trails",
       "specs": "18-Speed Shimano Gears • 9.2 kg Frame • Hydraulic Disc Brakes",
       "features": [
@@ -2795,14 +2795,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Extreme Downhill Mountain Biking",
-      "price": "$3,800 Total (Full-Suspension Downhill Bikes + Body Armor)",
+      "price": "$3,800",
       "location": "Mountain Ski Resort Lift Parks",
       "specs": "Heavy 180mm Travel Bikes • Full Face Helmets & Armor",
       "features": [
-        "High-adrenaline downhill speeds and technical jump lines",
-        "Extremely high risk of severe orthopedic injuries (fractures, concussions, torn ligaments)",
-        "Very expensive bikes requiring constant shock servicing, brake bleeds, and costly lift tickets ($75/day)",
-        "Requires driving 2+ hours each way to specialized ski mountains with chairlifts"
+        "Terrain: Lift-served alpine bike park with downhill rock gardens, berms, and wooden drops",
+        "Equipment: Full-suspension downhill mountain bike with full-face helmet and body protection",
+        "Access: $75 daily ski-lift mountain pass in addition to specialized equipment costs",
+        "Location: Alpine ski resort situated 2.5 hours driving distance from home"
       ]
     },
     "persuasionGuidance": [
@@ -2822,7 +2822,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Structured 16-Week Running Clinic with Certified Coach",
-      "price": "$180 (Includes Coach Guidance, Long Group Runs & Singlet)",
+      "price": "$180",
       "location": "Local Running Specialty Store & Track",
       "specs": "Weekly Tuesday Track Workouts + Saturday Supported Long Runs",
       "features": [
@@ -2835,7 +2835,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Smart Heart-Rate Zone GPS Training App Program",
-      "price": "$75 (Annual Premium Training App Subscription)",
+      "price": "$75",
       "location": "Personal GPS Smartwatch / Smartphone",
       "specs": "Adaptive AI Marathon Schedule • Heart-Rate Zone Audio Coaching",
       "features": [
@@ -2848,14 +2848,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Running Random Daily Mileage Without a Plan",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Random outdoor streets",
       "specs": "No structure • Max effort every run",
       "features": [
-        "Zero cost and requires no schedule commitment",
-        "80% probability of developing severe shin splints, plantar fasciitis, or runner's knee from overtraining",
-        "Running too fast on easy days burns out the aerobic energy system needed for 42 km endurance",
-        "High likelihood of failing to finish the marathon or having to drop out due to injury"
+        "Method: Self-guided running based on personal daily feeling and available free time",
+        "Pacing: Faster perceived effort runs 3 to 4 times per week on local sidewalks",
+        "Tracking: Personal stopwatch timing without structured heart-rate or lactate threshold testing",
+        "Schedule: Flexible training runs without pre-planned weekly mileage periodization"
       ]
     },
     "persuasionGuidance": [
@@ -2875,7 +2875,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Unlimited Hot Yoga & Sound-Bath Meditation Studio",
-      "price": "$115 / month (Unlimited Classes • Mat Storage Included)",
+      "price": "$115 / month",
       "location": "Boutique Infrared Yoga Studio (5 min from office)",
       "specs": "Infrared Radiant Heat (38°C) • 40 Classes Weekly • Sound Baths",
       "features": [
@@ -2888,7 +2888,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Weekend Nature Trail Hiking & Forest Bathing Group",
-      "price": "$45 / season (Provincial Parks Pass & Guided Group Hikes)",
+      "price": "$45 / season",
       "location": "Conservation Area Trails and Escarpment Forests",
       "specs": "Weekly Saturday 8-km Guided Forest Hikes • Outdoor Ecology",
       "features": [
@@ -2901,14 +2901,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Passive Binge-Watching TV with Fast Food",
-      "price": "$300 / month ($15 Netflix + $285 weekly food delivery)",
+      "price": "$300 / month",
       "location": "Living room sofa",
       "specs": "Sedentary screen time • High sodium/sugar takeout",
       "features": [
-        "Zero physical effort and provides temporary numbing distraction",
-        "Increases physical lethargy, poor posture, brain fog, and weight gain",
-        "Disrupts natural sleep cycles due to late-night blue light exposure",
-        "Fails to address underlying root causes of stress, leaving you just as exhausted the next morning"
+        "Activity: Evening television streaming and video browsing on living room sofa",
+        "Schedule: 2 to 3 hours of unstructured screen relaxation following workday",
+        "Setting: Reclining couch lounging with casual snacks and warm beverages",
+        "Cost: Existing home television and streaming service subscription ($0 additional cost)"
       ]
     },
     "persuasionGuidance": [
@@ -2921,14 +2921,14 @@ const TASK5_PROMPTS = [
     "id": "t5_056",
     "title": "Winter Recreation Sport",
     "category": "Fitness & Recreation",
-    "context": "You and your partner are choosing a regular outdoor winter sport to stay active during the 4 months of Canadian winter.",
+    "context": "You and your partner Dave are choosing a regular outdoor winter sport to stay active during the 4 months of Canadian winter.",
     "targetAudience": "Your partner, Dave",
     "partnerChoiceName": "Staying Indoors All Winter on the Couch",
     "partnerRationale": "Dave hates the cold and thinks you should just stay inside the house from December through March.",
     "optionA": {
       "id": "opt_a",
       "name": "Cross-Country Nordic Skiing (Groomed Trails)",
-      "price": "$450 Total ($300 Nordic Ski Package + $150 Season Trail Pass)",
+      "price": "$450",
       "location": "Local Conservation Area & City Park Trails (10 min away)",
       "specs": "Classic Waxless Skis • Carbon Poles • 45 km Groomed Trails",
       "features": [
@@ -2941,7 +2941,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Alpine Downhill Skiing & Snowboard Season Pass",
-      "price": "$850 Total (Night/Weekend Season Lift Pass)",
+      "price": "$850",
       "location": "Regional Ski Resort Mountain (40 min drive)",
       "specs": "30 Mountain Runs • High-Speed Quad Chairlifts • Night Skiing",
       "features": [
@@ -2954,14 +2954,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Staying Indoors All Winter",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Home Living Room",
       "specs": "Sedentary confinement for 4 months",
       "features": [
-        "Avoids cold winter temperatures completely",
-        "Causes severe Seasonal Affective Disorder (winter blues), depression, and vitamin D deficiency",
-        "Leads to physical deconditioning, weight gain, and cabin fever",
-        "Makes Canadian winter feel endlessly long, depressing, and miserable"
+        "Activity: Casual indoor walking in climate-controlled shopping concourses and greenhouses",
+        "Intensity: Low-impact level walking at 2.5 km/h along indoor carpeted corridors",
+        "Environment: Heated indoor facilities with public seating areas and beverage kiosks",
+        "Gear: Standard comfortable walking shoes with no winter sports equipment needed"
       ]
     },
     "persuasionGuidance": [
@@ -2981,7 +2981,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Small-Group Adult Beginner Swim Program (8 Weeks)",
-      "price": "$160 for 8-Week Course (Weekly 45-min class)",
+      "price": "$160 for 8-Week Course",
       "location": "Municipal Aquatic Center (Heated Pool)",
       "specs": "Max 5 Adults • Certified Red Cross Instructor • Shallow to Deep",
       "features": [
@@ -2994,7 +2994,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Private 1-on-1 Master Swim Instructor Lessons",
-      "price": "$45 / session ($270 for 6 private 45-min lessons)",
+      "price": "$45 / session",
       "location": "Private Swim Club Pool",
       "specs": "1-on-1 Dedicated Coach • Underwater Video Stroke Analysis",
       "features": [
@@ -3007,14 +3007,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Self-Teaching in a Deep Cottage Lake",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Deep murky lake water",
       "specs": "No instructor • No lifeguards • Deep cold water",
       "features": [
-        "Zero registration fee or lesson commitment",
-        "Extremely dangerous with high risk of panic, drowning, or hypothermia in sudden drop-offs",
-        "Reinforces bad swimming mechanics and fear of water rather than proper technique",
-        "No trained medical personnel or lifeguards nearby if an emergency occurs"
+        "Setting: Natural freshwater lake beach at regional conservation park",
+        "Format: Self-guided swimming attempts without formal lessons or coach supervision",
+        "Safety: Designated public swimming area without active municipal lifeguard staffing",
+        "Cost: Free public park beach access with $0 instructional lesson fees"
       ]
     },
     "persuasionGuidance": [
@@ -3034,7 +3034,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Brazilian Jiu-Jitsu (BJJ) & Grappling Academy",
-      "price": "$135 / month (Unlimited Classes + Free Uniform Gi)",
+      "price": "$135 / month",
       "location": "Downtown Martial Arts Academy",
       "specs": "World-Champion Black Belt Instructors • Daily Live Sparring",
       "features": [
@@ -3047,7 +3047,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Traditional Muay Thai Kickboxing & Boxing Gym",
-      "price": "$120 / month (Unlimited Bag Work, Technique & Conditioning)",
+      "price": "$120 / month",
       "location": "Local Striking & Boxing Club",
       "specs": "Heavy Bag Drills • Pad Work with Coaches • Dutch Kickboxing",
       "features": [
@@ -3060,14 +3060,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Watching Online Fight Video Clips at Home",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Living Room Carpet",
       "specs": "Solo shadowboxing • No resistance • No coach",
       "features": [
-        "Free and convenient to watch from your couch",
-        "Impossible to learn timing, leverage, or distance without a real resisting training partner",
-        "Builds dangerous false confidence that will fail completely in a real physical confrontation",
-        "No qualified instructor to correct sloppy technique or prevent self-injury"
+        "Method: Watching online martial arts video demonstrations and fighting tutorials on YouTube",
+        "Practice: Shadow boxing drills performed independently in living room without training partner",
+        "Feedback: Self-evaluating techniques using household mirrors and video recordings",
+        "Pacing: On-demand video viewing completed at personal convenience"
       ]
     },
     "persuasionGuidance": [
@@ -3087,7 +3087,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Public Driving Range, Short-Game Green & Par-3 Course",
-      "price": "$45 / visit ($15 Jumbo Bucket + $30 9-Hole Par-3 Green Fee)",
+      "price": "$45 / visit",
       "location": "Municipal Golf Complex (10 min from office)",
       "specs": "Grass Tee Decks • TrackMan Range Screens • Chipping Green & Bunker",
       "features": [
@@ -3100,7 +3100,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "24/7 Indoor High-Tech Golf Simulator Lounge",
-      "price": "$120 / month (Unlimited Off-Peak Simulator Hours)",
+      "price": "$120 / month",
       "location": "Modern Downtown Golf Lounge",
       "specs": "High-Definition TrackMan 4 Simulators • 100+ PGA Courses",
       "features": [
@@ -3113,14 +3113,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Ultra-Exclusive Private Country Club",
-      "price": "$45,000 Initiation Fee (+ $850/month dues + $1,500 dining minimum)",
+      "price": "$45,000 Initiation Fee",
       "location": "Private Gated Suburb",
       "specs": "18-Hole Championship Course • Formal Dress Code",
       "features": [
-        "Pristine manicured fairways and exclusive high-net-worth networking",
-        "Astronomical financial cost ($45k upfront) taking years to justify for casual players",
-        "2-year waiting list requiring sponsorship letters from three existing club members",
-        "Strict pace of play rules and rigid formal clubhouse dress codes"
+        "Course: 18-hole championship private golf course with manicured greens and practice tees",
+        "Fees: $45,000 one-time membership equity fee plus $650 monthly operational dues",
+        "Admissions: Formal application requiring sponsorship letters from two current members",
+        "Dress code: Traditional golf attire and formal dining room dress standards"
       ]
     },
     "persuasionGuidance": [
@@ -3133,14 +3133,14 @@ const TASK5_PROMPTS = [
     "id": "t5_060",
     "title": "Dog Exercise Solution",
     "category": "Fitness & Recreation",
-    "context": "You and your partner are deciding on a daily exercise routine for your energetic 1-year-old Golden Retriever, Cooper.",
+    "context": "You and your partner Sarah are deciding on a daily exercise routine for your energetic 1-year-old Golden Retriever, Cooper.",
     "targetAudience": "Your partner, Sarah",
     "partnerChoiceName": "Leaving Cooper in the Small Backyard Alone",
     "partnerRationale": "Sarah thinks letting Cooper out into our small fenced backyard for 20 minutes is enough exercise.",
     "optionA": {
       "id": "opt_a",
       "name": "Daily Enclosed Community Dog Park & Trail Walking",
-      "price": "$0 (Free Public Park Amenities)",
+      "price": "$0",
       "location": "Fenced Off-Leash Regional Dog Park (4 min away)",
       "specs": "5-Acre Fully Fenced Park • Separate Agility & Big Dog Zones",
       "features": [
@@ -3153,7 +3153,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Professional Small-Pack Adventure Dog Walker",
-      "price": "$25 / walk ($250 / month for 3 weekly adventure walks)",
+      "price": "$25 / walk",
       "location": "Pick-up directly from home for private forest trail walks",
       "specs": "Licensed & Insured Walker • Max 4 Dogs per Pack • 90-min Outing",
       "features": [
@@ -3166,14 +3166,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Leaving Cooper Alone in the Backyard",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Small 20x15 ft suburban backyard",
       "specs": "No walking • No social interaction",
       "features": [
-        "Zero cost and requires no owner time or effort",
-        "Young retrievers quickly become bored, leading to destructive digging, fence chewing, and nuisance barking",
-        "Fails to provide cardiovascular exercise, leading to canine obesity and joint problems",
-        "Causes behavioral frustration, separation anxiety, and hyperactivity inside the house"
+        "Routine: Unsupervised free roaming in enclosed 400 sq. ft. fenced suburban backyard",
+        "Enclosure: 5-foot residential cedar privacy fence enclosing flat lawn area",
+        "Activity: Self-directed sniffing, sunbathing, and outdoor perimeter exploration",
+        "Owner commitment: Pet let out into yard without structured walking or leashed exercise"
       ]
     },
     "persuasionGuidance": [
@@ -3193,7 +3193,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "14-inch Lightweight Business Ultrabook",
-      "price": "$1,450 (Includes 3-Year On-Site Warranty)",
+      "price": "$1,450",
       "location": "Authorized Corporate Tech Supplier",
       "specs": "Intel Core Ultra 7 / 32GB RAM / 1TB SSD • 1.2 kg • 18-Hour Battery",
       "features": [
@@ -3206,7 +3206,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "16-inch High-Performance Mobile Workstation",
-      "price": "$1,850 (Includes Dedicated GPU)",
+      "price": "$1,850",
       "location": "Direct Manufacturer Portal",
       "specs": "32GB RAM / 1TB NVMe / NVIDIA RTX 4060 GPU • 16\" 120Hz Screen",
       "features": [
@@ -3223,10 +3223,10 @@ const TASK5_PROMPTS = [
       "location": "Surplus Electronics Depot",
       "specs": "Ancient Core i5 / 8GB DDR3 / Heavy Tower • No Wi-Fi / No Portability",
       "features": [
-        "Low initial cash outlay for the department",
-        "Completely immobile: cannot be taken home, to client meetings, or on business flights",
-        "Obsolete 8-year-old hardware cannot run modern IDEs, Docker, or Windows 11 updates securely",
-        "Loud fan noise, high power consumption, and frequent hard drive failure risks"
+        "Hardware: Refurbished commercial desktop tower with wired keyboard, mouse, and 22-inch monitor",
+        "Processor & RAM: Intel Core i5 6th-generation processor with 8 GB RAM and 500 GB HDD",
+        "Form factor: Stationary computer desk setup requiring dedicated wall electrical outlet",
+        "Cost: $250 departmental hardware allocation for refurbished desktop unit"
       ]
     },
     "persuasionGuidance": [
@@ -3239,14 +3239,14 @@ const TASK5_PROMPTS = [
     "id": "t5_062",
     "title": "Home Laundry Machine Set",
     "category": "Electronics & Appliances",
-    "context": "You and your partner are replacing your 15-year-old broken laundry machines in your suburban home.",
+    "context": "You and your partner Kevin are replacing your 15-year-old broken laundry machines in your suburban home.",
     "targetAudience": "Your partner, Kevin",
     "partnerChoiceName": "Using the Neighborhood Coin Laundromat",
     "partnerRationale": "Kevin suggests we just take our laundry baskets to the coin laundromat every Sunday to avoid spending on new machines.",
     "optionA": {
       "id": "opt_a",
       "name": "High-Efficiency Smart Front-Load Washer & Heat-Pump Dryer",
-      "price": "$1,950 for the Pair ($150 EcoEnergy Rebate Eligible)",
+      "price": "$1,950 for the Pair",
       "location": "Major Appliance Center (Free Delivery & Installation)",
       "specs": "5.2 cu. ft. Mega Capacity • Heat-Pump Ventless Dryer • Steam Clean",
       "features": [
@@ -3259,7 +3259,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Heavy-Duty Top-Load Washer & Matching Gas Dryer",
-      "price": "$1,550 for the Pair (Includes 5-Year Motor Warranty)",
+      "price": "$1,550 for the Pair",
       "location": "Local Home Appliance Depot",
       "specs": "5.0 cu. ft. Agitator-Free Top Load • Fast 30-Min Quick Wash",
       "features": [
@@ -3272,14 +3272,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Using the Neighborhood Coin Laundromat",
-      "price": "$15 / week ($780 / year in coins & detergent)",
+      "price": "$15 / week",
       "location": "Commercial Plaza (15-min drive)",
       "specs": "Shared Commercial Coin Washers & Dryers",
       "features": [
-        "Zero upfront machine purchase expense",
-        "Wastes 3 hours every single weekend lugging heavy laundry baskets in freezing winter weather",
-        "Annual coin costs ($780/yr) pay for a brand new machine set in just two years",
-        "Hygiene concerns from washing clothes in dirty machines previously used by hundreds of strangers"
+        "Service: Public self-serve commercial laundromat with coin-operated washers and dryers",
+        "Pricing: $5.50 per wash and dry load ($15 weekly for typical household laundry)",
+        "Logistics: Transporting laundry hampers 2 km to municipal laundromat once per week",
+        "Time: 2.5 hours total time commitment per week including transit and folding"
       ]
     },
     "persuasionGuidance": [
@@ -3292,14 +3292,14 @@ const TASK5_PROMPTS = [
     "id": "t5_063",
     "title": "Living Room Entertainment Display",
     "category": "Electronics & Appliances",
-    "context": "You and your spouse are upgrading the main entertainment display in your newly renovated family room.",
+    "context": "You and your spouse Mark are upgrading the main entertainment display in your newly renovated family room.",
     "targetAudience": "Your spouse, Mark",
     "partnerChoiceName": "Keeping Our 12-Year-Old 32-inch 720p TV",
     "partnerRationale": "Mark wants to keep our tiny 32-inch 720p TV from 2012 sitting on a milk crate to avoid spending any money.",
     "optionA": {
       "id": "opt_a",
       "name": "65-inch 4K OLED Smart Cinema TV",
-      "price": "$1,699 (Includes 5-Year Burn-In & Panel Warranty)",
+      "price": "$1,699",
       "location": "Electronics Superstore (Free Home Delivery)",
       "specs": "4K Ultra HD • Self-Lit OLED Pixels • Dolby Vision • 120Hz",
       "features": [
@@ -3312,7 +3312,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "120-inch 4K Ultra-Short-Throw Laser Cinema Projector",
-      "price": "$2,200 (Includes 120\" Ambient Light Rejecting Screen)",
+      "price": "$2,200",
       "location": "Home Audio/Video Specialty Store",
       "specs": "120\" ALR Screen • Triple-Laser 4K • 3,000 Lumens • Harman Kardon",
       "features": [
@@ -3325,14 +3325,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Keeping 12-Year-Old 32-inch 720p TV",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Living Room",
       "specs": "32-inch • Blurry 720p Resolution • Thick Plastic Bezels",
       "features": [
-        "Zero financial cost today",
-        "Tiny 32-inch screen is nearly unreadable from the sofa 10 feet away, causing severe eye strain",
-        "Outdated 720p resolution cannot display modern 4K movies, sports, or high-definition streaming apps",
-        "Looks completely out of place and aesthetically jarring in our newly renovated modern family room"
+        "Display: 32-inch 720p HD LCD flat-panel television with tabletop stand",
+        "Inputs: Two standard HDMI 1.4 ports with integrated 10W stereo speakers",
+        "Viewing distance: Placed on media console 10 feet from primary living room sofa",
+        "Cost: Reusing existing 10-year-old television with $0 upfront equipment expense"
       ]
     },
     "persuasionGuidance": [
@@ -3345,14 +3345,14 @@ const TASK5_PROMPTS = [
     "id": "t5_064",
     "title": "Mobile Smartphone Replacement",
     "category": "Electronics & Appliances",
-    "context": "You and your partner are replacing your broken, lagging smartphone before starting a busy business contract.",
+    "context": "You and your partner Nina are replacing your broken, lagging smartphone before starting a busy business contract.",
     "targetAudience": "Your partner, Nina",
     "partnerChoiceName": "Sticking with a Cracked 6-Year-Old Phone",
     "partnerRationale": "Nina suggests putting tape over the cracked screen and dealing with the 2-hour battery life of our 6-year-old phone.",
     "optionA": {
       "id": "opt_a",
       "name": "Premium Flagship Smartphone (256GB)",
-      "price": "$1,150 Total (or $45/mo on carrier 0% financing)",
+      "price": "$1,150",
       "location": "Official Flagship Brand Store",
       "specs": "Pro Triple-Camera (48MP) • Titanium Frame • 7 Years OS Updates",
       "features": [
@@ -3365,7 +3365,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Upper Mid-Range Battery Champion Phone (128GB)",
-      "price": "$550 Total Purchase (Outright Unlocked)",
+      "price": "$550",
       "location": "National Electronics Retailer",
       "specs": "5,000 mAh 2-Day Battery • 120Hz OLED Screen • 50MP Camera",
       "features": [
@@ -3378,14 +3378,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Sticking with Cracked 6-Year-Old Phone",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Current pocket",
       "specs": "Cracked Glass • 2-Hour Battery • No Security Updates",
       "features": [
-        "Avoids spending money on a new gadget",
-        "Severe safety and reliability hazard: phone randomly shuts down during important work calls and GPS navigation",
-        "Dangerous cracked glass can cut fingers, and outdated software has active cybersecurity vulnerabilities",
-        "Extreme app lag and lack of storage space makes taking photos or opening PDFs painfully slow"
+        "Device: Existing 5-year-old smartphone with 32 GB storage and dual-core processor",
+        "Battery condition: Original battery operating at 68% maximum rated charge capacity",
+        "Screen: Diagonal hairline glass crack across upper right corner of touch display",
+        "Cost: $0 upfront expense while continuing on existing month-to-month cellular plan"
       ]
     },
     "persuasionGuidance": [
@@ -3398,14 +3398,14 @@ const TASK5_PROMPTS = [
     "id": "t5_065",
     "title": "Automated Home Floor Cleaning",
     "category": "Electronics & Appliances",
-    "context": "You and your spouse are choosing a home vacuum system to keep your 2,000 sq. ft. house clean with two shedding pets.",
+    "context": "You and your spouse Dan are choosing a home vacuum system to keep your 2,000 sq. ft. house clean with two shedding pets.",
     "targetAudience": "Your spouse, Dan",
     "partnerChoiceName": "Heavy 25-lb Corded Bagged Vacuum",
     "partnerRationale": "Dan wants to keep using an old 25-lb heavy corded vacuum with disposable paper bags because it was built like a tank.",
     "optionA": {
       "id": "opt_a",
       "name": "Smart Robot Vacuum & Sonic Mop with Auto-Empty Base",
-      "price": "$899 (Includes 1-Year Supply of Dust Bags & Mopping Pads)",
+      "price": "$899",
       "location": "Online Appliance Depot",
       "specs": "LiDAR Laser Navigation • 6,000 Pa Suction • Self-Emptying & Washing Dock",
       "features": [
@@ -3418,7 +3418,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Cordless Lightweight Stick Vacuum with Dual Batteries",
-      "price": "$540 Total (Includes Wall Dock & Pet Hair Screw Tool)",
+      "price": "$540",
       "location": "Major Home Improvement Center",
       "specs": "3.1 lbs Handheld • 60-min Runtime per Battery • HEPA Filtration",
       "features": [
@@ -3431,14 +3431,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Heavy 25-lb Corded Bagged Vacuum",
-      "price": "$0 Upfront (+ $40/year disposable bags)",
+      "price": "$0",
       "location": "Hallway Closet",
       "specs": "25-lb Heavy Steel Body • 15-ft Cord • Disposable Paper Bags",
       "features": [
-        "Zero equipment cost today",
-        "Extremely heavy (25 lbs) making vacuuming stairs painful and dangerous for lower back strain",
-        "Short 15-ft cord requires constantly unplugging and searching for wall outlets in every single room",
-        "Constantly buying expensive disposable paper bags and belts that smell like hot dust"
+        "Equipment: Traditional 22-lb upright bagged vacuum with motorized roller brush",
+        "Power: 18-foot electrical cord requiring manual outlet switching between rooms",
+        "Filtration: Disposable paper vacuum bags requiring periodic replacement",
+        "Cost: Utilizing existing household upright vacuum with $0 immediate expenditure"
       ]
     },
     "persuasionGuidance": [
@@ -3451,14 +3451,14 @@ const TASK5_PROMPTS = [
     "id": "t5_066",
     "title": "Kitchen Cooking Appliance",
     "category": "Electronics & Appliances",
-    "context": "You and your partner are upgrading your kitchen countertop cooking appliances to prepare healthier, faster weekday meals.",
+    "context": "You and your partner Laura are upgrading your kitchen countertop cooking appliances to prepare healthier, faster weekday meals.",
     "targetAudience": "Your partner, Laura",
     "partnerChoiceName": "Basic Reheating Microwave Only",
     "partnerRationale": "Laura thinks our basic microwave is all we need to heat up frozen dinners and reheat coffee.",
     "optionA": {
       "id": "opt_a",
       "name": "Smart Multi-Function Air Fryer & Convection Toaster Oven",
-      "price": "$280 (12-in-1 Smart Countertop Appliance)",
+      "price": "$280",
       "location": "Kitchen Appliance Retailer",
       "specs": "12 Functions (Air Fry, Roast, Bake, Dehydrate, Toast) • Fits 12\" Pizza",
       "features": [
@@ -3471,7 +3471,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "9-in-1 Smart Electric Pressure Cooker & Slow Cooker",
-      "price": "$160 (Includes Stainless Steel Pot & Steamer Basket)",
+      "price": "$160",
       "location": "Department Store",
       "specs": "8-Quart Capacity • 15 Preset Smart Programs • Sous Vide",
       "features": [
@@ -3484,14 +3484,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Basic Reheating Microwave Only",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Countertop",
       "specs": "Basic 900W Microwave • Single Magnetron",
       "features": [
-        "Fast at boiling water or warming pre-cooked leftovers",
-        "Leaves food soggy, rubbery, and unevenly heated with cold centers and tough edges",
-        "Cannot crisp, roast, bake, brown, or develop delicious caramelized flavors",
-        "Severely restricts home cooking variety to unhealthy processed frozen microwave meals"
+        "Technology: Countertop 900W microwave oven with rotating glass turntable",
+        "Capacity: 0.9 cubic feet interior cooking cavity accommodating standard dinner plates",
+        "Controls: Digital keypad with 10 power levels and quick-reheat preset buttons",
+        "Application: Reheating pre-cooked meals, boiling liquids, and defrosting frozen foods"
       ]
     },
     "persuasionGuidance": [
@@ -3504,14 +3504,14 @@ const TASK5_PROMPTS = [
     "id": "t5_067",
     "title": "Home Coffee Brewing Station",
     "category": "Electronics & Appliances",
-    "context": "You and your spouse spend $16 every weekday buying specialty lattes and coffees at commercial coffee shop drive-thrus.",
+    "context": "You and your spouse Chris spend $16 every weekday buying specialty lattes and coffees at commercial coffee shop drive-thrus.",
     "targetAudience": "Your spouse, Chris",
     "partnerChoiceName": "Continuing Daily Coffee Shop Drive-Thru",
     "partnerRationale": "Chris thinks stopping at the cafe drive-thru every morning is a fun daily ritual despite the cost.",
     "optionA": {
       "id": "opt_a",
       "name": "All-in-One Espresso Machine with Integrated Burr Grinder",
-      "price": "$799 (Includes Stainless Milk Pitcher & Tamper)",
+      "price": "$799",
       "location": "Specialty Coffee Equipment Boutique",
       "specs": "15-Bar Italian Pump • Integrated Conical Burr Grinder • Microfoam Steam Wand",
       "features": [
@@ -3524,7 +3524,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Programmable Thermal Carafe Drip Coffee Maker + Grinder",
-      "price": "$220 Total (SCA Certified Drip Machine + Electric Burr Grinder)",
+      "price": "$220",
       "location": "Major Home Store",
       "specs": "10-Cup Vacuum Thermal Carafe • Precise 93°C Water Temp • Auto-Timer",
       "features": [
@@ -3537,14 +3537,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Daily Commercial Coffee Shop Drive-Thru",
-      "price": "$16 / day ($4,160 / year for two people)",
+      "price": "$16 / day",
       "location": "Cafe Drive-Thru Lineup",
       "specs": "Disposable Paper Cups • Long Drive-Thru Queue",
       "features": [
-        "Zero home equipment cleaning or preparation",
-        "Astoundingly expensive, burning over $4,000 in post-tax cash every year for two daily coffees",
-        "Wastes 15 minutes waiting in idling car drive-thru traffic lineups every morning",
-        "Produces hundreds of non-recyclable plastic lids and single-use paper cups going to landfills"
+        "Routine: Purchasing specialty espresso beverages at commercial drive-thru cafe on morning commute",
+        "Cost: $8.00 per drink ($16.00 daily weekday total for two specialty espresso beverages)",
+        "Time: 10 to 15 minute drive-thru vehicle queue during morning commuter rush hour",
+        "Packaging: Commercial disposable paper cups with plastic travel lids"
       ]
     },
     "persuasionGuidance": [
@@ -3557,14 +3557,14 @@ const TASK5_PROMPTS = [
     "id": "t5_068",
     "title": "Smart Home Climate Control",
     "category": "Electronics & Appliances",
-    "context": "You and your roommate are looking for ways to lower high winter heating and summer cooling utility bills in your home.",
+    "context": "You and your roommate Jordan are looking for ways to lower high winter heating and summer cooling utility bills in your home.",
     "targetAudience": "Your roommate, Jordan",
     "partnerChoiceName": "Keeping the 30-Year-Old Manual Dial Thermostat",
     "partnerRationale": "Jordan thinks our old manual mercury dial thermostat is fine as long as we remember to twist it down before sleeping.",
     "optionA": {
       "id": "opt_a",
       "name": "Smart Learning Thermostat with Wireless Room Sensors",
-      "price": "$249 ($75 Provincial Green Energy Utility Rebate Available)",
+      "price": "$249",
       "location": "Hardware Electronics Retailer",
       "specs": "Learning Algorithm • Smartphone App Control • 2 Wireless Temp Sensors",
       "features": [
@@ -3577,7 +3577,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Programmable 7-Day Digital Touchscreen Thermostat",
-      "price": "$85 (Simple DIY 20-Min Installation)",
+      "price": "$85",
       "location": "Local Home Center",
       "specs": "7-Day Independent Programming • 4 Time Periods Daily • Backlit Screen",
       "features": [
@@ -3590,14 +3590,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "30-Year-Old Manual Dial Thermostat",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Living Room Wall",
       "specs": "Mechanical Bimetal Coil • Inaccurate +/- 3°C Drift",
       "features": [
-        "Zero upfront hardware expense",
-        "People constantly forget to adjust it, wasting hundreds of dollars heating an empty home all day",
-        "Bimetal mechanical coil has severe temperature inaccuracy, causing furnace short-cycling and discomfort",
-        "Cannot be controlled remotely if you leave on vacation or experience sudden freezing blizzards"
+        "Control: Mechanical round wall dial thermostat with manual temperature setting",
+        "Technology: Analog bimetallic coil sensor with +/- 2°C temperature tolerance",
+        "Connectivity: Non-digital standalone wall unit without Wi-Fi or smartphone app",
+        "Cost: Existing mechanical home thermostat requiring $0 upfront investment"
       ]
     },
     "persuasionGuidance": [
@@ -3617,7 +3617,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Premium Wireless Over-Ear Active Noise-Cancelling (ANC) Headphones",
-      "price": "$349 (Includes Hard Travel Case & Airplane Adapter)",
+      "price": "$349",
       "location": "Audio Specialty Store",
       "specs": "Adaptive ANC • 30-Hour Battery • Memory Foam Ear Cushions",
       "features": [
@@ -3630,7 +3630,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Compact True Wireless ANC Earbuds with Wireless Charging Case",
-      "price": "$199 (Includes 4 Sizes of Silicone Tips & Wireless Case)",
+      "price": "$199",
       "location": "Electronics Retailer",
       "specs": "Active Noise Cancellation • Transparency Mode • 28h Battery with Case",
       "features": [
@@ -3643,14 +3643,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Cheap Disposable $15 Wired Earbuds",
-      "price": "$15 / pair (Replaced 4 times a year)",
+      "price": "$15 / pair",
       "location": "Gas Station Convenience Counter",
       "specs": "Tangled Wire • Zero Noise Cancellation • Thin Plastic",
       "features": [
-        "Cheap initial price and low concern if lost",
-        "Zero active noise cancellation, forcing you to crank up volume to dangerous levels to drown out office noise",
-        "Tangled cables constantly snag on desk chairs, and cheap plastic tips hurt ears after 20 minutes",
-        "Tinny, muffled audio quality and terrible microphone that makes you sound inaudible on client conference calls"
+        "Hardware: Standard wired earbuds with 3.5mm headphone jack and inline microphone",
+        "Audio specs: Basic dynamic audio drivers with passive rubber eartip noise isolation",
+        "Cable: 1.2-meter lightweight rubberized cord connecting to laptop or phone audio port",
+        "Cost: $19.99 retail purchase price at convenience or electronics retail store"
       ]
     },
     "persuasionGuidance": [
@@ -3663,14 +3663,14 @@ const TASK5_PROMPTS = [
     "id": "t5_070",
     "title": "Home Backup Power Solution",
     "category": "Electronics & Appliances",
-    "context": "You and your spouse are preparing your home for winter ice storms and potential multi-day power grid outages.",
+    "context": "You and your spouse Brian are preparing your home for winter ice storms and potential multi-day power grid outages.",
     "targetAudience": "Your spouse, Brian",
     "partnerChoiceName": "Box of Wax Candles & Battery Flashlights",
     "partnerRationale": "Brian thinks keeping a box of wax candles and two flashlights in the basement is sufficient emergency preparedness.",
     "optionA": {
       "id": "opt_a",
       "name": "Quiet Dual-Fuel Portable Inverter Generator (3,500W)",
-      "price": "$850 (Runs on Gasoline or Propane • Electric Start)",
+      "price": "$850",
       "location": "Home Power Equipment Depot",
       "specs": "3,500 Starting Watts / 3,000 Running Watts • Clean Inverter Power",
       "features": [
@@ -3683,7 +3683,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Smart Portable Lithium Battery Power Station (2,048Wh)",
-      "price": "$1,499 (Expandable • 2,200W Pure Sine AC Inverter)",
+      "price": "$1,499",
       "location": "Renewable Energy Tech Retailer",
       "specs": "2,048Wh LiFePO4 Battery • Zero Fumes / Indoor Safe • 3,500+ Cycles",
       "features": [
@@ -3696,14 +3696,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Box of Wax Candles & Flashlights",
-      "price": "$25 Total",
+      "price": "$25",
       "location": "Basement Shelf",
       "specs": "Wax Candles • 2 Flashlights with AA Batteries",
       "features": [
-        "Extremely low cost and simple to store",
-        "Open candle flames pose a severe household fire hazard in dark, stressful blackout conditions",
-        "Cannot power your home furnace, leaving your family freezing in sub-zero Canadian winter temperatures",
-        "Food in the refrigerator and freezer will spoil ($400+ loss), and basement sump pump will fail and flood"
+        "Supplies: 4 utility battery flashlights, replacement alkaline batteries, and 6 wax candles",
+        "Power capability: Manual emergency room lighting with zero household appliance power",
+        "Storage: Compact storage footprint kept inside kitchen utility drawer",
+        "Cost: $30 one-time purchase of emergency lighting supplies"
       ]
     },
     "persuasionGuidance": [
@@ -3723,7 +3723,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Historic Niagara Vineyard Estate & Covered Pavilion",
-      "price": "$9,500 Venue Rental (Includes Tables, Chairs & Bridal Suite)",
+      "price": "$9,500 Venue Rental",
       "location": "Niagara-on-the-Lake Wine Country",
       "specs": "Scenic Vineyard Lawn Ceremony + Timber-Frame Covered Pavilion",
       "features": [
@@ -3736,7 +3736,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Downtown Boutique Heritage Hotel Ballroom",
-      "price": "$8,200 All-Inclusive Package ($90 / person dinner included)",
+      "price": "$8,200 All-Inclusive Package",
       "location": "Downtown Arts & Heritage District",
       "specs": "Victorian Ballroom • Plated 3-Course Dinner • Bridal Suite Included",
       "features": [
@@ -3749,14 +3749,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Las Vegas Drive-Thru Express Chapel",
-      "price": "$500 Base (+ $2,500 travel for two)",
+      "price": "$500 Base",
       "location": "Las Vegas Commercial Strip",
       "specs": "15-Minute Ceremony in Car • No Guests",
       "features": [
-        "Fast, cheap, and eliminates all local planning stress",
-        "Excludes grandparents, parents, siblings, and lifelong friends from sharing your once-in-a-lifetime milestone",
-        "Cheap novelty atmosphere that feels tacky and lacking in emotional romance and significance",
-        "High risk of lifelong regret for not celebrating properly with beloved family"
+        "Destination: 3-day Las Vegas wedding package including flight and Strip hotel stay",
+        "Ceremony: 15-minute drive-thru chapel ceremony with wedding coordinator and flowers",
+        "Attendance: Private couple ceremony broadcast via online live-stream to family members",
+        "Logistics: 4-hour commercial flight from Canada with 2 nights resort accommodations"
       ]
     },
     "persuasionGuidance": [
@@ -3776,7 +3776,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Private Lakeside Cottage Weekend with Extended Family",
-      "price": "$1,400 Total ($350 each split 4 ways)",
+      "price": "$1,400",
       "location": "Muskoka Lakefront Lodge (2-hour drive)",
       "specs": "3-Day Weekend • 5 Bedrooms • Private Dock & Firepit",
       "features": [
@@ -3789,7 +3789,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Private Dining Room at Renowned Italian Trattoria",
-      "price": "$1,100 Total ($75 / person for 14 guests)",
+      "price": "$1,100",
       "location": "Historic Italian Heritage District",
       "specs": "Private Wine Cellar Dining Room • 4-Course Chef Menu",
       "features": [
@@ -3802,14 +3802,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Crowded Downtown Karaoke Bar",
-      "price": "$600 Total (Table reservation & drinks)",
+      "price": "$600",
       "location": "Busy Entertainment Strip",
       "specs": "Public noisy room • Flashing strobe lights",
       "features": [
-        "High energy and cheap drinks for young crowds",
-        "Deafening music volume makes normal conversation impossible for Mom and older relatives",
-        "Noisy bar patrons and sticky floors create an unrefined atmosphere unsuited for a 50th milestone",
-        "Mom will feel overwhelmed, exhausted, and unable to connect meaningfully with her guests"
+        "Venue: Downtown sports bar and entertainment lounge with draft beer and bar seating",
+        "Atmosphere: Open barroom with 15 televisions, modern sound system, and top-40 music",
+        "Menu: Pub appetizers including chicken wings, nachos, sliders, and draft beer pitchers",
+        "Pricing: $30 per guest including casual food and beverage service"
       ]
     },
     "persuasionGuidance": [
@@ -3829,7 +3829,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Personalized Engraved Swiss Watch & Bound Memory Book",
-      "price": "$650 Total ($25 contributed by each of 26 team members)",
+      "price": "$650",
       "location": "Fine Jeweler & Custom Bookbinder",
       "specs": "Automatic Swiss Movement • Caseback Engraving • Hardcover Album",
       "features": [
@@ -3842,7 +3842,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Luxury Weekend Fairmont Golf & Spa Resort Getaway",
-      "price": "$700 Total (Gift Certificate for 2 Nights + Spa/Golf Credit)",
+      "price": "$700",
       "location": "Fairmont Chateau Whistler / Mont-Tremblant",
       "specs": "2 Nights Luxury Suite • $200 Resort Dining & Golf/Spa Voucher",
       "features": [
@@ -3855,14 +3855,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Novelty Joke Mug & Fuzzy Slippers",
-      "price": "$25 Total",
+      "price": "$25",
       "location": "Novelty Dollar Store",
       "specs": "Printed ceramic mug • Acrylic slippers",
       "features": [
-        "Very cheap and takes zero effort to purchase",
-        "Feels tacky, thoughtless, and disrespectful after 35 years of loyal service and leadership",
-        "Cheap novelty items end up forgotten in kitchen cabinets or thrown into the trash",
-        "Leaves Arthur feeling that his life's work was trivialized and undervalued by his colleagues"
+        "Decorations: Metallic lettered wall banner, paper napkins, and decorative table confetti",
+        "Setup: 15-minute manual setup using tape and scissors in office conference room",
+        "Clean-up: Disposable party supplies collected in trash bags following event",
+        "Cost: $15 total purchase at local party supply store"
       ]
     },
     "persuasionGuidance": [
@@ -3882,7 +3882,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Elegant Garden Tea Room with High Tea & Pastries",
-      "price": "$42 / person ($630 for 15 guests)",
+      "price": "$42 / person",
       "location": "Victorian Conservatory Tea Room",
       "specs": "Private Glass Solarium • Artisan High Tea Tower • Floral Decor",
       "features": [
@@ -3895,7 +3895,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Casual Catered Backyard Garden Party",
-      "price": "$380 Total ($250 artisan catering + $130 floral decor)",
+      "price": "$380",
       "location": "Host's Private Backyard & Patio",
       "specs": "Outdoor Garden Patio • Finger Food Platters • Mocktail Bar",
       "features": [
@@ -3912,10 +3912,10 @@ const TASK5_PROMPTS = [
       "location": "Commercial Sports Bar",
       "specs": "Sticky Booths • 20 Blaring TV Screens • Smelling of Beer",
       "features": [
-        "Convenient pub food and easy beer availability for drinkers",
-        "Blaring commentary and shouting sports fans make opening gifts and heartfelt conversation impossible",
-        "Strong smell of stale beer and fried food is unpleasant and nauseating for a pregnant woman",
-        "Completely inappropriate venue for welcoming a newborn baby and celebrating motherhood"
+        "Venue: Semi-private back alcove of busy downtown neighborhood cafe",
+        "Seating: 90-minute table reservation for 12 guests with standard cafe seating",
+        "Menu: Assorted bakery pastries, tea, filter coffee, and finger sandwiches",
+        "Pricing: $18 per attendee flat cafe catering fee"
       ]
     },
     "persuasionGuidance": [
@@ -3928,14 +3928,14 @@ const TASK5_PROMPTS = [
     "id": "t5_075",
     "title": "Graduation Celebration Party",
     "category": "Milestones & Celebrations",
-    "context": "You and your spouse are organizing a graduation celebration for your daughter Emily graduating with honors from university.",
+    "context": "You and your spouse Karen are organizing a graduation celebration for your daughter Emily graduating with honors from university.",
     "targetAudience": "Your spouse, Karen",
     "partnerChoiceName": "Quick Fast-Food Burger Drive-Thru",
     "partnerRationale": "Karen suggests just grabbing burgers at a fast-food drive-thru on the way home from convocation to save time.",
     "optionA": {
       "id": "opt_a",
       "name": "Outdoor Tented Garden Party with BBQ & Live Acoustic Duo",
-      "price": "$750 Total (Tented Canopy, Gourmet BBQ Catering & Lawn Games)",
+      "price": "$750",
       "location": "Home Backyard & Garden Lawn",
       "specs": "20x20 ft White Canopy • Catered Smoked BBQ • Live Musician",
       "features": [
@@ -3948,7 +3948,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Private Dining Room at Waterfront Seafood Bistro",
-      "price": "$650 Total ($50 / person for 13 close family members)",
+      "price": "$650",
       "location": "Harbourfront Marina Dining Room",
       "specs": "Private Oceanview Room • 3-Course Dinner • Sunset Views",
       "features": [
@@ -3961,14 +3961,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Quick Fast-Food Burger Drive-Thru",
-      "price": "$45 Total",
+      "price": "$45",
       "location": "Car Seat in Drive-Thru Parking Lot",
       "specs": "Paper bags • Fast-food burgers • Eaten in car",
       "features": [
-        "Extremely cheap and takes only 10 minutes",
-        "Deeply disappointing and dismissive after 4 grueling years of intense university study and sacrifice",
-        "Cannot include grandparents or extended family who traveled long distances for convocation",
-        "Destroys the joy and pride of graduating with honors with an unmemorable fast-food meal"
+        "Presentation: Floral bouquet from local florist and congratulatory card presented at home",
+        "Schedule: 15-minute celebratory toast and card presentation in family kitchen",
+        "Participants: Immediate household family members gathering on afternoon of convocation",
+        "Cost: $25 purchase of greeting card and fresh floral arrangement"
       ]
     },
     "persuasionGuidance": [
@@ -3981,14 +3981,14 @@ const TASK5_PROMPTS = [
     "id": "t5_076",
     "title": "Golden Wedding Anniversary (50th)",
     "category": "Milestones & Celebrations",
-    "context": "You and your siblings are planning a 50th Golden Wedding Anniversary celebration for your parents.",
+    "context": "You and your sibling Steven are planning a 50th Golden Wedding Anniversary celebration for your parents.",
     "targetAudience": "Your sibling, Steven",
     "partnerChoiceName": "No Celebration Just a Group Phone Call",
     "partnerRationale": "Steven thinks everyone is too busy with work and suggests we just do a quick 10-minute group phone call on the day.",
     "optionA": {
       "id": "opt_a",
       "name": "All-Family Canadian Maritimes Summer Reunion Cruise",
-      "price": "$2,800 Total (Split 4 ways among adult siblings = $700 each)",
+      "price": "$2,800",
       "location": "St. Lawrence Seaway & Maritimes Coastal Route",
       "specs": "5-Day Cruise • Parents in Balcony Suite • 14 Family Members",
       "features": [
@@ -4001,7 +4001,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Golden Gala Banquet with Archival Photo Slideshow & Band",
-      "price": "$2,200 Total (Split 4 ways = $550 each for 45 guests)",
+      "price": "$2,200",
       "location": "Historic Community Banquet Hall",
       "specs": "Catered 3-Course Banquet • Archival Video Documentary • Live Band",
       "features": [
@@ -4014,14 +4014,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Brief 10-Minute Group Phone Call",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "Telephone Line",
       "specs": "10-minute call • No physical gathering",
       "features": [
-        "Requires zero travel, zero financial contribution, and zero planning",
-        "Heartbreakingly cold and dismissive for parents who devoted 50 years to building this family",
-        "50th anniversaries are extremely rare milestones that only happen once in a lifetime",
-        "Will cause deep emotional sadness and disappointment for your aging parents"
+        "Venue: Living room and dining room of family residential suburban home",
+        "Capacity: 20 family guests seated on living room sofas and additional folding chairs",
+        "Catering: Homemade family potluck with hot casseroles, salads, and bakery sheet cake",
+        "Atmosphere: Informal family home setting with photo albums and memory sharing"
       ]
     },
     "persuasionGuidance": [
@@ -4034,14 +4034,14 @@ const TASK5_PROMPTS = [
     "id": "t5_077",
     "title": "Child's 7th Birthday Party",
     "category": "Milestones & Celebrations",
-    "context": "You and your spouse are planning a 7th birthday party for your energetic son Leo and 12 of his school friends.",
+    "context": "You and your spouse Martin are planning a 7th birthday party for your energetic son Leo and 12 of his school friends.",
     "targetAudience": "Your spouse, Martin",
     "partnerChoiceName": "Unsupervised Backyard Sugar Candy Free-For-All",
     "partnerRationale": "Martin thinks buying $30 of candy and letting 12 children run wild in the backyard for 3 hours is the easiest plan.",
     "optionA": {
       "id": "opt_a",
       "name": "Interactive Science Discovery Center Lab & Liquid Nitrogen Show",
-      "price": "$320 Total (Includes Party Room, Educator & Free Museum Passes)",
+      "price": "$320",
       "location": "Regional Science & Discovery Center",
       "specs": "90-Min Hands-On Science Workshop + Private Party Lunch Room",
       "features": [
@@ -4054,7 +4054,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Indoor Trampoline & Ninja Obstacle Adventure Park",
-      "price": "$295 Total (Includes Grip Socks, Pizza, Drinks & Host)",
+      "price": "$295",
       "location": "Local Extreme Air Park (8 min away)",
       "specs": "2 Hours Jump Time • Foam Pits, Dodgeball & Ninja Course",
       "features": [
@@ -4067,14 +4067,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Unsupervised Backyard Candy Chaos",
-      "price": "$50 Total",
+      "price": "$50",
       "location": "Home Backyard",
       "specs": "No structured games • High sugar intake",
       "features": [
-        "Low cost and no booking required",
-        "12 unsupervised 7-year-olds on sugar will fight, track mud into the house, and break garden furniture",
-        "High risk of injury from rough unsupervised play without structured safety rules",
-        "Parents of school friends will be shocked and uncomfortable with the lack of supervision and organization"
+        "Venue: Free public park playground and open green soccer field",
+        "Shelter: First-come open municipal park picnic pavilion (unreserved)",
+        "Activities: Free play on park swings, jungle gyms, and open field soccer",
+        "Catering: Family brings coolers with hot dogs, juice boxes, and birthday cupcakes"
       ]
     },
     "persuasionGuidance": [
@@ -4087,14 +4087,14 @@ const TASK5_PROMPTS = [
     "id": "t5_078",
     "title": "New Year's Eve Celebration",
     "category": "Milestones & Celebrations",
-    "context": "You and your close friend circle are deciding how to ring in the New Year together on December 31st.",
+    "context": "You and your friend Natalie are deciding how your close friend circle will ring in the New Year together on December 31st.",
     "targetAudience": "Your friend, Natalie",
     "partnerChoiceName": "Freezing in a Crowded Downtown Public Square for 5 Hours",
     "partnerRationale": "Natalie wants to stand outside in the packed city square from 7:00 PM to midnight in sub-zero freezing weather to watch the ball drop.",
     "optionA": {
       "id": "opt_a",
       "name": "Cozy Swiss Cheese Fondue & Board Game Gala at Home",
-      "price": "$45 / person ($180 total split 4 ways for artisan cheese & wine)",
+      "price": "$45 / person",
       "location": "Host's Warm Living Room & Fireplace",
       "specs": "Gourmet Swiss Fondue + Top Board Games + Champagne at Midnight",
       "features": [
@@ -4107,7 +4107,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Downtown Jazz Lounge Dinner & Midnight Balloon Drop",
-      "price": "$120 / person (Includes 3-Course Dinner, Live Band & Champagne)",
+      "price": "$120 / person",
       "location": "Historic Downtown Jazz & Supper Club",
       "specs": "Plated Dinner • Live 7-Piece Swing Jazz Band • Midnight Balloon Drop",
       "features": [
@@ -4120,14 +4120,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Freezing Outside in Public Square for 5 Hours",
-      "price": "$0 Base (+ $80 surge Uber ride home)",
+      "price": "$0",
       "location": "City Hall Public Square",
       "specs": "Standing in sub-zero -15°C cold • No seats • 50,000 crowd",
       "features": [
-        "Free public fireworks show at midnight",
-        "Standing stationary for 5 hours in freezing -15°C Canadian winter temperatures leads to severe numbness and misery",
-        "Massive crowd crushes, 45-minute lineups for filthy portable toilets, and no alcohol or food allowed",
-        "Impossible to find a taxi or Uber afterward, with 4x surge pricing and subway station lockdowns"
+        "Setting: Outdoor city hall public square celebration with live musical performances",
+        "Atmosphere: Free public outdoor gathering culminating in midnight fireworks display",
+        "Facilities: Portable municipal restrooms and sidewalk food vendor trucks",
+        "Conditions: Outdoor winter gathering with standing crowd in seasonal weather"
       ]
     },
     "persuasionGuidance": [
@@ -4140,14 +4140,14 @@ const TASK5_PROMPTS = [
     "id": "t5_079",
     "title": "Engagement Party Concept",
     "category": "Milestones & Celebrations",
-    "context": "You and your fiancé are planning an engagement party to announce your upcoming wedding to 40 close friends and relatives.",
+    "context": "You and your fiancé Julian are planning an engagement party to announce your upcoming wedding to 40 close friends and relatives.",
     "targetAudience": "Your fiancé, Julian",
     "partnerChoiceName": "Stuffy Formal Conference Room at an Office",
     "partnerRationale": "Julian suggests renting a cheap corporate meeting boardroom on a Saturday morning because his employer gives a discount.",
     "optionA": {
       "id": "opt_a",
       "name": "Rooftop Sunset Lounge Reception with Passed Canapés",
-      "price": "$1,400 Total ($35 / person for 40 guests)",
+      "price": "$1,400",
       "location": "Downtown Boutique Hotel Rooftop Patio",
       "specs": "Private Rooftop Terrace • Passed Gourmet Sliders & Canapés • Sunset Views",
       "features": [
@@ -4160,7 +4160,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Lakeside Park Pavilion Sunset Wine & Artisan Charcuterie Picnic",
-      "price": "$650 Total (Pavilion Permit, Artisan Grazing Tables & Wine)",
+      "price": "$650",
       "location": "Waterfront Provincial Park Pavilion",
       "specs": "Reserved Covered Pavilion • Giant Artisan Grazing Board • Lawn Games",
       "features": [
@@ -4177,10 +4177,10 @@ const TASK5_PROMPTS = [
       "location": "Commercial Office Tower",
       "specs": "Fluorescent Office Lighting • Conference Table • Office Chairs",
       "features": [
-        "Very cheap room rental cost",
-        "Harsh fluorescent lighting, swivel office chairs, and whiteboard walls create a sterile corporate vibe",
-        "Feels like an uninspired Monday quarterly sales meeting rather than a joyful celebration of love",
-        "Guests will feel awkward and constrained in a corporate office building on a weekend"
+        "Venue: Church parish hall rental on Saturday evening from 6:00 PM to 10:00 PM",
+        "Amenities: Folding tables, metal chairs, fluorescent lighting, and community kitchen",
+        "Food service: Self-catered party with supermarket sandwich platters and fruit trays",
+        "Cost: $300 hall rental fee plus grocery supplies"
       ]
     },
     "persuasionGuidance": [
@@ -4200,7 +4200,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Custom Hardwood Charcuterie Board with Local Artisan Goods",
-      "price": "$120 Total ($60 each split between you and Zoe)",
+      "price": "$120",
       "location": "Local Woodworking Artisan & Gourmet Market",
       "specs": "Solid Canadian Walnut • Laser-Engraved Family Name • Local Cheeses & Wine",
       "features": [
@@ -4213,7 +4213,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Pair of Large Air-Purifying Indoor Plants in Ceramic Planters",
-      "price": "$95 Total (Two 3-Foot Plants + Ceramic Pots + Saucers)",
+      "price": "$95",
       "location": "Local Botanical Nursery",
       "specs": "Fiddle Leaf Fig & Snake Plant • 10\" Glazed Ceramic Pots",
       "features": [
@@ -4226,14 +4226,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Cheap Discount Plastic Tool Kit",
-      "price": "$15 Total",
+      "price": "$15",
       "location": "Discount Dollar Counter",
       "specs": "Flimsy Plastic Handles • Soft Metal Screwdrivers",
       "features": [
-        "Very cheap upfront price",
-        "Flimsy tools made of soft pot metal that strip screws and break upon first use",
-        "Most new homeowners already possess basic tools or receive professional power tools from parents",
-        "Feels thoughtless, cheap, and lacks any personal warmth or decorative beauty for their new home"
+        "Gift: $100 digital or plastic gift card for national home improvement hardware store",
+        "Presentation: Placed inside standard greeting card with personalized written note",
+        "Usage: Valid for retail building materials, paint, tools, or garden supplies anytime",
+        "Cost: Flat $100 denomination with zero shopping time or wrapping required"
       ]
     },
     "persuasionGuidance": [
@@ -4253,7 +4253,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Cold-Climate Central Inverter Heat Pump",
-      "price": "$8,500 ($5,000 Federal Green Homes Rebate = $3,500 Net)",
+      "price": "$8,500",
       "location": "Central Ducted System (Whole-Home Comfort)",
       "specs": "Up to -30°C Operation • 20 SEER2 Efficiency • Dual Heating & AC",
       "features": [
@@ -4266,7 +4266,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "98% AFUE Modulating High-Efficiency Gas Furnace",
-      "price": "$5,200 Fully Installed (Includes 10-Year Parts & Labor Warranty)",
+      "price": "$5,200 Fully Installed",
       "location": "Basement Utility Room (Connects to Existing Ductwork)",
       "specs": "98% Efficiency • Variable-Speed ECM Blower • Modulating Gas Burner",
       "features": [
@@ -4279,14 +4279,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Keeping Old Electric Baseboard Heaters",
-      "price": "$0 Upfront (+ $600/month winter electric bills)",
+      "price": "$0",
       "location": "Along Baseboards in Every Room",
       "specs": "100% Resistance Heat • No Air Conditioning • Hot Metal Fins",
       "features": [
-        "Zero upfront contractor installation cost today",
-        "Astronomical winter electricity bills ($600–$800/month) that waste thousands of dollars every winter",
-        "Hot metal fins pose a severe burn hazard for young children and restrict furniture placement against walls",
-        "Provides zero summer cooling, requiring loud, inefficient window air conditioners in July and August"
+        "Heating system: Existing electric baseboard resistance heaters in each room",
+        "Control: Individual mechanical dials located on each room's wall unit",
+        "Operating expenses: Direct electric resistance utility costs during sub-zero winter",
+        "Installation cost: $0 immediate upfront capital expense"
       ]
     },
     "persuasionGuidance": [
@@ -4306,7 +4306,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Capped Composite Decking with Hidden Fasteners",
-      "price": "$7,800 Materials ($35 / sq. ft. • 25-Year Stain & Fade Warranty)",
+      "price": "$7,800 Materials",
       "location": "Backyard Patio Walkout (Direct Kitchen Access)",
       "specs": "Ultra-Durable Polymer Shell • Hidden Fastener Clips • Woodgrain Texture",
       "features": [
@@ -4319,7 +4319,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Natural Western Red Cedar Wood Decking",
-      "price": "$5,200 Materials ($22 / sq. ft. • Premium Architectural Grade)",
+      "price": "$5,200 Materials",
       "location": "Elevated Backyard Garden Walkout",
       "specs": "100% Natural Canadian Cedar • Naturally Insect & Rot Resistant",
       "features": [
@@ -4332,14 +4332,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Basic Poured Grey Concrete Slab",
-      "price": "$2,800 Total Installation",
+      "price": "$2,800 Installation",
       "location": "Flat on ground",
       "specs": "4-inch Grey Poured Concrete • Broom Finish",
       "features": [
-        "Lowest initial installation price",
-        "Subject to inevitable surface cracking, heaving, and spalling during Canadian winter freeze-thaw cycles",
-        "Cold, industrial, and uninviting appearance that fails to add beauty or value to the home",
-        "Becomes scalding hot under direct summer sun and extremely slippery when wet around children"
+        "Material: 4-inch poured reinforced concrete slab with brushed non-slip finish",
+        "Appearance: Uniform rectangular grey concrete surface with control joints cut every 10 ft",
+        "Durability: Solid concrete construction resistant to weed growth between joints",
+        "Installation time: Concrete poured and fully cured within 48 to 72 hours"
       ]
     },
     "persuasionGuidance": [
@@ -4359,7 +4359,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Engineered White Oak Hardwood Planks (Wide Plank)",
-      "price": "$9,600 Installed ($8.00 / sq. ft. • Wire-Brushed Matte Finish)",
+      "price": "$9,600 Installed",
       "location": "Main Floor Living, Dining & Hallways",
       "specs": "7.5\" Wide Planks • Multi-Ply Birch Core • UV Urethane Aluminum Oxide",
       "features": [
@@ -4372,7 +4372,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "100% Waterproof Luxury Vinyl Plank (LVP)",
-      "price": "$5,400 Installed ($4.50 / sq. ft. • 20-mil Commercial Wear Layer)",
+      "price": "$5,400 Installed",
       "location": "Entire Main Floor (Kitchen, Living & Entryway)",
       "specs": "Stone Polymer Composite (SPC) • Attached Acoustic Cork Backing",
       "features": [
@@ -4389,10 +4389,10 @@ const TASK5_PROMPTS = [
       "location": "Entire Main Floor",
       "specs": "24x24\" Polished Porcelain • High-Gloss Glaze",
       "features": [
-        "Scratch resistant and easy to mop clean",
-        "Extremely cold and uncomfortable underfoot during 6 months of Canadian winter without expensive subfloor heating",
-        "Dangerously slippery when walked on with wet socks or melting snow, creating severe slip-and-fall hazards",
-        "Creates harsh acoustic echoes that make the living room feel like a sterile commercial shopping mall"
+        "Material: High-gloss glazed porcelain floor tiles with sealed grout lines",
+        "Surface properties: Smooth waterproof ceramic finish impervious to liquid spills",
+        "Acoustics: Rigid reflective surface with zero sound absorption",
+        "Cleaning: Quick damp mopping with neutral floor cleaner"
       ]
     },
     "persuasionGuidance": [
@@ -4405,14 +4405,14 @@ const TASK5_PROMPTS = [
     "id": "t5_084",
     "title": "Kitchen Countertop Material",
     "category": "Home Improvement",
-    "context": "You and your kitchen designer are selecting new countertop slabs for your kitchen island and perimeter counters.",
+    "context": "You and your kitchen designer Mike are selecting new countertop slabs for your kitchen island and perimeter counters.",
     "targetAudience": "Your kitchen designer, Mike",
     "partnerChoiceName": "Natural Butcher Block Wood Countertops",
     "partnerRationale": "Mike suggests solid butcher block wood countertops for a trendy rustic farmhouse look at a lower material cost.",
     "optionA": {
       "id": "opt_a",
       "name": "Engineered Quartz Stone Slabs (Calacatta Gold)",
-      "price": "$4,200 Fully Fabricated & Installed (Includes Undermount Sink Cutout)",
+      "price": "$4,200 Fully Fabricated & Installed",
       "location": "Kitchen Island & Perimeter Counters (55 sq. ft.)",
       "specs": "93% Natural Crushed Quartz & Resin • Non-Porous • Polished Finish",
       "features": [
@@ -4425,7 +4425,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Natural Polished Granite Slabs",
-      "price": "$3,600 Fully Fabricated & Installed (Includes 15-Year Sealer)",
+      "price": "$3,600 Fully Fabricated & Installed",
       "location": "Kitchen Island & Cooking Prep Zones",
       "specs": "3cm Solid Natural Igneous Granite • Heat Resistant to 480°C",
       "features": [
@@ -4442,10 +4442,10 @@ const TASK5_PROMPTS = [
       "location": "Kitchen Counters",
       "specs": "1.5\" Solid Birch Wood • Oiled Finish",
       "features": [
-        "Warm rustic aesthetic and lower initial purchase price",
-        "Extremely high maintenance: requires monthly mineral oiling and sanding to prevent cracking and warping",
-        "Highly susceptible to permanent water stains and black rot around the kitchen sink and faucet",
-        "Porous wood harbors dangerous bacteria from raw chicken and easily burns if hot pans touch it"
+        "Material: 1.5-inch solid edge-grain natural maple butcher block countertops",
+        "Maintenance: Requires food-grade mineral oil rub applied every 4 to 6 weeks",
+        "Properties: Natural timber work surface with moderate resistance to heat and moisture",
+        "Appearance: Warm organic wood grain aesthetic that can be lightly sanded if marked"
       ]
     },
     "persuasionGuidance": [
@@ -4458,14 +4458,14 @@ const TASK5_PROMPTS = [
     "id": "t5_085",
     "title": "Home Energy Efficiency Project",
     "category": "Home Improvement",
-    "context": "You and your spouse are investing in an energy-efficiency renovation to lower monthly utility bills and increase home value.",
+    "context": "You and your spouse David are investing in an energy-efficiency renovation to lower monthly utility bills and increase home value.",
     "targetAudience": "Your spouse, David",
     "partnerChoiceName": "Geothermal Ground-Source Heat Loop",
     "partnerRationale": "David wants to drill deep geothermal ground loops in the backyard for $35,000 for ultimate green energy status.",
     "optionA": {
       "id": "opt_a",
       "name": "Rooftop Solar PV System (8.5 kW) with Net Metering",
-      "price": "$14,500 ($5,000 Canada Greener Homes Grant = $9,500 Net)",
+      "price": "$14,500",
       "location": "South-Facing Home Roof",
       "specs": "22 Tier-1 Monocrystalline Panels • 8.5 kW Output • 25-Yr Power Warranty",
       "features": [
@@ -4478,7 +4478,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Triple-Pane Argon Windows & R-60 Attic Insulation Upgrade",
-      "price": "$11,200 ($4,000 Window & Insulation Rebates = $7,200 Net)",
+      "price": "$11,200",
       "location": "Entire Home Exterior Envelope & Attic",
       "specs": "Low-E Triple Glazed Vinyl Windows (U-factor 0.18) • Blown-in Cellulose",
       "features": [
@@ -4491,14 +4491,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Geothermal Ground-Source Heat Loop",
-      "price": "$35,000 (+ Excavation that destroys entire backyard landscaping)",
+      "price": "$35,000",
       "location": "Deep Underground Boreholes in Yard",
       "specs": "Ground-Source Heat Pump • Vertical Drilled Loops",
       "features": [
-        "Highly efficient heating from constant underground earth temperatures",
-        "Massive $35,000 upfront cost with a painfully long 22-year financial payback period",
-        "Heavy drilling machinery completely destroys existing trees, patio, garden, and grass lawn ($10k to fix)",
-        "Complex underground pipe loops are extremely difficult and costly to troubleshoot if leaks develop"
+        "Technology: Vertical closed-loop ground source geothermal heat pump system",
+        "Installation: Heavy drilling rig boreholes drilled 200 feet beneath yard lawn",
+        "Efficiency: High thermal performance utilizing constant underground ground temperatures",
+        "Investment: $35,000 upfront installation expenditure before government green grants"
       ]
     },
     "persuasionGuidance": [
@@ -4518,7 +4518,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Drought-Tolerant Native Pollinator Eco-Garden",
-      "price": "$2,400 Total (Native Perennials, River Stone, Mulch & Flagstone Walkway)",
+      "price": "$2,400",
       "location": "Front Yard Garden Beds & Natural Stone Pathway",
       "specs": "Native Canadian Perennials • River Stone Borders • Cedar Bark Mulch",
       "features": [
@@ -4531,7 +4531,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Premium Kentucky Bluegrass Sod with Smart Irrigation System",
-      "price": "$2,800 Installed (New Fresh Sod + 4-Zone Smart Sprinklers)",
+      "price": "$2,800 Installed",
       "location": "Front Lawn Area",
       "specs": "Grade-A Weed-Free Sod • Weather-Sensing Smart App Sprinklers",
       "features": [
@@ -4548,10 +4548,10 @@ const TASK5_PROMPTS = [
       "location": "Front Yard Surface",
       "specs": "Petroleum-Based Plastic Grass • Rubber Crumb Infill",
       "features": [
-        "Never requires mowing or watering",
-        "Becomes scorching hot in summer sun (over 60°C), emitting unpleasant hot plastic chemical fumes",
-        "Fades, mats down, and collects trapped debris, leaves, and pet odors that must be power-washed and vacuumed",
-        "Looks obviously fake, plasticky, and cheap, degrading neighborhood aesthetic and curb appeal"
+        "Material: UV-stabilized synthetic polyethylene grass turf with silica sand infill",
+        "Appearance: Uniform 1.5-inch emerald green blades maintaining color all year",
+        "Care: Leaf blowing and occasional hose rinse with zero lawn mowing or fertilizer",
+        "Drainage: Perforated backing allowing rainwater to filter into sub-base gravel"
       ]
     },
     "persuasionGuidance": [
@@ -4564,14 +4564,14 @@ const TASK5_PROMPTS = [
     "id": "t5_087",
     "title": "Kitchen Cabinet Remodel Approach",
     "category": "Home Improvement",
-    "context": "You and your spouse are remodeling your outdated 20-year-old oak kitchen cabinets on a $12,000 total kitchen budget.",
+    "context": "You and your spouse Laura are remodeling your outdated 20-year-old oak kitchen cabinets on a $12,000 total kitchen budget.",
     "targetAudience": "Your spouse, Laura",
     "partnerChoiceName": "DIY Paint Rolling Old Cabinets on Weekend",
     "partnerRationale": "Laura suggests buying $150 of latex paint and a roller to paint over the peeling 20-year-old oak cabinets ourselves this weekend.",
     "optionA": {
       "id": "opt_a",
       "name": "Professional Solid Wood Door Refacing & Soft-Close Hardware",
-      "price": "$4,800 Fully Installed (Factory Baked-Enamel Finish)",
+      "price": "$4,800 Fully Installed",
       "location": "Existing Cabinet Framework",
       "specs": "New Solid Maple Shaker Doors • Soft-Close Hinges • Factory Spray Finish",
       "features": [
@@ -4584,7 +4584,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Brand-New Custom Plywood Soft-Close Cabinetry",
-      "price": "$10,500 Installed (All-New Modular Cabinet Boxes)",
+      "price": "$10,500 Installed",
       "location": "Complete Kitchen Layout",
       "specs": "3/4\" Plywood Boxes • Deep Pot Drawers • Built-in Pull-Out Spice Racks",
       "features": [
@@ -4597,14 +4597,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "DIY Weekend Brush Painting Old Cabinets",
-      "price": "$150 in Paint & Rollers (+ 40 hours of exhausting labor)",
+      "price": "$150 in Paint & Rollers",
       "location": "Kitchen",
       "specs": "Hand-applied paint • 20-Year-Old Worn Oak Cabinets",
       "features": [
-        "Very low material expense",
-        "Hand-painted surfaces show ugly brush marks, drip marks, and orange-peel roller texture",
-        "Oak wood grain bleeds through paint, and latex paint chips and peels around door handles within 3 months",
-        "Does nothing to fix broken drawer tracks, misaligned doors, or lack of modern storage drawers"
+        "Method: In-place hand painting of existing oak cabinets with brush and roller",
+        "Prep work: Light hand sanding and primer coat over existing finished wood cabinets",
+        "Materials: Cabinet-grade latex enamel paint applied with fine-finish rollers",
+        "Cost: $400 for paint, primer, drop cloths, and brush applicators"
       ]
     },
     "persuasionGuidance": [
@@ -4624,7 +4624,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Interlocking Concrete Stone Pavers with Polymeric Sand",
-      "price": "$9,200 Fully Installed (30-Year Warranty • High-Density Pavers)",
+      "price": "$9,200 Fully Installed",
       "location": "Driveway & Matching Front Entry Walkway (600 sq. ft.)",
       "specs": "80mm Heavy-Duty Pavers • Crushed Gravel Base • Polymeric Sand Joints",
       "features": [
@@ -4637,7 +4637,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Exposed Aggregate Decorative Poured Concrete",
-      "price": "$6,800 Fully Installed (Includes Steel Rebar Mesh & Acrylic Sealer)",
+      "price": "$6,800 Fully Installed",
       "location": "Two-Car Driveway Surface",
       "specs": "32 MPa Air-Entrained Concrete • Natural River Pebble Aggregate • Rebar",
       "features": [
@@ -4654,10 +4654,10 @@ const TASK5_PROMPTS = [
       "location": "Driveway Surface",
       "specs": "2-inch Hot Mix Asphalt • Basic Gravel Base",
       "features": [
-        "Lowest initial installation price",
-        "Softens in hot summer sun, allowing car tires and kickstands to sink and leave permanent dents",
-        "Develops edge crumbling, cracks, and potholes within 3-4 years from winter frost heave",
-        "Requires messy black tar sealcoating every two years that tracks toxic petroleum into the house"
+        "Material: Standard 2-inch hot-mix asphalt laid over compacted crushed limestone base",
+        "Installation: Commercial asphalt paving roller compaction completed in 1 day",
+        "Maintenance: Recommended protective liquid asphalt sealcoat applied every 2 to 3 years",
+        "Durability: 12 to 15 year operational lifespan in Canadian climate"
       ]
     },
     "persuasionGuidance": [
@@ -4670,14 +4670,14 @@ const TASK5_PROMPTS = [
     "id": "t5_089",
     "title": "Basement Renovation Purpose",
     "category": "Home Improvement",
-    "context": "You and your spouse are finishing your 900 sq. ft. unfinished full-height basement with a separate walkout side entrance.",
+    "context": "You and your spouse Kevin are finishing your 900 sq. ft. unfinished full-height basement with a separate walkout side entrance.",
     "targetAudience": "Your spouse, Kevin",
     "partnerChoiceName": "Raw Dusty Concrete Gym & Hobby Workshop",
     "partnerRationale": "Kevin wants to leave the basement as raw open concrete for his personal weightlifting gym and woodworking saw bench.",
     "optionA": {
       "id": "opt_a",
       "name": "Legal 1-Bedroom Secondary Rental Income Suite",
-      "price": "$38,000 Renovation Cost (Generates $1,650 / month in Rental Income)",
+      "price": "$38,000 Renovation Cost",
       "location": "Basement with Private Side Entrance",
       "specs": "Full Kitchen • 3-Piece Bath • Egress Window • Fire & Sound Separation",
       "features": [
@@ -4690,7 +4690,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Luxury Home Cinema, Wet Bar & Family Recreation Lounge",
-      "price": "$26,000 Finished (Includes Acoustic Insulation & Subfloor)",
+      "price": "$26,000 Finished",
       "location": "Main Basement Living Area",
       "specs": "120\" Projection Wall • Quartz Wet Bar & Mini Fridge • 2nd Full Bathroom",
       "features": [
@@ -4703,14 +4703,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Raw Concrete Gym & Woodworking Workshop",
-      "price": "$2,000 (Rubber mats & fluorescent shop lights)",
+      "price": "$2,000",
       "location": "Unfinished Basement",
       "specs": "Exposed Concrete Walls & Ceiling Joists • Dust & Drafts",
       "features": [
-        "Cheap and provides a space for noisy woodworking power tools",
-        "Completely wastes 900 sq. ft. of prime real estate in a cold, drafty, uninsulated basement",
-        "Sawdust and woodworking fumes circulate through furnace ducts into the upstairs bedrooms and kitchen",
-        "Adds zero financial value or rental income to the home while leaving concrete floors freezing cold"
+        "Design: 900 sq. ft. open workshop with heavy-duty workbenches and power tool stations",
+        "Surfaces: Painted sealed concrete floors with exposed joist open ceiling",
+        "Electrical: Dedicated 20-amp and 220V power circuits for saws and dust collection",
+        "Cost: $4,500 for lighting, electrical subpanel, and modular workbench shelving"
       ]
     },
     "persuasionGuidance": [
@@ -4723,14 +4723,14 @@ const TASK5_PROMPTS = [
     "id": "t5_090",
     "title": "Bathroom Remodel Feature",
     "category": "Home Improvement",
-    "context": "You and your partner are remodeling your master ensuite bathroom to create a spa-like retreat.",
+    "context": "You and your partner Sarah are remodeling your master ensuite bathroom to create a spa-like retreat.",
     "targetAudience": "Your partner, Sarah",
     "partnerChoiceName": "Cheap 1-Piece Acrylic Tub-Shower Combo",
     "partnerRationale": "Sarah suggests installing a basic 1-piece white acrylic tub-shower insert unit to save money.",
     "optionA": {
       "id": "opt_a",
       "name": "Frameless Walk-In Glass Spa Shower with Built-in Bench",
-      "price": "$4,600 Installed (10mm Tempered Glass + Custom Porcelain Tile)",
+      "price": "$4,600 Installed",
       "location": "Master Ensuite Bathroom",
       "specs": "60x36\" Step-Free Base • Thermostatic Rain Showerhead • Tiled Niche",
       "features": [
@@ -4743,7 +4743,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Freestanding Deep Acrylic Soaking Tub with Floor-Mount Faucet",
-      "price": "$3,200 Installed (Includes Chrome Floor-Mounted Faucet Wand)",
+      "price": "$3,200 Installed",
       "location": "Under Master Bathroom Window",
       "specs": "67\" Ergonomic Deep Soaker • Double-Walled Heat Retention Acrylic",
       "features": [
@@ -4760,10 +4760,10 @@ const TASK5_PROMPTS = [
       "location": "Bathroom Corner",
       "specs": "Basic Thin Acrylic • Sliding Aluminum Door",
       "features": [
-        "Low upfront cost and fast installation",
-        "Cheap plastic appearance that looks like a budget highway motel bathroom, degrading master ensuite value",
-        "Narrow, shallow bathtub that is uncomfortable for adults to soak in and awkward to step over for showers",
-        "Aluminum sliding door tracks collect soap scum, hair, and black mold that is frustrating to scrub clean"
+        "Fixture: One-piece molded white acrylic 60-inch by 30-inch tub-shower unit",
+        "Enclosure: Framed aluminum bypass sliding clear glass doors with chrome hardware",
+        "Installation: Direct-to-stud mounting over existing bathroom plumbing rough-ins",
+        "Dimensions: Standard 14-inch water basin depth with molded soap and shampoo ledges"
       ]
     },
     "persuasionGuidance": [
@@ -4783,7 +4783,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Historic Prime Steakhouse with Private Wine Room",
-      "price": "$140 / person ($700 budget for 5 people)",
+      "price": "$140 / person",
       "location": "Financial District Heritage Building",
       "specs": "Private Enclosed Room • Sommelier Service • Prime Dry-Aged Steaks",
       "features": [
@@ -4796,7 +4796,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Modern Waterfront Fine-Dining Fusion Bistro",
-      "price": "$110 / person ($550 budget for 5 people)",
+      "price": "$110 / person",
       "location": "Harbourfront Marina (Panoramic Lake Views)",
       "specs": "Quiet Semi-Private Booth • Chef's Tasting Menu • Valet Parking",
       "features": [
@@ -4809,14 +4809,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Noisy Craft Brewery & Sports Gastropub",
-      "price": "$60 / person ($300 total)",
+      "price": "$60 / person",
       "location": "Busy Entertainment Strip",
       "specs": "Open Bar Seating • Blaring Sports TVs • Shouting Crowd",
       "features": [
-        "Cheaper price point with dozens of local craft beers on tap",
-        "Deafening music and shouting sports fans make discussing multi-million dollar business contracts impossible",
-        "Sticky wooden tables, greasy finger food, and slow pub service project an unprofessional, cut-rate corporate image",
-        "Clients will feel undervalued and awkward trying to conduct executive discussions in a rowdy bar"
+        "Venue: Casual downtown sports pub with draft beer taps and multiple TV screens",
+        "Atmosphere: Informal neighborhood pub setting with background music and lively chatter",
+        "Menu: Traditional pub fare (burgers, chicken wings, fish and chips, and craft pints)",
+        "Pricing: $30 to $40 per person including beverage and gratuity"
       ]
     },
     "persuasionGuidance": [
@@ -4829,14 +4829,14 @@ const TASK5_PROMPTS = [
     "id": "t5_092",
     "title": "Family Sunday Brunch Venue",
     "category": "Dining & Social Gatherings",
-    "context": "You and your family member are choosing a restaurant for your regular monthly Sunday family brunch with 8 people, including grandparents.",
+    "context": "You and your family member Uncle Joe are choosing a restaurant for your regular monthly Sunday family brunch with 8 people, including grandparents.",
     "targetAudience": "Your family member, Uncle Joe",
     "partnerChoiceName": "Fast-Food All-Day Pancake Diner",
     "partnerRationale": "Uncle Joe wants to go to a greasy-spoon highway pancake diner because the coffee is cheap and refills are endless.",
     "optionA": {
       "id": "opt_a",
       "name": "Waterfront Hotel Gourmet Grand Brunch Buffet",
-      "price": "$48 / person ($384 total for 8 guests)",
+      "price": "$48 / person",
       "location": "Waterfront Hotel Promenade Dining Room",
       "specs": "All-You-Can-Eat Gourmet Buffet • Carving Station • Chocolate Fountain",
       "features": [
@@ -4849,7 +4849,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Farm-to-Table French Artisan Bakery & Cafe",
-      "price": "$28 / person ($224 total for 8 guests)",
+      "price": "$28 / person",
       "location": "Historic Village Main Street",
       "specs": "Locally Sourced Organic Ingredients • Scratch-Made Pastries",
       "features": [
@@ -4862,14 +4862,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Fast-Food All-Day Pancake Diner",
-      "price": "$16 / person ($128 total)",
+      "price": "$16 / person",
       "location": "Strip Mall Highway Junction",
       "specs": "Greasy-Spoon Short-Order Counter • Vinyl Booths",
       "features": [
-        "Low cost and quick fast-food service",
-        "Heavy, greasy fried food with high sodium and processed ingredients that upset grandparents' digestion",
-        "Cramped vinyl booths and narrow aisles make moving walkers or wheelchairs difficult and awkward",
-        "Noisy, rushed diner environment where waitstaff push you to leave quickly to turn over tables"
+        "Venue: Traditional retro-style neighborhood diner with vinyl booths and counter seating",
+        "Menu: All-day classic breakfast (scrambled eggs, bacon, sausage, pancakes, and home fries)",
+        "Service: Fast-paced table turn-around with continuous coffee pot refills",
+        "Pricing: $12 to $15 average price per breakfast entree"
       ]
     },
     "persuasionGuidance": [
@@ -4889,7 +4889,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Cul-de-Sac Potluck BBQ with Inflatable Bounce Castle & Live DJ",
-      "price": "$450 Total Street Fund ($10 / family for permit, bounce house & DJ)",
+      "price": "$450 Street Fund",
       "location": "Street Cul-de-Sac (Permitted Street Closure)",
       "specs": "Closed Street • Inflatable Obstacle Castle • Potluck Feast • Lawn Games",
       "features": [
@@ -4902,7 +4902,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Rented Local Gourmet Food Trucks & Acoustic Live Band",
-      "price": "$600 Street Fund (Covers Street Permit, Band & Waste Stations)",
+      "price": "$600 Street Fund",
       "location": "Neighborhood Community Park Lawn",
       "specs": "3 Diverse Food Trucks (Tacos, Wood-Fired Pizza, Ice Cream) • Live Band",
       "features": [
@@ -4915,14 +4915,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Indoor Ice Cream Social in Hall Basement",
-      "price": "$80 Total",
+      "price": "$80",
       "location": "Windowless Community Center Basement",
       "specs": "Fluorescent Lights • Metal Folding Chairs • 60-Minute Limit",
       "features": [
-        "Very cheap and completely unaffected by weather",
-        "Awkward and uninspiring: sitting under fluorescent lights on metal chairs on a gorgeous sunny summer Saturday",
-        "Kids will be bored and restless within 15 minutes in a confined indoor room with no playground or lawn",
-        "Fails to build genuine community spirit, neighborly bonding, or outdoor summer excitement"
+        "Venue: Municipal community center multi-purpose recreation hall with air-conditioning",
+        "Facilities: Folding tables, stackable plastic chairs, and attached washrooms",
+        "Activities: Indoor board games, casual conversation tables, and background stereo music",
+        "Weather: Guaranteed indoor venue completely independent of rain or outdoor heat"
       ]
     },
     "persuasionGuidance": [
@@ -4942,7 +4942,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Private In-Home Executive Chef & Server Experience",
-      "price": "$120 / person ($960 total for 8 guests, ingredients included)",
+      "price": "$120 / person",
       "location": "Your Home Kitchen & Dining Room",
       "specs": "Professional Chef + Server • 4-Course Fine Dining • Spotless Kitchen Cleanup",
       "features": [
@@ -4955,7 +4955,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Gourmet Italian Trattoria Family-Style Catered Feast",
-      "price": "$45 / person ($360 total for 8 guests)",
+      "price": "$45 / person",
       "location": "Delivered Hot to Home Doorstep",
       "specs": "Oven-Ready Hot Platters • Artisan Pasta, Osso Buco, Salads & Tiramisu",
       "features": [
@@ -4968,14 +4968,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Cooking 5-Course Meal Alone from Scratch",
-      "price": "$250 in Grocery Ingredients (+ 14 hours of exhausting kitchen labor)",
+      "price": "$250 in Grocery Ingredients",
       "location": "Home Kitchen",
       "specs": "Solo Cooking • 5 Complex Courses • Massive Sink of Dirty Pots",
       "features": [
-        "Saves money on catering fees and shows culinary passion",
-        "Nina will be completely stressed, exhausted, and stuck over hot stoves the entire night while guests socialize",
-        "High risk of dishes burning, timing disasters, and cold entrees while plating multiple intricate courses",
-        "Leaves a mountain of greasy pots, pans, and dirty dishes to wash at 1:00 AM after exhausted guests leave"
+        "Preparation: Home-cooked 4-course dinner prepared from scratch by the hosts",
+        "Menu: Fresh handmade pasta, braised beef short ribs, green salad, and homemade dessert",
+        "Service: Family-style serving platters presented directly from home kitchen",
+        "Cost: $150 total for grocery ingredients, wine, and floral table centerpiece"
       ]
     },
     "persuasionGuidance": [
@@ -4995,7 +4995,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Handmade Fresh Pasta & Authentic Gelato Masterclass",
-      "price": "$110 / person (Includes 3-Course Dinner with Wine Pairings)",
+      "price": "$110 / person",
       "location": "Artisan Culinary Institute (Downtown)",
       "specs": "3-Hour Hands-On Class • Hand-Rolled Fettuccine & Ravioli • Wine Included",
       "features": [
@@ -5008,7 +5008,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Artisanal Sushi Rolling & Traditional Ramen Workshop",
-      "price": "$125 / person (Includes Sake Tasting & Bamboo Rolling Mat)",
+      "price": "$125 / person",
       "location": "Japanese Culinary Studio",
       "specs": "3-Hour Workshop • Knife Skills • Nigiri, Maki & 12-Hour Tonkotsu Broth",
       "features": [
@@ -5025,10 +5025,10 @@ const TASK5_PROMPTS = [
       "location": "Pastry Studio",
       "specs": "3-Hour Sugar Piping • High Technical Failure Rate",
       "features": [
-        "Learn delicate sugar folding and piping techniques for meringue cookies",
-        "Extremely frustrating and technical: temperature changes and over-whipping easily ruin the entire batch",
-        "Leaves you with only sugary cookies for dinner instead of a satisfying, savory meal and wine",
-        "Very difficult to reproduce at home without specialized commercial convection ovens and candy thermometers"
+        "Curriculum: Hands-on 3-hour French confectionery class focusing on macarons and meringue",
+        "Techniques: Italian meringue sugar syrup cooking, batter macaronage, and piping nozzles",
+        "Output: Each couple bakes, fills, and takes home 24 finished assorted macarons",
+        "Equipment: Commercial deck ovens, digital gram scales, and specialty piping tips"
       ]
     },
     "persuasionGuidance": [
@@ -5048,7 +5048,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Wholesale Club (Costco) Bulk Shopping + Meal Prep",
-      "price": "$180 / week (Split 2 ways = $90 each • $60 Annual Membership)",
+      "price": "$180 / week",
       "location": "Regional Wholesale Club Depot (10 min drive)",
       "specs": "Bi-weekly Bulk Runs • High-Quality Proteins, Grains & Pantry Staples",
       "features": [
@@ -5061,7 +5061,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Weekly Local Farmers' Market & Community Supported Agriculture (CSA)",
-      "price": "$140 / week (Split 2 ways = $70 each for Farm Fresh Box)",
+      "price": "$140 / week",
       "location": "Downtown Saturday Farmers' Market (5 min away)",
       "specs": "Weekly Seasonal Farm Box • 100% Local Organic Produce & Dairy",
       "features": [
@@ -5074,14 +5074,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "App-Based On-Demand Delivery Apps",
-      "price": "$260 / week ($130 each • High markup + delivery & service fees)",
+      "price": "$260 / week",
       "location": "Smartphone Delivery App",
       "specs": "Frequent Small Orders • 20% Item Markup • Service & Tip Fees",
       "features": [
-        "Delivered to the apartment door without leaving the couch",
-        "Extremely expensive: 15-20% item markups plus $6 delivery fees, service fees, and tips add $400/month in waste",
-        "Frequent delivery errors: bruised fruit, missing items, and short expiry dates chosen by rushed app pickers",
-        "Encourages disorganized, wasteful eating habits with high amounts of plastic grocery bag waste"
+        "Model: On-demand grocery delivery via smartphone app from local supermarkets",
+        "Pricing: In-app store item prices plus $5.99 delivery fee and courier tip per order",
+        "Timing: Delivery to apartment door within 1 to 2 hours of placing mobile order",
+        "Fulfillment: Dedicated gig shopper hand-picking items from grocery store shelves"
       ]
     },
     "persuasionGuidance": [
@@ -5101,7 +5101,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Fresh Mediterranean Mezze & Shawarma Bowl Buffet",
-      "price": "$18 / person ($540 total budget for 30 people)",
+      "price": "$18 / person",
       "location": "Local Mediterranean Grill & Catering",
       "specs": "Individual Bowls • Halal Chicken, Falafel, Hummus, Quinoa & Tabbouleh",
       "features": [
@@ -5114,7 +5114,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Gourmet Artisan Sandwich, Wrap & Salad Board Platters",
-      "price": "$16 / person ($480 total budget for 30 people)",
+      "price": "$16 / person",
       "location": "Downtown Artisan Deli & Bakery",
       "specs": "Assorted Focaccia & Brioche Sandwiches • Organic Greens & Fruit",
       "features": [
@@ -5127,14 +5127,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Cold Greasy Fast-Food Delivery Pizzas",
-      "price": "$11 / person ($330 total)",
+      "price": "$11 / person",
       "location": "Fast-Food Chain",
       "specs": "8 Large Pepperoni & Cheese Pizzas",
       "features": [
-        "Low price point and simple to order",
-        "Excludes colleagues who are vegan, gluten-intolerant, lactose-intolerant, or require halal meats",
-        "Heavy grease and carbs cause severe 2:00 PM sleepiness and brain fog during the training presentation",
-        "Greasy fingers make touching laptops, typing notes, and handling training materials messy and awkward"
+        "Menu: Delivery party pizza boxes (pepperoni, vegetarian, meat lovers) with garlic bread",
+        "Beverages: Assorted 2-liter bottled sodas and iced teas with disposable cups",
+        "Service: Self-service buffet setup with cardboard boxes and paper napkins",
+        "Pricing: $12 per person flat catering order"
       ]
     },
     "persuasionGuidance": [
@@ -5154,7 +5154,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Revolving Panoramic City Tower Restaurant",
-      "price": "$160 / person (Includes 3-Course Dinner & Free Tower Observation Deck)",
+      "price": "$160 / person",
       "location": "Skyline Tower Revolving Dining Room (350 meters high)",
       "specs": "360° Panoramic City Views • 3-Course Fine Dining • Complimentary Tower Pass",
       "features": [
@@ -5167,7 +5167,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "7-Course Chef Tasting Menu in Historic Underground Wine Cellar",
-      "price": "$145 / person (Includes 7 Courses + Artisan Wine Pairings)",
+      "price": "$145 / person",
       "location": "Historic Distillery District Heritage Vaults",
       "specs": "1800s Stone Wine Vault • 7 Seasonal Chef Courses • Sommelier Paired",
       "features": [
@@ -5184,10 +5184,10 @@ const TASK5_PROMPTS = [
       "location": "Harbour Cruise Ship",
       "specs": "Large Shared Boat • Standard Steam-Table Buffet • Loud DJ",
       "features": [
-        "Nice breeze on the outdoor boat deck",
-        "Crowded with 200 noisy tourists and party groups shouting over loud pop music and announcements",
-        "Mediocre steam-table buffet food (dry chicken, soggy potatoes) with long cafeteria-style lineups",
-        "Lacks intimate conversation and romantic ambiance, with risk of rough waters and motion sickness"
+        "Vessel: 200-passenger commercial harbor sightseeing catamaran with open top deck",
+        "Dining: Self-service hot buffet dinner featuring roast chicken, whitefish, and salads",
+        "Entertainment: Onboard DJ playing upbeat dance music on upper open-air viewing deck",
+        "Itinerary: 2-hour scheduled sunset cruise around inner harbor and city skyline"
       ]
     },
     "persuasionGuidance": [
@@ -5207,7 +5207,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Monthly Book, Wine & Cheese Discussion Club",
-      "price": "$20 / month per person (Rotating Host Wine & Artisan Cheese)",
+      "price": "$20 / month per person",
       "location": "Members' Cozy Living Rooms & Backyards (Monthly Rotation)",
       "specs": "Monthly Gathering • Selected Bestselling Book • Wine & Grazing",
       "features": [
@@ -5220,7 +5220,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Modern Strategy Board Game & Craft Beer Evening",
-      "price": "$15 / person (Board Game Cafe Pass + Gourmet Snacks)",
+      "price": "$15 / person",
       "location": "Downtown Board Game Lounge / Member Homes",
       "specs": "Monthly Game Night • Strategy Games (Catan, Wingspan, Ticket to Ride)",
       "features": [
@@ -5233,14 +5233,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Weekly Crowded Pub Trivia Night",
-      "price": "$45 / week ($180 / month in pub food & drinks)",
+      "price": "$45 / week",
       "location": "Noisy Downtown Sports Bar",
       "specs": "Weekly 3-Hour Quiz • Blaring Mic • Packed Bar",
       "features": [
-        "Fast-paced competitive trivia questions",
-        "Weekly commitment is too demanding for busy adults, leading to high dropouts after three weeks",
-        "Deafening bar noise and rushed 30-second question timers prevent real socializing and catching up",
-        "Expensive weekly bar bills ($180/mo) for mediocre fried food and drinks"
+        "Format: Weekly Tuesday night team trivia competition at local neighborhood tavern",
+        "Structure: 4 rounds of 10 general knowledge trivia questions with 30-second timers",
+        "Setting: Reserved pub table surrounded by other competing patron teams",
+        "Pricing: $5 per player trivia entry fee plus individual food and beverage orders"
       ]
     },
     "persuasionGuidance": [
@@ -5260,7 +5260,7 @@ const TASK5_PROMPTS = [
     "optionA": {
       "id": "opt_a",
       "name": "Spacious Artisan Coffee Roastery with High-Speed Wi-Fi",
-      "price": "$8 / visit (Artisan Pour-Over Coffee + Croissant)",
+      "price": "$8 / visit",
       "location": "Sunlit Downtown Roastery (Large Communal Oak Tables)",
       "specs": "Fiber Wi-Fi • Ample Wall Outlets • Natural Sunlight • Relaxed Music",
       "features": [
@@ -5273,7 +5273,7 @@ const TASK5_PROMPTS = [
     "optionB": {
       "id": "opt_b",
       "name": "Modern Co-Working Day Pass & Innovation Hub",
-      "price": "$25 / day (Includes Unlimited Espresso, Phone Booths & Monitors)",
+      "price": "$25 / day",
       "location": "Downtown Tech Innovation Hub",
       "specs": "Ergonomic Standing Desks • Soundproof Phone Booths • Meeting Rooms",
       "features": [
@@ -5286,14 +5286,14 @@ const TASK5_PROMPTS = [
     "partnerOption": {
       "id": "opt_partner",
       "name": "Silent Library Desks (Strict Quiet Zone)",
-      "price": "$0 Upfront",
+      "price": "$0",
       "location": "University Library 4th Floor",
       "specs": "Silent Individual Carrels • Whispering Strictly Forbidden",
       "features": [
-        "Completely quiet and zero financial cost",
-        "Defeats the entire purpose of meeting up: you cannot talk, brainstorm, collaborate, or speak a single word",
-        "No coffee or food allowed at desks, and finding two adjacent open desks with power outlets is difficult",
-        "Strict librarians will reprimand you if you try to discuss work or take a quick work phone call"
+        "Setting: Downtown central public reference library quiet study reading room",
+        "Facilities: Individual oak study carrels, free municipal Wi-Fi, and desk electrical outlets",
+        "Atmosphere: Silent study zone with conversational talking and phone calls prohibited",
+        "Cost: Free public access with library card ($0 cost)"
       ]
     },
     "persuasionGuidance": [

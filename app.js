@@ -292,6 +292,9 @@ const elements = {
   
   // Left Navigation Panel Elements
   navSidebarPanel: document.getElementById('navSidebarPanel'),
+  navMenuHeader: document.getElementById('navMenuHeader'),
+  navMenuDropdownBody: document.getElementById('navMenuDropdownBody'),
+  mobileActiveTaskPill: document.getElementById('mobileActiveTaskPill'),
   sidebarToggleBtn: document.getElementById('sidebarToggleBtn'),
   sidebarToggleIcon: document.getElementById('sidebarToggleIcon'),
   speakingModuleGroup: document.getElementById('speakingModuleGroup'),
@@ -655,6 +658,40 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderHistory();
 });
 
+// Responsive Sidebar & Mobile Downward Dropdown Logic
+function updateSidebarToggleUI() {
+  if (!elements.sidebarToggleIcon || !elements.navSidebarPanel) return;
+  const isMobile = window.innerWidth <= 768;
+  const isCollapsed = elements.navSidebarPanel.classList.contains('collapsed');
+
+  if (isMobile) {
+    elements.sidebarToggleIcon.textContent = isCollapsed ? '▾' : '▴';
+    if (elements.sidebarToggleBtn) {
+      elements.sidebarToggleBtn.setAttribute('title', isCollapsed ? 'Desplegar módulos hacia abajo' : 'Cerrar módulos');
+      elements.sidebarToggleBtn.setAttribute('aria-expanded', !isCollapsed);
+    }
+    if (elements.navMenuHeader) {
+      elements.navMenuHeader.setAttribute('aria-expanded', !isCollapsed);
+    }
+  } else {
+    elements.sidebarToggleIcon.textContent = isCollapsed ? '▶' : '◀';
+    if (elements.sidebarToggleBtn) {
+      elements.sidebarToggleBtn.setAttribute('title', isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar');
+      elements.sidebarToggleBtn.setAttribute('aria-expanded', !isCollapsed);
+    }
+    if (elements.navMenuHeader) {
+      elements.navMenuHeader.setAttribute('aria-expanded', !isCollapsed);
+    }
+  }
+}
+
+function toggleSidebar(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  if (!elements.navSidebarPanel) return;
+  elements.navSidebarPanel.classList.toggle('collapsed');
+  updateSidebarToggleUI();
+}
+
 // Event Listeners Setup
 function setupEventListeners() {
   // Main Navigation Tabs (Simulator, Bank, History)
@@ -684,14 +721,49 @@ function setupEventListeners() {
     });
   }
 
-  // Sidebar Collapse Rail Toggle
+  // Sidebar & Mobile Dropdown Navigation Toggle
   if (elements.sidebarToggleBtn) {
-    elements.sidebarToggleBtn.addEventListener('click', () => {
-      elements.navSidebarPanel.classList.toggle('collapsed');
-      const isCollapsed = elements.navSidebarPanel.classList.contains('collapsed');
-      elements.sidebarToggleIcon.textContent = isCollapsed ? '▶' : '◀';
+    elements.sidebarToggleBtn.addEventListener('click', toggleSidebar);
+  }
+
+  if (elements.navMenuHeader) {
+    elements.navMenuHeader.addEventListener('click', (e) => {
+      // On mobile screens, tapping anywhere on the header bar toggles the dropdown downwards
+      if (window.innerWidth <= 768) {
+        toggleSidebar(e);
+      }
+    });
+
+    elements.navMenuHeader.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          toggleSidebar(e);
+        }
+      }
     });
   }
+
+  // Close mobile dropdown when tapping outside of it
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768 && elements.navSidebarPanel && !elements.navSidebarPanel.classList.contains('collapsed')) {
+      const navCard = document.querySelector('.nav-menu-card');
+      if (navCard && !navCard.contains(e.target)) {
+        elements.navSidebarPanel.classList.add('collapsed');
+        updateSidebarToggleUI();
+      }
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    updateSidebarToggleUI();
+  });
+
+  // Start with collapsed dropdown on mobile devices so the exam content is front and center
+  if (window.innerWidth <= 768 && elements.navSidebarPanel) {
+    elements.navSidebarPanel.classList.add('collapsed');
+  }
+  updateSidebarToggleUI();
 
   // Speaking Task Switch Pills
   elements.task1Pill.addEventListener('click', () => switchTask(1));
@@ -1004,6 +1076,26 @@ function switchTask(taskId) {
   if (taskId === 6 && elements.task6Pill) elements.task6Pill.classList.add('active');
   if (taskId === 7 && elements.task7Pill) elements.task7Pill.classList.add('active');
   if (taskId === 'combo' && elements.taskComboPill) elements.taskComboPill.classList.add('active');
+  // Update mobile active task badge
+  const speakingBadgeLabels = {
+    1: '💡 Task 1: Advice',
+    2: '📖 Task 2: Experience',
+    3: '🖼️ Task 3: Scene',
+    4: '🔮 Task 4: Predictions',
+    5: '⚖️ Task 5: Compare',
+    6: '⚠️ Task 6: Difficult',
+    7: '🗣 Task 7: Opinions',
+    'combo': '⚡ Combo 3+4'
+  };
+  if (elements.mobileActiveTaskPill) {
+    elements.mobileActiveTaskPill.textContent = speakingBadgeLabels[taskId] || `Task ${taskId}`;
+  }
+
+  // Auto-collapse mobile dropdown after task selection
+  if (window.innerWidth <= 768 && elements.navSidebarPanel && !elements.navSidebarPanel.classList.contains('collapsed')) {
+    elements.navSidebarPanel.classList.add('collapsed');
+    if (typeof updateSidebarToggleUI === 'function') updateSidebarToggleUI();
+  }
 
   loadPrompt(taskId, 0);
   resetTimerState();
@@ -1023,6 +1115,18 @@ function getPromptsArray(taskId) {
 function renderFeaturesList(containerEl, features) {
   if (!containerEl) return;
   containerEl.innerHTML = (features || []).map(f => `<li>${f}</li>`).join('');
+}
+
+function getT5PartnerInfo(targetAudience) {
+  if (!targetAudience) return { fullRole: 'Your partner', subjectPhrase: 'Your partner', role: 'Your partner', name: 'your partner' };
+  const str = targetAudience.trim();
+  const commaIdx = str.indexOf(',');
+  if (commaIdx !== -1) {
+    const role = str.slice(0, commaIdx).trim();
+    const name = str.slice(commaIdx + 1).trim();
+    return { fullRole: str, subjectPhrase: `${role}, ${name},`, role, name };
+  }
+  return { fullRole: str, subjectPhrase: str, role: str, name: str };
 }
 
 function selectT5Option(optKey) {
@@ -1046,7 +1150,8 @@ function selectT5Option(optKey) {
   renderFeaturesList(elements.t5PartnerFeatures, partnerOpt.features);
 
   if (elements.t5PartnerCallout) {
-    elements.t5PartnerCallout.innerHTML = `You chose <strong>${chosenOpt.name}</strong>. Your partner, Chris, chose <strong>${partnerOpt.name}</strong>. Persuade Chris why your choice is better.`;
+    const partnerInfo = getT5PartnerInfo(p.targetAudience);
+    elements.t5PartnerCallout.innerHTML = `You chose <strong>${chosenOpt.name}</strong>. ${partnerInfo.subjectPhrase} chose <strong>${partnerOpt.name}</strong>. Persuade ${partnerInfo.name} why your choice is the better option.`;
   }
 
   if (elements.t5GuidanceList) {
@@ -1593,11 +1698,35 @@ function copyAiEvaluationPrompt() {
 - Evaluates future verb tenses and modal verbs ('will', 'is going to', 'might', 'is about to').
 - Evaluates logical reasoning connecting the current picture scene to future outcomes.`;
   } else if (activeTask === 5) {
-    const chosenName = state.t5SelectedOption === 'opt_b' ? currentPrompt.optionB.name : currentPrompt.optionA.name;
-    promptContextContent = `Context: "${currentPrompt.context}"
+    const chosenOpt = state.t5SelectedOption === 'opt_b' ? currentPrompt.optionB : currentPrompt.optionA;
+    const partnerOpt = currentPrompt.partnerOption;
+    const partnerInfo = getT5PartnerInfo(currentPrompt.targetAudience);
+
+    const formatCardForEval = (cardLabel, opt) => {
+      let lines = [cardLabel];
+      lines.push(`- Option Name: ${opt.name}`);
+      if (opt.price) lines.push(`- Price: ${opt.price}`);
+      if (opt.location) lines.push(`- Location: ${opt.location}`);
+      if (opt.specs) lines.push(`- Specifications: ${opt.specs}`);
+      if (opt.features && opt.features.length) {
+        lines.push(`- Key Details & Specifications:`);
+        opt.features.forEach(f => lines.push(`  • ${f}`));
+      }
+      return lines.join('\n');
+    };
+
+    promptContextContent = `Context / Scenario: "${currentPrompt.context}"
 Target Audience: "${currentPrompt.targetAudience}"
-Candidate Choice: "${chosenName}"
-Partner's Competing Choice: "${currentPrompt.partnerChoiceName}" (${currentPrompt.partnerRationale})`;
+
+---
+${formatCardForEval("YOUR SELECTION (Candidate's Option):", chosenOpt)}
+
+---
+${formatCardForEval(`${partnerInfo.fullRole.toUpperCase()}'S OPTION:`, partnerOpt)}
+
+---
+TASK INSTRUCTION:
+You chose "${chosenOpt.name}". ${partnerInfo.subjectPhrase} chose "${partnerOpt.name}". Persuade ${partnerInfo.name} why your choice is the better option.`;
 
     taskCriteriaDetails = `SPECIAL CRITERIA FOR TASK 5 (Comparing and Persuading):
 - Evaluates comparative language & structures ('in comparison to', 'whereas', 'far more cost-effective', 'outweighs').
@@ -1705,6 +1834,17 @@ function switchWritingTask(taskId, index) {
   allPills.forEach(pill => pill.classList.remove('active'));
   if (taskId === 1 && elements.writingTask1Pill) elements.writingTask1Pill.classList.add('active');
   if (taskId === 2 && elements.writingTask2Pill) elements.writingTask2Pill.classList.add('active');
+
+  // Update mobile active task badge
+  if (elements.mobileActiveTaskPill) {
+    elements.mobileActiveTaskPill.textContent = (taskId === 1) ? '✉️ Task 1: Email' : '📊 Task 2: Survey';
+  }
+
+  // Auto-collapse mobile dropdown after task selection
+  if (window.innerWidth <= 768 && elements.navSidebarPanel && !elements.navSidebarPanel.classList.contains('collapsed')) {
+    elements.navSidebarPanel.classList.add('collapsed');
+    if (typeof updateSidebarToggleUI === 'function') updateSidebarToggleUI();
+  }
 
   loadWritingPrompt(taskId, state.currentWritingPromptIndex);
   resetWritingTimer();
