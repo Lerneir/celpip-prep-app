@@ -499,6 +499,8 @@ const elements = {
   statSentences: document.getElementById('statSentences'),
   statAvgWordsPerSentence: document.getElementById('statAvgWordsPerSentence'),
   statParagraphs: document.getElementById('statParagraphs'),
+  wtCopyPromptResponseBtn: document.getElementById('wtCopyPromptResponseBtn'),
+  wtResultCopyPromptResponseBtn: document.getElementById('wtResultCopyPromptResponseBtn'),
   wtCopyAiPromptBtn: document.getElementById('wtCopyAiPromptBtn'),
   wtSaveHistoryBtn: document.getElementById('wtSaveHistoryBtn'),
 
@@ -966,6 +968,12 @@ function setupEventListeners() {
   }
   if (elements.wtSubmitBtn) {
     elements.wtSubmitBtn.addEventListener('click', () => submitWritingResponse());
+  }
+  if (elements.wtCopyPromptResponseBtn) {
+    elements.wtCopyPromptResponseBtn.addEventListener('click', () => copyWritingPromptAndResponse());
+  }
+  if (elements.wtResultCopyPromptResponseBtn) {
+    elements.wtResultCopyPromptResponseBtn.addEventListener('click', () => copyWritingPromptAndResponse());
   }
   if (elements.wtCopyAiPromptBtn) {
     elements.wtCopyAiPromptBtn.addEventListener('click', () => copyWritingAiEvaluationPrompt());
@@ -2161,39 +2169,45 @@ function submitWritingResponse() {
   showToast('🎉 Writing submitted & analyzed!');
 }
 
+function copyWritingPromptAndResponse() {
+  copyWritingAiEvaluationPrompt();
+}
+
 function copyWritingAiEvaluationPrompt() {
   const isTask1 = (state.currentWritingTask === 1);
-  const prompts = isTask1 ? WRITING_TASK1_PROMPTS : WRITING_TASK2_PROMPTS;
+  const prompts = isTask1 ? (typeof WRITING_TASK1_PROMPTS !== 'undefined' ? WRITING_TASK1_PROMPTS : []) : (typeof WRITING_TASK2_PROMPTS !== 'undefined' ? WRITING_TASK2_PROMPTS : []);
   const currentPrompt = prompts[state.currentWritingPromptIndex];
-  const essayText = elements.wtEditorTextarea.value.trim();
+  if (!currentPrompt) return;
+
+  const essayText = elements.wtEditorTextarea ? elements.wtEditorTextarea.value.trim() : '';
   const subjectText = isTask1 ? (elements.wtSubjectInput ? elements.wtSubjectInput.value.trim() : '') : '';
   const wordCount = essayText ? essayText.split(/\s+/).filter(Boolean).length : 0;
   const chosenOpt = !isTask1 ? (state.writingSelectedOption === 'A' ? currentPrompt.optionA.title : currentPrompt.optionB.title) : 'N/A';
 
   if (!essayText) {
-    showToast('Please type your response before generating AI evaluation.');
+    showToast('⚠️ Please write your response before copying.');
     return;
   }
 
   const promptDetails = isTask1 ? `
 Task Type: CELPIP Writing Task 1 (Writing an Email)
 Scenario Title: "${currentPrompt.title}"
-Category: ${currentPrompt.category}
-Tone Required: ${currentPrompt.tone}
-Recipient: ${currentPrompt.recipient}
-Scenario Context: "${currentPrompt.scenario}"
+Category: ${currentPrompt.category || 'General'}
+Tone Required: ${currentPrompt.tone || 'Formal'}
+Recipient: ${currentPrompt.recipient || 'N/A'}
+Scenario Context: "${currentPrompt.scenario || ''}"
 Required Bullet Points:
 ${(currentPrompt.bulletPoints || []).map((b, i) => `${i + 1}. ${b}`).join('\n')}
 Candidate Subject Line: "${subjectText}"
 ` : `
 Task Type: CELPIP Writing Task 2 (Responding to Survey Questions)
 Scenario Title: "${currentPrompt.title}"
-Category: ${currentPrompt.category}
-Survey Context: "${currentPrompt.context}"
+Category: ${currentPrompt.category || 'General'}
+Survey Context: "${currentPrompt.context || ''}"
 Candidate Chosen Option: "${chosenOpt}"
-Option A: "${currentPrompt.optionA.title}" - ${currentPrompt.optionA.description}
-Option B: "${currentPrompt.optionB.title}" - ${currentPrompt.optionB.description}
-Survey Question: "${currentPrompt.surveyQuestion}"
+Option A: "${currentPrompt.optionA ? currentPrompt.optionA.title : 'Option A'}" - ${currentPrompt.optionA ? currentPrompt.optionA.description : ''}
+Option B: "${currentPrompt.optionB ? currentPrompt.optionB.title : 'Option B'}" - ${currentPrompt.optionB ? currentPrompt.optionB.description : ''}
+Survey Question: "${currentPrompt.surveyQuestion || ''}"
 `;
 
   const evalPromptText = `Act as an expert official CELPIP Senior Writing Examiner and English Language Assessor. Evaluate my written response for the following CELPIP Writing Task according to the official CELPIP Writing Performance Standards:
@@ -2237,11 +2251,7 @@ REQUIRED OUTPUT FORMAT:
 - Detailed Errors & Improvement Suggestions (Line-by-line grammar/vocabulary corrections)
 - An Enhanced Band 11–12 Revised Version of my essay tailored to this scenario.`;
 
-  navigator.clipboard.writeText(evalPromptText).then(() => {
-    showToast('✨ CELPIP Writing Evaluation Prompt copied! Paste into ChatGPT / Gemini / Claude.');
-  }).catch(() => {
-    showToast('Failed to copy. Please allow clipboard permissions.');
-  });
+  copyTextToClipboard(evalPromptText, '✨ CELPIP Writing Evaluation Prompt copied! Paste into ChatGPT / Gemini / Claude.');
 }
 
 // Model Answer Lightbox / Modal
@@ -2378,8 +2388,11 @@ function renderWritingHistory() {
           <div class="wh-text-preview">${r.essayText}</div>
           
           <div class="wh-actions">
-            <button class="btn-secondary btn-sm" onclick="copyHistoryEssay('${r.id}')">
-              <span>📋</span> Copy Essay
+            <button class="btn-secondary btn-sm" onclick="copyHistoryPromptAndEssay('${r.id}')" title="Copy prompt and response formatted with official CELPIP AI rubric">
+              <span>✨</span> Copy for AI Eval
+            </button>
+            <button class="btn-secondary btn-sm" onclick="copyHistoryEssay('${r.id}')" title="Copy your response only">
+              <span>📝</span> Copy Essay Only
             </button>
             <button class="btn-danger btn-sm" onclick="deleteWritingSubmission(${r.id})">
               <span>🗑</span> Delete
@@ -2391,6 +2404,94 @@ function renderWritingHistory() {
   };
 }
 
+window.copyHistoryPromptAndEssay = function(id) {
+  if (!db) return;
+  const tx = db.transaction(WRITING_STORE, 'readonly');
+  const store = tx.objectStore(WRITING_STORE);
+  const req = store.get(Number(id));
+  req.onsuccess = () => {
+    const r = req.result;
+    if (!r) return;
+
+    const isTask1 = (r.taskId === 'wt1');
+    const prompts = isTask1 ? (typeof WRITING_TASK1_PROMPTS !== 'undefined' ? WRITING_TASK1_PROMPTS : []) : (typeof WRITING_TASK2_PROMPTS !== 'undefined' ? WRITING_TASK2_PROMPTS : []);
+    const p = prompts.find(item => item.id === r.promptId || item.title === r.promptTitle);
+
+    let promptDetails = '';
+    if (p) {
+      if (isTask1) {
+        promptDetails = `Task Type: CELPIP Writing Task 1 (Writing an Email)
+Scenario Title: "${p.title}"
+Category: ${p.category || 'General'}
+Tone Required: ${p.tone || 'Formal'}
+Recipient: ${p.recipient || 'N/A'}
+Scenario Context: "${p.scenario || ''}"
+Required Bullet Points:
+${(p.bulletPoints || []).map((b, i) => `${i + 1}. ${b}`).join('\n')}
+Candidate Subject Line: "${r.subject || ''}"`;
+      } else {
+        const optTitle = r.chosenOption || (p.optionA ? p.optionA.title : 'Option A');
+        promptDetails = `Task Type: CELPIP Writing Task 2 (Responding to Survey Questions)
+Scenario Title: "${p.title}"
+Category: ${p.category || 'General'}
+Survey Context: "${p.context || ''}"
+Candidate Chosen Option: "${optTitle}"
+Option A: "${p.optionA ? p.optionA.title : 'Option A'}" - ${p.optionA ? p.optionA.description : ''}
+Option B: "${p.optionB ? p.optionB.title : 'Option B'}" - ${p.optionB ? p.optionB.description : ''}
+Survey Question: "${p.surveyQuestion || ''}"`;
+      }
+    } else {
+      promptDetails = `Task: ${r.taskName || 'CELPIP Writing'}
+Title: "${r.promptTitle || ''}"
+Category: ${r.category || 'General'}
+${r.subject ? `Subject: "${r.subject}"` : ''}`;
+    }
+
+    const evalPromptText = `Act as an expert official CELPIP Senior Writing Examiner and English Language Assessor. Evaluate my written response for the following CELPIP Writing Task according to the official CELPIP Writing Performance Standards:
+
+---
+${promptDetails.trim()}
+Time Limit: ${isTask1 ? '27 minutes' : '26 minutes'}
+Target Length: 150 – 200 words
+Candidate Word Count: ${r.wordCount || 0} words
+---
+
+CANDIDATE WRITTEN SUBMISSION:
+"""
+${r.subject ? `Subject: ${r.subject}\n\n` : ''}${r.essayText}
+"""
+
+---
+OFFICIAL CELPIP EVALUATION RUBRIC (Evaluate each out of 12 points):
+
+1. CONTENT & COHERENCE (Score out of 12):
+   - ${isTask1 ? 'Did the candidate fully and effectively address ALL required bullet points?' : 'Did the candidate clearly state their preferred option and provide well-developed rationales with examples?'}
+   - Organization, logical progression of ideas, paragraph structure, and appropriate transitional connectors.
+
+2. VOCABULARY & LEXICAL RESOURCE (Score out of 12):
+   - Precision, range of advanced vocabulary, natural collocations, and idiomatic accuracy.
+   - Appropriate tone and register (${isTask1 ? (p ? p.tone : 'Formal') : 'Formal/Persuasive civic response'}).
+
+3. READABILITY & GRAMMAR (Score out of 12):
+   - Sentence structure complexity and grammatical accuracy (tenses, subject-verb agreement, clause variation).
+   - Spelling, capitalization, punctuation, and mechanics.
+
+4. TASK FULFILLMENT & TIME/LENGTH ADHERENCE (Score out of 12):
+   - Word count compliance (Target: 150–200 words).
+   - Proper email salutation and sign-off (Task 1) or balanced survey argument addressing both options (Task 2).
+
+---
+REQUIRED OUTPUT FORMAT:
+- Overall Estimated CELPIP Writing Band Score (Level 1 to 12)
+- Individual Scores breakdown for each of the 4 criteria (out of 12)
+- Detailed Key Strengths
+- Detailed Errors & Improvement Suggestions (Line-by-line grammar/vocabulary corrections)
+- An Enhanced Band 11–12 Revised Version of my essay tailored to this scenario.`;
+
+    copyTextToClipboard(evalPromptText, '✨ CELPIP Evaluation Prompt copied! Paste into ChatGPT / Gemini / Claude.');
+  };
+};
+
 window.copyHistoryEssay = function(id) {
   if (!db) return;
   const tx = db.transaction(WRITING_STORE, 'readonly');
@@ -2399,9 +2500,7 @@ window.copyHistoryEssay = function(id) {
   req.onsuccess = () => {
     const r = req.result;
     if (r && r.essayText) {
-      navigator.clipboard.writeText(r.essayText).then(() => {
-        showToast('Essay copied to clipboard!');
-      });
+      copyTextToClipboard(r.essayText, 'Essay copied to clipboard!');
     }
   };
 };
@@ -2689,6 +2788,40 @@ function showToast(msg) {
   setTimeout(() => {
     toast.remove();
   }, 4000);
+}
+
+function copyTextToClipboard(text, successMsg = 'Copied to clipboard!') {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(successMsg);
+    }).catch(() => {
+      fallbackCopyToClipboard(text, successMsg);
+    });
+  } else {
+    fallbackCopyToClipboard(text, successMsg);
+  }
+}
+
+function fallbackCopyToClipboard(text, successMsg) {
+  try {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    const successful = document.execCommand('copy');
+    document.body.removeChild(textArea);
+    if (successful) {
+      showToast(successMsg);
+    } else {
+      showToast('⚠️ Could not copy to clipboard. Please copy manually.');
+    }
+  } catch (err) {
+    showToast('⚠️ Could not copy to clipboard. Please copy manually.');
+  }
 }
 
 
