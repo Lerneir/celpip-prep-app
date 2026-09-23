@@ -346,6 +346,7 @@ const elements = {
   promptHintsList: document.getElementById('promptHintsList'),
   nextPromptBtn: document.getElementById('nextPromptBtn'),
   randomPromptBtn: document.getElementById('randomPromptBtn'),
+  task3ToTask4Btn: document.getElementById('task3ToTask4Btn'),
 
   // Task 5 Interactive Elements
   task5Container: document.getElementById('task5Container'),
@@ -848,6 +849,15 @@ function setupEventListeners() {
   // Standard Speaking Prompt Buttons
   elements.nextPromptBtn.addEventListener('click', () => nextPrompt());
   elements.randomPromptBtn.addEventListener('click', () => getRandomPrompt());
+  if (elements.task3ToTask4Btn) {
+    elements.task3ToTask4Btn.addEventListener('click', () => {
+      if (state.currentTask === 3) {
+        switchTask(4, state.currentPromptIndex);
+      } else if (state.currentTask === 4) {
+        switchTask(3, state.currentPromptIndex);
+      }
+    });
+  }
 
   // Task 5 Buttons
   if (elements.t5SelectOptABtn) {
@@ -1079,7 +1089,7 @@ function setupEventListeners() {
 // SPEAKING ENGINE & CONTROLLERS
 // ==========================================
 
-function switchTask(taskId) {
+function switchTask(taskId, targetIndex = 0) {
   state.currentModule = 'speaking';
   state.currentTask = taskId;
   state.comboSubTask = 3;
@@ -1127,7 +1137,7 @@ function switchTask(taskId) {
     if (typeof updateSidebarToggleUI === 'function') updateSidebarToggleUI();
   }
 
-  loadPrompt(taskId, 0);
+  loadPrompt(taskId, targetIndex);
   resetTimerState();
 }
 
@@ -1370,6 +1380,7 @@ function selectT6Choice(choiceKey) {
 
 function loadPrompt(taskId, index) {
   state.currentPromptIndex = index;
+  if (elements.task3ToTask4Btn) elements.task3ToTask4Btn.style.display = 'none';
   const prompts = getPromptsArray(taskId);
   if (!prompts || prompts.length === 0) return;
   const p = prompts[index % prompts.length];
@@ -1489,15 +1500,26 @@ function loadPrompt(taskId, index) {
       elements.promptHintsList.innerHTML = p.spatialHints.map(h => `<li>${h}</li>`).join('');
     }
     if (elements.promptHintsBox) elements.promptHintsBox.style.display = state.isExamMode ? 'none' : 'block';
+    if (elements.task3ToTask4Btn) {
+      elements.task3ToTask4Btn.style.display = 'inline-flex';
+      elements.task3ToTask4Btn.innerHTML = '<span>🔮</span> Task 4 (Same Image)';
+      elements.task3ToTask4Btn.title = 'Switch to Task 4 with this same image';
+    }
   } else if (taskId === 4) {
     promptString = p.task4Prompt;
     if (elements.scenarioImageContainer) elements.scenarioImageContainer.style.display = 'block';
     if (elements.scenarioImg) elements.scenarioImg.src = p.imageFile;
-    if (elements.promptHintsList && p.predictionClues) {
+    const predictionHints = p.predictionTargets || p.predictionClues;
+    if (elements.promptHintsList && predictionHints) {
       elements.promptHintsTitle.textContent = '🔮 Study Guidance & Prediction Clues:';
-      elements.promptHintsList.innerHTML = p.predictionClues.map(h => `<li>${h}</li>`).join('');
+      elements.promptHintsList.innerHTML = predictionHints.map(h => `<li>${h}</li>`).join('');
     }
     if (elements.promptHintsBox) elements.promptHintsBox.style.display = state.isExamMode ? 'none' : 'block';
+    if (elements.task3ToTask4Btn) {
+      elements.task3ToTask4Btn.style.display = 'inline-flex';
+      elements.task3ToTask4Btn.innerHTML = '<span>🖼️</span> Task 3 (Same Image)';
+      elements.task3ToTask4Btn.title = 'Switch back to Task 3 with this same image';
+    }
   } else if (taskId === 'combo') {
     promptString = (state.comboSubTask === 3) ? `<strong>Part 1 (Describe Scene):</strong> ${p.task3Prompt}` : `<strong>Part 2 (Make Predictions):</strong> ${p.task4Prompt}`;
     if (elements.scenarioImageContainer) elements.scenarioImageContainer.style.display = 'block';
