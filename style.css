@@ -1364,6 +1364,7 @@ footer {
 .t5-step-banner {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
@@ -1404,6 +1405,27 @@ footer {
   line-height: 1.45;
 }
 
+/* ── Task 5 Preparation Timer Badge ── */
+.t5-prep-timer-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.85rem;
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--accent-emerald);
+  font-weight: 600;
+  animation: t5-prep-glow 2s ease-in-out infinite;
+}
+
+@keyframes t5-prep-glow {
+  0%, 100% { border-color: rgba(16, 185, 129, 0.35); }
+  50% { border-color: rgba(16, 185, 129, 0.7); }
+}
+
 .t5-options-grid,
 .t5-comparison-grid {
   display: grid;
@@ -1424,10 +1446,72 @@ footer {
   position: relative;
 }
 
+.t5-option-card {
+  cursor: pointer;
+}
+
 .t5-option-card:hover {
   border-color: rgba(99, 102, 241, 0.5);
   transform: translateY(-2px);
   background: rgba(15, 23, 42, 0.85);
+}
+
+.t5-option-card.t5-card-selected {
+  border: 2px solid var(--accent-indigo);
+  background: rgba(99, 102, 241, 0.16);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.35);
+  transform: translateY(-2px);
+}
+
+.t5-option-card.t5-card-selected .opt-label-pill {
+  color: #a5b4fc;
+}
+
+.t5-option-card.t5-card-selected .opt-select-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #fff;
+  border-color: #6366f1;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+
+/* Next Button & Selection Confirmation Row */
+.t5-selection-next-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.t5-selection-confirm-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.t5-next-btn {
+  padding: 0.65rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  transition: var(--transition-fast);
+}
+
+.t5-next-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
 }
 
 .my-choice-card {

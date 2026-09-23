@@ -20,6 +20,9 @@ const state = {
   
   // Task 5 Interactive State
   t5SelectedOption: null, // 'opt_a' | 'opt_b'
+  t5Phase: 'idle', // 'idle' | 'selection' | 'prep' | 'speaking' | 'finished'
+  t5SelectionTimeRemaining: 60,
+  t5SelectionInterval: null,
   // Task 6 Interactive State
   t6SelectedChoice: 'choice_a', // 'choice_a' | 'choice_b'
 
@@ -384,6 +387,10 @@ const elements = {
   t5GuidanceList: document.getElementById('t5GuidanceList'),
   t5NextBtn: document.getElementById('t5NextBtn'),
   t5RandomBtn: document.getElementById('t5RandomBtn'),
+  t5PrepTimerBadge: document.getElementById('t5PrepTimerBadge'),
+  t5SelectionNextRow: document.getElementById('t5SelectionNextRow'),
+  t5SelectionNextBtn: document.getElementById('t5SelectionNextBtn'),
+  t5SelectionConfirmLabel: document.getElementById('t5SelectionConfirmLabel'),
 
   // Task 6 Interactive Elements
   task6Container: document.getElementById('task6Container'),
@@ -844,13 +851,28 @@ function setupEventListeners() {
 
   // Task 5 Buttons
   if (elements.t5SelectOptABtn) {
-    elements.t5SelectOptABtn.addEventListener('click', () => selectT5Option('opt_a'));
+    elements.t5SelectOptABtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      selectT5Option('opt_a');
+    });
+  }
+  if (elements.t5OptACard) {
+    elements.t5OptACard.addEventListener('click', () => selectT5Option('opt_a'));
   }
   if (elements.t5SelectOptBBtn) {
-    elements.t5SelectOptBBtn.addEventListener('click', () => selectT5Option('opt_b'));
+    elements.t5SelectOptBBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      selectT5Option('opt_b');
+    });
+  }
+  if (elements.t5OptBCard) {
+    elements.t5OptBCard.addEventListener('click', () => selectT5Option('opt_b'));
   }
   if (elements.t5RechooseBtn) {
     elements.t5RechooseBtn.addEventListener('click', () => resetT5SelectionStep());
+  }
+  if (elements.t5SelectionNextBtn) {
+    elements.t5SelectionNextBtn.addEventListener('click', () => confirmT5Selection());
   }
   if (elements.t5NextBtn) {
     elements.t5NextBtn.addEventListener('click', () => nextPrompt());
@@ -1142,6 +1164,51 @@ function selectT5Option(optKey) {
   const p = TASK5_PROMPTS[state.currentPromptIndex];
   if (!p) return;
 
+  // In Exam Mode WITH Prep Time enabled:
+  // 60s selection countdown active, highlight card, stay on Screen 1 until Next click or 60s timeout
+  if (state.isExamMode && state.isPrepEnabled) {
+    if (state.t5Phase === 'idle') {
+      startT5SelectionPhase();
+    }
+
+    // Highlight selected card, de-highlight the other
+    if (elements.t5OptACard) elements.t5OptACard.classList.toggle('t5-card-selected', optKey === 'opt_a');
+    if (elements.t5OptBCard) elements.t5OptBCard.classList.toggle('t5-card-selected', optKey === 'opt_b');
+
+    // Update select button label/state
+    if (elements.t5SelectOptABtn) {
+      elements.t5SelectOptABtn.innerHTML = (optKey === 'opt_a') ? '<span>✓</span> Selected' : '<span>✓</span> Select Option A';
+    }
+    if (elements.t5SelectOptBBtn) {
+      elements.t5SelectOptBBtn.innerHTML = (optKey === 'opt_b') ? '<span>✓</span> Selected' : '<span>✓</span> Select Option B';
+    }
+
+    // Show "Next" button row with confirmation label
+    const chosenName = (optKey === 'opt_a') ? p.optionA.name : p.optionB.name;
+    if (elements.t5SelectionConfirmLabel) {
+      elements.t5SelectionConfirmLabel.textContent = `✓ Selected: ${chosenName}`;
+    }
+    if (elements.t5SelectionNextRow) elements.t5SelectionNextRow.style.display = 'flex';
+    return; // Stay on selection screen!
+  }
+
+  // When Prep Time is DISABLED (or in Practice Mode):
+  // Directly select the option and transition to Screen 2 (Persuasion screen), no selection time limit
+  applyT5SelectionData(optKey);
+  if (elements.t5SelectionStep) elements.t5SelectionStep.style.display = 'none';
+  if (elements.t5PersuasionStep) elements.t5PersuasionStep.style.display = 'block';
+  if (elements.t5GuidanceBox) elements.t5GuidanceBox.style.display = state.isExamMode ? 'none' : 'block';
+  if (elements.t5PrepTimerBadge) elements.t5PrepTimerBadge.style.display = 'none';
+}
+
+/**
+ * Populates the persuasion view with the chosen option data.
+ * Separated from selectT5Option so it can be called at transition time.
+ */
+function applyT5SelectionData(optKey) {
+  const p = TASK5_PROMPTS[state.currentPromptIndex];
+  if (!p) return;
+
   const chosenOpt = (optKey === 'opt_a') ? p.optionA : p.optionB;
   const partnerOpt = p.partnerOption;
 
@@ -1165,17 +1232,132 @@ function selectT5Option(optKey) {
   if (elements.t5GuidanceList) {
     elements.t5GuidanceList.innerHTML = (p.persuasionGuidance || []).map(g => `<li>${g}</li>`).join('');
   }
+}
 
+/**
+ * Confirms the selection and transitions from Screen 1 → Screen 2.
+ * Called by: "Next" button click OR timer expiry.
+ */
+function confirmT5Selection() {
+  // If no option selected yet, auto-select Option A
+  if (!state.t5SelectedOption) {
+    state.t5SelectedOption = 'opt_a';
+  }
+
+  // Populate persuasion data and transition views
+  applyT5SelectionData(state.t5SelectedOption);
   if (elements.t5SelectionStep) elements.t5SelectionStep.style.display = 'none';
   if (elements.t5PersuasionStep) elements.t5PersuasionStep.style.display = 'block';
-  if (elements.t5GuidanceBox) elements.t5GuidanceBox.style.display = state.isExamMode ? 'none' : 'block';
+  if (elements.t5GuidanceBox) elements.t5GuidanceBox.style.display = 'none';
+
+  // Clean up selection UI
+  if (elements.t5OptACard) elements.t5OptACard.classList.remove('t5-card-selected');
+  if (elements.t5OptBCard) elements.t5OptBCard.classList.remove('t5-card-selected');
+  if (elements.t5SelectionNextRow) elements.t5SelectionNextRow.style.display = 'none';
+
+  // End selection phase → start preparation phase
+  endT5SelectionPhase();
 }
 
 function resetT5SelectionStep() {
   state.t5SelectedOption = null;
+  resetT5Phase();
   if (elements.t5SelectionStep) elements.t5SelectionStep.style.display = 'block';
   if (elements.t5PersuasionStep) elements.t5PersuasionStep.style.display = 'none';
   if (elements.t5GuidanceBox) elements.t5GuidanceBox.style.display = 'none';
+}
+
+function resetT5Phase() {
+  if (state.t5SelectionInterval) {
+    clearInterval(state.t5SelectionInterval);
+    state.t5SelectionInterval = null;
+  }
+  state.t5Phase = 'idle';
+  state.t5SelectionTimeRemaining = 60;
+  if (elements.t5PrepTimerBadge) elements.t5PrepTimerBadge.style.display = 'none';
+  if (elements.t5OptACard) elements.t5OptACard.classList.remove('t5-card-selected');
+  if (elements.t5OptBCard) elements.t5OptBCard.classList.remove('t5-card-selected');
+  if (elements.t5SelectOptABtn) {
+    elements.t5SelectOptABtn.disabled = false;
+    elements.t5SelectOptABtn.innerHTML = '<span>✓</span> Select Option A';
+  }
+  if (elements.t5SelectOptBBtn) {
+    elements.t5SelectOptBBtn.disabled = false;
+    elements.t5SelectOptBBtn.innerHTML = '<span>✓</span> Select Option B';
+  }
+  if (elements.t5SelectionNextRow) elements.t5SelectionNextRow.style.display = 'none';
+}
+
+/**
+ * PHASE 1: Selection Phase (60s) — Exam Mode only.
+ * Starts a 60s countdown on the selection screen.
+ * User must click an option or it auto-selects Option A at timeout.
+ */
+function startT5SelectionPhase() {
+  state.t5Phase = 'selection';
+  state.t5SelectionTimeRemaining = 60;
+
+  // Update main timer widget to show selection countdown
+  if (elements.phaseIndicator) {
+    elements.phaseIndicator.textContent = 'SELECTION';
+    elements.phaseIndicator.className = 'phase-indicator phase-prep';
+  }
+  if (elements.timerDisplay) elements.timerDisplay.textContent = '01:00';
+  if (elements.timerProgressCircle) {
+    elements.timerProgressCircle.style.strokeDashoffset = '0';
+    elements.timerProgressCircle.style.stroke = 'url(#timerPrepGrad)';
+  }
+
+  // Hide Start button, show Reset
+  if (elements.startTimerBtn) elements.startTimerBtn.style.display = 'none';
+  if (elements.resetBtn) elements.resetBtn.style.display = 'inline-flex';
+
+  // Hide Next row (shown when user selects an option)
+  if (elements.t5SelectionNextRow) elements.t5SelectionNextRow.style.display = 'none';
+
+  playBeep(440, 'sine', 0.2);
+  state.t5SelectionInterval = setInterval(t5SelectionTick, 1000);
+}
+
+function t5SelectionTick() {
+  state.t5SelectionTimeRemaining--;
+  const timeStr = formatTime(state.t5SelectionTimeRemaining);
+
+  // Update main circular timer
+  if (elements.timerDisplay) elements.timerDisplay.textContent = timeStr;
+  const radius = 52;
+  const circumference = 2 * Math.PI * radius;
+  const progress = (60 - state.t5SelectionTimeRemaining) / 60;
+  if (elements.timerProgressCircle) {
+    elements.timerProgressCircle.style.strokeDashoffset = (circumference * progress).toString();
+  }
+
+  if (state.t5SelectionTimeRemaining <= 0) {
+    // Time's up — confirm whatever is selected (or auto-select Option A)
+    confirmT5Selection();
+  }
+}
+
+/**
+ * Ends the selection phase and transitions to PHASE 2: Preparation.
+ * Called when user clicks an option or selection timer expires.
+ */
+function endT5SelectionPhase() {
+  // Stop selection countdown
+  if (state.t5SelectionInterval) {
+    clearInterval(state.t5SelectionInterval);
+    state.t5SelectionInterval = null;
+  }
+
+  // Disable re-choosing in exam mode during prep/speaking
+  if (elements.t5RechooseBtn) elements.t5RechooseBtn.style.display = 'none';
+
+  // Show the prep timer badge
+  if (elements.t5PrepTimerBadge) elements.t5PrepTimerBadge.style.display = 'flex';
+
+  // Transition to prep phase — use the main timer system
+  state.t5Phase = 'prep';
+  startPracticeOrExam();
 }
 
 function selectT6Choice(choiceKey) {
@@ -1418,33 +1600,62 @@ function resetTimerState() {
     elements.timerProgressCircle.style.strokeDashoffset = '0';
     elements.timerProgressCircle.style.stroke = 'url(#timerIdleGrad)';
   }
-  if (elements.startTimerBtn) elements.startTimerBtn.style.display = 'inline-flex';
+  if (elements.startTimerBtn) {
+    elements.startTimerBtn.style.display = 'inline-flex';
+    elements.startTimerBtn.innerHTML = state.isPrepEnabled ? '<span>▶</span> Start Prep Timer' : '<span>⏺</span> Start Recording';
+  }
   if (elements.skipPrepBtn) elements.skipPrepBtn.style.display = 'none';
   if (elements.stopRecordBtn) elements.stopRecordBtn.style.display = 'none';
   if (elements.resetBtn) elements.resetBtn.style.display = 'none';
   if (elements.waveformContainer) elements.waveformContainer.style.display = 'none';
   if (elements.liveCaptionBox) elements.liveCaptionBox.style.display = 'none';
+
+  // Reset Task 5 phase state
+  if (state.currentTask === 5) {
+    resetT5SelectionStep();
+    // Re-show the rechoose button in case it was hidden during exam flow
+    if (elements.t5RechooseBtn) elements.t5RechooseBtn.style.display = '';
+  }
 }
 
 function startPracticeOrExam() {
-  const times = getTaskTimes();
-  if (state.isPrepEnabled) {
-    state.timerState = 'prep';
-    state.prepTimeRemaining = times.prep;
-    if (elements.phaseIndicator) {
-      elements.phaseIndicator.textContent = 'PREPARATION';
-      elements.phaseIndicator.className = 'phase-indicator phase-prep';
+  // If Prep Time is DISABLED:
+  // No time limit for selection, skip preparation countdown, immediately start recording!
+  if (!state.isPrepEnabled) {
+    if (state.currentTask === 5) {
+      if (!state.t5SelectedOption) {
+        state.t5SelectedOption = 'opt_a';
+      }
+      applyT5SelectionData(state.t5SelectedOption);
+      if (elements.t5SelectionStep) elements.t5SelectionStep.style.display = 'none';
+      if (elements.t5PersuasionStep) elements.t5PersuasionStep.style.display = 'block';
+      if (elements.t5GuidanceBox) elements.t5GuidanceBox.style.display = state.isExamMode ? 'none' : 'block';
+      if (elements.t5PrepTimerBadge) elements.t5PrepTimerBadge.style.display = 'none';
     }
-    if (elements.timerProgressCircle) elements.timerProgressCircle.style.stroke = 'url(#timerPrepGrad)';
-    if (elements.startTimerBtn) elements.startTimerBtn.style.display = 'none';
-    if (elements.skipPrepBtn) elements.skipPrepBtn.style.display = state.isExamMode ? 'none' : 'inline-flex';
-    if (elements.resetBtn) elements.resetBtn.style.display = 'inline-flex';
-
-    playBeep(440, 'sine', 0.2);
-    state.timerInterval = setInterval(timerTick, 1000);
-  } else {
     startSpeakingPhase();
+    return;
   }
+
+  // Task 5 Exam Mode (with Prep Time enabled): Start with selection phase first (unless already transitioning from selection)
+  if (state.currentTask === 5 && state.isExamMode && state.t5Phase === 'idle') {
+    startT5SelectionPhase();
+    return;
+  }
+
+  const times = getTaskTimes();
+  state.timerState = 'prep';
+  state.prepTimeRemaining = times.prep;
+  if (elements.phaseIndicator) {
+    elements.phaseIndicator.textContent = 'PREPARATION';
+    elements.phaseIndicator.className = 'phase-indicator phase-prep';
+  }
+  if (elements.timerProgressCircle) elements.timerProgressCircle.style.stroke = 'url(#timerPrepGrad)';
+  if (elements.startTimerBtn) elements.startTimerBtn.style.display = 'none';
+  if (elements.skipPrepBtn) elements.skipPrepBtn.style.display = state.isExamMode ? 'none' : 'inline-flex';
+  if (elements.resetBtn) elements.resetBtn.style.display = 'inline-flex';
+
+  playBeep(440, 'sine', 0.2);
+  state.timerInterval = setInterval(timerTick, 1000);
 }
 
 function startSpeakingPhase() {
@@ -1452,6 +1663,13 @@ function startSpeakingPhase() {
   state.timerState = 'speaking';
   const times = getTaskTimes();
   state.speakTimeRemaining = times.speak;
+
+  // Update Task 5 phase and hide prep badge
+  if (state.currentTask === 5) {
+    state.t5Phase = 'speaking';
+    if (elements.t5PrepTimerBadge) elements.t5PrepTimerBadge.style.display = 'none';
+    if (elements.t5RechooseBtn) elements.t5RechooseBtn.style.display = 'none';
+  }
 
   if (elements.phaseIndicator) {
     elements.phaseIndicator.textContent = 'RECORDING';
@@ -1573,6 +1791,7 @@ function stopAudioRecording() {
 function finishRecording() {
   if (state.timerInterval) clearInterval(state.timerInterval);
   state.timerState = 'finished';
+  if (state.currentTask === 5) state.t5Phase = 'finished';
 
   if (elements.phaseIndicator) {
     elements.phaseIndicator.textContent = 'DONE';
