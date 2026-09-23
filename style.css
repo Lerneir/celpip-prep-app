@@ -533,6 +533,7 @@ input:checked + .slider:before {
 
 .prompt-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: auto;
 }
@@ -555,6 +556,18 @@ input:checked + .slider:before {
 .btn-secondary:hover {
   background: rgba(51, 65, 85, 0.9);
   border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary.btn-task-switch {
+  border-color: rgba(139, 92, 246, 0.45);
+  background: rgba(139, 92, 246, 0.12);
+  color: #c4b5fd;
+}
+
+.btn-secondary.btn-task-switch:hover {
+  background: rgba(139, 92, 246, 0.28);
+  border-color: rgba(167, 139, 250, 0.7);
+  color: #ffffff;
 }
 
 .btn-sm {
